@@ -25,7 +25,8 @@ before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > $CCTR
   - chmod +x $CCTR
   - $CCTR before-build
-  - psql -c 'create database bsfc_test;' -U bsfcuser
+  - psql -c "create database bsfc_test;" -U postgresql
+  - psql -c "create user bsfcuser;" -U postgres
 
 script:
   # setup the test database, including any seed data
