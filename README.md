@@ -1,6 +1,7 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/9482a8f81bc80bc042a4/maintainability)](https://codeclimate.com/github/dwang733/bsfc/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/9482a8f81bc80bc042a4/test_coverage)](https://codeclimate.com/github/dwang733/bsfc/test_coverage)
-[![Build Status](https://travis-ci.com/dwang733/bsfc.svg?branch=master)](https://travis-ci.com/dwang733/bsfc)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4f477d37fd3794829697/maintainability)](https://codeclimate.com/github/dwang733/Berkeley-Student-Food-Collective/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4f477d37fd3794829697/test_coverage)](https://codeclimate.com/github/dwang733/Berkeley-Student-Food-Collective/test_coverage)
+[![Build Status](https://travis-ci.com/dwang733/Berkeley-Student-Food-Collective.svg?branch=master)](https://travis-ci.com/dwang733/Berkeley-Student-Food-Collective)
+
 
 # README
 
