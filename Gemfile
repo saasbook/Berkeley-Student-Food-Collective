@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'pg', '~> 0.21'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # Use sqlite3 as the database for Active Record
@@ -65,7 +67,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 0.21' # for Heroku deployment
+  #gem 'pg', '~> 0.21' # for Heroku deployment
   gem 'rails_12factor'
 end
 
