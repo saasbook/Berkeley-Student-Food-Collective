@@ -1,0 +1,2 @@
+class VendorTag < ApplicationRecord
+end
