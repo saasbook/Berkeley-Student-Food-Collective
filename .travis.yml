@@ -27,6 +27,7 @@ before_script:
   - $CCTR before-build
   - psql -c "create database bsfc_test;" -U postgres
   - psql -c "create user bsfcuser;" -U postgres
+  - psql -c "alter user bsfcuser with superuser;" -U postgres
 
 script:
   # setup the test database, including any seed data
