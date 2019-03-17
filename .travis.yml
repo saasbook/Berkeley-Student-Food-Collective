@@ -4,6 +4,9 @@ rvm:
 
 bundler_args: --without production
 
+services:
+  postgresql
+
 env:
   global:
     # in TravisCI settings, set CCKEY to your CodeClimate Test Reporter ID:
@@ -22,6 +25,9 @@ before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > $CCTR
   - chmod +x $CCTR
   - $CCTR before-build
+  - psql -c "create database bsfc_test;" -U postgres
+  - psql -c "create user bsfcuser;" -U postgres
+  - psql -c "alter user bsfcuser with superuser;" -U postgres
 
 script:
   # setup the test database, including any seed data
