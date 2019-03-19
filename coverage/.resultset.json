@@ -6,9 +6,10 @@
         1,
         null,
         1,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null
@@ -294,10 +295,33 @@
         1,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/controllers/vendor_controller.rb": [
-
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/controllers/vendors_controller.rb": [
+        1,
+        null,
+        null
+      ],
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/controllers/application_controller.rb": [
+        1,
+        null
+      ],
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/models/vendor.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1553038344
+    "timestamp": 1553038917
   }
 }
