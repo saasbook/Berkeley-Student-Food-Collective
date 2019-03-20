@@ -22,4 +22,6 @@ describe VendorsController do
 			expect(response).to redirect_to(vendors_path)
 		end
 	end
+
+	
 end

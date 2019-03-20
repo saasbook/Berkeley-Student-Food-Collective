@@ -26,6 +26,8 @@
         1,
         null,
         null,
+        null,
+        null,
         null
       ],
       "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/spec/rails_helper.rb": [
@@ -359,6 +361,6 @@
         null
       ]
     },
-    "timestamp": 1553053007
+    "timestamp": 1553101009
   }
 }
