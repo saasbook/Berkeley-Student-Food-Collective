@@ -11,9 +11,13 @@ describe VendorsController do
 
 	describe "Add Vendor without Tags Action" do
 		it "should add a new vendor" do 
-			new_vendor = instance_double("Vendor", :name => "Test Vendor", :description => "Test Description")
-			expect(Vendor).to receive(:create).with(params: {:vendor => {:name => "Test Vendor", :description => "Test Description"}}).and_return(new_vendor)
-			post :create, params: {:vendor => {:name => "Test Vendor", :description => "Test Description"}}
+
+			
+			@model_params = ActionController::Parameters.new(vendor: {:name => "Test Vendor", :description => "Test Description"})
+								.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram)
+			@new_vendor = instance_double("Vendor", :name => "Test Vendor", :description => "Test Description")
+			expect(Vendor).to receive(:create!).with(@model_params).and_return(@new_vendor)
+			post :create, params: {vendor: {:name => "Test Vendor", :description => "Test Description"}}
 		end
 	end
 end

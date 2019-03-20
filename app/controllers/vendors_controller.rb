@@ -1,18 +1,19 @@
 class VendorsController < ApplicationController
     def vendors_params
         params.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram)
-    end
+   	end
     
 	def new
 		#should just display new.html.haml
 	end
 	
 	def create
-	    @vendor = Vendor.create(vendors_params)
-        flash[:notice] = "#{@vendor.name} was successfully created."
+	    @vendor = Vendor.create!(vendors_params)
+        flash[:notice] = "Added Vendor to Database"
         redirect_to vendors_path
 	end
 	
 	def index
+
 	end
 end
