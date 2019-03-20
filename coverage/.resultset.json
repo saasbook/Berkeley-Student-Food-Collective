@@ -4,7 +4,7 @@
       "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/controllers/vendors_controller.rb": [
         1,
         1,
-        0,
+        2,
         null,
         null,
         1,
@@ -12,9 +12,9 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
+        2,
+        2,
+        2,
         null,
         null,
         1,
@@ -27,6 +27,23 @@
         null
       ],
       "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/models/vendor.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
         1,
         null
       ],
@@ -47,23 +64,6 @@
         0
       ],
       "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/models/vendor_tag.rb": [
-        0,
-        0
-      ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/models/vendor.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0,
-        0,
-        0,
         0,
         0
       ],
@@ -89,6 +89,6 @@
         0
       ]
     },
-    "timestamp": 1553111763
+    "timestamp": 1553113219
   }
 }
