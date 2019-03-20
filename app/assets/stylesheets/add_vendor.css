@@ -1,11 +1,45 @@
-#form_elements_div{
-
+body{
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	background-color: lightgray;
 }
 
 #form_div{
-	grid: 1fr 2fr 1fr
+	display: grid;
+	grid-column: 2/3
 }
 
+#form_elements_div{
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+
 h2 {
-	background-color: green;
+	background-color: white;
+	text-align: center;
+}
+
+#cancel_button{
+	background-color: red;
+}
+
+label{
+	text-align: center;
+}
+
+.element_div{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	border-style: groove;
+	padding: 10px;
+}
+
+#submit_div{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
 }

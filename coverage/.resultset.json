@@ -1,6 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
+<<<<<<< HEAD
       "/home/ubuntu/workspace/app/channels/application_cable/connection.rb": [
         0,
         0,
@@ -43,11 +44,44 @@
         0
       ],
       "/home/ubuntu/workspace/app/mailers/application_mailer.rb": [
+=======
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/controllers/vendors_controller.rb": [
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/controllers/application_controller.rb": [
+        1,
+        null
+      ],
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/mailers/application_mailer.rb": [
+>>>>>>> 46d2c8cab059bbd860839017fb6c3f8d40e51534
         0,
         0,
         0,
         0
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/app/helpers/application_helper.rb": [
         0,
         0
@@ -57,10 +91,14 @@
         0
       ],
       "/home/ubuntu/workspace/app/models/product.rb": [
+=======
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/models/tag.rb": [
+>>>>>>> 46d2c8cab059bbd860839017fb6c3f8d40e51534
         0,
         0,
         0
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/app/models/vendor.rb": [
         null,
         null,
@@ -79,10 +117,14 @@
         0
       ],
       "/home/ubuntu/workspace/app/models/application_record.rb": [
+=======
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/models/product.rb": [
+>>>>>>> 46d2c8cab059bbd860839017fb6c3f8d40e51534
         0,
         0,
         0
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/app/models/tag.rb": [
         0,
         0,
@@ -117,70 +159,63 @@
       "/home/ubuntu/workspace/app/channels/application_cable/connection.rb": [
         0,
         0,
+=======
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/models/vendor_tag.rb": [
+>>>>>>> 46d2c8cab059bbd860839017fb6c3f8d40e51534
         0,
         0
       ],
-      "/home/ubuntu/workspace/app/channels/application_cable/channel.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/home/ubuntu/workspace/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/home/ubuntu/workspace/app/controllers/vendors_controller.rb": [
-        0,
-        0,
-        0,
-        0,
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/models/vendor.rb": [
         null,
-        0,
         null,
-        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         0,
         0,
         0,
         0,
-        0,
-        null,
-        0,
-        null,
-        0,
         0
       ],
-      "/home/ubuntu/workspace/app/controllers/application_controller.rb": [
-        0,
-        0
-      ],
-      "/home/ubuntu/workspace/app/mailers/application_mailer.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/app/models/vendor_tag.rb": [
+=======
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/models/application_record.rb": [
+        0,
+>>>>>>> 46d2c8cab059bbd860839017fb6c3f8d40e51534
         0,
         0
       ],
-      "/home/ubuntu/workspace/app/models/product.rb": [
-        0,
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/jobs/application_job.rb": [
         0,
         0
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/app/models/application_record.rb": [
+=======
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/channels/application_cable/connection.rb": [
+        0,
         0,
         0,
         0
       ],
-      "/home/ubuntu/workspace/app/models/tag.rb": [
+      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/channels/application_cable/channel.rb": [
+>>>>>>> 46d2c8cab059bbd860839017fb6c3f8d40e51534
+        0,
         0,
         0,
         0
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1553111930
+=======
+    "timestamp": 1553111763
+>>>>>>> 46d2c8cab059bbd860839017fb6c3f8d40e51534
   }
 }

@@ -1,5 +1,5 @@
-And /I fill in the "New Vendor Form"/ do 
-	step %Q{
+And /I fill in the New Vendor form/ do 
+	steps %Q{
 		When I fill in "name" with "New Vendor Name"
 		When I fill in "address" with "Fake Address"
 		When I fill in "facebook" with "Fake Facebook"
@@ -9,16 +9,16 @@ And /I fill in the "New Vendor Form"/ do
 end 
 
 Then /the DB should be updated with the new vendor/ do 
-	step %Q{
+	steps %Q{
 		Given I am on "All Vendors Page"
-		Then I should see "Added New Vendor"
+		Then I should see "Added Vendor: New Vendor Name to Database"
 	}
 end
 
 Then /the DB should not be updated with the new vendor/ do 
 	step %Q{
 		Given I am on "All Vendors Page"
-		Then I should not see "New Vendor Name"
+		Then I should not see "Added Vendor: New Vendor Name to Database"
 	}
 end
 

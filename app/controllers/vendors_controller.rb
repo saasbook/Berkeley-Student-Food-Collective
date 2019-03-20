@@ -9,7 +9,7 @@ class VendorsController < ApplicationController
 	
 	def create
 	    @vendor = Vendor.create!(vendors_params)
-        flash[:message] = "Added Vendor to Database"
+        flash[:message] = "Added Vendor: #{@vendor.name} to Database"
         redirect_to vendors_path
 	end
 	
