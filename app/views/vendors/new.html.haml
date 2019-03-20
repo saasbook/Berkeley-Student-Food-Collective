@@ -9,25 +9,25 @@
 				=label :vendor, :name, "Name"
 				=text_field :vendor, "name"
 			.element_div
-				=label :vendor, :name, "Description"
+				=label :vendor, :description, "Description"
 				=text_field :vendor, "description"
 
 			.element_div
-				=label :vendor, :name, "Address"
+				=label :vendor, :address, "Address"
 				=text_field :vendor, "address"
 
 			.element_div
-				=label :vendor, :name, "Facebook"
+				=label :vendor, :facebook, "Facebook"
 				=text_field :vendor, "facebook"
 
 			.element_div
-				=label :vendor, :name, "Twitter"
+				=label :vendor, :twitter, "Twitter"
 				=text_field :vendor, "twitter"
 
 			.element_div
-				=label :vendor, :name, "Instagram"
+				=label :vendor, :instagram, "Instagram"
 				=text_field :vendor, "instagram"
 
 			.element_div#submit_div
-				= submit_tag "Add Vendor"
-				%button.btn.btn_danger Hello
+				= submit_tag "Add Vendor", id: "submit_button"
+				%button.btn.btn_danger#cancel_button Hello
