@@ -1,7 +1,7 @@
 class VendorsController < ApplicationController
     def vendors_params
         params.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram)
-   	end
+    end
     
 	def new
 		#should just display new.html.haml
