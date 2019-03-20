@@ -21,6 +21,13 @@ describe VendorsController do
 
 			expect(response).to redirect_to(vendors_path)
 		end
+		it "vendor was added to the database" do
+			expect(Vendor.all.length == 0)
+            vendor = FactoryBot.build(:vendor)
+            post :create, :params => {:vendor => vendor.attributes}
+            expect(Vendor.all.length == 1)
+		end
+		
 	end
 
 	
