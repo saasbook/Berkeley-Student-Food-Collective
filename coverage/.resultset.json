@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/spec/controllers/vendor_controller_spec.rb": [
+      "/home/ubuntu/workspace/spec/controllers/vendor_controller_spec.rb": [
         1,
         null,
         null,
@@ -15,13 +15,14 @@
         null,
         1,
         1,
-        null,
-        null,
+        1,
+        1,
+        1,
         null,
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/spec/rails_helper.rb": [
+      "/home/ubuntu/workspace/spec/rails_helper.rb": [
         null,
         1,
         1,
@@ -84,14 +85,14 @@
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/environment.rb": [
+      "/home/ubuntu/workspace/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/application.rb": [
+      "/home/ubuntu/workspace/config/application.rb": [
         1,
         null,
         1,
@@ -112,13 +113,13 @@
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/boot.rb": [
+      "/home/ubuntu/workspace/config/boot.rb": [
         1,
         null,
         1,
         1
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/environments/test.rb": [
+      "/home/ubuntu/workspace/config/environments/test.rb": [
         1,
         null,
         null,
@@ -166,7 +167,7 @@
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/initializers/application_controller_renderer.rb": [
+      "/home/ubuntu/workspace/config/initializers/application_controller_renderer.rb": [
         null,
         null,
         null,
@@ -176,7 +177,7 @@
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/initializers/assets.rb": [
+      "/home/ubuntu/workspace/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -192,7 +193,7 @@
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/initializers/backtrace_silencers.rb": [
+      "/home/ubuntu/workspace/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -201,7 +202,7 @@
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/initializers/content_security_policy.rb": [
+      "/home/ubuntu/workspace/config/initializers/content_security_policy.rb": [
         null,
         null,
         null,
@@ -228,20 +229,20 @@
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/initializers/cookies_serializer.rb": [
+      "/home/ubuntu/workspace/config/initializers/cookies_serializer.rb": [
         null,
         null,
         null,
         null,
         1
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/initializers/filter_parameter_logging.rb": [
+      "/home/ubuntu/workspace/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/initializers/inflections.rb": [
+      "/home/ubuntu/workspace/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -259,13 +260,13 @@
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/initializers/mime_types.rb": [
+      "/home/ubuntu/workspace/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/initializers/wrap_parameters.rb": [
+      "/home/ubuntu/workspace/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -281,7 +282,7 @@
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/spec/factories/vendor.rb": [
+      "/home/ubuntu/workspace/spec/factories/vendor.rb": [
         1,
         1,
         1,
@@ -293,28 +294,58 @@
         null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/routes.rb": [
+      "/home/ubuntu/workspace/config/routes.rb": [
         1,
         null,
         1,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/helpers/application_helper.rb": [
+      "/home/ubuntu/workspace/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/controllers/vendors_controller.rb": [
+      "/home/ubuntu/workspace/app/controllers/vendors_controller.rb": [
+        1,
         1,
         1,
         null,
         null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
         null
       ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/controllers/application_controller.rb": [
+      "/home/ubuntu/workspace/app/controllers/application_controller.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/app/models/vendor.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
         1,
         null
       ]
     },
-    "timestamp": 1553042190
+    "timestamp": 1553044055
   }
 }

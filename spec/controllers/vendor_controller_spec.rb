@@ -9,10 +9,11 @@ describe VendorsController do
 		end
 	end
 
-	describe "Add Vendor Action" do
+	describe "Add Vendor without Tags Action" do
 		it "should add a new vendor" do 
-			#ew_vendor = FactoryBot.build(:vendor, :name => "Test Vendor", :description => "Test Description")
-
+			new_vendor = instance_double("Vendor", :name => "Test Vendor", :description => "Test Description")
+			expect(Vendor).to receive(:create).with(params: {:vendor => {:name => "Test Vendor", :description => "Test Description"}}).and_return(new_vendor)
+			post :create, params: {:vendor => {:name => "Test Vendor", :description => "Test Description"}}
 		end
 	end
 end
