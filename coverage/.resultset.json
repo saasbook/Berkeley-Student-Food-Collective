@@ -3,6 +3,34 @@
     "coverage": {
       "/home/ubuntu/workspace/app/helpers/application_helper.rb": [
         1,
+<<<<<<< HEAD
+=======
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+>>>>>>> b0415f76266a4babb5a20a6ba09ec15d1a2d2b1b
         null
       ],
       "/home/ubuntu/workspace/app/controllers/vendors_controller.rb": [
@@ -181,6 +209,10 @@
         0
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1553062603
+=======
+    "timestamp": 1553101009
+>>>>>>> b0415f76266a4babb5a20a6ba09ec15d1a2d2b1b
   }
 }
