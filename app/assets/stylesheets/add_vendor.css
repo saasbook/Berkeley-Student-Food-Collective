@@ -5,3 +5,7 @@
 #form_div{
 	grid: 1fr 2fr 1fr
 }
+
+h2 {
+	background-color: green;
+}

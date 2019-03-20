@@ -1,11 +1,14 @@
 %head 
-	%link{rel="stylesheet", href="../../app/stylesheets/add_vendor.css"}
+	%link{:rel => "stylesheet", :href => "../../app/stylesheets/add_vendor.css"}
 
 %h2 Add New Vendor 
 
-%div{id="form_div"}
+%script
+	alert("Hello")
+
+#form_div
 	= form_tag vendors_path do
-		%div{id = "form_elements_div"}
+		#form_elements_div
 			=label :vendor, :name, "Name"
 			=text_field :vendor, "name"
 
@@ -23,4 +26,4 @@
 			=label :vendor, :name, "Instagram"
 			=text_field :vendor, "instagram"
 
-			= submit_tag "Add Vendor"}
+			= submit_tag "Add Vendor"
