@@ -1,28 +1,33 @@
 %head 
 	%link{:rel => "stylesheet", :href => "../../app/stylesheets/add_vendor.css"}
 
-%h2 Add New Vendor 
-
-
-
 #form_div
+	%h2 Add New Vendor 
 	= form_tag vendors_path do
 		#form_elements_div
-			=label :vendor, :name, "Name"
-			=text_field :vendor, "name"
+			.element_div
+				=label :vendor, :name, "Name"
+				=text_field :vendor, "name"
+			.element_div
+				=label :vendor, :name, "Description"
+				=text_field :vendor, "description"
 
-			=label :vendor, :name, "Description"
-			=text_field :vendor, "description"
+			.element_div
+				=label :vendor, :name, "Address"
+				=text_field :vendor, "address"
 
-			=label :vendor, :name, "Address"
-			=text_field :vendor, "address"
+			.element_div
+				=label :vendor, :name, "Facebook"
+				=text_field :vendor, "facebook"
 
-			=label :vendor, :name, "Facebook"
-			=text_field :vendor, "facebook"
+			.element_div
+				=label :vendor, :name, "Twitter"
+				=text_field :vendor, "twitter"
 
-			=label :vendor, :name, "Twitter"
-			=text_field :vendor, "twitter"
-			=label :vendor, :name, "Instagram"
-			=text_field :vendor, "instagram"
+			.element_div
+				=label :vendor, :name, "Instagram"
+				=text_field :vendor, "instagram"
 
-			= submit_tag "Add Vendor"
+			.element_div#submit_div
+				= submit_tag "Add Vendor"
+				%button.btn.btn_danger Hello
