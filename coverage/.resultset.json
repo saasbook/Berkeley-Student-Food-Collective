@@ -3,13 +3,20 @@
     "coverage": {
       "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/spec/controllers/vendor_controller_spec.rb": [
         1,
-        1,
+        null,
         null,
         1,
         1,
         1,
         1,
         1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
         null,
         null,
         null
@@ -289,6 +296,7 @@
       "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/config/routes.rb": [
         1,
         null,
+        1,
         null
       ],
       "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/helpers/application_helper.rb": [
@@ -297,31 +305,16 @@
       ],
       "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/controllers/vendors_controller.rb": [
         1,
+        1,
+        null,
         null,
         null
       ],
       "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/controllers/application_controller.rb": [
         1,
         null
-      ],
-      "/Users/karthickravi/Documents/Sp19/CS169/Project/berkeley-student-food-collective/Berkeley-Student-Food-Collective/app/models/vendor.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null
       ]
     },
-    "timestamp": 1553038917
+    "timestamp": 1553042190
   }
 }
