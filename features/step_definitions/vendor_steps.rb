@@ -11,7 +11,7 @@ end
 Then /the DB should be updated with the new vendor/ do 
 	step %Q{
 		Given I am on "All Vendors Page"
-		Then I should see "New Vendor Name"
+		Then I should see "Added New Vendor"
 	}
 end
 

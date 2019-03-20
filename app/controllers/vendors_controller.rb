@@ -14,6 +14,6 @@ class VendorsController < ApplicationController
 	end
 	
 	def index
-
+		
 	end
 end
