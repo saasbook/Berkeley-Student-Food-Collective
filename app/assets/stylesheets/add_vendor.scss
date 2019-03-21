@@ -1,16 +1,19 @@
+@import "bootstrap";
+
 body{
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr;
-	background-color: lightgray;
+	background-color: white;
 }
 
 #form_div{
 	display: grid;
-	grid-column: 2/3
+	grid-column: 2/3;
+	padding: 5px;
 }
 
 #form_elements_div{
-	background-color: white;
+	background-color: lightgray;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -22,9 +25,7 @@ h2 {
 	text-align: center;
 }
 
-#cancel_button{
-	background-color: red;
-}
+
 
 label{
 	text-align: center;
@@ -34,12 +35,21 @@ label{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	border-style: groove;
+	border-bottom: groove;
 	padding: 10px;
 }
 
 #submit_div{
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	flex-wrap: nowrap;
+	padding: 10px;
+}
+
+#submit_button:hover{
+	background-color: darken($blue, 10%)
+}
+
+#cancel_button:hover{
+    background-color: darken($red, 10%)
 }

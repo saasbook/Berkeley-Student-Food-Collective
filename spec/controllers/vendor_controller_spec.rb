@@ -4,7 +4,7 @@ require 'helper'
 
 describe VendorsController do
 	describe "New Vendor Page" do
-		it "should show the new page" do
+		it "should show the new vendor page" do
 			get :new
 			expect(response).to render_template("new")
 		end

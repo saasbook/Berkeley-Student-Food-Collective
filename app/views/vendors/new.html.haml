@@ -1,30 +1,31 @@
 %head 
-	%link{:rel => "stylesheet", :href => "../../app/stylesheets/add_vendor.css"}
+	%link{:href => "../../assets/stylesheets/add_vendor.scss", :rel => "stylesheet"}
+	%script{:src => "../../assets/javascripts/scripts.js"}
 
 #form_div
 	%h2 Add New Vendor 
 	= form_tag vendors_path do
 		#form_elements_div
-			.element_div
+			.form_group.element_div
 				=label :vendor, :name, "Name"
 				=text_field :vendor, "name"
-			.element_div
+			.form_group.element_div
 				=label :vendor, :description, "Description"
 				=text_field :vendor, "description"
 
-			.element_div
+			.form_group.element_div
 				=label :vendor, :address, "Address"
 				=text_field :vendor, "address"
 
-			.element_div
+			.form_group.element_div
 				=label :vendor, :facebook, "Facebook"
 				=text_field :vendor, "facebook"
 
-			.element_div
+			.form_group.element_div
 				=label :vendor, :twitter, "Twitter"
 				=text_field :vendor, "twitter"
 
-			.element_div
+			.form_group.element_div
 				=label :vendor, :instagram, "Instagram"
 				=text_field :vendor, "instagram"
 				
@@ -32,6 +33,6 @@
 				=label :tag, :names, "Tags"
 				=text_field :tags, "tags"
 
-			.element_div#submit_div
-				= submit_tag "Add Vendor", id: "submit_button"
-				%button.btn.btn_danger#cancel_button Hello
+			.form_group#submit_div
+				= submit_tag "Add Vendor", id: "submit_button", :class => "btn btn-primary"
+				%button.btn.btn-danger#cancel_button{:type => "button", :onclick => "confirmCancel()"} Cancel
