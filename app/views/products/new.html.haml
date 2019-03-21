@@ -18,7 +18,7 @@
 					=text_field :product, "name"
 
 				.form_group.element_div#dietary_div
-					%h2 Dietary Restrictions
+					%h4 Dietary Restrictions
 					.checkboxClass
 						=label :product, :gluten_free, "Gluten-Free"
 						= check_box_tag :product, 'gluten_free'
@@ -30,7 +30,7 @@
 						= check_box_tag :product, 'vegan'
 					
 				.form_group.element_div#rfc_div
-					%h2 Real Food Challenge
+					%h4 Real Food Challenge
 					.checkboxClass
 						=label :product, :lc_based, "Local and Community Based"
 						= check_box_tag :product, 'lc_based'
