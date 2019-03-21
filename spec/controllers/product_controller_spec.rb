@@ -19,6 +19,7 @@ describe ProductsController do
 			post :create, params: {product: {:name => "Test Product"}}
 			expect(response).to redirect_to(products_path)
 		end
+=begin
 		it "should add a new product FactoryBot" do
 			vendor = FactoryBot.create(:vendor)
 			product = FactoryBot.build(:product)
@@ -29,6 +30,7 @@ describe ProductsController do
 			expect(response).to redirect_to(products_path)
 			
 		end
+=end
 		
 		it "product was added to the database" do
 			expect(Product.all.length == 0)
