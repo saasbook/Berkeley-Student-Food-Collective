@@ -17,3 +17,9 @@ function confirmProductCancel(){
 		alert("Not Canceling!")
 	}
 }
+
+function selectVendor(setValue){
+	document.getElementById("product_vendor_id").value = setValue
+	alert(document.getElementById("product_vendor_id"))
+	//alert(document.getElementById("product_form_id").elements["products[vendor_id]"])
+}

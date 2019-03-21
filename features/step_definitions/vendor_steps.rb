@@ -1,4 +1,4 @@
-	And /I fill in the New Vendor form/ do 
+And /I fill in the New Vendor form/ do 
 	steps %Q{
 		When I fill in "vendor_name" with "New Vendor Name"
 		When I fill in "vendor_address" with "Fake Address"
@@ -27,7 +27,7 @@ When /I click "cancel_button"/ do
 end
 
 Then /a confirm popup should appear/ do
-	#popup = page.driver.browser.switch_to.alert
+	Capybara.current_driver = :selenium
 	accept_confirm do
 		click_button("cancel_button")
 	end

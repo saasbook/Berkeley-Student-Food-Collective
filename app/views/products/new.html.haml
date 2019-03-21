@@ -4,15 +4,19 @@
 %body#productsBody
 	#form_div
 		%h2 Add New Product 
-		= form_tag products_path do
+		= form_tag products_path, :id => "product_form_id" do
 			#form_elements_div
 				.dropdown#vendorDropdown
 					%button.btn.btn-primary.dropdown-toggle#vendorDropButton{:type => "button", "data-toggle" => "dropdown"}
 						Select Vendor
 					.dropdown-menu#vendorDropMenu
 						- @vendors.each do |vendor| 
-							%button{:class => "dropdown-item", :href => "#"} 
+							%button{:type => "button", :class => "dropdown-item", :href => "#", :onclick => "selectVendor(" + vendor.id.to_s + ")"} 
 								= vendor.name
+
+								
+				=text_field :product, "vendor_id"
+
 				.form_group.element_div
 					=label :product, :name, "Name"
 					=text_field :product, "name"
@@ -21,28 +25,28 @@
 					%h4 Dietary Restrictions
 					.checkboxClass
 						=label :product, :gluten_free, "Gluten-Free"
-						= check_box_tag :product, 'gluten_free'
+						= check_box :product, 'gluten_free'
 					.checkboxClass
 						=label :product, :dairy_free, "Dairy-Free"
-						= check_box_tag :product, 'dairy_free'
+						= check_box :product, 'dairy_free'
 					.checkboxClass
 						=label :product, :vegan, "Vegan"
-						= check_box_tag :product, 'vegan'
+						= check_box :product, 'vegan'
 					
 				.form_group.element_div#rfc_div
-					%h4 Real Food Challenge
+					%h4	 Real Food Challenge
 					.checkboxClass
 						=label :product, :lc_based, "Local and Community Based"
-						= check_box_tag :product, 'lc_based'
+						= check_box :product, 'lc_based'
 					.checkboxClass
 						=label :product, :fair, "Fair"
-						= check_box_tag :product, 'fair'
+						= check_box :product, 'fair'
 					.checkboxClass
 						=label :product, :eco_sound, "Ecologically Sound"
-						= check_box_tag :product, 'eco_sound'
+						= check_box :product, 'eco_sound'
 					.checkboxClass
 						=label :product, :humane, "Humane"
-						= check_box_tag :product, 'humane'
+						= check_box :product, "humane"
 					
 				.form_group.element_div
 					=label :product, :upc, "UPC Code"

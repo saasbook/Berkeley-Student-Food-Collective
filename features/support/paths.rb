@@ -19,8 +19,19 @@ module NavigationHelpers
     when /^the New Vendor page$/
       '/vendors/new'
 
+    when /^the New Product page$/
+      '/products/new'
+
+
+
     when /^the All Vendors page$/
       '/vendors'
+
+
+    when /^the All Products page$/
+      '/products'
+
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
