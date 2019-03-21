@@ -8,19 +8,18 @@ class VendorsController < ApplicationController
 	end
 	
 	def create
-		byebug
 	    @vendor = Vendor.create!(vendors_params)
-	    byebug
-	    tag_list = params[:tags][:tags].strip
-	    tags = tag_list.split(/\s*,\s*/)
-	    tags.each do |tag|
-	    	t = Tag.where(:name => tag).first || Tag.create!(:name => tag)
-	    	vt = VendorTag.new
-	    	vt.vendor = @vendor
-	    	vt.tag = t
-	    	vt.save!
+	    if params[:tags] != nil
+	    	tag_list = params[:tags][:tags].strip
+		    tags = tag_list.split(/\s*,\s*/)
+		    tags.each do |tag|
+		    	t = Tag.where(:name => tag).first || Tag.create!(:name => tag)
+		    	vt = VendorTag.new
+		    	vt.vendor = @vendor
+		    	vt.tag = t
+		    	vt.save!
+		    end
 	    end
-	    
         flash[:message] = "Added Vendor: #{@vendor.name} to Database"
         redirect_to vendors_path
 	end

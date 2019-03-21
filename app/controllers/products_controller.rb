@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 	def product_params
-		params.require(:product).permit(:vegan, :gluten_free, :dairy_free, :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id)
+		params.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id)
 	end
 	def new
 		#route to new.html.haml

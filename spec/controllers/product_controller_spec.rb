@@ -11,15 +11,26 @@ describe ProductsController do
 
 	describe "Add Product Action" do
 		it "should add a new product" do 
-			#@model_params = ActionController::Parameters.new(vendor: {:name => "Test Vendor", :description => "Test Description"})
-			#					.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram)
+			#@model_params = ActionController::Parameters.new(product: {:name => "Test Product"})
+			#					.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id)
 			@model_params = create_new_product({:name => "Test Product"})
-			@new_product = instance_double("Product", :name => "Test Vendor")
+			@new_product = instance_double("Product", :name => "Test Product")
 			expect(Product).to receive(:create!).with(@model_params).and_return(@new_product)
 			post :create, params: {product: {:name => "Test Product"}}
-
 			expect(response).to redirect_to(products_path)
 		end
+		it "should add a new product FactoryBot" do
+			vendor = FactoryBot.build(:vendor)
+			product = FactoryBot.build(:product)
+			product.vendor = vendor
+			expect(Product).to receive(:create!).with(product.attributes).and_return(product)
+			byebug
+			post :create, params: {product: product.attributes}
+
+			expect(response).to redirect_to(products_path)
+			
+		end
+		
 		it "product was added to the database" do
 			expect(Product.all.length == 0)
             product = FactoryBot.build(:product)
