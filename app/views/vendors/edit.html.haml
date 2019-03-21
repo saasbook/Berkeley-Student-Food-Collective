@@ -1,0 +1,39 @@
+%head 
+	%link{:href => "../../assets/stylesheets/add_vendor.scss", :rel => "stylesheet"}
+	%script{:src => "../../assets/javascripts/scripts.js"}
+
+%body#vendorsBody
+	#form_div
+		%h2 Edit New Vendor
+		= form_tag edit_vendor_path(@vendor), :method => :put do
+			#form_elements_div
+				.form_group.element_div
+					=label :vendor, :name, "Name"
+					=text_field :vendor, "name"
+				.form_group.element_div
+					=label :vendor, :description, "Description"
+					=text_field :vendor, "description"
+
+				.form_group.element_div
+					=label :vendor, :address, "Address"
+					=text_field :vendor, "address"
+
+				.form_group.element_div
+					=label :vendor, :facebook, "Facebook"
+					=text_field :vendor, "facebook"
+
+				.form_group.element_div
+					=label :vendor, :twitter, "Twitter"
+					=text_field :vendor, "twitter"
+
+				.form_group.element_div
+					=label :vendor, :instagram, "Instagram"
+					=text_field :vendor, "instagram"
+					
+				.element_div
+					=label :tags, :names, "Tags (enter a comma separated list)"
+					=text_field :tags, "tags"
+
+				.form_group#submit_div
+					= submit_tag "Edit Vendor", id: "submit_button", :class => "btn btn-primary"
+					%button.btn.btn-danger#cancel_button{:type => "button", :onclick => "confirmVendorCancel()"} Cancel

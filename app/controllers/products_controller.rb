@@ -14,8 +14,8 @@ class ProductsController < ApplicationController
 
 	def create
 		@product = Product.create!(product_params)
-        flash[:message] = "Added Product: #{@product.name} to Database"
-        redirect_to products_path
+		flash[:message] = "Added Product: #{@product.name} to Database"
+		redirect_to products_path
 	end
 
 	def index
