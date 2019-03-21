@@ -11,10 +11,10 @@
 						Select Vendor
 					.dropdown-menu#vendorDropMenu
 						- @vendors.each do |vendor| 
-							%button{:type => "button", :class => "dropdown-item", :href => "#", :onclick => "selectVendor(" + vendor.id.to_s + ")"} 
+							%button{:id => -vendor.name + " Button", :type => "button", :class => "dropdown-item", :href => "#", :onclick => "selectVendor(" + vendor.id.to_s + ")"} 
 								= vendor.name
 
-								
+
 				=text_field :product, "vendor_id"
 
 				.form_group.element_div

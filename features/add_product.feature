@@ -6,7 +6,6 @@ Feature: add a new product to the database
 
   Scenario: successfully add new product (happy)
     Given I am on the New Product page
-    And the vendor is "New Vendor Name"
     And I fill in the New Product form
     When I press "submit_button"
     Then the DB should be updated with the new product
