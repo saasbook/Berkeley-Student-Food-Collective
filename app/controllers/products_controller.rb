@@ -1,4 +1,10 @@
 class ProductsController < ApplicationController
+	before_action :get_vendors
+
+	def get_vendors
+		@vendors = Vendor.all
+	end
+
 	def product_params
 		params.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id)
 	end

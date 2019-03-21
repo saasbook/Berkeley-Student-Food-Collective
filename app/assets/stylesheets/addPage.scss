@@ -3,7 +3,14 @@
 body{
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr;
-	background-color: white;
+}
+
+#vendorsBody{
+	background-color: lightblue;
+}
+
+#productsBody{
+	background-color: lightgreen;
 }
 
 #form_div{
