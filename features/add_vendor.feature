@@ -22,7 +22,7 @@ Feature: add a new vendor to the database
 
   Scenario: creating new vendor fails (sad)
 
-  Scenario: successfully cancel a cancel action
+  Scenario: successfully cancel a cancel action (happy)
     Given I am on the New Vendor page
     And I fill in the New Vendor form
     When I press "cancel_button"

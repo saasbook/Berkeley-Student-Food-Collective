@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_17_214301) do
+ActiveRecord::Schema.define(version: 2019_03_21_025247) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.boolean "vegan"
-    t.boolean "gluten-free"
-    t.boolean "dairy-free"
+    t.boolean "gluten_free"
+    t.boolean "dairy_free"
     t.boolean "lc_based"
     t.boolean "fair"
     t.boolean "eco_sound"
     t.boolean "humane"
     t.string "upc"
-    t.bigint "vendor_id"
+    t.integer "vendor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["vendor_id"], name: "index_products_on_vendor_id"
