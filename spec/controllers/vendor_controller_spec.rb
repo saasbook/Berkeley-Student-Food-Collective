@@ -16,8 +16,11 @@ describe VendorsController do
 			#					.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram)
 			@model_params = create_new_vendor({:name => "Test Vendor", :description => "Test Description"})
 			@new_vendor = instance_double("Vendor", :name => "Test Vendor", :description => "Test Description")
-			expect(Vendor).to receive(:create!).with(@model_params).and_return(@new_vendor)
+			#expect(Vendor).to receive(:create!).with(@model_params).and_return(@new_vendor)
+			expect(Vendor.all.length == 0)
 			post :create, params: {vendor: {:name => "Test Vendor", :description => "Test Description"}}
+			
+			expect(Vendor.all.length == 1)
 
 			expect(response).to redirect_to(vendors_path)
 		end
@@ -28,6 +31,22 @@ describe VendorsController do
             expect(Vendor.all.length == 1)
 		end
 		
+	end
+	
+	describe "Add Vendor with Tags" do
+		it "should add a new Vendor" do
+			@model_params = create_new_vendor({:name => "Test Vendor", :description => "Test Description", :tags => "a, b, c, d"})
+			#@model_params[:tags][:tags] = "a, b, c, d"
+			#@new_vendor = instance_double("Vendor", :name => "Test Vendor", :description => "Test Description", :tags => "a, b, c, d")
+			#expect(Vendor).to receive(:create!).with(@model_params) #.and_return(@new_vendor)
+			expect(Vendor.all.length == 0)
+			expect(Tag.all.length == 0)
+			post :create, params: {vendor: {:name => "Test Vendor", :description => "Test Description"}, tags: {:tags => "a, b, c, d"}}
+			expect(Vendor.all.length == 1)
+			expect(Tag.all.length == 4)
+
+			expect(response).to redirect_to(vendors_path)
+		end
 	end
 
 	

@@ -5,5 +5,5 @@ end
 
 def create_new_product(details)
 ActionController::Parameters.new(product: details)
-								.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id)
+								.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id, :tags)
 end

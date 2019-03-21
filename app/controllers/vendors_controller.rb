@@ -8,7 +8,7 @@ class VendorsController < ApplicationController
 	end
 	
 	def create
-	    @vendor = Vendor.create!(vendors_params)
+	    @vendor = Vendor.create(vendors_params)
 	    if params[:tags] != nil
 	    	tag_list = params[:tags][:tags].strip
 		    tags = tag_list.split(/\s*,\s*/)
