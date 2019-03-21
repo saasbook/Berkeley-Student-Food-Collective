@@ -6,7 +6,7 @@
 		%h2 Add New Product 
 		= form_tag products_path do
 			#form_elements_div
-				.dropdown
+				.dropdown#vendorDropdown
 					%button.btn.btn-primary.dropdown-toggle#vendorDropButton{:type => "button", "data-toggle" => "dropdown"}
 						Select Vendor
 					.dropdown-menu#vendorDropMenu
@@ -47,5 +47,5 @@
 					=text_field :product, "upc"
 
 				.form_group#submit_div
-					= submit_tag "Add Product", id: "submit_button", :class => "btn btn-primary"
+					= submit_tag "Add Product", id: "submit_button", :class => "btn btn-success"
 					%button.btn.btn-danger#cancel_button{:type => "button", :onclick => "confirmProductCancel()"} Cancel

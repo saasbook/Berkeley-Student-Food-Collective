@@ -65,3 +65,9 @@ label{
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 }
+
+#vendorDropdown{
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+}
