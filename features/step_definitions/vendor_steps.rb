@@ -1,4 +1,4 @@
-	And /I fill in the New Vendor form/ do 
+And /I fill in the New Vendor form/ do
 	steps %Q{
 		When I fill in "vendor_name" with "New Vendor Name"
 		When I fill in "vendor_address" with "Fake Address"
