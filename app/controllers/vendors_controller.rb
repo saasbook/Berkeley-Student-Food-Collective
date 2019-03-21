@@ -31,9 +31,9 @@ class VendorsController < ApplicationController
 
   def edit
 		@vendor = Vendor.find(params[:id])
-		# vendor_tags = VendorTag.where(:vendor_id => @vendor.id)
-		# vendor_tags = VendorTag.joins(:tag).where(:vendor_id => @vendor.id)
-		# puts vendor_tags
+		@vendor_tags = VendorTag.joins(:tag).where(:vendor_id => @vendor.id).pluck(:name)
+		@vendor_tags = @vendor_tags.join(",")
+		puts @vendor_tags
 	end
 
 
