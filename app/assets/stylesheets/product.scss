@@ -3,7 +3,7 @@
 body{
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr;
-	background-color: white;
+	background-color: lightgreen;
 }
 
 #form_div{
@@ -24,7 +24,6 @@ h2 {
 	background-color: white;
 	text-align: center;
 }
-
 
 
 label{
@@ -52,9 +51,4 @@ label{
 
 #cancel_button:hover{
     background-color: darken($red, 10%)
-}
-
-.checkboxClass{
-	display: grid;
-	grid-template-columns: 3fr 1fr;
 }

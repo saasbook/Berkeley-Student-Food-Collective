@@ -1,1 +1,53 @@
-%h1 This is the New Product Page
+%head 
+	%link{:href => "../../assets/stylesheets/product.scss", :rel => "stylesheet"}
+	%script{:src => "../../assets/javascripts/scripts.js"}
+
+
+.dropdown
+	%button.btn.btn-primary.dropdown-toggle{:type => "button", "data-toggle" => "dropdown"}
+		Select Vendor
+	.dropdown-menu
+		%a{:class => "dropdown-item", :href => "#"} Placeholder 1
+		%a{:class => "dropdown-item", :href => "#"} Placeholder 2
+		%a{:class => "dropdown-item", :href => "#"} Placeholder 3
+
+#form_div
+	%h2 Add New Product 
+	= form_tag products_path do
+		#form_elements_div
+			.form_group.element_div
+				=label :product, :name, "Name"
+				=text_field :product, "name"
+
+			.form_group.element_div#dietary_div
+				.checkboxClass
+					=label :product, :gluten_free, "Gluten-Free"
+					= check_box_tag :product, 'gluten_free'
+				.checkboxClass
+					=label :product, :dairy_free, "Dairy-Free"
+					= check_box_tag :product, 'dairy_free'
+				.checkboxClass
+					=label :product, :vegan, "          Vegan"
+					= check_box_tag :product, 'vegan'
+				
+			.form_group.element_div#rfc_div
+				.checkboxClass
+					=label :product, :lc_based, "Local and Community Based"
+					= check_box_tag :product, 'lc_based'
+				.checkboxClass
+					=label :product, :fair, "Fair"
+					= check_box_tag :product, 'fair'
+				.checkboxClass
+					=label :product, :eco_sound, "Ecologically Sound"
+					= check_box_tag :product, 'eco_sound'
+				.checkboxClass
+					=label :product, :humane, "Humane"
+					= check_box_tag :product, 'humane'
+				
+			.form_group.element_div
+				=label :product, :upc, "UPC Code"
+				=text_field :product, "upc"
+
+			.form_group#submit_div
+				= submit_tag "Add Product", id: "submit_button", :class => "btn btn-primary"
+				%button.btn.btn-danger#cancel_button{:type => "button", :onclick => "confirmCancel()"} Cancel
