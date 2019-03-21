@@ -1,18 +1,16 @@
 function confirmVendorCancel(){
-	cancel = confirm("Are you sure you want to cancel creating this vendor? The information will not be saved!")
-	if (cancel) {
-		alert("Canceling!")
-		window.location.replace("/vendors")
-	} else {
-		alert("Not Canceling!")
-	}
+	confirmGeneralCancel("vendor")
 }
 
 function confirmProductCancel(){
-	cancel = confirm("Are you sure you want to cancel creating this product? The information will not be saved!")
+	confirmGeneralCancel("product")
+}
+
+function confirmGeneralCancel(input){
+	cancel = confirm("Are you sure you want to cancel creating this " + input "? The information will not be saved!")
 	if (cancel) {
 		alert("Canceling!")
-		window.location.replace("/products")
+		window.location.replace("/" + input "s")
 	} else {
 		alert("Not Canceling!")
 	}
