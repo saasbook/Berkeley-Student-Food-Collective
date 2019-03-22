@@ -1,0 +1,40 @@
+= form_for @vendor do |f|
+    #form_elements_div
+        .form_group.element_div
+            =f.label :name
+            =f.text_field :name
+        .form_group.element_div
+            =f.label :description
+            =f.text_field :description
+
+        .form_group.element_div
+            =f.label :address
+            =f.text_field :address
+
+        .form_group.element_div
+            =f.label :facebook
+            =f.text_field :facebook
+
+        .form_group.element_div
+            =f.label :twitter
+            =f.text_field :twitter
+
+        .form_group.element_div
+            =f.label :instagram
+            =f.text_field :instagram
+
+        .element_div#tags
+            =f.fields_for :tags do |ff|
+                %div.tag
+                    =ff.label :name
+                    =ff.text_field :name
+                    - if ff.object&.persisted?
+                        =ff.check_box :_destroy
+                        =ff.label :_destroy, "Remove Tag"
+        .element_div#new_tags
+            =text_field_tag :new_tag_field
+            =button_tag "Add new tag", id: :new_tag_button, type: 'button', onclick: "addNewTag()"
+
+        .form_group#submit_div
+            =f.submit
+            %button.btn.btn-danger#cancel_button{:type => "button", :onclick => "confirmVendorCancel()"} Cancel
