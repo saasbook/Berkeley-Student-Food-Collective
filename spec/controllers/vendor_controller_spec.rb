@@ -1,52 +1,74 @@
 require 'rails_helper'
-#require_relative '../../app/controllers/vendors_controller.rb'
 require 'helper'
 
 describe VendorsController do
 	describe "New Vendor Page" do
 		it "should show the new vendor page" do
 			get :new
-			expect(response).to render_template("new")
+			expect(response).to render_template(:new)
 		end
 	end
 
-	describe "Add Vendor without Tags" do
-		it "should add a new vendor" do 
-			#@model_params = ActionController::Parameters.new(vendor: {:name => "Test Vendor", :description => "Test Description"})
-			#					.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram)
-			@model_params = create_new_vendor({:name => "Test Vendor", :description => "Test Description"})
-			@new_vendor = instance_double("Vendor", :name => "Test Vendor", :description => "Test Description")
-			#expect(Vendor).to receive(:create!).with(@model_params).and_return(@new_vendor)
-			expect(Vendor.all.length == 0)
-			post :create, params: {vendor: {:name => "Test Vendor", :description => "Test Description"}}
-			
-			expect(Vendor.all.length == 1)
-
-			expect(response).to redirect_to(vendors_path)
-		end
-		it "vendor was added to the database" do
-			expect(Vendor.all.length == 0)
-			vendor = FactoryBot.build(:vendor)
-			post :create, :params => {:vendor => vendor.attributes}
-			expect(Vendor.all.length == 1)
+	describe "Adding vendor without tags" do
+		it "should add a vendor to the DB" do
+			expect(Vendor.count).to be(0)
+      vendor = FactoryBot.build(:vendor)
+      post :create, params: {vendor: vendor.attributes}
+			expect(Vendor.count).to be(1)
+      expect(Tag.count).to be(0)
+      expect(VendorTag.count).to be(0)
+      expect(response).to redirect_to(vendors_path)
 		end
 	end
 	
-	describe "Add Vendor with Tags" do
-		it "should add a new Vendor" do
-			@model_params = create_new_vendor({:name => "Test Vendor", :description => "Test Description", :tags => "a, b, c, d"})
-			#@model_params[:tags][:tags] = "a, b, c, d"
-			#@new_vendor = instance_double("Vendor", :name => "Test Vendor", :description => "Test Description", :tags => "a, b, c, d")
-			#expect(Vendor).to receive(:create!).with(@model_params) #.and_return(@new_vendor)
-			expect(Vendor.all.length == 0)
-			expect(Tag.all.length == 0)
-			post :create, params: {vendor: {:name => "Test Vendor", :description => "Test Description"}, tags: {:tags => "a, b, c, d"}}
-			expect(Vendor.all.length == 1)
-			expect(Tag.all.length == 4)
+	describe "Adding vendors with tags" do
+    before(:each) do
+      vendor = FactoryBot.build(:vendor)
+      tag = FactoryBot.build(:tag)
+      post :create, params: {vendor: vendor.attributes, tags_attributes: {'0': tag.attributes}}
+    end
 
-			expect(response).to redirect_to(vendors_path)
-		end
+		it "should add a new vendor and tags to the DB" do
+      expect(Vendor.count).to be(1)
+      expect(Tag.count).to be(1)
+      expect(VendorTag.count).to be(1)
+    end
+
+    it "should not add duplicate tag to the DB" do
+      vendor = FactoryBot.build(:vendor, name: 'Second Vendor')
+      tag = FactoryBot.build(:tag)
+      post :create, params: {vendor: vendor.attributes, tags_attributes: {'0': tag.attributes}}
+      expect(Vendor.count).to be(2)
+      expect(Tag.count).to be(1)
+      expect(VendorTag.count).to be(2)
+    end
   end
 
-	
+  describe "Editing vendor without tags" do
+    before(:each) do
+      vendor = FactoryBot.build(:vendor)
+      post :create, params: {vendor: vendor.attributes}
+    end
+
+    it "should edit the vendor in the DB" do
+      patch :update, params: {id: Vendor.first.id, vendor: {name: 'Updated Vendor'}}
+      expect(Vendor.count).to be(1)
+      expect(Vendor.first.name).to be('Updated Vendor')
+    end
+  end
+
+  describe "Editing vendor with tags" do
+    before(:each) do
+      vendor = FactoryBot.build(:vendor)
+      tag = FactoryBot.build(:tag)
+      post :create, params: {vendor: vendor.attributes, tags_attributes: {'0': tag.attributes}}
+    end
+
+    it "should edit an existing tag name if the user changes it" do
+      expect(Tag.count == 1)
+      puts Tag.count
+      patch :update, params: {id: Vendor.first.id, vendor: {tags_attributes: {id: 1, name: 'b'}}}
+      expect(Tag.first.name).to be('b')
+    end
+  end
 end

@@ -1,13 +1,13 @@
-Feature: add a new vendor to the database
+Feature: Add a new vendor to the database
 
   As a volunteer
   I want to add a vendor to the DB
   So that customers can learn more about the vendor
 
-  Scenario: successfully add new vendor (happy)
+  Scenario: Successfully add new vendor without tags (happy)
     Given I am on the New Vendor page
     And I fill in the New Vendor form
-    When I press "submit_button"
+    When I press "Create Vendor"
     Then the DB should be updated with the new vendor
 
 

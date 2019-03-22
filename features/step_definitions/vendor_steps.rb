@@ -2,20 +2,16 @@ Given /I create a new vendor/ do
   FactoryBot.create(:vendor)
 end
 
-And /I fill in the New Vendor form/ do
-	steps %Q{
-		When I fill in "vendor_name" with "New Vendor Name"
-		When I fill in "vendor_address" with "Fake Address"
-		When I fill in "vendor_facebook" with "Fake Facebook"
-		When I fill in "vendor_twitter" with "Fake Twitter"
-		When I fill in "vendor_instagram" with "Fake Instagram"
-	}
+Given /I fill in the New Vendor form/ do
+  FactoryBot.attributes_for(:vendor).each do |key, value|
+    step %Q{I fill in "vendor_#{key}" with "#{value}"}
+  end
 end 
 
 Then /the DB should be updated with the new vendor/ do 
 	steps %Q{
 		Then I should be on the All Vendors page
-		Then I should see "Added Vendor: New Vendor Name to Database"
+		Then I should see "Added Vendor: Default Vendor Name to Database"
 	}
 end
 
