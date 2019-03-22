@@ -10,7 +10,7 @@ describe VendorsController do
 		end
 	end
 
-	describe "Add Vendor without Tags Action" do
+	describe "Add Vendor without Tags" do
 		it "should add a new vendor" do 
 			#@model_params = ActionController::Parameters.new(vendor: {:name => "Test Vendor", :description => "Test Description"})
 			#					.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram)
@@ -26,11 +26,10 @@ describe VendorsController do
 		end
 		it "vendor was added to the database" do
 			expect(Vendor.all.length == 0)
-            vendor = FactoryBot.build(:vendor)
-            post :create, :params => {:vendor => vendor.attributes}
-            expect(Vendor.all.length == 1)
+			vendor = FactoryBot.build(:vendor)
+			post :create, :params => {:vendor => vendor.attributes}
+			expect(Vendor.all.length == 1)
 		end
-		
 	end
 	
 	describe "Add Vendor with Tags" do
@@ -47,7 +46,7 @@ describe VendorsController do
 
 			expect(response).to redirect_to(vendors_path)
 		end
-	end
+  end
 
 	
 end

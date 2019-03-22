@@ -14,10 +14,6 @@ class VendorsController < ApplicationController
 			tags = tag_list.split(/\s*,\s*/)
 			tags.each do |tag|
 				t = Tag.where(:name => tag).first || Tag.create!(:name => tag)
-				# vt = VendorTag.new
-				# vt.vendor = @vendor
-				# vt.tag = t
-				# vt.save!
 				VendorTag.create!(:vendor => @vendor, :tag => t)
 			end
 		end
@@ -31,9 +27,21 @@ class VendorsController < ApplicationController
 
   def edit
 		@vendor = Vendor.find(params[:id])
-		@vendor_tags = VendorTag.joins(:tag).where(:vendor_id => @vendor.id).pluck(:name)
+		@vendor_tags = @vendor.tags.pluck(:name)
 		@vendor_tags = @vendor_tags.join(",")
-		puts @vendor_tags
+	end
+
+  def update
+		vendor = Vendor.find(params[:id])
+		vendor.update_attributes!(vendors_params)
+		if params[:tags] != nil
+			tag_list = params[:tags][:tags].strip
+			tags = tag_list.split(/\s*,\s*/)
+			tags.each do |tag|
+				t = Tag.where(:name => tag).first || Tag.create!(:name => tag)
+				VendorTag.create!(:vendor => @vendor, :tag => t)
+			end
+		end
 	end
 
 

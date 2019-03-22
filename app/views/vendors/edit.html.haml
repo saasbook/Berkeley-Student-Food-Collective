@@ -5,7 +5,7 @@
 %body#vendorsBody
 	#form_div
 		%h2 Edit New Vendor
-		= form_tag edit_vendor_path(@vendor), :method => :put do
+		= form_tag vendor_path(@vendor), :method => :put do
 			#form_elements_div
 				.form_group.element_div
 					=label :vendor, :name, "Name"
@@ -32,7 +32,7 @@
 					
 				.element_div
 					=label :tags, :names, "Tags (enter a comma separated list)"
-					=text_field :vendor, :tags, :value => @vendor_tags
+					=text_field :tags, :tags, :value => @vendor_tags
 
 				.form_group#submit_div
 					= submit_tag "Edit Vendor", id: "submit_button", :class => "btn btn-primary"
