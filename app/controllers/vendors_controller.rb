@@ -12,8 +12,14 @@ class VendorsController < ApplicationController
   end
 
   def create
-    @vendor = Vendor.create!(vendors_params)
-    flash[:message] = "Added Vendor: #{@vendor.name} to Database"
+    @vendor = Vendor.create(vendors_params)
+    if @vendor.valid?
+      flash[:message] = "Added Vendor: #{@vendor.name} to Database"
+      flash[:type] = "alert alert-success"
+    else
+      flash[:message] = "Vendor needs a name"
+      flash[:type] = "alert alert-danger"
+    end
     redirect_to vendors_path
   end
 
