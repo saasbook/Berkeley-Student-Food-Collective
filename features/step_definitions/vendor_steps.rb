@@ -27,6 +27,10 @@ Then /the new vendor should have the tag "(.*)"/ do |tag|
   find('div#tags').should have_content(tag)
 end
 
+And /I click "Create Vendor"/ do
+	find('input[name="commit"]').click
+end
+
 # Then /the DB should not be updated with the new vendor/ do
 # 	steps %Q{
 # 		Given I am on the All Vendors page

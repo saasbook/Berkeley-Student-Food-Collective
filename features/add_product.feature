@@ -7,6 +7,6 @@ Feature: add a new product to the database
   Scenario: successfully add new product (happy)
     Given I am on the New Product page
     And I fill in the New Product form
-    When I press "submit_button"
+    When I click "Create Product"
     Then the DB should be updated with the new product
 

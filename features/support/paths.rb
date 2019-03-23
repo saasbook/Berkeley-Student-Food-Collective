@@ -25,6 +25,14 @@ module NavigationHelpers
     when /^the Edit Vendor page$/
       edit_vendor_path(Vendor.find_by_name(FactoryBot.attributes_for(:vendor)[:name]))
 
+    when /^the New Product page$/
+      '/products/new'
+
+    when /^the All Products page$/
+      '/products'
+
+    
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

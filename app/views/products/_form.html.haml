@@ -2,7 +2,7 @@
   #form_elements_div
     .form_group.element_div
       = f.label :vendor_id, "Select A Vendor"
-      = f.select :vendor_id, options_for_select(@vendors.collect{ |v| [v.name, v.id] })
+      = f.select :vendor_id, options_for_select(@vendors.collect{ |v| [v.name, v.id, 'name' => v.name] } << ["Placeholder Name", 0, 'name' => "Placeholder Name"])
     .form_group.element_div
       = f.label :name
       = f.text_field :name
@@ -36,5 +36,5 @@
       = f.text_field :upc
 
     .form_group#submit_div
-      = f.submit
+      = f.submit :class => "btn btn-success"
       %button.btn.btn-danger#cancel_button{:type => "button", :onclick => "confirmProductCancel()"} Cancel

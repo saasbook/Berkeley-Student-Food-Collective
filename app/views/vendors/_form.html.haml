@@ -35,5 +35,5 @@
       = button_tag "Add new tag", id: :new_tag_button, type: 'button', onclick: "addNewTag()"
 
     #submit_div.form_group
-      = f.submit
+      = f.submit :class => "btn btn-success"
       %button.btn.btn-danger#cancel_button{:type => "button", :onclick => "confirmVendorCancel()"} Cancel
