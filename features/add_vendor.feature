@@ -6,10 +6,17 @@ Feature: Add a new vendor to the database
 
   Scenario: Successfully add new vendor without tags (happy)
     Given I am on the New Vendor page
-    And I fill in the New Vendor form
-    When I press "Create Vendor"
+    When I fill in the New Vendor form
+    And I press "Create Vendor"
     Then the DB should be updated with the new vendor
 
+  Scenario: Successfully add new vendor with tags (happy)
+    Given I am on the New Vendor page
+    When I fill in the New Vendor form
+    And I add a new tag "a"
+    And I press "Create Vendor"
+    Then the DB should be updated with the new vendor
+    And the new vendor should have the tag "a"
 
 #  Scenario: successfully cancel a new vendor action (happy)
 #    Given I am on the New Vendor page
