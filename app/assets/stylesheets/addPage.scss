@@ -1,7 +1,5 @@
 @import "bootstrap";
 
-
-
 body{
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr;
@@ -40,8 +38,6 @@ h4 {
 	text-decoration: underline;
 }
 
-
-
 label{
 	text-align: center;
 }
@@ -78,8 +74,4 @@ label{
 	padding: 10px;
 	display: flex;
 	justify-content: center;
-}
-
-#product_vendor_id{
-	visibility: hidden;
 }

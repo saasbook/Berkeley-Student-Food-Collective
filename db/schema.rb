@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2019_03_21_025247) do
   end
 
   create_table "vendor_tags", force: :cascade do |t|
-    t.bigint "tag_id"
-    t.bigint "vendor_id"
+    t.integer "tag_id"
+    t.integer "vendor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tag_id"], name: "index_vendor_tags_on_tag_id"

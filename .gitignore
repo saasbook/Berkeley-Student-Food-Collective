@@ -31,4 +31,11 @@
 /config/master.key
 
 #Ignore coverage files
+<<<<<<< HEAD
 /coverage/*
+=======
+/coverage/*
+
+.idea/
+Berkeley-Student-Food-Collective.iml
+>>>>>>> d1fa74090a9ed04a49e411211c2493cd3a10228c
