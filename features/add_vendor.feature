@@ -4,19 +4,24 @@ Feature: Add a new vendor to the database
   I want to add a vendor to the DB
   So that customers can learn more about the vendor
 
-  Scenario: Successfully add new vendor without tags (happy)
-    Given I am on the New Vendor page
-    When I fill in the New Vendor form
-    And I press "Create Vendor"
-    Then the DB should be updated with the new vendor
+  Scenario: Add new vendor without tags (happy)
+    Given I fill in the New Vendor page
+    When I press "Create Vendor"
+    Then the vendor should be added
 
-  Scenario: Successfully add new vendor with tags (happy)
-    Given I am on the New Vendor page
-    When I fill in the New Vendor form
-    And I add a new tag "a"
+  Scenario: Add new vendor with tags (happy)
+    Given I fill in the New Vendor page
+    When I add a new tag "a"
     And I press "Create Vendor"
-    Then the DB should be updated with the new vendor
+    Then the vendor should be added
     And the new vendor should have the tag "a"
+
+  Scenario: Attempt to add new vendor with no name (sad)
+    Given I am on the New Vendor page
+    When I fill in "Name" with ""
+    And I press "Create Vendor"
+    Then the vendor should not be added
+
 
 #  Scenario: successfully cancel a new vendor action (happy)
 #    Given I am on the New Vendor page

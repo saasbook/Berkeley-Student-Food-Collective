@@ -2,9 +2,10 @@ Given /I create a new vendor/ do
   FactoryBot.create(:vendor)
 end
 
-Given /I fill in the New Vendor form/ do
+When /I fill in the New Vendor page/ do
+  step %{I am on the New Vendor page}
   FactoryBot.attributes_for(:vendor).each do |key, value|
-    step %Q{I fill in "vendor_#{key}" with "#{value}"}
+    step %{I fill in "vendor_#{key}" with "#{value}"}
   end
 end
 
@@ -15,24 +16,18 @@ When /I add a new tag "(.*)"/ do |tag|
 	}
 end
 
-Then /the DB should be updated with the new vendor/ do 
+Then /the vendor should( not)? be added/ do |not_added|
 	steps %Q{
 		Then I should be on the All Vendors page
-		And I should see "Added Vendor: Default Vendor Name to Database"
+		And I should #{not_added.nil? ? '' : 'not '}see "Added Vendor: Default Vendor Name to Database"
 	}
 end
 
+
 Then /the new vendor should have the tag "(.*)"/ do |tag|
-  step %Q{I am on the Edit Vendor page}
+  step %{I am on the Edit Vendor page}
   find('div#tags').should have_content(tag)
 end
-
-# Then /the DB should not be updated with the new vendor/ do
-# 	steps %Q{
-# 		Given I am on the All Vendors page
-# 		Then I should not see "Added Vendor: New Vendor Name to Database"
-# 	}
-# end
 
 # Then /a confirm popup should appear/ do
 # 	#popup = page.driver.browser.switch_to.alert

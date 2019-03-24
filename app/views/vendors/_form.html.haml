@@ -1,8 +1,12 @@
+%div{class: flash[:type]}
+  = flash[:message]
+
 = form_for @vendor do |f|
   #form_elements_div
     .form_group.element_div
       = f.label :name
       = f.text_field :name
+
     .form_group.element_div
       = f.label :description
       = f.text_field :description
@@ -35,5 +39,5 @@
       = button_tag "Add new tag", id: :new_tag_button, type: 'button', onclick: "addNewTag()"
 
     #submit_div.form_group
-      = f.submit
+      = f.submit :class => "btn btn-success"
       %button.btn.btn-danger#cancel_button{:type => "button", :onclick => "confirmVendorCancel()"} Cancel
