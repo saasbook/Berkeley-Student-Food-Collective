@@ -5,39 +5,37 @@ Feature: Add a new vendor to the database
   So that customers can learn more about the vendor
 
   Scenario: Add new vendor without tags (happy)
-    Given I fill in the New Vendor page
-    When I press "Create Vendor"
+    When I fill in the New Vendor form
+    And I press "Create Vendor"
     Then the vendor should be added
 
+  @javascript
   Scenario: Add new vendor with tags (happy)
-    Given I fill in the New Vendor page
-    When I add a new tag "a"
+    When I fill in the New Vendor form
+    And I add a new tag "Some Tag"
     And I press "Create Vendor"
     Then the vendor should be added
-    And the new vendor should have the tag "a"
+    And the vendor should have the tag "Some Tag"
 
-  Scenario: Attempt to add new vendor with no name (sad)
-    Given I am on the New Vendor page
-    When I fill in "Name" with ""
+  Scenario: Try adding vendor with no name (sad)
+    When I fill in the New Vendor form
+    And I fill in "Name" with ""
     And I press "Create Vendor"
+    Then I should be on the New Vendor page
+    And I should see "Vendor needs a name"
+    And I should see the attributes, except "Name", filled in
+
+  @javascript
+  Scenario: Fill new vendor form, press cancel, and confirm (sad)
+    When I fill in the New Vendor form
+    And I press "Cancel"
+    And I confirm the popup
     Then the vendor should not be added
 
-
-#  Scenario: successfully cancel a new vendor action (happy)
-#    Given I am on the New Vendor page
-#    And I fill in the New Vendor form
-#    When I click "cancel_button"
-#    Then a confirm popup should appear
-#    When I press "cancel_button"
-#    Then the DB should not be updated with the new vendor
-#
-#
-#  Scenario: creating new vendor fails (sad)
-#
-#  Scenario: successfully cancel a cancel action (happy)
-#    Given I am on the New Vendor page
-#    And I fill in the New Vendor form
-#    When I press "cancel_button"
-#    Then a confirm popup should appear
-#    When I press "cancel_button"
-#    Then the DB should not be updated with the new vendor
+  @javascript
+  Scenario: Fill new vendor form, press cancel, but dismiss (sad)
+    When I fill in the New Vendor form
+    And I press "Cancel"
+    But I dismiss the popup
+    Then I should be on the New Vendor page
+    And I should see the attributes filled in

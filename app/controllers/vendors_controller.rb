@@ -7,6 +7,7 @@ class VendorsController < ApplicationController
     
   def new
     # Make new vendor so form knows to make submit button say "Create Vendor"
+    # Pass in params if redirected from #create
     @vendor = Vendor.new(flash[:vendors_params])
   end
 
@@ -15,12 +16,12 @@ class VendorsController < ApplicationController
     @vendor = Vendor.create(vendors_params)
     if @vendor.valid?
       flash[:message] = "Added Vendor: #{@vendor.name} to Database"
-      flash[:type] = "alert alert-success"
+      flash[:type] = 'alert alert-success'
       redirect_to vendors_path
     else
       @vendor = Vendor.new(vendors_params)
-      flash[:message] = "Vendor needs a name"
-      flash[:type] = "alert alert-danger"
+      flash[:message] = 'Vendor needs a name'
+      flash[:type] = 'alert alert-danger'
       flash[:vendors_params] = vendors_params
       redirect_to new_vendor_path
     end
@@ -36,10 +37,10 @@ class VendorsController < ApplicationController
     vendor.update_attributes(vendors_params)
     if vendor.valid?
       flash[:message] = "Updated Vendor: #{vendor.name} to Database"
-      flash[:type] = "alert alert-success"
+      flash[:type] = 'alert alert-success'
     else
-      flash[:message] = "Vendor needs a name"
-      flash[:type] = "alert alert-danger"
+      flash[:message] = 'Vendor needs a name'
+      flash[:type] = 'alert alert-danger'
     end
     redirect_to vendors_path
   end

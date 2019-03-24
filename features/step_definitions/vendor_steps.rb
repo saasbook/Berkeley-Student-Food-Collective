@@ -2,7 +2,7 @@ Given /I create a new vendor/ do
   FactoryBot.create(:vendor)
 end
 
-When /I fill in the New Vendor page/ do
+When /I fill in the New Vendor form/ do
   step %{I am on the New Vendor page}
   FactoryBot.attributes_for(:vendor).each do |key, value|
     step %{I fill in "vendor_#{key}" with "#{value}"}
@@ -16,36 +16,36 @@ When /I add a new tag "(.*)"/ do |tag|
 	}
 end
 
-Then /the vendor should( not)? be added/ do |not_added|
+When /I confirm the popup/ do
+  expect{page.driver.browser.switch_to.alert}.not_to raise_error
+  page.driver.browser.switch_to.alert.accept
+end
+
+When /I dismiss the popup/ do
+  expect{page.driver.browser.switch_to.alert}.not_to raise_error
+  page.driver.browser.switch_to.alert.dismiss
+end
+
+Then /the vendor should( not)? be added/ do |has_not|
 	steps %Q{
 		Then I should be on the All Vendors page
-		And I should #{not_added.nil? ? '' : 'not '}see "Added Vendor: Default Vendor Name to Database"
+		And I should #{has_not.nil? ? '' : 'not '}see "Added Vendor: #{FactoryBot.attributes_for(:vendor)[:name]} to Database"
 	}
 end
 
-
-Then /the new vendor should have the tag "(.*)"/ do |tag|
+Then /the vendor should have the tag "(.*)"/ do |tag|
   step %{I am on the Edit Vendor page}
-  find('div#tags').should have_content(tag)
+  within('div#tags') do
+    expect(page).to have_selector("input[value='#{tag}']")
+  end
 end
 
-# Then /a confirm popup should appear/ do
-# 	#popup = page.driver.browser.switch_to.alert
-# 	accept_confirm do
-# 		click_button("cancel_button")
-# 	end
-# end
-
-Then /I should see the attributes, except tags, filled in/ do
-	vendor = Vendor.find_by_name(FactoryBot.attributes_for(:vendor)[:name])
-  steps %Q{
-  	Then the "vendor[name]" field should contain "#{vendor.name}"
-		And the "vendor[description]" field should contain "#{vendor.description}"
-		And the "vendor[address]" field should contain "#{vendor.address}"
-		And the "vendor[facebook]" field should contain "#{vendor.facebook}"
-		And the "vendor[twitter]" field should contain "#{vendor.twitter}"
-		And the "vendor[instagram]" field should contain "#{vendor.instagram}"
-	}
+Then /I should see the attributes(, except "(.*)",)? filled in/ do |exclude|
+  FactoryBot.attributes_for(:vendor).each do |key, value|
+    if exclude.nil? or key.downcase.to_s != exclude.downcase
+      step %{the "vendor[#{key}]" field should contain "#{value}"}
+    end
+  end
 end
 
 Then /I should see the tags filled in/ do

@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'helper'
 
 describe VendorsController do
 	describe '#new' do

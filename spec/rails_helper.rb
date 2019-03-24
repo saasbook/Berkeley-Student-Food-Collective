@@ -62,9 +62,3 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
-
-# Capybara.register_driver :selenium_chrome do |app|
-#   Capybara::Selenium::Driver.new(app, :browser => :chrome)
-# end
-#
-# Capybara.default_driver = :selenium_chrome  # for most people this would normally be assigned to javascript_driver, but since you're using selenium for all tests we can just assign to default_driver
