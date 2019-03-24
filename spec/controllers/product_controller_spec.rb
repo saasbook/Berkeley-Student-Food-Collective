@@ -37,7 +37,6 @@ describe ProductsController do
 			vendor = FactoryBot.create(:vendor)
             product = FactoryBot.build(:product)
             product.vendor = vendor
-            puts product.attributes
             post :create, params: {:product => product.attributes}
             expect(Product.all.length == 1)
 		end

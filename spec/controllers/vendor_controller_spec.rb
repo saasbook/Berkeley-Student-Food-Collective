@@ -79,7 +79,7 @@ describe VendorsController do
       end
     end
 
-    context 'when vendor does not change tags' do
+    context 'when vendor has tags altered' do
       before do
         vendor = FactoryBot.build(:vendor)
         tag1 = FactoryBot.build(:tag)
@@ -88,15 +88,20 @@ describe VendorsController do
             '0': tag1.attributes, '1': tag2.attributes})}
       end
 
-      # it 'edits an existing tag name when changed' do
-      #   patch :update, params: {id: Vendor.first.id, vendor: {tags_attributes: {id: 1, name: 'b'}}}
-      #   expect(Tag.first.name).to eq('a')
-      #   expect(Tag.find(2).name).to eq('b')
-      #   expect(Vendor.first.tags.name).to eq('b')
-      # end
+      it 'updates name of existing tag in DB' do
+        patch :update, params: {id: Vendor.first.id, vendor: {tags_attributes: {id: 1, name: 'b'}}}
+        expect(Tag.find(1).name).to eq('b')
+        Vendor.first.tags.each do |vendor_tag|
+          expect(vendor_tag.name).to eq('b')
+        end
+      end
+
+      it 'does not change the number of tags' do
+        expect(Tag.count).to eq(2)
+      end
     end
 
-    context 'when vendor adds tags' do
+    context 'when vendor has tags added' do
       before do
         vendor = FactoryBot.build(:vendor)
         tag1 = FactoryBot.build(:tag)
@@ -111,12 +116,12 @@ describe VendorsController do
         expect(VendorTag.count).to eq(3)
       end
 
-      it 'add tag in DB' do
+      it 'adds tag in DB' do
         expect(Tag.count).to eq(3)
       end
     end
 
-    context 'when vendor removes tags' do
+    context 'when vendor has tags removed' do
       before do
         vendor = FactoryBot.build(:vendor)
         tag1 = FactoryBot.build(:tag)

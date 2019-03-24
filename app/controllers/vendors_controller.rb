@@ -11,6 +11,7 @@ class VendorsController < ApplicationController
   end
 
   def create
+    # Creates vendor associated with given tags, and creates new tags if necessary
     @vendor = Vendor.create!(vendors_params)
     flash[:message] = "Added Vendor: #{@vendor.name} to Database"
     redirect_to vendors_path
