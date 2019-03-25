@@ -2,45 +2,124 @@ require 'rails_helper'
 require 'helper'
 
 describe ProductsController do
-	describe "New Product Page" do
-		it "should show the new product page" do
-			get :new
-			expect(response).to render_template("new")
-		end
-	end
+  describe '#new' do
+    it 'shows the new product page' do
+      get :new
+      expect(response).to render_template(:new)
+    end
+  end
 
-	describe "Add Product Action" do
-		it "should add a new product" do 
-			#@model_params = ActionController::Parameters.new(product: {:name => "Test Product"})
-			#					.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id)
-			@model_params = create_new_product({:name => "Test Product"})
-			@new_product = instance_double("Product", :name => "Test Product")
-			expect(Product).to receive(:create!).with(@model_params).and_return(@new_product)
-			post :create, params: {product: {:name => "Test Product"}}
-			expect(response).to redirect_to(products_path)
-		end
-=begin
-		it "should add a new product FactoryBot" do
-			vendor = FactoryBot.create(:vendor)
-			product = FactoryBot.build(:product)
-			product.vendor = vendor
-			expect(Product).to receive(:create!).with(create_new_product(product.attributes)).and_return(product)
-			post :create, params: {product: product.attributes}
+  describe '#edit' do
+    it 'shows the edit product page' do
+      create_product_and_vendor
+      get :edit, params: {id: 1}
+      expect(response).to render_template(:edit)
+    end
+  end
 
-			expect(response).to redirect_to(products_path)
-			
-		end
-=end
-		
-		it "product was added to the database" do
-			expect(Product.all.length == 0)
-			vendor = FactoryBot.create(:vendor)
-            product = FactoryBot.build(:product)
-            product.vendor = vendor
-            puts product.attributes
-            post :create, params: {:product => product.attributes}
-            expect(Product.all.length == 1)
-		end
-		
-	end
+  describe '#create' do
+    context 'when product has no vendor' do
+      before do
+        product = FactoryBot.build(:product)
+        post :create, params: {product: product.attributes}
+      end
+
+      it 'does not add product to DB' do
+        expect(Product.count).to eq(0)
+      end
+
+      it 'redirects to the new product page' do
+        expect(response).to redirect_to(new_product_path)
+      end
+    end
+
+    context 'when product has no name' do
+      before do
+        create_product_and_vendor(name: '')
+      end
+
+      it 'does not add product to DB' do
+        expect(Product.count).to eq(0)
+      end
+
+      it 'redirects to the new product page' do
+        expect(response).to redirect_to(new_product_path)
+      end
+    end
+
+    context 'when product has valid attributes' do
+      before do
+        create_product_and_vendor
+      end
+
+      it 'adds product to DB' do
+        expect(Product.count).to eq(1)
+      end
+
+      it 'updates vendor in DB' do
+        expect(Vendor.first.products.count).to eq(1)
+      end
+
+      it 'redirects to the products page' do
+        expect(response).to redirect_to(products_path)
+      end
+    end
+  end
+
+  describe '#update' do
+    context 'when product is updated with no name' do
+      before do
+        create_product_and_vendor
+        patch :update, params: {id: Product.first.id, product: {name: ''}}
+      end
+
+      it 'does not alter product in DB' do
+        expect(Product.count).to eq 1
+        expect(Product.first.name).to eq(FactoryBot.attributes_for(:product)[:name])
+      end
+
+      it 'redirects to the edit product page' do
+        expect(response).to redirect_to(edit_product_path)
+      end
+    end
+
+    context 'when product\'s vendor does not change' do
+      before do
+        create_product_and_vendor
+        patch :update, params: {id: Product.first.id, product: {name: 'Updated Product', lc_based: 'true'}}
+      end
+
+      it 'updates product in DB' do
+        expect(Product.count).to eq(1)
+        expect(Product.first.name).to eq('Updated Product')
+        expect(Product.first.lc_based).to be(true)
+      end
+
+      it 'redirects to the products page' do
+        expect(response).to redirect_to(products_path)
+      end
+    end
+
+    context 'when product\'s vendor does change' do
+      before do
+        create_product_and_vendor
+        FactoryBot.create(:vendor, name: 'Second Vendor')
+        patch :update, params: {id: Product.first.id, product: {vendor_id: 2}}
+      end
+
+      it 'updates product in DB' do
+        expect(Product.count).to eq(1)
+        expect(Product.first.vendor_id).to eq(2)
+      end
+
+      it 'updates vendors in DB' do
+        expect(Vendor.find(1).products.count).to eq(0)
+        expect(Vendor.find(2).products.count).to eq(1)
+      end
+
+      it 'redirects to the products page' do
+        expect(response).to redirect_to(products_path)
+      end
+    end
+  end
 end

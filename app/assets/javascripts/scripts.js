@@ -11,10 +11,7 @@ function confirmProductCancel() {
 function confirmGeneralCancel(input) {
     var cancel = confirm("Are you sure you want to cancel creating this " + input + "? The information will not be saved!");
     if (cancel) {
-        alert("Canceling!");
-        window.location.replace("/" + input + "s");
-    } else {
-        alert("Not Canceling!");
+        window.location.href = "/" + input + "s"
     }
 }
 

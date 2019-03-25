@@ -1,7 +1,7 @@
 %h1 Vendors Page
 
-.div{:class => -flash[:type]}
-	=flash[:message]
+%div{class: flash[:type]}
+  = flash[:message]
 
 = link_to 'Go to Products Page', products_path
 

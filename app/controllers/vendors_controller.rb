@@ -1,6 +1,6 @@
 
 class VendorsController < ApplicationController
-  def vendors_params
+  def vendor_params
     # Allow tags to be created/destroyed along with vendors
     params.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram,
                                    tags_attributes: [:name, :id, :_destroy])
@@ -8,23 +8,23 @@ class VendorsController < ApplicationController
     
   def new
     # Make new vendor so form knows to make submit button say "Create Vendor"
-    @vendor = Vendor.new
+    # Pass in params from form if redirected from #create
+    @vendor = Vendor.new(flash[:vendor_params])
   end
 
   def create
-    @vendor = Vendor.create(vendors_params)
-    if @vendor.valid?
-      flash[:message] = "Added Vendor: #{@vendor.name} to Database"
-      flash[:type] = "alert alert-success"
+    # Creates vendor associated with given tags, and creates new tags if necessary
+    vendor = Vendor.create(vendor_params)
+    if vendor.valid?
+      flash[:message] = "Added Vendor: #{vendor.name} to Database"
+      flash[:type] = 'alert alert-success'
+      redirect_to vendors_path
     else
-      flash[:message] = "Vendor needs a name"
-      flash[:type] = "alert alert-danger"
+      flash[:message] = 'Vendor needs a unique name'
+      flash[:type] = 'alert alert-danger'
+      flash[:vendor_params] = vendor_params
+      redirect_to new_vendor_path
     end
-    redirect_to vendors_path
-  end
-
-  def index
-
   end
 
   def edit
@@ -34,9 +34,16 @@ class VendorsController < ApplicationController
 
   def update
     vendor = Vendor.find(params[:id])
-    vendor.update_attributes!(vendors_params)
-    flash[:message] = "Updated Vendor: #{vendor.name} to Database"
-    redirect_to vendors_path
+    success = vendor.update_attributes(vendor_params)
+    if success
+      flash[:message] = "Updated Vendor: #{vendor.name} to Database"
+      flash[:type] = 'alert alert-success'
+      redirect_to vendors_path
+    else
+      flash[:message] = 'Vendor needs a unique name'
+      flash[:type] = 'alert alert-danger'
+      # TODO: Fix redirect causing all changes to be reverted
+      redirect_to edit_vendor_path
+    end
   end
-
 end
