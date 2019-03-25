@@ -6,6 +6,7 @@
     .form_group.element_div
       = f.label :vendor_id, 'Select A Vendor'
       = f.select :vendor_id, options_for_select(@vendors.collect{ |v| [v.name, v.id, name: v.name] }), {prompt: 'Select a Vendor'}
+
     .form_group.element_div
       = f.label :name
       = f.text_field :name

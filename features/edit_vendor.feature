@@ -9,14 +9,14 @@ Feature: Edit an existing vendor in the database
     And I am on the Edit Vendor page
 
   Scenario: Edit page should have information pre-filled for vendor (happy)
-    Then I should see the attributes filled in
+    Then I should see the vendor attributes filled in
     And I should see the tags filled in
 
   Scenario: Edit vendor attributes (happy)
     When I fill in "Name" with "Vendor 2"
     And I press "Update Vendor"
     Then the vendor should be updated
-    And I go to the Edit Vendor page
+    When I go to the Edit Vendor page
     Then the "Name" field should contain "Vendor 2"
 
   @javascript
@@ -38,6 +38,7 @@ Feature: Edit an existing vendor in the database
     And I press "Update Vendor"
     Then I should be on the Edit Vendor page
     And I should see "Vendor needs a unique name"
+    # TODO: check if form attributes are still there
 
   Scenario: Try updating vendor with duplicate name (sad)
     Given I create a new vendor with name of "Second Vendor"
@@ -46,16 +47,17 @@ Feature: Edit an existing vendor in the database
     And I press "Update Vendor"
     Then I should be on the Edit Vendor page
     And I should see "Vendor needs a unique name"
+    # TODO: check if form attributes are still there
 
   @javascript
-  Scenario: Fill new vendor form, press cancel, and confirm (sad)
+  Scenario: Fill edit vendor form, press cancel, and confirm (sad)
     When I press "Cancel"
     And I confirm the popup
     Then the vendor should not be updated
 
   @javascript
-  Scenario: Fill new vendor form, press cancel, but dismiss (sad)
+  Scenario: Fill edit vendor form, press cancel, but dismiss (sad)
     When I press "Cancel"
     But I dismiss the popup
     Then I should be on the Edit Vendor page
-    And I should see the attributes filled in
+    And I should see the vendor attributes filled in

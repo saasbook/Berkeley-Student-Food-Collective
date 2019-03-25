@@ -23,7 +23,7 @@ Feature: Add a new vendor to the database
     And I press "Create Vendor"
     Then I should be on the New Vendor page
     And I should see "Vendor needs a unique name"
-    And I should see the attributes, except "Name", filled in
+    And I should see the vendor attributes, except "Name", filled in
 
   Scenario: Try adding vendor with duplicate name (sad)
     Given I create a new vendor with tags
@@ -31,7 +31,7 @@ Feature: Add a new vendor to the database
     And I press "Create Vendor"
     Then I should be on the New Vendor page
     And I should see "Vendor needs a unique name"
-    And I should see the attributes filled in
+    And I should see the vendor attributes filled in
 
   @javascript
   Scenario: Fill new vendor form, press cancel, and confirm (sad)
@@ -46,4 +46,4 @@ Feature: Add a new vendor to the database
     And I press "Cancel"
     But I dismiss the popup
     Then I should be on the New Vendor page
-    And I should see the attributes filled in
+    And I should see the vendor attributes filled in

@@ -1,5 +1,3 @@
-require_relative '../../spec/helper'
-
 Given /I create a new vendor with tags/ do
   FactoryBot.create(:vendor)
   FactoryBot.create(:tag)
@@ -24,16 +22,6 @@ When /I add a new tag "(.*)"/ do |tag|
 	}
 end
 
-When /I confirm the popup/ do
-  expect{page.driver.browser.switch_to.alert}.not_to raise_error
-  page.driver.browser.switch_to.alert.accept
-end
-
-When /I dismiss the popup/ do
-  expect{page.driver.browser.switch_to.alert}.not_to raise_error
-  page.driver.browser.switch_to.alert.dismiss
-end
-
 Then /the vendor should( not)? be (.*)/ do |has_not, action|
 	steps %Q{
 		Then I should be on the All Vendors page
@@ -41,7 +29,7 @@ Then /the vendor should( not)? be (.*)/ do |has_not, action|
 	}
 end
 
-Then /I should see the attributes(, except "(.*)",)? filled in/ do |exclude|
+Then /I should see the vendor attributes(, except "(.*)",)? filled in/ do |exclude|
   FactoryBot.attributes_for(:vendor).each do |key, value|
     if exclude.nil? or key.downcase.to_s != exclude.downcase
       step %{the "vendor[#{key}]" field should contain "#{value}"}
