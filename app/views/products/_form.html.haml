@@ -1,0 +1,44 @@
+%div{class: flash[:type]}
+  = flash[:message]
+
+= form_for @product do |f|
+  #form_elements_div
+    .form_group.element_div
+      = f.label :vendor_id, 'Select A Vendor'
+      = f.select :vendor_id, options_for_select(@vendors.collect{ |v| [v.name, v.id, name: v.name] }), {prompt: 'Select a Vendor'}
+
+    .form_group.element_div
+      = f.label :name
+      = f.text_field :name
+    .form_group.element_div#dietary_div
+      %h4 Dietary Restrictions
+      .checkboxClass
+        = f.label :gluten_free
+        = f.check_box :gluten_free
+      .checkboxClass
+        = f.label :dairy_free
+        = f.check_box :dairy_free
+      .checkboxClass
+        = f.label :vegan
+        = f.check_box :vegan
+    .form_group.element_div#rfc_div
+      %h4 Real Food Challenge
+      .checkboxClass
+        = f.label :lc_based, 'Locally based'
+        = f.check_box :lc_based
+      .checkboxClass
+        = f.label :fair, 'Fairly traded'
+        = f.check_box :fair
+      .checkboxClass
+        = f.label :eco_sound, 'Ecologically sound'
+        = f.check_box :eco_sound
+      .checkboxClass
+        = f.label :humane
+        = f.check_box :humane
+    .form_group.element_div
+      = f.label :upc, 'UPC'
+      = f.text_field :upc
+
+    .form_group#submit_div
+      = f.submit class: 'btn btn-success'
+      %button.btn.btn-danger#cancel_button{type: 'button', onclick: 'confirmProductCancel()'} Cancel

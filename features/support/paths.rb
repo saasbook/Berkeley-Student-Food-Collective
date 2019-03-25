@@ -17,10 +17,22 @@ module NavigationHelpers
       '/'
 
     when /^the New Vendor page$/
-      '/vendors/new'
+      new_vendor_path
 
     when /^the All Vendors page$/
-      '/vendors'
+      vendors_path
+
+    when /^the Edit Vendor page$/
+      edit_vendor_path(1)
+
+    when /^the New Product page$/
+      new_product_path
+
+    when /^the All Products page$/
+      products_path
+
+    when /^the Edit Product page$/
+      edit_product_path(1)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -1,53 +1,179 @@
 require 'rails_helper'
-#require_relative '../../app/controllers/vendors_controller.rb'
 require 'helper'
 
 describe VendorsController do
-	describe "New Vendor Page" do
-		it "should show the new vendor page" do
+	describe '#new' do
+		it 'shows the new vendor page' do
 			get :new
-			expect(response).to render_template("new")
+			expect(response).to render_template(:new)
 		end
-	end
+  end
 
-	describe "Add Vendor without Tags Action" do
-		it "should add a new vendor" do 
-			#@model_params = ActionController::Parameters.new(vendor: {:name => "Test Vendor", :description => "Test Description"})
-			#					.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram)
-			@model_params = create_new_vendor({:name => "Test Vendor", :description => "Test Description"})
-			@new_vendor = instance_double("Vendor", :name => "Test Vendor", :description => "Test Description")
-			#expect(Vendor).to receive(:create!).with(@model_params).and_return(@new_vendor)
-			expect(Vendor.all.length == 0)
-			post :create, params: {vendor: {:name => "Test Vendor", :description => "Test Description"}}
-			
-			expect(Vendor.all.length == 1)
+  describe '#edit' do
+    it 'shows the edit vendor page' do
+      create_vendor_without_tags
+      get :edit, params: {id: 1}
+      expect(response).to render_template(:edit)
+    end
+  end
 
-			expect(response).to redirect_to(vendors_path)
-		end
-		it "vendor was added to the database" do
-			expect(Vendor.all.length == 0)
-            vendor = FactoryBot.build(:vendor)
-            post :create, :params => {:vendor => vendor.attributes}
-            expect(Vendor.all.length == 1)
-		end
-		
-	end
-	
-	describe "Add Vendor with Tags" do
-		it "should add a new Vendor" do
-			@model_params = create_new_vendor({:name => "Test Vendor", :description => "Test Description", :tags => "a, b, c, d"})
-			#@model_params[:tags][:tags] = "a, b, c, d"
-			#@new_vendor = instance_double("Vendor", :name => "Test Vendor", :description => "Test Description", :tags => "a, b, c, d")
-			#expect(Vendor).to receive(:create!).with(@model_params) #.and_return(@new_vendor)
-			expect(Vendor.all.length == 0)
-			expect(Tag.all.length == 0)
-			post :create, params: {vendor: {:name => "Test Vendor", :description => "Test Description"}, tags: {:tags => "a, b, c, d"}}
-			expect(Vendor.all.length == 1)
-			expect(Tag.all.length == 4)
+	describe '#create' do
+    context 'when vendor has no name' do
+      before do
+        create_vendor_without_tags(name: '')
+      end
 
-			expect(response).to redirect_to(vendors_path)
-		end
-	end
+      it 'does not add vendor to DB' do
+        expect(Vendor.count).to eq(0)
+        expect(Tag.count).to eq(0)
+        expect(VendorTag.count).to eq(0)
+      end
 
-	
+      it 'redirects to the new vendor page' do
+        expect(response).to redirect_to(new_vendor_path)
+      end
+    end
+
+    context 'when vendor has duplicate name' do
+      before do
+        create_vendor_without_tags
+        create_vendor_without_tags
+      end
+
+      it 'does not add duplicate vendor to DB' do
+        expect(Vendor.count).to eq(1)
+        expect(Tag.count).to eq(0)
+        expect(VendorTag.count).to eq(0)
+      end
+
+      it 'redirects to the new vendor page' do
+        expect(response).to redirect_to(new_vendor_path)
+      end
+    end
+
+    context 'when vendor has no tags' do
+      before do
+        create_vendor_without_tags
+      end
+
+      it 'adds vendor to DB' do
+        expect(Vendor.count).to eq(1)
+        expect(Tag.count).to eq(0)
+        expect(VendorTag.count).to eq(0)
+      end
+
+      it 'redirects to the vendors page' do
+        expect(response).to redirect_to(vendors_path)
+      end
+    end
+
+    context 'when vendor has tags' do
+      before do
+        create_vendor_with_tag
+      end
+
+      it 'adds vendor and tags to DB' do
+        expect(Vendor.count).to eq(1)
+        expect(Tag.count).to eq(1)
+        expect(VendorTag.count).to eq(1)
+      end
+
+      # it 'does not add duplicate tag to the DB' do
+      #   vendor = FactoryBot.build(:vendor, name: 'Second Vendor')
+      #   tag = FactoryBot.build(:tag)
+      #   post :create, params: {vendor: vendor.attributes.merge(tags_attributes: {'0': tag.attributes})}
+      #   expect(Vendor.count).to eq(2)
+      #   expect(Tag.count).to eq(1)
+      #   expect(VendorTag.count).to eq(2)
+      # end
+    end
+  end
+
+  describe '#update' do
+    context 'when vendor is updated with no name' do
+      before do
+        create_vendor_without_tags
+        patch :update, params: {id: Vendor.first.id, vendor: {name: ''}}
+      end
+
+      it 'does not alter vendor in DB' do
+        expect(Vendor.count).to eq(1)
+        expect(Tag.count).to eq(0)
+        expect(VendorTag.count).to eq(0)
+        expect(Vendor.first.name).to eq(FactoryBot.attributes_for(:vendor)[:name])
+      end
+
+      it 'redirects to the edit vendor page' do
+        expect(response).to redirect_to(edit_vendor_path(1))
+      end
+    end
+
+    context 'when vendor has no tags' do
+      before do
+        create_vendor_without_tags
+        patch :update, params: {id: Vendor.first.id, vendor: {name: 'Updated Vendor'}}
+      end
+
+      it 'updates vendor in DB' do
+        expect(Vendor.count).to eq(1)
+        expect(Tag.count).to eq(0)
+        expect(VendorTag.count).to eq(0)
+        expect(Vendor.first.name).to eq('Updated Vendor')
+      end
+
+      it 'redirects to the vendors page' do
+        expect(response).to redirect_to(vendors_path)
+      end
+    end
+
+    context 'when vendor has tags altered' do
+      before do
+        create_vendor_with_two_tags
+        patch :update, params: {id: Vendor.first.id, vendor: {tags_attributes: {id: 1, name: 'b'}}}
+      end
+
+      it 'updates name of existing tag in DB' do
+        expect(Tag.find(1).name).to eq('b')
+        Vendor.first.tags.each do |vendor_tag|
+          expect(vendor_tag.name).to eq('b')
+        end
+      end
+
+      it 'does not change the number of tags' do
+        expect(Tag.count).to eq(2)
+      end
+    end
+
+    context 'when vendor has tags added' do
+      before do
+        create_vendor_with_two_tags
+        patch :update, params: {id: Vendor.first.id, vendor: {tags_attributes: {'0': {name: 'c'}}}}
+      end
+
+      it 'updates vendor\'s associated tags in DB' do
+        expect(Vendor.first.tags.count).to eq(3)
+        expect(VendorTag.count).to eq(3)
+      end
+
+      it 'adds tag in DB' do
+        expect(Tag.count).to eq(3)
+      end
+    end
+
+    context 'when vendor has tags removed' do
+      before do
+        create_vendor_with_two_tags
+        patch :update, params: {id: Vendor.first.id, vendor: {tags_attributes: {'0': {id: 1, _destroy: 1}}}}
+      end
+
+      it 'updates vendor\'s associated tags in DB' do
+        expect(Vendor.first.tags.count).to eq(1)
+        expect(VendorTag.count).to eq(1)
+      end
+
+      # it 'removes tag from DB' do
+      #   expect(Tag.count).to eq(1)
+      # end
+    end
+  end
 end

@@ -32,3 +32,6 @@
 
 #Ignore coverage files
 /coverage/*
+
+.idea/
+Berkeley-Student-Food-Collective.iml
