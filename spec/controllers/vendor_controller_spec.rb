@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'helper'
 
 describe VendorsController do
 	describe '#new' do
@@ -36,8 +37,7 @@ describe VendorsController do
 
     context 'when vendor has no tags' do
       before do
-        vendor = FactoryBot.build(:vendor)
-        post :create, params: {vendor: vendor.attributes}
+        create_vendor_without_tags
       end
 
       it 'adds vendor to DB' do
@@ -53,9 +53,7 @@ describe VendorsController do
 
     context 'when vendor has tags' do
       before do
-        vendor = FactoryBot.build(:vendor)
-        tag1 = FactoryBot.build(:tag)
-        post :create, params: {vendor: vendor.attributes.merge(tags_attributes: {'0': tag1.attributes})}
+        create_vendor_with_tag
       end
 
       it 'adds vendor and tags to DB' do
@@ -78,8 +76,7 @@ describe VendorsController do
   describe '#update' do
     context 'when vendor has no tags' do
       before do
-        vendor = FactoryBot.build(:vendor)
-        post :create, params: {vendor: vendor.attributes}
+        create_vendor_without_tags
       end
 
       it 'updates vendor in DB' do
@@ -97,11 +94,7 @@ describe VendorsController do
 
     context 'when vendor has tags altered' do
       before do
-        vendor = FactoryBot.build(:vendor)
-        tag1 = FactoryBot.build(:tag)
-        tag2 = FactoryBot.build(:tag, name: 'b')
-        post :create, params: {vendor: vendor.attributes.merge(tags_attributes: {
-            '0': tag1.attributes, '1': tag2.attributes})}
+        create_vendor_with_two_tags
       end
 
       it 'updates name of existing tag in DB' do
@@ -119,11 +112,7 @@ describe VendorsController do
 
     context 'when vendor has tags added' do
       before do
-        vendor = FactoryBot.build(:vendor)
-        tag1 = FactoryBot.build(:tag)
-        tag2 = FactoryBot.build(:tag, name: 'b')
-        post :create, params: {vendor: vendor.attributes.merge(tags_attributes: {
-            '0': tag1.attributes, '1': tag2.attributes})}
+        create_vendor_with_two_tags
         patch :update, params: {id: Vendor.first.id, vendor: {tags_attributes: {'0': {name: 'c'}}}}
       end
 
@@ -139,11 +128,7 @@ describe VendorsController do
 
     context 'when vendor has tags removed' do
       before do
-        vendor = FactoryBot.build(:vendor)
-        tag1 = FactoryBot.build(:tag)
-        tag2 = FactoryBot.build(:tag, name: 'b')
-        post :create, params: {vendor: vendor.attributes.merge(tags_attributes: {
-            '0': tag1.attributes, '1': tag2.attributes})}
+        create_vendor_with_two_tags
         patch :update, params: {id: Vendor.first.id, vendor: {tags_attributes: {'0': {id: 1, _destroy: 1}}}}
       end
 

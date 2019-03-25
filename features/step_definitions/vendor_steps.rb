@@ -1,5 +1,9 @@
-Given /I create a new vendor/ do
+require_relative '../../spec/helper'
+
+Given /I create a new vendor with tags/ do
   FactoryBot.create(:vendor)
+  FactoryBot.create(:tag)
+  VendorTag.create(tag_id: 1, vendor_id: 1)
 end
 
 When /I fill in the New Vendor form/ do
@@ -26,18 +30,11 @@ When /I dismiss the popup/ do
   page.driver.browser.switch_to.alert.dismiss
 end
 
-Then /the vendor should( not)? be added/ do |has_not|
+Then /the vendor should( not)? be (.*)/ do |has_not, action|
 	steps %Q{
 		Then I should be on the All Vendors page
-		And I should #{has_not.nil? ? '' : 'not '}see "Added Vendor: #{FactoryBot.attributes_for(:vendor)[:name]} to Database"
+		And I should #{has_not.nil? ? '' : 'not '}see "#{action.capitalize} Vendor"
 	}
-end
-
-Then /the vendor should have the tag "(.*)"/ do |tag|
-  step %{I am on the Edit Vendor page}
-  within('div#tags') do
-    expect(page).to have_selector("input[value='#{tag}']")
-  end
 end
 
 Then /I should see the attributes(, except "(.*)",)? filled in/ do |exclude|
@@ -48,13 +45,25 @@ Then /I should see the attributes(, except "(.*)",)? filled in/ do |exclude|
   end
 end
 
-Then /I should see the tags filled in/ do
-	vendor = Vendor.find_by_name(FactoryBot.attributes_for(:vendor)[:name])
-	expected_tags = vendor.tags.pluck(:name)
-  actual_tags = find_field("tags[tags]").value
-	actual_tags = actual_tags.split(/\s*,\s*/)
-  actual_tags.each do |actual_tag|
-    expect(expected_tags.include?(actual_tag))
+Then /the vendor should have the tag "(.*)"/ do |tag|
+  step %{I am on the Edit Vendor page}
+  within('div#tags') do
+    expect(page).to have_selector("input[value='#{tag}']")
   end
-	expect(expected_tags.length == actual_tags.length)
+end
+
+Then /the vendor should have no tags/ do
+  step %{I am on the Edit Vendor page}
+  expect(page.all('.tag').length).to eq(0)
+end
+
+Then /I should see the tags filled in/ do
+	expected_tags = Vendor.find(1).tags.pluck(:name)
+  actual_tags = page.all('.tag')
+  expect(expected_tags.length == actual_tags.length)
+  actual_tags.each do |actual_tag|
+    within(actual_tag) do
+      expect(expected_tags).to include(page.find('input[type="text"]').value)
+    end
+  end
 end

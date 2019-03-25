@@ -30,7 +30,7 @@
     #tags.element_div
       = f.fields_for :tags do |ff|
         %div.tag
-          = ff.label :name
+          = ff.label :name, "Tag Name"
           = ff.text_field :name
           = ff.check_box :_destroy
           = ff.label :_destroy, "Remove Tag"

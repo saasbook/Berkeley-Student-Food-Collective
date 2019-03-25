@@ -1,9 +1,18 @@
-def create_new_vendor(details) 
-	ActionController::Parameters.new(vendor: details)
-								.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram)
+def create_vendor_without_tags
+  vendor = FactoryBot.build(:vendor)
+  post :create, params: {vendor: vendor.attributes}
 end
 
-def create_new_product(details)
-ActionController::Parameters.new(product: details)
-								.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id, :tags)
+def create_vendor_with_tag
+  vendor = FactoryBot.build(:vendor)
+  tag1 = FactoryBot.build(:tag)
+  post :create, params: {vendor: vendor.attributes.merge(tags_attributes: {'0': tag1.attributes})}
+end
+
+def create_vendor_with_two_tags
+  vendor = FactoryBot.build(:vendor)
+  tag1 = FactoryBot.build(:tag)
+  tag2 = FactoryBot.build(:tag, name: 'b')
+  post :create, params: {vendor: vendor.attributes.merge(tags_attributes: {
+      '0': tag1.attributes, '1': tag2.attributes})}
 end

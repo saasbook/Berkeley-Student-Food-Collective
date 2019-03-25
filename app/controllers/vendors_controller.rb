@@ -13,9 +13,9 @@ class VendorsController < ApplicationController
 
   def create
     # Creates vendor associated with given tags, and creates new tags if necessary
-    @vendor = Vendor.create(vendors_params)
-    if @vendor.valid?
-      flash[:message] = "Added Vendor: #{@vendor.name} to Database"
+    vendor = Vendor.create(vendors_params)
+    if vendor.valid?
+      flash[:message] = "Added Vendor: #{vendor.name} to Database"
       flash[:type] = 'alert alert-success'
       redirect_to vendors_path
     else
@@ -29,20 +29,23 @@ class VendorsController < ApplicationController
 
   def edit
     # Get vendor so form knows to make submit button say "Update Vendor"
+    # Pass in params if redirected from #update
     @vendor = Vendor.find(params[:id])
   end
 
   def update
     vendor = Vendor.find(params[:id])
-    vendor.update_attributes(vendors_params)
-    if vendor.valid?
+    success = vendor.update_attributes(vendors_params)
+    if success
       flash[:message] = "Updated Vendor: #{vendor.name} to Database"
       flash[:type] = 'alert alert-success'
+      redirect_to vendors_path
     else
       flash[:message] = 'Vendor needs a name'
       flash[:type] = 'alert alert-danger'
+      flash[:vendors_params] = vendors_params
+      redirect_to edit_vendor_path
     end
-    redirect_to vendors_path
   end
 
 end

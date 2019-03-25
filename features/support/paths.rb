@@ -23,7 +23,7 @@ module NavigationHelpers
       '/vendors'
 
     when /^the Edit Vendor page$/
-      edit_vendor_path(Vendor.find_by_name(FactoryBot.attributes_for(:vendor)[:name]))
+      edit_vendor_path(Vendor.find(1))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
