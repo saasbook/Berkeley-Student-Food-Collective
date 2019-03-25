@@ -30,14 +30,14 @@
     #tags.element_div
       = f.fields_for :tags do |ff|
         %div.tag
-          = ff.label :name, "Tag Name"
+          = ff.label :name, 'Tag Name'
           = ff.text_field :name
           = ff.check_box :_destroy
-          = ff.label :_destroy, "Remove Tag"
+          = ff.label :_destroy, 'Remove Tag'
     #new_tags.element_div
       = text_field_tag :new_tag_field
-      = button_tag "Add new tag", id: :new_tag_button, type: 'button', onclick: "addNewTag()"
+      = button_tag 'Add new tag', id: :new_tag_button, type: 'button', onclick: 'addNewTag()'
 
     #submit_div.form_group
-      = f.submit :class => "btn btn-success"
-      %button.btn.btn-danger#cancel_button{:type => "button", :onclick => "confirmVendorCancel()"} Cancel
+      = f.submit class: 'btn btn-success'
+      %button.btn.btn-danger#cancel_button{type: 'button', onclick: 'confirmVendorCancel()'} Cancel

@@ -22,8 +22,16 @@ Feature: Add a new vendor to the database
     And I fill in "Name" with ""
     And I press "Create Vendor"
     Then I should be on the New Vendor page
-    And I should see "Vendor needs a name"
+    And I should see "Vendor needs a unique name"
     And I should see the attributes, except "Name", filled in
+
+  Scenario: Try adding vendor with duplicate name (sad)
+    Given I create a new vendor with tags
+    When I fill in the New Vendor form
+    And I press "Create Vendor"
+    Then I should be on the New Vendor page
+    And I should see "Vendor needs a unique name"
+    And I should see the attributes filled in
 
   @javascript
   Scenario: Fill new vendor form, press cancel, and confirm (sad)

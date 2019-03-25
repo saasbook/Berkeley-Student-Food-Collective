@@ -37,8 +37,15 @@ Feature: Edit an existing vendor in the database
     When I fill in "Name" with ""
     And I press "Update Vendor"
     Then I should be on the Edit Vendor page
-    And I should see "Vendor needs a name"
-    And I should see the attributes, except "Name", filled in
+    And I should see "Vendor needs a unique name"
+
+  Scenario: Try updating vendor with duplicate name (sad)
+    Given I create a new vendor with name of "Second Vendor"
+    When I go to the Edit Vendor page
+    And I fill in "Name" with "Second Vendor"
+    And I press "Update Vendor"
+    Then I should be on the Edit Vendor page
+    And I should see "Vendor needs a unique name"
 
   @javascript
   Scenario: Fill new vendor form, press cancel, and confirm (sad)

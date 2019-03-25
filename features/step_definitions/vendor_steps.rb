@@ -6,6 +6,10 @@ Given /I create a new vendor with tags/ do
   VendorTag.create(tag_id: 1, vendor_id: 1)
 end
 
+Given /I create a new vendor with name of "(.*)"/ do |name|
+  FactoryBot.create(:vendor, name: name)
+end
+
 When /I fill in the New Vendor form/ do
   step %{I am on the New Vendor page}
   FactoryBot.attributes_for(:vendor).each do |key, value|
