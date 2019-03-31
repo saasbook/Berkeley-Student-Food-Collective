@@ -1,4 +1,30 @@
-%body#productsBody
-    #form_div
-        %h2 Add New Product
-        =render 'form'
+%head 
+	%link{:href => "../../assets/stylesheets/add_vendor.scss", :rel => "stylesheet"}
+	%script{:src => "../../assets/javascripts/scripts.js"}
+
+#form_div
+	%h2 Add New Product 
+	= form_tag products_path do
+		#form_elements_div
+			.form_group.element_div
+				=label :product, :name, "Name"
+				=text_field :product, "name"
+			.form_group.element_div
+				=label :product, :vendor_id, "Vendor ID"
+				=text_field :product, "vendor_id"
+
+			.form_group.element_div
+				=label :product, :upc, "UPC"
+				=text_field :product, "upc"
+
+			.form_group.element_div
+				=label :product, :fair, "Source (Fair Trade, Organic, etc.)"
+				=text_field :product, "fair"
+
+			.form_group.element_div
+				=label :product, :humane, "Humane"
+				=text_field :product, "humane"
+
+			.form_group#submit_div
+				= submit_tag "Add Product", id: "submit_button", :class => "btn btn-primary"
+				%button.btn.btn-danger#cancel_button{:type => "button", :onclick => "confirmCancel()"} Cancel
