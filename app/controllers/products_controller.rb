@@ -29,6 +29,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def index
+    @products = Product.all
+  end
+
   def edit
     # Get product so form knows to make submit button say "Update Product"
     @product = Product.find(params[:id])
