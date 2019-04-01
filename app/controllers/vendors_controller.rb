@@ -26,6 +26,10 @@ class VendorsController < ApplicationController
     end
   end
 
+  def index
+    @vendors = Vendor.all
+  end
+
   def edit
     # Get vendor so form knows to make submit button say "Update Vendor"
     @vendor = Vendor.find(params[:id])

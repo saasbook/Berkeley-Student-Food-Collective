@@ -1,8 +1,19 @@
-%h1 Products Page
+%head 
+  %title Berkeley Student Food Collective
+  %link{:href => "../../assets/stylesheets/add_vendor.scss", :rel => "stylesheet"}
 
-%div{class: flash[:type]}
-  = flash[:message]
+#form_div
+  %h2 All Products
+  %table{:border => 1}
+    %tbody
+      %tr
+        %th Name  
+        %th Vendor  
+        %th More Details  
+      - @products.each do |product|
+        %tr
+          %td= product.name 
+          %td= product.vendor_id
+          %td= link_to "More about #{product.name}", product_path(product)
 
-= link_to 'Go to Vendors page', vendors_path
-
-= link_to 'Add new product', new_product_path
+%li= link_to 'Add new product', new_product_path

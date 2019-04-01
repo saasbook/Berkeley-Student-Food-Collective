@@ -24,6 +24,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 
 gem 'bootstrap', '~> 4.3.1'
+# Bootstrap Stylesheets
+gem "twitter-bootstrap-rails"
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -37,8 +40,6 @@ gem 'bootstrap', '~> 4.3.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
-gem 'pg', '~> 0.21'
 
 gem 'haml'
 

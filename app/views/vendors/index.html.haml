@@ -1,8 +1,21 @@
-%h1 Vendors Page
+%head 
+  %title Berkeley Student Food Collective
+  %link{:href => "../../assets/stylesheets/add_vendor.scss", :rel => "stylesheet"}
 
-%div{class: flash[:type]}
-  = flash[:message]
+#form_div
+  %h2 All Vendors
+  %table{:border => 1}
+    %tbody
+      %tr
+        %th Name  
+        %th Description  
+        %th Last Modified  
+        %th More Details  
+      - @vendors.each do |vendor|
+        %tr
+          %td= vendor.name 
+          %td= vendor.description
+          %td= vendor.updated_at
+          %td= link_to "More about #{vendor.name}", vendor_path(vendor)
 
-= link_to 'Go to Products Page', products_path
-
-= link_to 'Add new vendor', new_vendor_path
+%li= link_to 'Add new vendor', new_vendor_path
