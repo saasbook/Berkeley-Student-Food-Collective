@@ -1,4 +1,3 @@
-
 class VendorsController < ApplicationController
   def vendor_params
     # Allow tags to be created/destroyed along with vendors
@@ -16,7 +15,7 @@ class VendorsController < ApplicationController
     # Creates vendor associated with given tags, and creates new tags if necessary
     vendor = Vendor.create(vendor_params)
     if vendor.valid?
-      flash[:message] = "Added Vendor: #{vendor.name} to Database"
+      flash[:message] = "Added Vendor"
       flash[:type] = 'alert alert-success'
       redirect_to vendors_path
     else
@@ -25,6 +24,10 @@ class VendorsController < ApplicationController
       flash[:vendor_params] = vendor_params
       redirect_to new_vendor_path
     end
+  end
+
+  def index
+    @vendors = Vendor.all
   end
 
   def edit
@@ -36,7 +39,7 @@ class VendorsController < ApplicationController
     vendor = Vendor.find(params[:id])
     success = vendor.update_attributes(vendor_params)
     if success
-      flash[:message] = "Updated Vendor: #{vendor.name} to Database"
+      flash[:message] = "Updated Vendor"
       flash[:type] = 'alert alert-success'
       redirect_to vendors_path
     else

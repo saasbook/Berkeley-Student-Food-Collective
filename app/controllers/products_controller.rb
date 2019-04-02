@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
   def create
     product = Product.create(product_params)
     if product.valid?
-      flash[:message] = "Added Product: #{product.name} to Database"
+      flash[:message] = "Added Product"
       flash[:type] = 'alert alert-success'
       redirect_to products_path
     else
@@ -27,6 +27,10 @@ class ProductsController < ApplicationController
       flash[:product_params] = product_params
       redirect_to new_product_path
     end
+  end
+
+  def index
+    @products = Product.all
   end
 
   def edit
@@ -38,7 +42,7 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     success = product.update_attributes(product_params)
     if success
-      flash[:message] = "Updated Product: #{product.name} to Database"
+      flash[:message] = "Updated Product"
       flash[:type] = 'alert alert-success'
       redirect_to products_path
     else

@@ -34,14 +34,6 @@ module NavigationHelpers
     when /^the Edit Product page$/
       edit_product_path(1)
 
-    when /^the New Product page$/
-      '/products/new'
-
-    when /^the All Products page$/
-      '/products'
-
-    
-
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

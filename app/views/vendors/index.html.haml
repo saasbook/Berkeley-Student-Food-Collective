@@ -1,8 +1,19 @@
-%h1 Vendors Page
+#form_div
+  %h2 All Vendors
+  %div{class: flash[:type]}
+    = flash[:message]
+  %table{:border => 1}
+    %tbody
+      %tr
+        %th Name  
+        %th Description  
+        %th Last Modified  
+        %th More Details  
+      - @vendors.each do |vendor|
+        %tr
+          %td= vendor.name 
+          %td= vendor.description
+          %td= vendor.updated_at
+          %td= link_to "More about #{vendor.name}", vendor_path(vendor)
 
-%div{class: flash[:type]}
-  = flash[:message]
-
-= link_to 'Go to Products Page', products_path
-
-= link_to 'Add new vendor', new_vendor_path
+%li= link_to 'Add new vendor', new_vendor_path

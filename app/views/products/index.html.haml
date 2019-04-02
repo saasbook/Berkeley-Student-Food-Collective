@@ -1,8 +1,17 @@
-%h1 Products Page
+#form_div
+  %h2 All Products
+  %div{class: flash[:type]}
+    = flash[:message]
+  %table{:border => 1}
+    %tbody
+      %tr
+        %th Name  
+        %th Vendor  
+        %th More Details  
+      - @products.each do |product|
+        %tr
+          %td= product.name 
+          %td= product.vendor_id
+          %td= link_to "More about #{product.name}", product_path(product)
 
-%div{class: flash[:type]}
-  = flash[:message]
-
-= link_to 'Go to Vendors page', vendors_path
-
-= link_to 'Add new product', new_product_path
+%li= link_to 'Add new product', new_product_path	
