@@ -12,6 +12,6 @@
         %tr
           %td= product.name 
           %td= product.vendor_id
-          %td= link_to "More about #{product.name}", product_path(product)
+          %td= link_to "More about #{product.name}", edit_product_path(product)
 
 %li= link_to 'Add new product', new_product_path	

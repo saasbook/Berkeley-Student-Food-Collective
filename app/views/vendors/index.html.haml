@@ -14,6 +14,6 @@
           %td= vendor.name 
           %td= vendor.description
           %td= vendor.updated_at
-          %td= link_to "More about #{vendor.name}", vendor_path(vendor)
+          %td= link_to "More about #{vendor.name}", edit_vendor_path(vendor)
 
 %li= link_to 'Add new vendor', new_vendor_path
