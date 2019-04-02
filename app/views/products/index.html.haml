@@ -36,6 +36,3 @@
           %tr
             %td.products
               %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
-
-
-%li= link_to 'Go to vendors', vendors_path
