@@ -1,12 +1,13 @@
+
 require 'rails_helper'
 require 'helper'
 
 describe VendorsController do
-	describe '#new' do
-		it 'shows the new vendor page' do
-			get :new
-			expect(response).to render_template(:new)
-		end
+  describe '#new' do
+    it 'shows the new vendor page' do
+      get :new
+      expect(response).to render_template(:new)
+    end
   end
 
   describe '#edit' do
@@ -17,7 +18,7 @@ describe VendorsController do
     end
   end
 
-	describe '#create' do
+  describe '#create' do
     context 'when vendor has no name' do
       before do
         create_vendor_without_tags(name: '')

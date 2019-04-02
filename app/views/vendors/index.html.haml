@@ -1,9 +1,7 @@
-%head 
-  %title Berkeley Student Food Collective
-  %link{:href => "../../assets/stylesheets/add_vendor.scss", :rel => "stylesheet"}
-
 #form_div
   %h2 All Vendors
+  %div{class: flash[:type]}
+    = flash[:message]
   %table{:border => 1}
     %tbody
       %tr

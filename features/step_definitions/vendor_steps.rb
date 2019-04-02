@@ -1,3 +1,4 @@
+
 Given /I create a new vendor with tags/ do
   FactoryBot.create(:vendor)
   FactoryBot.create(:tag)
