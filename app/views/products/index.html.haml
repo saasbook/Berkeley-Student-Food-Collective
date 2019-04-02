@@ -12,6 +12,7 @@
         %tr
           %td= product.name 
           %td= Vendor.find(product.vendor_id).name
-          %td= link_to "More about #{product.name}", product_path(product)
+          %td= link_to "More about #{product.name}", edit_product_path(product)
 
-%li= link_to 'Add new product', new_product_path	
+%li= link_to 'Add new product', new_product_path
+%li= link_to 'Go to vendors', vendors_path
