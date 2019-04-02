@@ -11,7 +11,7 @@
       - @products.each do |product|
         %tr
           %td= product.name 
-          %td= product.vendor_id
+          %td= Vendor.find(product.vendor_id).name
           %td= link_to "More about #{product.name}", edit_product_path(product)
 
 %li= link_to 'Add new product', new_product_path
