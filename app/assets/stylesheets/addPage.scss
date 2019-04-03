@@ -1,0 +1,77 @@
+@import "bootstrap";
+
+body{
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+}
+
+#vendorsBody{
+	background-color: lightblue;
+}
+
+#productsBody{
+	background-color: lightgreen;
+}
+
+#form_div{
+	display: grid;
+	grid-column: 2/3;
+	padding: 5px;
+}
+
+#form_elements_div{
+	background-color: lightgray;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+
+h2 {
+	background-color: lightgray;
+	text-align: center;
+}
+
+h4 {
+	background-color: lightgray;
+	text-align: center;
+	text-decoration: underline;
+}
+
+label{
+	text-align: center;
+}
+
+.element_div{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	border-bottom: groove;
+	padding: 10px;
+}
+
+#submit_div{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: nowrap;
+	padding: 10px;
+}
+
+#submit_button:hover{
+	background-color: darken($blue, 10%)
+}
+
+#cancel_button:hover{
+    background-color: darken($red, 10%)
+}
+
+.checkboxClass{
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+}
+
+#vendorDropdown{
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+}

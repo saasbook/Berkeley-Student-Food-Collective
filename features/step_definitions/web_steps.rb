@@ -207,9 +207,9 @@ end
 
 Then /^the "([^"]*)" checkbox(?: within (.*))? should be checked$/ do |label, parent|
   with_scope(parent) do
-    field_checked = find_field(label)['checked']
+    field_checked = find_field(label).checked?
     if field_checked.respond_to? :should
-      field_checked.should be_true
+      field_checked.should be_truthy
     else
       assert field_checked
     end
@@ -218,9 +218,9 @@ end
 
 Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label, parent|
   with_scope(parent) do
-    field_checked = find_field(label)['checked']
+    field_checked = find_field(label).checked?
     if field_checked.respond_to? :should
-      field_checked.should be_false
+      field_checked.should be_falsey
     else
       assert !field_checked
     end
@@ -228,12 +228,13 @@ Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label
 end
  
 Then /^(?:|I )should be on (.+)$/ do |page_name|
-  current_path = URI.parse(current_url).path
-  if current_path.respond_to? :should
-    current_path.should == path_to(page_name)
-  else
-    assert_equal path_to(page_name), current_path
-  end
+  # current_path = URI.parse(current_url).path
+  # if current_path.respond_to? :should
+  #   current_path.should == path_to(page_name)
+  # else
+  #   assert_equal path_to(page_name), current_path
+  # end
+  expect(page).to have_current_path(path_to(page_name))
 end
 
 Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
