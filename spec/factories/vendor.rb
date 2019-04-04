@@ -7,7 +7,4 @@ FactoryBot.define do
 		twitter {"Default Vendor Twitter"}
 		instagram {"Default Vendor Instagram"}
   end
-  factory :tag do
-		name {"a"}
-	end
 end
