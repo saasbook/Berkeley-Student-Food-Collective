@@ -75,16 +75,3 @@ label{
 	display: flex;
 	justify-content: center;
 }
-
-.trial{
-	overflow:auto;
-	white-space: nowrap;
-}
-
-.trial_button{
-	transition: 0.3s transform;
-}
-
-.trial_button:hover {
-	transform: scale(2);
-}
