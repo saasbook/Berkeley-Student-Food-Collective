@@ -1,10 +1,12 @@
 "use strict";
 
 function routeToProductPage() {
+    window.location.href = "/products";
 
 }
 
 function routeToVendorPage() {
+    window.location.href = "/vendors";
 	
 }
 
