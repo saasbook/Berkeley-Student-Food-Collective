@@ -6,13 +6,11 @@
     %tbody
       %tr
         %th Name  
-        %th Description  
-        %th Last Modified  
+        %th Last Modified
         %th More Details  
       - @vendors.each do |vendor|
         %tr
           %td= vendor.name 
-          %td= vendor.description
           %td= vendor.updated_at
           %td= link_to "More about #{vendor.name}", edit_vendor_path(vendor)
 

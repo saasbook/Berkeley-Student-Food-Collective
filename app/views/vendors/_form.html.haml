@@ -8,10 +8,6 @@
       = f.text_field :name
 
     .form_group.element_div
-      = f.label :description
-      = f.text_field :description
-
-    .form_group.element_div
       = f.label :address
       = f.text_field :address
 
@@ -27,17 +23,26 @@
       = f.label :instagram
       = f.text_field :instagram
 
-    #tags.element_div
-      = f.fields_for :tags do |ff|
-        %div.tag
-          = ff.label :name, 'Tag Name'
-          = ff.text_field :name
-          = ff.check_box :_destroy
-          = ff.label :_destroy, 'Remove Tag'
-    #new_tags.element_div
-      = text_field_tag :new_tag_field
-      = button_tag 'Add new tag', id: :new_tag_button, type: 'button', onclick: 'addNewTag()'
+    #ownerships.element_div
+      -#= select_tag 'vendor[ownership_ids]', options_from_collection_for_select(@vendor.ownerships, :id, :name, @vendor.ownerships.ids), {multiple: true, class: 'form-control'}
+      = f.collection_select :ownership_ids, Ownership.all, :id, :name, {}, {multiple: true}
+
+    -##new_ownerships.element_div
+      -#= form_for :ownership, url: ownerships_path, remote: true, html: {id: :new_ownership_form} do |ff|
+      -#  = ff.text_field :name
+        -#= text_field_tag :new_ownership_field
+        -#= button_tag 'Add new ownership type', id: :new_ownership_button, type: 'button', onclick: 'addNewSelect()'
+        -#= ff.button 'Add new ownership type', form: :new_ownership_form
+
+    #new_ownerships.element_div
+      = text_field_tag 'name'
+      = submit_tag 'Add new ownership type', type: :button, class: :tag_submit
 
     #submit_div.form_group
       = f.submit class: 'btn btn-success'
       %button.btn.btn-danger#cancel_button{type: 'button', onclick: 'confirmVendorCancel()'} Cancel
+
+-##new_ownerships.element_div
+-#  = form_for :ownership, url: ownerships_path, remote: true, html: {id: :new_ownership_form} do |ff|
+-#    = ff.text_field :name
+-#    = ff.submit 'Add new ownership type', form: :new_ownership_form
