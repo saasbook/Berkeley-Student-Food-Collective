@@ -25,7 +25,7 @@ gem 'jquery-rails'
 
 gem 'bootstrap', '~> 4.3.1'
 # Bootstrap Stylesheets
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -77,7 +77,7 @@ group :test do
 end
 
 group :production do
-  #gem 'pg', '~> 0.21' # for Heroku deployment
+  gem 'pg', '~> 0.21' # for Heroku deployment
   gem 'rails_12factor'
 end
 
