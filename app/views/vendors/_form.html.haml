@@ -24,11 +24,15 @@
       = f.text_field :instagram
 
     #ownerships.element_div
-      = f.collection_select :ownership_ids, Ownership.all, :id, :name, {}, {multiple: true}
+      = f.fields_for :ownerships do |ff|
+        %div.ownership
+          = ff.text_field :name, readonly: true, disabled: true, size: 50
+          = ff.check_box :_destroy
+          = ff.label :_destroy, 'Remove Ownership Type'
 
     #new_ownerships.element_div
-      = text_field_tag 'name'
-      = submit_tag 'Add new ownership type', type: :button, class: :tag_submit
+      = text_field_tag :new_ownership_field
+      = submit_tag 'Add new ownership type', type: :button, onclick: 'addNewSelect()'
 
     #submit_div.form_group
       = f.submit class: 'btn btn-success'

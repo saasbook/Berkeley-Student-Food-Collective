@@ -9,21 +9,44 @@ function confirmProductCancel() {
 }
 
 function confirmGeneralCancel(input) {
-    var cancel = confirm("Are you sure you want to cancel creating this " + input + "? The information will not be saved!");
+    let cancel = confirm("Are you sure you want to cancel creating this " + input + "? The information will not be saved!");
     if (cancel) {
         window.location.href = "/" + input + "s"
     }
 }
 
 function addNewSelect() {
-    var parent = $(event.target).parent();
-    var newValue = parent.find('input[type="text"]').val();
-    var selectDivId = parent[0].id.substr(4);
-    console.log(selectDivId);
-    var select = $("#" + selectDivId + " > select");
-    var newOption = $("<option>").attr({selected: true}).text(newValue);
-    newOption.appendTo(select);
+    let parent = $(event.target).parent();
+    let newValue = parent.find('input[type="text"]').val();
+    let tagTypePlural = parent[0].id.slice(4);
+    let tagType = tagTypePlural.slice(0, -1);
+    let tagsList = $(`#${tagTypePlural}`);
+
+    let newTagNum = $("." + tagType).length;
+    let formFor = $(document).find("form").attr("class").split("_")[1];  // Vendor or product
+    let namePrefix = `${formFor}[${tagTypePlural}_attributes][${newTagNum}]`;
+    let idPrefix = `${formFor}_${tagTypePlural}_attributes_${newTagNum}_`;
+
+    // Corresponds to ownership div in _form.html.haml
+    let newDiv = $("<div>").attr({class: tagType});
+    $("<input>").attr({size: 50, type: "text", value: newValue, name: namePrefix + "[name]", id: idPrefix + "name"}).appendTo(newDiv);
+    $("<input>").attr({name: namePrefix + "[_destroy]", type: "hidden", value: 0}).appendTo(newDiv);
+    $("<input>").attr({type: "checkbox", value: 1, name: namePrefix + "[_destroy]", id: idPrefix + "_destroy"}).appendTo(newDiv);
+    $("<label>").attr({for: idPrefix + "_destroy"}).text("Remove Ownership Type").appendTo(newDiv);
+
+    newDiv.appendTo(tagsList);
 }
+
+// function addNewSelect() {
+//     var parent = $(event.target).parent();
+//     var newValue = parent.find('input[type="text"]').val();
+//     console.log(newValue);
+//     var selectDivId = parent[0].id.substr(4);
+//     console.log(selectDivId);
+//     var select = $("#" + selectDivId + " > select");
+//     var newOption = $("<option>").attr({selected: true}).text(newValue);
+//     newOption.appendTo(select);
+// }
 
 $(document).ready(function() {
     $(".tag_submit").click(function() {

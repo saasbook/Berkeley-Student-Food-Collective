@@ -2,8 +2,7 @@ class VendorsController < ApplicationController
   def vendor_params
     # Allow tags to be created/destroyed along with vendors
     params.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram,
-                                   # ownerships_attributes: [:name, :id, :_destroy])
-                                    ownership_ids: [])
+                                   ownerships_attributes: [:name, :id, :_destroy])
   end
     
   def new
