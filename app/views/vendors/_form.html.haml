@@ -24,15 +24,7 @@
       = f.text_field :instagram
 
     #ownerships.element_div
-      -#= select_tag 'vendor[ownership_ids]', options_from_collection_for_select(@vendor.ownerships, :id, :name, @vendor.ownerships.ids), {multiple: true, class: 'form-control'}
       = f.collection_select :ownership_ids, Ownership.all, :id, :name, {}, {multiple: true}
-
-    -##new_ownerships.element_div
-      -#= form_for :ownership, url: ownerships_path, remote: true, html: {id: :new_ownership_form} do |ff|
-      -#  = ff.text_field :name
-        -#= text_field_tag :new_ownership_field
-        -#= button_tag 'Add new ownership type', id: :new_ownership_button, type: 'button', onclick: 'addNewSelect()'
-        -#= ff.button 'Add new ownership type', form: :new_ownership_form
 
     #new_ownerships.element_div
       = text_field_tag 'name'

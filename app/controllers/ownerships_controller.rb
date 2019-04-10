@@ -5,6 +5,6 @@ class OwnershipsController < ApplicationController
 
   def create
     ownership = Ownership.create!(ownership_params)
-    render json: {id: ownership.id, name: ownership.name}
+    # render json: {id: ownership.id, name: ownership.name}
   end
 end

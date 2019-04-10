@@ -26,10 +26,6 @@ function addNewSelect() {
 }
 
 $(document).ready(function() {
-//     $('select').select2({
-//         theme: "bootstrap",
-//         tags: true
-//     });
     $(".tag_submit").click(function() {
         var parent = $(event.target).parent();
         var tagName = parent.find('input[type="text"]').val();
