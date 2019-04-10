@@ -1,31 +1,17 @@
 #form_div
-  %div
-    %image{:src => image_url('logo450x429.png')}
-    %div#dropdown
-    %div#nav
-      %button{type: 'button', onclick: 'routeToProductPage()'} Products
-      %button{type: 'button', onclick: 'routeToVendorPage()'} Vendors
-    %table
-      %tbody
-        %tr
-          - ('A'..'Z').to_a.each do |letter|
-            %td= letter
+  %h2 All Products
   %div{class: flash[:type]}
     = flash[:message]
-    %table#index
-      %tbody
-        - ('A'..'Z').to_a.each do |letter|
-          %tr
-            %td#heading= letter
-          - Product.where(:name[0] => letter) do |product|
-            %tr
-              %td= "#{product.name} - #{product.vendor}"
-        - @products.each do |product|
-          %tr
-            %td= product.name
-            %td= Vendor.find(product.vendor_id).name
-            %td= link_to "More about #{product.name}", edit_product_path(product)
+  %table{:border => 1}
+    %tbody
+      %tr
+        %th Name  
+        %th Vendor  
+        %th More Details  
+      - @products.each do |product|
+        %tr
+          %td= product.name 
+          %td= Vendor.find(product.vendor_id).name
+          %td= link_to "More about #{product.name}", product_path(product)
 
-
-%li= link_to 'Add new product', new_product_path
-%li= link_to 'Go to vendors', vendors_path
+%li= link_to 'Add new product', new_product_path  

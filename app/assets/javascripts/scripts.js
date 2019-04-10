@@ -1,13 +1,5 @@
 "use strict";
 
-function routeToProductPage() {
-
-}
-
-function routeToVendorPage() {
-	
-}
-
 function confirmVendorCancel() {
 	confirmGeneralCancel("vendor");
 }
