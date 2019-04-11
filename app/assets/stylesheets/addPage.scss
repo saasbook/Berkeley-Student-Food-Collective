@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 body{
 	display: grid;
@@ -74,4 +75,39 @@ label{
 	padding: 10px;
 	display: flex;
 	justify-content: center;
+}
+
+// Index Pages
+
+#letter-nav {
+		justify-content: center;
+		text-align: center;
+		margin-left:auto;
+	  margin-right:auto;
+		table-layout: fixed;
+}
+
+#letters {
+	font-weight: normal;
+	font-size: 10pt;
+	font-family: 'Raleway', sans-serif;
+	color: #BEBEBE;
+}
+
+#jump {
+	padding: 5px;
+}
+
+#index {
+	justify-content: center;
+	text-align: center;
+	margin-left:auto;
+  margin-right:auto;
+	table-layout: fixed;
+}
+
+#letter-heading {
+	font-weight: bold;
+	font-size: 20pt;
+	font-family: 'Raleway', sans-serif;
 }
