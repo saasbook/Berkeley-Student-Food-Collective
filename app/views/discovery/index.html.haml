@@ -1,9 +1,8 @@
 %body#discovery
     %h1 Hello World
     =render "carousel"
-    - @tags.each do |t|
-        - t.each do |otype|
-            = otype.name
+    - @tags_hash.each do |tag, list|
+        =render "carousel", type: "product", tag: tag, list: list
 
     - @ownerships_hash.each do |tag, list|
-        =render "carousel", tag: tag, list: list
+        =render "carousel", type: "vendor", tag: tag, list: list

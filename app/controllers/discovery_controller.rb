@@ -11,7 +11,6 @@ class DiscoveryController < ApplicationController
   	#to create carousel_element partials for each item (not sure how to create one partial for both products + vendors)
 
   	# VENDOR OWNERSHIPS
-  	@tags = []
   	@vendors = Vendor.all
   	@ownerships_hash = {}
   	@vendors.each do |vendor|
@@ -25,10 +24,12 @@ class DiscoveryController < ApplicationController
   	end
   	
  
-  	#@tags = Vendor.all #We should replace this with the random tags
   	@element_list = {}
 
   	# PRODUCT TAGS
+
+  	@tags_hash = {}
+
 
   	#@tags.each do |tag|
   	#	@element_list[tag] = tag.vendors
