@@ -1,10 +1,11 @@
 #form_div
   %div
-    %image{:src => image_url('logo450x429.png')}
+    %div.centered
+      %image#logo{:src => image_url('logo450x429.png')}
     %div#dropdown
-    %div#nav
-      %button{type: 'button', onclick: 'routeToProductPage()'} Products
-      %button{type: 'button', onclick: 'routeToVendorPage()'} Vendors
+    %div.centered
+      %button.togglePage#selected{type: 'button', onclick: 'routeToProductPage()'} PRODUCTS
+      %button.togglePage#unselected{type: 'button', onclick: 'routeToVendorPage()'} VENDORS
     %table
       %tbody#letter-nav
         %tr#letters
