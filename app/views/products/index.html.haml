@@ -20,4 +20,5 @@
           %td= letter
         - Product.where("name LIKE '#{letter}%'").each do |product|
           %tr
-            %td#products{:text-decoration => 'none', :background-color => 'black'}= link_to "#{product.name} - #{product.vendor.name}", edit_product_path(product)
+            %td#products
+              %button#prod-link{type: 'button', onclick: 'edit_product_path(product)'} #{product.name} - #{product.vendor.name}

@@ -7,7 +7,7 @@ function routeToProductPage() {
 
 function routeToVendorPage() {
     routeToPage("vendors");
-	
+
 }
 
 function routeToPage(input) {
