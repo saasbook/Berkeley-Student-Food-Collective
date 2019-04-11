@@ -1,8 +1,10 @@
 class VendorsController < ApplicationController
   def vendor_params
-    # Allow tags to be created/destroyed along with vendors
+    # ownership_ids allow us to add existing tags (since it's not supported by nested attributes)
+    # nested attributes let us add new tags and remove existing ones
     params.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram,
-                                   tags_attributes: [:name, :id, :_destroy])
+                                   ownership_ids: [],
+                                   ownerships_attributes: [:name, :id, :_destroy])
   end
     
   def new
@@ -14,8 +16,9 @@ class VendorsController < ApplicationController
   def create
     # Creates vendor associated with given tags, and creates new tags if necessary
     vendor = Vendor.create(vendor_params)
+
     if vendor.valid?
-      flash[:message] = "Added Vendor"
+      flash[:message] = 'Added Vendor'
       flash[:type] = 'alert alert-success'
       redirect_to vendors_path
     else
@@ -39,7 +42,7 @@ class VendorsController < ApplicationController
     vendor = Vendor.find(params[:id])
     success = vendor.update_attributes(vendor_params)
     if success
-      flash[:message] = "Updated Vendor"
+      flash[:message] = 'Updated Vendor'
       flash[:type] = 'alert alert-success'
       redirect_to vendors_path
     else

@@ -1,4 +1,4 @@
-%div{class: flash[:type]}
+#notice{class: flash[:type]}
   = flash[:message]
 
 = form_for @vendor do |f|
@@ -6,10 +6,6 @@
     .form_group.element_div
       = f.label :name
       = f.text_field :name
-
-    .form_group.element_div
-      = f.label :description
-      = f.text_field :description
 
     .form_group.element_div
       = f.label :address
@@ -27,16 +23,20 @@
       = f.label :instagram
       = f.text_field :instagram
 
-    #tags.element_div
-      = f.fields_for :tags do |ff|
-        %div.tag
-          = ff.label :name, 'Tag Name'
-          = ff.text_field :name
+    #ownerships.element_div
+      = f.label :ownerships, 'Ownership Types'
+      = f.collection_select :ownership_ids, @vendor.ownerships, :id, :name, {}, {hidden: true, multiple: true}
+      = f.fields_for :ownerships do |ff|
+        %div.ownership
+          = ff.text_field :name, readonly: true, disabled: true, size: 41
           = ff.check_box :_destroy
-          = ff.label :_destroy, 'Remove Tag'
-    #new_tags.element_div
-      = text_field_tag :new_tag_field
-      = button_tag 'Add new tag', id: :new_tag_button, type: 'button', onclick: 'addNewTag()'
+          = ff.label :_destroy, 'Remove Ownership Type'
+
+    #new_ownerships.element_div
+      = select_tag :all_ownerships, options_from_collection_for_select(Ownership.all, :id, :name)
+      = submit_tag 'Add existing ownership type', type: :button, onclick: 'addExistingTag()'
+      = text_field_tag :new_ownership_field, '', size: 41
+      = submit_tag 'Add new ownership type', type: :button, onclick: 'addNewTag()'
 
     #submit_div.form_group
       = f.submit class: 'btn btn-success'

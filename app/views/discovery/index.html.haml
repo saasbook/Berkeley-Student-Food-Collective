@@ -2,6 +2,8 @@
     %h1 Hello World
     =render "carousel"
     - @tags.each do |t|
-        =t
-    - @element_list.each do |tag, list|
-        =render "carousel", tag_name: tag, list: list
+        - t.each do |otype|
+            = otype.name
+
+    - @ownerships_hash.each do |tag, list|
+        =render "carousel", tag: tag, list: list

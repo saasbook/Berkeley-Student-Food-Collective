@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Vendor.create(name: 'Vendor 1')
+Ownership.create(name: 'LGBTQ+')
+Ownership.create(name: 'POC')
+Ownership.create(name: 'Women')
+VendorOwnership.create(vendor_id: 1, ownership_id: 1)
+VendorOwnership.create(vendor_id: 1, ownership_id: 2)
