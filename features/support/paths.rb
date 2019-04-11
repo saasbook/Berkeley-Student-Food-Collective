@@ -16,22 +16,22 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
-    when /^the New Vendor page$/
+    when /^the new vendor page$/
       new_vendor_path
 
-    when /^the All Vendors page$/
+    when /^the vendors page$/
       vendors_path
 
-    when /^the Edit Vendor page$/
-      edit_vendor_path(1)
+    when /^the edit vendor page$/
+      edit_vendor_path(2)
 
-    when /^the New Product page$/
+    when /^the new product page$/
       new_product_path
 
-    when /^the All Products page$/
+    when /^the products page$/
       products_path
 
-    when /^the Edit Product page$/
+    when /^the edit product page$/
       edit_product_path(1)
 
     # Add more mappings here.

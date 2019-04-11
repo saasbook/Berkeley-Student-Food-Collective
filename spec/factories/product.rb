@@ -1,6 +1,6 @@
 FactoryBot.define do 
 	factory :product do
-		name {"New Product"}
+		name {"Default Product Name"}
 		vegan {true}
 		gluten_free {false}
 		dairy_free {false}

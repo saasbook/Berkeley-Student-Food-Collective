@@ -41,4 +41,4 @@
 
     .form_group#submit_div
       = f.submit class: 'btn btn-success'
-      %button.btn.btn-danger#cancel_button{type: 'button', onclick: 'confirmProductCancel()'} Cancel
+      = button_tag 'Cancel', type: :button, onclick: 'confirmVendorCancel()', id: :cancel_button, class: 'btn btn-danger'

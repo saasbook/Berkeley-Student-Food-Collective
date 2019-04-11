@@ -1,22 +1,21 @@
-Given /I create a new vendor with tags/ do
-  FactoryBot.create(:vendor)
-  FactoryBot.create(:tag)
-  VendorTag.create(tag_id: 1, vendor_id: 1)
-end
-
 Given /I create a new vendor/ do
   FactoryBot.create(:vendor)
 end
 
-Given /some tags already exist/ do
-  FactoryBot.create()
+Given /a vendor tag already exists/ do
+  FactoryBot.create(:ownership)
+  FactoryBot.create(:ownership, {name: 'Ownership 2'})
 end
 
-When /I fill in the New Vendor form/ do
-  step %{I am on the New Vendor page}
+When /I fill in the new vendor form/ do
+  step %{I am on the new vendor page}
   FactoryBot.attributes_for(:vendor).each do |key, value|
     step %{I fill in "vendor_#{key}" with "#{value}"}
   end
+end
+
+When /I add a pre-existing vendor tag/ do
+  select FactoryBot.attributes_for(:ownership)[:name], from: :existing_ownerships
 end
 
 When /I add a new tag "(.*)"/ do |tag|
@@ -26,12 +25,12 @@ When /I add a new tag "(.*)"/ do |tag|
 	}
 end
 
-Then /I should see a success message/ do
-  expect(page).to have_css('#notice.alert-success')
-end
-
-Then /I should see an error message/ do
-  expect(page).to have_css('#notice.alert-danger')
+Then /the vendor should be successfully added/ do
+  steps %Q{
+    Then I should be on the vendors page
+    And I should see a success message
+    And I go to the edit vendor page
+  }
 end
 
 Then /I should see the vendor attributes(, except "(.*)",)? filled in/ do |exclude|
@@ -42,7 +41,7 @@ Then /I should see the vendor attributes(, except "(.*)",)? filled in/ do |exclu
   end
 end
 
-Then /the vendor should have the tag "(.*)"/ do |tag|
+Then /the vendor should have the tags: "(.*)"/ do |tag|
   step %{I am on the Edit Vendor page}
   within('div#tags') do
     expect(page).to have_selector("input[value='#{tag}']")
