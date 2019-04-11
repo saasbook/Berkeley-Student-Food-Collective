@@ -1,4 +1,4 @@
-%div{class: flash[:type]}
+#notice{class: flash[:type]}
   = flash[:message]
 
 = form_for @vendor do |f|
@@ -24,21 +24,20 @@
       = f.text_field :instagram
 
     #ownerships.element_div
+      = f.label :ownerships, 'Ownership Types'
+      = f.collection_select :ownership_ids, @vendor.ownerships, :id, :name, {}, {hidden: true, multiple: true}
       = f.fields_for :ownerships do |ff|
         %div.ownership
-          = ff.text_field :name, readonly: true, disabled: true, size: 50
+          = ff.text_field :name, readonly: true, disabled: true, size: 41
           = ff.check_box :_destroy
           = ff.label :_destroy, 'Remove Ownership Type'
 
     #new_ownerships.element_div
-      = text_field_tag :new_ownership_field
-      = submit_tag 'Add new ownership type', type: :button, onclick: 'addNewSelect()'
+      = select_tag :all_ownerships, options_from_collection_for_select(Ownership.all, :id, :name)
+      = submit_tag 'Add existing ownership type', type: :button, onclick: 'addExistingTag()'
+      = text_field_tag :new_ownership_field, '', size: 41
+      = submit_tag 'Add new ownership type', type: :button, onclick: 'addNewTag()'
 
     #submit_div.form_group
       = f.submit class: 'btn btn-success'
       %button.btn.btn-danger#cancel_button{type: 'button', onclick: 'confirmVendorCancel()'} Cancel
-
--##new_ownerships.element_div
--#  = form_for :ownership, url: ownerships_path, remote: true, html: {id: :new_ownership_form} do |ff|
--#    = ff.text_field :name
--#    = ff.submit 'Add new ownership type', form: :new_ownership_form

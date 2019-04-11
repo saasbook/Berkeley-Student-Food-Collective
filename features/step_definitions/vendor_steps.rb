@@ -1,12 +1,15 @@
-
 Given /I create a new vendor with tags/ do
   FactoryBot.create(:vendor)
   FactoryBot.create(:tag)
   VendorTag.create(tag_id: 1, vendor_id: 1)
 end
 
-Given /I create a new vendor with name of "(.*)"/ do |name|
-  FactoryBot.create(:vendor, name: name)
+Given /I create a new vendor/ do
+  FactoryBot.create(:vendor)
+end
+
+Given /some tags already exist/ do
+  FactoryBot.create()
 end
 
 When /I fill in the New Vendor form/ do
@@ -23,11 +26,12 @@ When /I add a new tag "(.*)"/ do |tag|
 	}
 end
 
-Then /the vendor should( not)? be (.*)/ do |has_not, action|
-	steps %Q{
-		Then I should be on the All Vendors page
-		And I should #{has_not.nil? ? '' : 'not '}see "#{action.capitalize} Vendor"
-	}
+Then /I should see a success message/ do
+  expect(page).to have_css('#notice.alert-success')
+end
+
+Then /I should see an error message/ do
+  expect(page).to have_css('#notice.alert-danger')
 end
 
 Then /I should see the vendor attributes(, except "(.*)",)? filled in/ do |exclude|
