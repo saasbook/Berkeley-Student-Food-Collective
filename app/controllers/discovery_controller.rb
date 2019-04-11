@@ -9,6 +9,13 @@ class DiscoveryController < ApplicationController
   	#In the discovery index view, we will go through the element_list and construct a carousel for each list
   	#We will need to iterate through the passed in list of products/vendors 
   	#to create carousel_element partials for each item (not sure how to create one partial for both products + vendors)
+
+  	@tags = Tag.all #We should replace this with the random tags
+  	@element_list = {}
+
+  	@tags.each do |tag|
+  		@element_list[tag] = tag.vendors
+  	end
   	@element_list = []
   end
 
