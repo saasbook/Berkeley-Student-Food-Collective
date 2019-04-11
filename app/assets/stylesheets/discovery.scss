@@ -4,18 +4,18 @@ body#discovery{
 	grid-template-rows: 1fr 1fr
 }
 
-.trial{
+.carousel{
 	overflow:auto;
 	white-space: nowrap;
 	padding: 15px;
 	text-align: center;
 }
 
-.trial_button{
+.carousel_element{
 	transition: 0.3s transform;
 }
 
-.trial_button:hover {
+.carousel_element:hover {
 	transform: scale(1.5);
 }
 
@@ -25,4 +25,8 @@ body#discovery{
 
 .spreadRight {
 	transform:translate3d(-30px, 0px, 0px);
+}
+
+.shade {
+	opacity: 0%;
 }

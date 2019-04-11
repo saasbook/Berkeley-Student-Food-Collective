@@ -1,3 +1,5 @@
 %body#discovery
-	%h1 Hello World
-	=render "carousel"
+    %h1 Hello World
+    =render "carousel"
+    - @element_list.each do |el|
+        =render "carousel", locals: {list: el}
