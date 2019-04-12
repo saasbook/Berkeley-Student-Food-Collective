@@ -23,7 +23,7 @@ module NavigationHelpers
       vendors_path
 
     when /^the edit vendor page$/
-      edit_vendor_path(2)
+      edit_vendor_path(1)
 
     when /^the new product page$/
       new_product_path

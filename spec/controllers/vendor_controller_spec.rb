@@ -18,6 +18,22 @@ describe VendorsController do
   end
 
   describe '#create' do
+    context 'when vendor has no tags' do
+      before do
+        create_vendor_without_tags
+      end
+
+      it 'adds vendor to DB' do
+        expect(Vendor.count).to eq(1)
+        expect(Tag.count).to eq(0)
+        expect(VendorTag.count).to eq(0)
+      end
+
+      it 'redirects to the vendors page' do
+        expect(response).to redirect_to(vendors_path)
+      end
+    end
+
     context 'when vendor has no name' do
       before do
         create_vendor_without_tags(name: '')
@@ -48,22 +64,6 @@ describe VendorsController do
 
       it 'redirects to the new vendor page' do
         expect(response).to redirect_to(new_vendor_path)
-      end
-    end
-
-    context 'when vendor has no tags' do
-      before do
-        create_vendor_without_tags
-      end
-
-      it 'adds vendor to DB' do
-        expect(Vendor.count).to eq(1)
-        expect(Tag.count).to eq(0)
-        expect(VendorTag.count).to eq(0)
-      end
-
-      it 'redirects to the vendors page' do
-        expect(response).to redirect_to(vendors_path)
       end
     end
 

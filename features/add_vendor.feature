@@ -27,19 +27,54 @@ Feature: Add a new vendor to the database
     And I should see the vendor attributes filled in
 
   @javascript
-  Scenario: Add new vendor with only existing tags (happy)
+  Scenario: Add new vendor with only existing tag (happy)
     Given a vendor tag already exists
-    When I fill in the New Vendor form
+    When I fill in the new vendor form
     And I add a pre-existing vendor tag
     And I press "Create Vendor"
     Then the vendor should be successfully added
-    And I should see the vendor attributes filled in
-    And the vendor should have the tags: "Some Tag"
-
-  # TODO: Add tests for new tags, existing + new tags, adding existing + delete, and adding new + delete
+    And the vendor should have a pre-existing tag
 
   @javascript
-  Scenario: Fill new vendor form, press cancel, and confirm (sad)
+  Scenario: Add new vendor with only new tag (happy)
+    When I fill in the new vendor form
+    And I add a new vendor tag
+    And I press "Create Vendor"
+    Then the vendor should be successfully added
+    And the vendor should have a new tag
+
+  @javascript
+  Scenario: Add new vendor with existing tag and new tag (happy)
+    Given a vendor tag already exists
+    When I fill in the new vendor form
+    And I add a pre-existing vendor tag
+    And I add a new vendor tag
+    And I press "Create Vendor"
+    Then the vendor should be successfully added
+    And the vendor should have a pre-existing tag
+    And the vendor should have a new tag
+  
+  @javascript
+  Scenario: Add new vendor while adding and removing existing tag (happy)
+    Given a vendor tag already exists
+    When I fill in the new vendor form
+    And I add a pre-existing vendor tag
+    And I check "Remove Ownership Type"
+    And I press "Create Vendor"
+    Then the vendor should be successfully added
+    And the vendor should have no tags
+  
+  @javascript
+  Scenario: Add new vendor while adding and removing new tag (happy)
+    When I fill in the new vendor form
+    And I add a new vendor tag
+    And I check "Remove Ownership Type"
+    And I press "Create Vendor"
+    Then the vendor should be successfully added
+    And the vendor should have no tags
+
+  @javascript
+  Scenario: Fill new vendor form, press cancel, and confirm (happy)
     When I fill in the new vendor form
     And I press "Cancel"
     And I confirm the popup
@@ -47,7 +82,7 @@ Feature: Add a new vendor to the database
     And I should not see a success or error message
 
   @javascript
-  Scenario: Fill new vendor form, press cancel, but dismiss (sad)
+  Scenario: Fill new vendor form, press cancel, but dismiss (happy)
     When I fill in the new vendor form
     And I press "Cancel"
     But I dismiss the popup

@@ -3,7 +3,7 @@ def create_vendor_without_tags(attributes=nil)
   post :create, params: {vendor: vendor.attributes}
 end
 
-def create_vendor_with_tag
+def create_vendor_with_new_tag
   vendor = FactoryBot.build(:vendor)
   tag1 = FactoryBot.build(:tag)
   post :create, params: {vendor: vendor.attributes.merge(tags_attributes: {'0': tag1.attributes})}
