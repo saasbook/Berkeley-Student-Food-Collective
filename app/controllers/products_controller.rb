@@ -6,7 +6,14 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id)
+    params.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :organic, 
+                                    :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id,
+                                    certification_ids: [],
+                                    certifications_attributes: [:name, :id, :_destroy],
+                                    nutrition_ids: [],
+                                    nutritions_attributes: [:name, :id, :_destroy],
+                                    packaging_ids: [],
+                                    packagings_attributes: [:name, :id, :_destroy])
   end
 
   def new

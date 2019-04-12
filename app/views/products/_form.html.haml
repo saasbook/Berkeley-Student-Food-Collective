@@ -49,7 +49,7 @@
           = ff.check_box :_destroy
           = ff.label :_destroy, 'Remove Certification Type'
 
-    #new_certifications.element_div
+    #new_certifications.element_div.add_tag
       = select_tag :existing_certifications, options_from_collection_for_select(Certification.all, :id, :name)
       = submit_tag 'Add existing certification type', type: :button, onclick: 'addExistingTag()'
       = text_field_tag :new_certification_field, '', size: 41
@@ -65,7 +65,7 @@
           = ff.check_box :_destroy
           = ff.label :_destroy, 'Remove Packaging Type'
 
-    #new_packagings.element_div
+    #new_packagings.element_div.add_tag
       = select_tag :existing_packagings, options_from_collection_for_select(Packaging.all, :id, :name)
       = submit_tag 'Add existing packaging type', type: :button, onclick: 'addExistingTag()'
       = text_field_tag :new_packaging_field, '', size: 41
@@ -81,7 +81,7 @@
           = ff.check_box :_destroy
           = ff.label :_destroy, 'Remove Nutrition Type'
 
-    #new_nutritions.element_div
+    #new_nutritions.element_div.add_tag
       = select_tag :existing_nutritions, options_from_collection_for_select(Nutrition.all, :id, :name)
       = submit_tag 'Add existing nutrition type', type: :button, onclick: 'addExistingTag()'
       = text_field_tag :new_nutrition_field, '', size: 41
@@ -93,4 +93,4 @@
 
     .form_group#submit_div
       = f.submit class: 'btn btn-success'
-      = button_tag 'Cancel', type: :button, onclick: 'confirmVendorCancel()', id: :cancel_button, class: 'btn btn-danger'
+      = button_tag 'Cancel', type: :button, onclick: 'confirmProductCancel()', id: :cancel_button, class: 'btn btn-danger'

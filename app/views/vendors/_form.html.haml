@@ -33,7 +33,7 @@
           = ff.check_box :_destroy
           = ff.label :_destroy, 'Remove Ownership Type'
 
-    #new_ownerships.element_div
+    #new_ownerships.element_div.add_tag
       = select_tag :existing_ownerships, options_from_collection_for_select(Ownership.all, :id, :name)
       = submit_tag 'Add existing ownership type', type: :button, onclick: 'addExistingTag()'
       = text_field_tag :new_ownership_field, '', size: 41
