@@ -1,9 +1,15 @@
-Given /I create a new vendor/ do
+Given /a vendor already exists/ do
   FactoryBot.create(:vendor)
 end
 
 Given /a vendor tag already exists/ do
   FactoryBot.create(:ownership)
+end
+
+Given /a vendor with tags already exists/ do
+  FactoryBot.create(:vendor)
+  FactoryBot.create(:ownership)
+  VendorOwnership.create(vendor_id: 1, ownership_id: 1)
 end
 
 When /I fill in the new vendor form/ do
@@ -33,6 +39,15 @@ Then /the vendor should be successfully added/ do
     And I should see the vendor attributes filled in
   }
 end
+
+Then /the vendor should be successfully updated/ do
+  steps %Q{
+    Then I should be on the vendors page
+    And I should see a success message
+    And I go to the edit vendor page
+  }
+end
+
 
 Then /I should see the vendor attributes(, except "(.*)",)? filled in/ do |exclude|
   FactoryBot.attributes_for(:vendor).each do |key, value|

@@ -19,7 +19,7 @@ Feature: Add a new vendor to the database
     And I should see the vendor attributes, except "Name", filled in
 
   Scenario: Try adding vendor with duplicate name (sad)
-    Given I create a new vendor
+    Given a vendor already exists
     When I fill in the new vendor form
     And I press "Create Vendor"
     Then I should be on the new vendor page
