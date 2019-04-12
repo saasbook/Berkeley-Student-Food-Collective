@@ -22,6 +22,7 @@ class VendorsController < ApplicationController
       flash[:type] = 'alert alert-success'
       redirect_to vendors_path
     else
+      puts vendor.errors.messages
       flash[:message] = 'Vendor needs a unique name'
       flash[:type] = 'alert alert-danger'
       flash[:vendor_params] = vendor_params
