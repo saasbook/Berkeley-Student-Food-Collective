@@ -54,16 +54,15 @@ Feature: Add a new vendor to the database
     And the vendor should have a pre-existing tag
     And the vendor should have a new tag
   
-  # TODO: Doesn't work
-#  @javascript
-#  Scenario: Add new vendor while adding and removing existing tag (happy)
-#    Given a vendor tag already exists
-#    When I fill in the new vendor form
-#    And I add a pre-existing vendor tag
-#    And I check "Remove Ownership Type"
-#    And I press "Create Vendor"
-#    Then the vendor should be successfully added
-#    And the vendor should have no tags
+  @javascript
+  Scenario: Add new vendor while adding and removing existing tag (happy)
+    Given a vendor tag already exists
+    When I fill in the new vendor form
+    And I add a pre-existing vendor tag
+    And I check "Remove Ownership Type"
+    And I press "Create Vendor"
+    Then the vendor should be successfully added
+    And the vendor should have no tags
   
   @javascript
   Scenario: Add new vendor while adding and removing new tag (happy)

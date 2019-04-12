@@ -25,13 +25,13 @@ Feature: Edit an existing vendor in the database
     And I should see an error message
     And I should see the vendor attributes filled in
   
-#  Scenario: Try editing vendor with duplicate name (sad)
-#    Given I create a new vendor
-#    When I fill in the new vendor form
-#    And I press "Create Vendor"
-#    Then I should be on the new vendor page
-#    And I should see an error message
-#    And I should see the vendor attributes filled in
+  Scenario: Try editing vendor with duplicate name (sad)
+    Given I create a new vendor
+    When I fill in the new vendor form
+    And I press "Create Vendor"
+    Then I should be on the new vendor page
+    And I should see an error message
+    And I should see the vendor attributes filled in
 
 #  @javascript
 #  Scenario: Update vendor by adding tag (happy)
