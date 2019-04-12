@@ -44,7 +44,7 @@ function addNewSelect(tagName, tagId) {
   $("<input>").attr({size: 41, type: "text", value: tagName, name: namePrefix + "[name]", id: idPrefix + "name"}).appendTo(newDiv);
   $("<input>").attr({name: namePrefix + "[_destroy]", type: "hidden", value: 0}).appendTo(newDiv);
   $("<input>").attr({type: "checkbox", value: 1, name: namePrefix + "[_destroy]", id: idPrefix + "_destroy"}).appendTo(newDiv);
-  $("<label>").attr({for: idPrefix + "_destroy"}).text("Remove Ownership Type").appendTo(newDiv);
+  $("<label>").attr({for: idPrefix + "_destroy"}).text("Remove " + tagType.charAt(0).toUpperCase() + tagType.slice(1) + " Type").appendTo(newDiv);
   newDiv.appendTo(tagsDiv);
 
   if (tagId) {
