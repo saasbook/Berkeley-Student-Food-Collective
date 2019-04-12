@@ -1,4 +1,5 @@
 %div{:class => "container"}
 	%button.carousel_element
 		= image_tag "test.jpg", :class => "image"
-	%div{:class => "bottom-left"} Centered
+	%div{:class => "bottom-left"} 
+		%td= local_assigns[:vendor].name
