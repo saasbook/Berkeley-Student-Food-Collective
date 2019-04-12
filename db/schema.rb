@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_12_213724) do
+ActiveRecord::Schema.define(version: 2019_04_12_224145) do
 
   create_table "certifications", force: :cascade do |t|
     t.string "name"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_213724) do
     t.text "origin"
     t.text "cultural_history"
     t.boolean "organic"
+    t.string "picture"
     t.index ["vendor_id"], name: "index_products_on_vendor_id"
   end
 
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_213724) do
     t.datetime "updated_at", null: false
     t.text "story"
     t.text "mission"
+    t.string "picture"
   end
 
 end

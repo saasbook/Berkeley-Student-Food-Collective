@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :organic, 
+    params.require(:product).permit(:name, :picture, :vegan, :gluten_free, :dairy_free, :organic, 
                                     :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id,
                                     certification_ids: [],
                                     certifications_attributes: [:name, :id, :_destroy],
@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params_without_ids
-    params.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :organic,
+    params.require(:product).permit(:name, :picture, :vegan, :gluten_free, :dairy_free, :organic,
                                     :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id,
                                     certifications_attributes: [:name, :id, :_destroy],
                                     nutritions_attributes: [:name, :id, :_destroy],
