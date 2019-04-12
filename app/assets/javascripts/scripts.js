@@ -51,7 +51,7 @@ function addNewSelect(tagName, tagId) {
     // Append to nested attributes
     $("<input>").attr({type: "hidden", value: tagId, name: namePrefix + "[id]", id: idPrefix + "id"}).insertAfter(newDiv);
     // Append ot list of tag ids (so we can add additional existing tags)
-    $("<option>").attr({value: tagId, selected: "selected"}).appendTo($("#vendor_ownership_ids"));
+    $("<option>").attr({value: tagId, selected: "selected"}).appendTo($(`#${formFor}_${tagType}_ids`));
   }
 }
 
