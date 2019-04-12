@@ -38,14 +38,11 @@
       .checkboxClass
         = f.label :humane
         = f.check_box :humane
-    .form_group.element_div
-      = f.label :upc, 'UPC'
-      = f.text_field :upc
 
     #certifications.element_div
       = f.label :certifications, 'Certification Types'
       -# Hidden select necessary to add additional existing tags
-      = f.collection_select :certification_ids, @vendor.certifications, :id, :name, {}, {hidden: true, multiple: true}
+      = f.collection_select :certification_ids, @product.certifications, :id, :name, {}, {hidden: true, multiple: true}
       = f.fields_for :certifications do |ff|
         %div.certification
           = ff.text_field :name, readonly: true, disabled: true, size: 41
@@ -61,7 +58,7 @@
     #packagings.element_div
       = f.label :packagings, 'Packaging Types'
       -# Hidden select necessary to add additional existing tags
-      = f.collection_select :packaging_ids, @vendor.packagings, :id, :name, {}, {hidden: true, multiple: true}
+      = f.collection_select :packaging_ids, @product.packagings, :id, :name, {}, {hidden: true, multiple: true}
       = f.fields_for :packagings do |ff|
         %div.packaging
           = ff.text_field :name, readonly: true, disabled: true, size: 41
@@ -77,7 +74,7 @@
     #nutritions.element_div
       = f.label :nutritions, 'Nutrition Types'
       -# Hidden select necessary to add additional existing tags
-      = f.collection_select :nutrition_ids, @vendor.nutritions, :id, :name, {}, {hidden: true, multiple: true}
+      = f.collection_select :nutrition_ids, @product.nutritions, :id, :name, {}, {hidden: true, multiple: true}
       = f.fields_for :nutritions do |ff|
         %div.nutrition
           = ff.text_field :name, readonly: true, disabled: true, size: 41
@@ -89,6 +86,10 @@
       = submit_tag 'Add existing nutrition type', type: :button, onclick: 'addExistingTag()'
       = text_field_tag :new_nutrition_field, '', size: 41
       = submit_tag 'Add new nutrition type', type: :button, onclick: 'addNewTag()'
+
+    .form_group.element_div
+      = f.label :upc, 'UPC'
+      = f.text_field :upc
 
     .form_group#submit_div
       = f.submit class: 'btn btn-success'
