@@ -6,6 +6,11 @@ class VendorsController < ApplicationController
                                    ownership_ids: [],
                                    ownerships_attributes: [:name, :id, :_destroy])
   end
+
+  def vendor_params_without_ids
+    params.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram,
+                                   ownership_ids: [])
+  end
     
   def new
     # Make new vendor so form knows to make submit button say "Create Vendor"
@@ -15,14 +20,14 @@ class VendorsController < ApplicationController
 
   def create
     # Creates vendor associated with given tags, and creates new tags if necessary
-    vendor = Vendor.create(vendor_params)
+    vendor = Vendor.create(vendor_params_without_ids)
+    success = vendor.update_attributes(vendor_params)
 
-    if vendor.valid?
+    if success
       flash[:message] = 'Added Vendor'
       flash[:type] = 'alert alert-success'
       redirect_to vendors_path
     else
-      puts vendor.errors.messages
       flash[:message] = 'Vendor needs a unique name'
       flash[:type] = 'alert alert-danger'
       flash[:vendor_params] = vendor_params

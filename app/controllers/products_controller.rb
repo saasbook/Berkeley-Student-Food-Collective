@@ -16,6 +16,14 @@ class ProductsController < ApplicationController
                                     packagings_attributes: [:name, :id, :_destroy])
   end
 
+  def product_params_without_ids
+    params.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :organic,
+                                    :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id,
+                                    certifications_attributes: [:name, :id, :_destroy],
+                                    nutritions_attributes: [:name, :id, :_destroy],
+                                    packagings_attributes: [:name, :id, :_destroy])
+  end
+
   def new
     # Make new product so form knows to make submit button say "Create Product"
     # Pass in params from form if redirected from #create
@@ -23,8 +31,10 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.create(product_params)
-    if product.valid?
+    product = Product.create(product_params_without_ids)
+    success = product.update_attributes(product_params)
+
+    if success
       flash[:message] = "Added Product"
       flash[:type] = 'alert alert-success'
       redirect_to products_path
