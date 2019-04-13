@@ -2,14 +2,18 @@ Given /a vendor already exists/ do
   FactoryBot.create(:vendor)
 end
 
-Given /a vendor tag already exists/ do
+Given /a(?:nother)? vendor tag already exists/ do
   FactoryBot.create(:ownership)
 end
 
-Given /a vendor with tags already exists/ do
+Given /a vendor with a tag already exists/ do
   FactoryBot.create(:vendor)
-  FactoryBot.create(:ownership)
+  FactoryBot.create(:original_ownership)
   VendorOwnership.create(vendor_id: 1, ownership_id: 1)
+end
+
+Given /another vendor already exists/ do
+  FactoryBot.create(:vendor, name: 'Vendor 2')
 end
 
 When /I fill in the new vendor form/ do
@@ -29,6 +33,20 @@ When /I add a new vendor tag/ do
   fill_in 'new_ownership_field', with: FactoryBot.attributes_for(:new_ownership)[:name]
   click_button 'Add new ownership type'
   step %{the vendor should have a new tag}
+end
+
+When /I fill in "Name" with the other vendor's name/ do
+  fill_in :Name, with: 'Vendor 2'
+end
+
+When /I remove the pre-existing vendor tag/ do
+  input = page.find('#ownerships').find("input[value='#{FactoryBot.attributes_for(:ownership)[:name]}']")
+  input.sibling('input[type="checkbox"]').check
+end
+
+When /I remove the new vendor tag/ do
+  input = page.find('#ownerships').find("input[value='#{FactoryBot.attributes_for(:new_ownership)[:name]}']")
+  input.sibling('input[type="checkbox"]').check
 end
 
 Then /the vendor should be successfully added/ do
@@ -63,6 +81,10 @@ end
 
 Then /the vendor should have a new tag/ do
   expect(page.find('#ownerships')).to have_selector("input[value='#{FactoryBot.attributes_for(:new_ownership)[:name]}']")
+end
+
+Then /the vendor should have its original tag/ do
+  expect(page.find('#ownerships')).to have_selector("input[value='#{FactoryBot.attributes_for(:original_ownership)[:name]}']")
 end
 
 Then /the vendor should have no tags/ do

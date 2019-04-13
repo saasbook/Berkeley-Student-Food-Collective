@@ -5,5 +5,9 @@ FactoryBot.define do
     factory :new_ownership do
       name {'New Ownership Name'}
     end
+
+    factory :original_ownership do
+      name {'Original Ownership Name'}
+    end
   end
 end

@@ -5,40 +5,90 @@ Feature: Add a new product to the database
   So that customers can learn more about the product
 
   Background:
-    Given I create a new vendor with tags
-
-  Scenario: Add new product (happy)
-    When I fill in the New Product form
-    And I press "Create Product"
-    Then the product should be added
-
-  Scenario: Try adding product with no name (sad)
-    When I fill in the New Product form
+    Given a vendor already exists
+    
+  
+  Scenario: Add new vendor without tags (happy)
+    When I fill in the new vendor form
+    And I press "Create Vendor"
+    Then the vendor should be successfully added
+    And I should see the vendor attributes filled in
+  
+  Scenario: Try adding vendor with no name (sad)
+    When I fill in the new vendor form
     And I fill in "Name" with ""
-    And I press "Create Product"
-    Then I should be on the New Product page
-    And I should see "Product needs a name and a vendor"
-    And I should see the product attributes, except "Name", filled in
-
-  Scenario: Try adding product with no vendor (sad)
-    When I fill in the New Product form except Vendor
-    And I press "Create Product"
-    Then I should be on the New Product page
-    And I should see "Product needs a name and a vendor"
-    # TODO: Technically doesn't check this
-    And I should see the product attributes, except "Vendor", filled in
-
+    And I press "Create Vendor"
+    Then I should be on the new vendor page
+    And I should see an error message
+    And I should see the vendor attributes, except "Name", filled in
+  
+  Scenario: Try adding vendor with duplicate name (sad)
+    Given a vendor already exists
+    When I fill in the new vendor form
+    And I press "Create Vendor"
+    Then I should be on the new vendor page
+    And I should see an error message
+    And I should see the vendor attributes filled in
+  
   @javascript
-  Scenario: Fill new product form, press cancel, and confirm (sad)
-    When I fill in the New Product form
+  Scenario: Add new vendor with only existing tag (happy)
+    Given a vendor tag already exists
+    When I fill in the new vendor form
+    And I add a pre-existing vendor tag
+    And I press "Create Vendor"
+    Then the vendor should be successfully added
+    And the vendor should have a pre-existing tag
+  
+  @javascript
+  Scenario: Add new vendor with only new tag (happy)
+    When I fill in the new vendor form
+    And I add a new vendor tag
+    And I press "Create Vendor"
+    Then the vendor should be successfully added
+    And the vendor should have a new tag
+  
+  @javascript
+  Scenario: Add new vendor with existing tag and new tag (happy)
+    Given a vendor tag already exists
+    When I fill in the new vendor form
+    And I add a pre-existing vendor tag
+    And I add a new vendor tag
+    And I press "Create Vendor"
+    Then the vendor should be successfully added
+    And the vendor should have a pre-existing tag
+    And the vendor should have a new tag
+  
+  @javascript
+  Scenario: Add new vendor while adding and removing existing tag (happy)
+    Given a vendor tag already exists
+    When I fill in the new vendor form
+    And I add a pre-existing vendor tag
+    And I check "Remove Ownership Type"
+    And I press "Create Vendor"
+    Then the vendor should be successfully added
+    And the vendor should have no tags
+  
+  @javascript
+  Scenario: Add new vendor while adding and removing new tag (happy)
+    When I fill in the new vendor form
+    And I add a new vendor tag
+    And I check "Remove Ownership Type"
+    And I press "Create Vendor"
+    Then the vendor should be successfully added
+    And the vendor should have no tags
+  
+  @javascript
+  Scenario: Fill new vendor form, press cancel, and confirm (happy)
+    When I fill in the new vendor form
     And I press "Cancel"
     And I confirm the popup
-    Then the product should not be added
-
+    Then I should be on the vendors page
+    And I should not see a success or error message
+  
   @javascript
-  Scenario: Fill new product form, press cancel, but dismiss (sad)
-    When I fill in the New Product form
+  Scenario: Fill new vendor form, press cancel, but dismiss (happy)
+    When I fill in the new vendor form
     And I press "Cancel"
     But I dismiss the popup
-    Then I should be on the New Product page
-    And I should see the product attributes filled in
+    Then I should be on the new vendor page
+    And I should see the vendor attributes filled in

@@ -1,7 +1,3 @@
-Given /I create a new product/ do
-  FactoryBot.create(:product)
-end
-
 When /I fill in the New Product form( except Vendor)?/ do |exclude_vendor|
   step %{I am on the New Product page}
   vendor_name = Vendor.first.name
