@@ -21,10 +21,6 @@ env:
     # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
     - TZ=America/Los_Angeles
     - MOZ_HEADLESS=1
-    - CI_NODE_TOTAL=2
-  matrix:
-    - CI_NODE_INDEX=0
-    - CI_NODE_INDEX=1
 
 before_install:
     - gem update --system
@@ -40,7 +36,6 @@ before_script:
   - psql -c "alter user bsfcuser with superuser;" -U postgres
 
 script:
-  - bundle exec rake knapsack:cucumber
   # setup the test database, including any seed data
   - bundle exec rake db:setup
   # insert here any other steps needed (load other sample data, etc) before starting tests
