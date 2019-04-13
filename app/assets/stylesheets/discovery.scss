@@ -12,7 +12,7 @@ body#discovery{
 }
 
 .carousel_element{
-	transition: 0.3s transform;
+	transition: 0.5s transform;
 }
 
 .carousel_element:hover {
@@ -26,10 +26,12 @@ body#discovery{
 
 .spreadLeft {
 	transform: translate3d(-30px, 0px, 0px);
+	opacity: 0.5;
 }
 
 .spreadRight {
 	transform:translate3d(30px, 0px, 0px);
+	opacity: 0.5;
 }
 
 .shade {
