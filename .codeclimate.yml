@@ -8,8 +8,6 @@ plugins:
     enabled: true
   flog:
     enabled: true
-  haml-lint:
-    enabled: true
 exclude_patterns:
   - "app/channels/"
   - "app/jobs/"
