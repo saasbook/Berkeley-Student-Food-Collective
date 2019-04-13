@@ -7,7 +7,7 @@ class VendorsController < ApplicationController
                                    ownerships_attributes: [:name, :id, :_destroy])
   end
 
-  def vendor_params_without_ids
+  def vendor_params_without_nested
     params.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram,
                                    ownership_ids: [])
   end
@@ -20,7 +20,8 @@ class VendorsController < ApplicationController
 
   def create
     # Creates vendor associated with given tags, and creates new tags if necessary
-    vendor = Vendor.create(vendor_params_without_ids)
+    # Need create and update_attributes call to handle when I add existing tags, but then remove them all
+    vendor = Vendor.create(vendor_params_without_nested)
     success = vendor.update_attributes(vendor_params)
 
     if success

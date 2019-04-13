@@ -6,89 +6,87 @@ Feature: Add a new product to the database
 
   Background:
     Given a vendor already exists
-    
   
-  Scenario: Add new vendor without tags (happy)
-    When I fill in the new vendor form
-    And I press "Create Vendor"
-    Then the vendor should be successfully added
-    And I should see the vendor attributes filled in
-  
-  Scenario: Try adding vendor with no name (sad)
-    When I fill in the new vendor form
+  Scenario: Add new product without tags (happy)
+    When I fill in the new product form
+    And I press "Create Product"
+    Then the product should be successfully added
+    And I should see the product attributes filled in
+
+  Scenario: Try adding product with no name (sad)
+    When I fill in the new product form
     And I fill in "Name" with ""
-    And I press "Create Vendor"
-    Then I should be on the new vendor page
+    And I press "Create Product"
+    Then I should be on the new product page
     And I should see an error message
-    And I should see the vendor attributes, except "Name", filled in
-  
-  Scenario: Try adding vendor with duplicate name (sad)
-    Given a vendor already exists
-    When I fill in the new vendor form
-    And I press "Create Vendor"
-    Then I should be on the new vendor page
+    And I should see the product attributes, except "name", filled in
+
+  Scenario: Try adding product with no vendor (sad)
+    When I fill in the new product form except the vendor field
+    And I press "Create Product"
+    Then I should be on the new product page
     And I should see an error message
-    And I should see the vendor attributes filled in
-  
+    And I should see the product attributes, except "vendor", filled in
+
   @javascript
-  Scenario: Add new vendor with only existing tag (happy)
-    Given a vendor tag already exists
-    When I fill in the new vendor form
-    And I add a pre-existing vendor tag
-    And I press "Create Vendor"
-    Then the vendor should be successfully added
-    And the vendor should have a pre-existing tag
-  
+  Scenario: Add new product with only existing tags (happy)
+    Given product tags already exist
+    When I fill in the new product form
+    And I add pre-existing product tags
+    And I press "Create Product"
+    Then the product should be successfully added
+    And the product should have pre-existing tags
+
   @javascript
-  Scenario: Add new vendor with only new tag (happy)
-    When I fill in the new vendor form
-    And I add a new vendor tag
-    And I press "Create Vendor"
-    Then the vendor should be successfully added
-    And the vendor should have a new tag
-  
+  Scenario: Add new product with only new tags (happy)
+    When I fill in the new product form
+    And I add new product tags
+    And I press "Create Product"
+    Then the product should be successfully added
+    And the product should have new tags
+
   @javascript
-  Scenario: Add new vendor with existing tag and new tag (happy)
-    Given a vendor tag already exists
-    When I fill in the new vendor form
-    And I add a pre-existing vendor tag
-    And I add a new vendor tag
-    And I press "Create Vendor"
-    Then the vendor should be successfully added
-    And the vendor should have a pre-existing tag
-    And the vendor should have a new tag
-  
+  Scenario: Add new product with existing tags and new tags (happy)
+    Given product tags already exist
+    When I fill in the new product form
+    And I add pre-existing product tags
+    And I add new product tags
+    And I press "Create Product"
+    Then the product should be successfully added
+    And the product should have pre-existing tags
+    And the product should have new tags
+
   @javascript
-  Scenario: Add new vendor while adding and removing existing tag (happy)
-    Given a vendor tag already exists
-    When I fill in the new vendor form
-    And I add a pre-existing vendor tag
-    And I check "Remove Ownership Type"
-    And I press "Create Vendor"
-    Then the vendor should be successfully added
-    And the vendor should have no tags
-  
+  Scenario: Add new product while adding and removing existing tags (happy)
+    Given product tags already exist
+    When I fill in the new product form
+    And I add pre-existing product tags
+    And I remove the pre-existing product tags
+    And I press "Create Product"
+    Then the product should be successfully added
+    And the product should have no tags
+
   @javascript
-  Scenario: Add new vendor while adding and removing new tag (happy)
-    When I fill in the new vendor form
-    And I add a new vendor tag
-    And I check "Remove Ownership Type"
-    And I press "Create Vendor"
-    Then the vendor should be successfully added
-    And the vendor should have no tags
-  
+  Scenario: Add new product while adding and removing new tags (happy)
+    When I fill in the new product form
+    And I add new product tags
+    And I remove the new product tags
+    And I press "Create Product"
+    Then the product should be successfully added
+    And the product should have no tags
+
   @javascript
-  Scenario: Fill new vendor form, press cancel, and confirm (happy)
-    When I fill in the new vendor form
+  Scenario: Fill new product form, press cancel, and confirm (happy)
+    When I fill in the new product form
     And I press "Cancel"
     And I confirm the popup
-    Then I should be on the vendors page
+    Then I should be on the products page
     And I should not see a success or error message
-  
+
   @javascript
-  Scenario: Fill new vendor form, press cancel, but dismiss (happy)
-    When I fill in the new vendor form
+  Scenario: Fill new product form, press cancel, but dismiss (happy)
+    When I fill in the new product form
     And I press "Cancel"
     But I dismiss the popup
-    Then I should be on the new vendor page
-    And I should see the vendor attributes filled in
+    Then I should be on the new product page
+    And I should see the product attributes filled in

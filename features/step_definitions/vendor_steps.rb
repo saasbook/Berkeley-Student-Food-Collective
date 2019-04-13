@@ -13,7 +13,7 @@ Given /a vendor with a tag already exists/ do
 end
 
 Given /another vendor already exists/ do
-  FactoryBot.create(:vendor, name: 'Vendor 2')
+  FactoryBot.create(:vendor, name: FactoryBot.attributes_for(:other_vendor)[:name])
 end
 
 When /I fill in the new vendor form/ do
@@ -36,7 +36,7 @@ When /I add a new vendor tag/ do
 end
 
 When /I fill in "Name" with the other vendor's name/ do
-  fill_in :Name, with: 'Vendor 2'
+  fill_in :Name, with: FactoryBot.attributes_for(:other_vendor)[:name]
 end
 
 When /I remove the pre-existing vendor tag/ do
@@ -88,6 +88,8 @@ Then /the vendor should have its original tag/ do
 end
 
 Then /the vendor should have no tags/ do
-  expect(page).not_to have_content(FactoryBot.attributes_for(:vendor)[:name])
-  expect(page).not_to have_content(FactoryBot.attributes_for(:new_ownership)[:name])
+  div = page.find('#ownerships')
+  expect(div).not_to have_selector("input[value='#{FactoryBot.attributes_for(:ownership)[:name]}']")
+  expect(div).not_to have_selector("input[value='#{FactoryBot.attributes_for(:new_ownership)[:name]}']")
+  expect(div).not_to have_selector("input[value='#{FactoryBot.attributes_for(:original_ownership)[:name]}']")
 end

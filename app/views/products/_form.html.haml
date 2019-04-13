@@ -4,8 +4,8 @@
 = form_for @product do |f|
   #form_elements_div
     .form_group.element_div
-      = f.label :vendor_id, 'Select A Vendor'
-      = f.select :vendor_id, options_for_select(@vendors.collect{ |v| [v.name, v.id, name: v.name] }), {prompt: 'Select a Vendor'}
+      = f.label :vendor_id, 'Select a Vendor'
+      = f.collection_select :vendor_id, Vendor.all, :id, :name, {selected: @product.vendor_id, prompt: 'Select a Vendor'}
 
     .form_group.element_div
       = f.label :name

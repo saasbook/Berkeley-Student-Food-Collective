@@ -63,14 +63,14 @@ Feature: Edit an existing vendor in the database
     And the vendor should have its original tag
     And the vendor should have a pre-existing tag
     And the vendor should have a new tag
-  
+
   @javascript
   Scenario: Edit vendor by removing its original tag (happy)
     When I check "Remove Ownership Type"
     And I press "Update Vendor"
     Then the vendor should be successfully updated
     And the vendor should have no tags
-  
+
   @javascript
   Scenario: Edit vendor by adding and removing existing tag (happy)
     When I add a pre-existing vendor tag
@@ -78,7 +78,7 @@ Feature: Edit an existing vendor in the database
     And I press "Update Vendor"
     Then the vendor should be successfully updated
     And the vendor should have its original tag
-  
+
   @javascript
   Scenario: Edit vendor by adding and removing existing tag (happy)
     When I add a new vendor tag
@@ -86,7 +86,7 @@ Feature: Edit an existing vendor in the database
     And I press "Update Vendor"
     Then the vendor should be successfully updated
     And the vendor should have its original tag
-  
+
   @javascript
   Scenario: Fill edit vendor form, press cancel, and confirm (happy)
     When I press "Cancel"
