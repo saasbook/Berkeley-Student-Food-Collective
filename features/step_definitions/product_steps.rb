@@ -1,4 +1,4 @@
-Given /(?:other)? product tags already exist/ do
+Given /(?:other )?product tags already exist/ do
   FactoryBot.create(:certification)
   FactoryBot.create(:nutrition)
   FactoryBot.create(:packaging)
@@ -41,6 +41,7 @@ When /I add pre-existing product tags/ do
     select FactoryBot.attributes_for(tag_type)[:name], from: "existing_#{tag_type}s"
     click_button "Add existing #{tag_type} type"
   end
+  step %{the product should have pre-existing tags}
 end
 
 When /I add new product tags/ do
@@ -48,6 +49,7 @@ When /I add new product tags/ do
     fill_in "new_#{tag_type}_field", with: FactoryBot.attributes_for("new_#{tag_type}")[:name]
     click_button "Add new #{tag_type} type"
   end
+  step %{the product should have new tags}
 end
 
 When /I select the product's vendor as the other vendor/ do

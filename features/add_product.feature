@@ -9,23 +9,21 @@ Feature: Add a new product to the database
   
   Scenario: Add new product without tags (happy)
     When I fill in the new product form
-    And I press "Create Product"
+    And I submit the form
     Then the product should be successfully added
     And I should see the product attributes filled in
 
   Scenario: Try adding product with no name (sad)
     When I fill in the new product form
     And I fill in "Name" with ""
-    And I press "Create Product"
-    Then I should be on the new product page
-    And I should see an error message
+    And I submit the form
+    Then I should see an error message on the new product page
     And I should see the product attributes, except "name", filled in
 
   Scenario: Try adding product with no vendor (sad)
     When I fill in the new product form except the vendor field
-    And I press "Create Product"
-    Then I should be on the new product page
-    And I should see an error message
+    And I submit the form
+    Then I should see an error message on the new product page
     And I should see the product attributes, except "vendor", filled in
 
   @javascript
@@ -33,7 +31,7 @@ Feature: Add a new product to the database
     Given product tags already exist
     When I fill in the new product form
     And I add pre-existing product tags
-    And I press "Create Product"
+    And I submit the form
     Then the product should be successfully added
     And the product should have pre-existing tags
 
@@ -41,7 +39,7 @@ Feature: Add a new product to the database
   Scenario: Add new product with only new tags (happy)
     When I fill in the new product form
     And I add new product tags
-    And I press "Create Product"
+    And I submit the form
     Then the product should be successfully added
     And the product should have new tags
 
@@ -51,7 +49,7 @@ Feature: Add a new product to the database
     When I fill in the new product form
     And I add pre-existing product tags
     And I add new product tags
-    And I press "Create Product"
+    And I submit the form
     Then the product should be successfully added
     And the product should have pre-existing tags
     And the product should have new tags
@@ -62,7 +60,7 @@ Feature: Add a new product to the database
     When I fill in the new product form
     And I add pre-existing product tags
     And I remove the pre-existing product tags
-    And I press "Create Product"
+    And I submit the form
     Then the product should be successfully added
     And the product should have no tags
 
@@ -71,7 +69,7 @@ Feature: Add a new product to the database
     When I fill in the new product form
     And I add new product tags
     And I remove the new product tags
-    And I press "Create Product"
+    And I submit the form
     Then the product should be successfully added
     And the product should have no tags
 
