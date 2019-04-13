@@ -1,32 +1,40 @@
-$(document).ready(function() {
-	$(".carousel_element").mouseenter(function() {
-		current_index = $(this).index();
-		$(".carousel_element").each(function(index){
-			console.log(index);
-			if (current_index < index) {
-				document.getElementById($(this).text()).classList.add("spreadLeft"); 
-				document.getElementById($(this).text()).classList.add("shade");
-			} else if (current_index > index) {
-				document.getElementById($(this).text()).classList.add("spreadRight"); 
-				document.getElementById($(this).text()).classList.add("shade");
-
+$(document).ready(function(){
+	function classString(list){
+		var returnString = ".";
+		for (i = 0; i < list.length; i++) {
+			returnString += list[i] + ".";
+		}
+		return returnString;
+	}
+	$(".carousel_element").mouseover(function() {
+		hovered_index = $(this).index();
+		let classes = classString(event.currentTarget.classList).substring(0, classString(event.currentTarget.classList).length - 1);
+		$(classes).each(function(index){
+			element_index = $(this).index();
+			if (element_index < hovered_index) {
+				$(this).context.classList.add("spreadLeft"); 
+			} 
+			if (element_index > hovered_index) {
+				$(this).context.classList.add("spreadRight"); 
+				//document.getElementById($(this).find("td").context.innerText).classList.add("spreadRight"); 
 			}
 		});
 	});
-
 	$(".carousel_element").mouseleave(function() {
-		current_index = $(this).index();
-		$(".carousel_element").each(function(index){
-			if (current_index < index) {
-				document.getElementById($(this).text()).classList.remove("spreadLeft"); 
-								document.getElementById($(this).text()).classList.remove("shade");
-
-			} else if (current_index > index) {
-				document.getElementById($(this).text()).classList.remove("spreadRight");
-								document.getElementById($(this).text()).classList.remove("shade");
- 
+		hovered_index = $(this).index();
+		classes = classString(event.currentTarget.classList).substring(0, classString(event.currentTarget.classList).length - 1);
+		$(classes).each(function(index){
+			element_index = $(this).index();
+			if (element_index < hovered_index) {
+				$(this).context.classList.remove("spreadLeft"); 
+			} 
+			if (element_index > hovered_index) {
+				$(this).context.classList.remove("spreadRight"); 
 			}
 		});
 	});
-
 });
+
+
+
+

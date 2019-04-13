@@ -1,5 +1,5 @@
-%div{:class => "container"}
-	%button.carousel_element
+%div{:class => "container carousel_element #{local_assigns[:ownership]}", :id => local_assigns[:vendor].name}
+	%button
 		= image_tag "test.jpg", :class => "image"
 	%div{:class => "bottom-left"} 
 		%td= local_assigns[:vendor].name
