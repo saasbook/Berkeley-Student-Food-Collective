@@ -23,14 +23,11 @@ When /I fill in the new product form( except the vendor field)?/ do |exclude_ven
   unless exclude_vendor
     select vendor_name, from: :product_vendor_id
   end
-  # steps %Q{
-  #   Then I fill in "Name" with "#{product_attributes[:name]}"
-  #   And I fill in "UPC" with "#{product_attributes[:upc]}"
-  # }
   fill_in :Name, with: product_attributes[:name]
   fill_in :UPC, with: product_attributes[:upc]
+  fill_in :Picture, with: product_attributes[:picture]
   product_attributes.each do |key, value|
-    unless [:name, :vendor_id, :upc].include?(key)
+    unless [:name, :vendor_id, :upc, :picture].include?(key)
       step %{I #{value ? '' : 'un'}check "product_#{key}"}
     end
   end
@@ -96,18 +93,16 @@ end
 
 Then /I should see the product attributes(, except "(.*)",)? filled in/ do |exclude|
   product_attributes = FactoryBot.attributes_for(:product)
-  # TODO: Check selected vendor name as well?
   unless exclude == 'vendor'
     expect(page).to have_select('Select a Vendor', selected: FactoryBot.attributes_for(:vendor)[:name])
   end
   unless exclude == 'name'
     step %{the "Name" field should contain "#{product_attributes[:name]}"}
   end
-  unless exclude == 'upc'
-    step %{the "UPC" field should contain "#{product_attributes[:upc]}"}
-  end
+  step %{the "UPC" field should contain "#{product_attributes[:upc]}"}
+  step %{the "Picture" field should contain "#{product_attributes[:picture]}"}
   product_attributes.each do |key, value|
-    if not [:name, :vendor_id, :upc].include?(key) and exclude != key
+    if not [:name, :vendor_id, :upc, :picture].include?(key) and exclude != key
       step %{the "product_#{key}" checkbox should #{value ? '' : 'not '}be checked}
     end
   end

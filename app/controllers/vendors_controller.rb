@@ -2,7 +2,7 @@ class VendorsController < ApplicationController
   def vendor_params
     # ownership_ids allow us to add existing tags (since it's not supported by nested attributes)
     # nested attributes let us add new tags and remove existing ones
-    params.require(:vendor).permit(:name, :description, :address, :facebook, :twitter, :instagram,
+    params.require(:vendor).permit(:name, :picture, :description, :address, :facebook, :twitter, :instagram,
                                    ownership_ids: [],
                                    ownerships_attributes: [:name, :id, :_destroy])
   end
