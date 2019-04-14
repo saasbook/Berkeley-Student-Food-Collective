@@ -59,6 +59,7 @@ class ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     success = product.update_attributes(product_params)
+
     if success
       flash[:message] = 'Updated Product'
       flash[:type] = 'alert alert-success'

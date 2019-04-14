@@ -48,6 +48,7 @@ class VendorsController < ApplicationController
   def update
     vendor = Vendor.find(params[:id])
     success = vendor.update_attributes(vendor_params)
+
     if success
       flash[:message] = 'Updated Vendor'
       flash[:type] = 'alert alert-success'

@@ -27,8 +27,6 @@ gem 'bootstrap', '~> 4.3.1'
 # Bootstrap Stylesheets
 gem 'twitter-bootstrap-rails'
 
-# gem 'select2-rails', '~>3'
-
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

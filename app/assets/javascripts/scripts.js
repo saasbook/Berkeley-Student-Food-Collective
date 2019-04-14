@@ -54,26 +54,3 @@ function addNewSelect(tagName, tagId) {
     $("<option>").attr({value: tagId, selected: "selected"}).appendTo($(`#${formFor}_${tagType}_ids`));
   }
 }
-
-// function addNewSelect() {
-//     var parent = $(event.target).parent();
-//     var newValue = parent.find('input[type="text"]').val();
-//     console.log(newValue);
-//     var selectDivId = parent[0].id.substr(4);
-//     console.log(selectDivId);
-//     var select = $("#" + selectDivId + " > select");
-//     var newOption = $("<option>").attr({selected: true}).text(newValue);
-//     newOption.appendTo(select);
-// }
-
-// $(document).ready(function() {
-//     $(".tag_submit").click(function() {
-//         var parent = $(event.target).parent();
-//         var tagName = parent.find('input[type="text"]').val();
-//         var modelPlural = parent[0].id.slice(4);
-//         var model = modelPlural.slice(0, -1);
-//         var params = {};
-//         params[model] = {'name': tagName};
-//         $.post("/" + modelPlural, params, addNewSelect());
-//     });
-// });
