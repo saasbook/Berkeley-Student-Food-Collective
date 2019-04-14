@@ -21,7 +21,7 @@ end
 
 When /I add a new tag "(.*)"/ do |tag|
   steps %Q{
-  	When I fill in "new_tag_field" with "#{tag}"
+  	When I fill in "new_ownership_field" with "#{tag}"
 		And I press "Add new tag"
 	}
 end

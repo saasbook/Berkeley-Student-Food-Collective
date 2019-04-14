@@ -34,6 +34,9 @@ module NavigationHelpers
     when /^the Edit Product page$/
       edit_product_path(1)
 
+    when /^the Discovery page$/
+      discovery_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
