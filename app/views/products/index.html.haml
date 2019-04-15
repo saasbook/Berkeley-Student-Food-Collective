@@ -16,9 +16,11 @@
   %table#index
     %tbody
       - ('A'..'Z').to_a.each do |letter|
-        %tr#letter-heading
-          %td= letter
-        - Product.where("name LIKE '#{letter}%'").each do |product|
-          %tr
-            %td#products
-              %button#prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
+        - products_with_letter = Product.where("name LIKE '#{letter}%'")
+        - if products_with_letter.length > 0
+          %tr#letter-heading
+            %td= letter
+          - products_with_letter.each do |product|
+            %tr
+              %td#products
+                %button#prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
