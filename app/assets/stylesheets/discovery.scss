@@ -52,3 +52,24 @@ body#discovery{
   display: inline-block;
   width: 300px;
 }
+
+.overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+  left: -0px;
+  opacity: 0;
+  touch-action: none;
+  transition: opacity 0s;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+  touch-action: auto;
+}
+.container:hover .bottom-left {
+  opacity: 0;
+  touch-action: auto;
+}
