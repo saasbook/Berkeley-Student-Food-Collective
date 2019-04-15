@@ -1,7 +1,7 @@
-%div{:class => "container carousel_element #{local_assigns[:ownership]}", :id => local_assigns[:vendor].name, :onclick => "carouselAlert()"}
+%div{:class => "container carousel_element #{local_assigns[:ownership]}", :id => local_assigns[:vendor].name, :onclick => "carouselAlert()"} 
 	%button
-		= image_tag "test.jpg", :class => "image"
+		= image_tag local_assigns[:vendor].picture, :class => "image"
 	%p{:class => "bottom-left"} 
 		%td= local_assigns[:vendor].name
 	%p{:class => "overlay"}
-		"This is a test description. This will be replaced with a the 'company story' when the migration is complete"
+		"This is a test description."
