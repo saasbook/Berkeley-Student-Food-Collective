@@ -1,41 +1,41 @@
 body#discovery{
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 1fr
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr
 }
 
 .carousel{
-	overflow:auto;
-	white-space: nowrap;
-	padding: 50px;
-	text-align: center;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 50px;
+  text-align: center;
 }
 
 .carousel_element{
-	transition: 0.5s transform;
+  transition: 0.5s transform;
 }
 
 .carousel_element:hover {
-	transform: scale(1.5);
+  transform: scale(1.3);
 }
 
 .image {
-	width: auto;
-	height: 300px;
+  width: auto;
+  height: 300px;
 }
 
 .spreadLeft {
-	transform: translate3d(-30px, 0px, 0px);
-	opacity: 0.5;
+  transform: translate3d(-30px, 0px, 0px);
+  opacity: 0.5;
 }
 
 .spreadRight {
-	transform:translate3d(30px, 0px, 0px);
-	opacity: 0.5;
+  transform:translate3d(30px, 0px, 0px);
+  opacity: 0.5;
 }
 
 .shade {
-	opacity: 0%;
+  opacity: 0%;
 }
 
 .bottom-left {
@@ -51,17 +51,17 @@ body#discovery{
   font-size: 20px;
   display: inline-block;
   width: 300px;
+  word-wrap: break-word;
 }
 
 .overlay {
   position: absolute;
   bottom: 10px;
   left: 30px;
-  left: -0px;
   opacity: 0;
   touch-action: none;
   transition: opacity 0s;
-  overflow-wrap: break-word;
+  width: 200px;
   word-wrap: break-word;
 }
 
