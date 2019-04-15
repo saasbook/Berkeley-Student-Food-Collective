@@ -4,7 +4,7 @@ end
 
 Then /the left elements should shift to the left/ do
 	expect(find("#button1")['class']).to contain("carousel_element spreadLeft") 
-	expect(find("#button2")['class']).to contain("carousel_element spreadLeft") 
+	expect(find("#button2")['class']).to contain("carousel_element spreadLeft")
 end
 
 And /the right elements should shift to the right/ do
