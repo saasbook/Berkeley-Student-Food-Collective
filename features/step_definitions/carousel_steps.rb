@@ -24,8 +24,80 @@ Given /a third vendor with a tag already exists/ do
   	VendorOwnership.create(vendor_id: 3, ownership_id: 3)
 end
 
+
+
+
+Given /I create three new products/ do
+	steps %{
+		Given a vendor already exists
+		Given a first product with a tag already exists
+		Given a second product with a tag already exists
+		Given a third product with a tag already exists
+	}
+end
+
+Given /a first product with a tag already exists/ do
+	FactoryBot.create(:product, name: "First Product")
+  	%w(certification nutrition packaging).each do |tag_type|
+    	FactoryBot.create("original_#{tag_type}")
+    	"Product#{tag_type.capitalize}".constantize.create(product_id: 1, "#{tag_type}_id": 1)
+  	end
+end
+
+
+Given /a second product with a tag already exists/ do
+   	FactoryBot.create(:product, name: "Second Product")
+  	%w(certification nutrition packaging).each do |tag_type|
+    	FactoryBot.create("original_#{tag_type}")
+    	"Product#{tag_type.capitalize}".constantize.create(product_id: 2, "#{tag_type}_id": 2)
+  	end
+end
+
+
+Given /a third product with a tag already exists/ do
+   	FactoryBot.create(:product, name: "Third Product")
+  	%w(certification nutrition packaging).each do |tag_type|
+    	FactoryBot.create("original_#{tag_type}")
+    	"Product#{tag_type.capitalize}".constantize.create(product_id: 3, "#{tag_type}_id": 3)
+  	end
+end
+
+
+
+
+ 
+And /I see a carousel for the ownership type "(.*)"/ do |ownership_type| 
+	@formatted = ownership_type.gsub(' ', '_')
+	@found = find("##{@formatted}")
+	expect(@found).not_to be(nil)
+end
+
+Then /I should see all vendors with owned by "(.*)"/ do |ownership_type|
+	@count = 3
+	@classes = ".container.carousel_element." + ownership_type.gsub(" ", "_")
+	@all_vendors = page.all(:css, @classes)
+	expect(@all_vendors.length).to be(@count)
+end
+
+And /I see a carousel for the product tag type "(.*)"/ do |tag_type|
+	@formatted = tag_type.gsub(' ', '_')
+	@found = find("##{@formatted}")
+	expect(@found).not_to be(nil)
+end
+
+
+Then /I should see all products with the tag "(.*)"/ do |tag_type|
+	@count = 3
+	@classes = ".container.carousel_element." + tag_type.gsub(" ", "_")
+	@all_vendors = page.all(:css, @classes)
+	expect(@all_vendors.length).to be(@count)
+end
+
+
+
+
+
 And /I hover over the second carousel element/ do 
-	save_and_open_page
 	find('#Fake_Name_2').hover
 end
 
@@ -42,6 +114,5 @@ And /the right elements should shift to the right/ do
 end	
 
 Then /I should see a vendor carousel for (.*)/ do |type|
-	save_and_open_page
 	expect(find_by_id("#{type}")).not_to be nil
 end
