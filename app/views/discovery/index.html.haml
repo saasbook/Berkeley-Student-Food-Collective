@@ -1,6 +1,4 @@
 %body#discovery
-    %h1 Hello World
-    =render "carousel"
     - @tags_hash.each do |tag, list|
         =render "carousel", type: "product", tag: tag, list: list
 
