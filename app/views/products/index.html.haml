@@ -4,9 +4,9 @@
       %image#logo{:src => image_url('logo450x429.png')}
     %div#dropdown
     %div.centered
-      %button.togglePage#selected{type: 'button', onclick: 'routeToProductPage()'} PRODUCTS
-      %button.togglePage#unselected{type: 'button', onclick: 'routeToVendorPage()'} VENDORS
-    %table
+      %button.togglePage#selected{type: 'button', onclick: "routeToPageDirectly('#{products_path}')"} PRODUCTS
+      %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{vendors_path}')"} VENDORS
+    %table.centered
       %tbody#letter-nav
         %tr#letters
           - ('A'..'Z').to_a.each do |letter|
@@ -21,4 +21,4 @@
         - Product.where("name LIKE '#{letter}%'").each do |product|
           %tr
             %td#products
-              %button#prod-link{type: 'button', onclick: 'edit_product_path(product)'} #{product.name} - #{product.vendor.name}
+              %button#prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
