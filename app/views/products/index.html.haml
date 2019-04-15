@@ -10,7 +10,8 @@
       %tbody#letter-nav
         %tr#letters
           - ('A'..'Z').to_a.each do |letter|
-            %td#jump= letter
+            %td.jump
+              %button#prod-link{type: 'button', onclick: "routeToPageDirectly('##{letter}')"} #{letter}
   %div{class: flash[:type]}
     = flash[:message]
   %table#index
@@ -19,7 +20,7 @@
         - products_with_letter = Product.where("name LIKE '#{letter}%'")
         - if products_with_letter.length > 0
           %tr#letter-heading
-            %td= letter
+            %td{id: "#{letter}"}= letter
           - products_with_letter.each do |product|
             %tr
               %td#products
