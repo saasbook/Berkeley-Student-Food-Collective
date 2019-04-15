@@ -54,3 +54,7 @@ function addNewSelect(tagName, tagId) {
     $("<option>").attr({value: tagId, selected: "selected"}).appendTo($(`#${formFor}_${tagType}_ids`));
   }
 }
+
+function carouselAlert() {
+    alert('Vendor Card - Still in Progress');
+}

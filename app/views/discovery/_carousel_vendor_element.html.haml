@@ -1,4 +1,4 @@
-%div{:class => "container carousel_element #{local_assigns[:ownership]}", :id => local_assigns[:vendor].name}
+%div{:class => "container carousel_element #{local_assigns[:ownership]}", :id => local_assigns[:vendor].name, :onclick => "carouselAlert()"}
 	%button
 		= image_tag "test.jpg", :class => "image"
 	%p{:class => "bottom-left"} 
