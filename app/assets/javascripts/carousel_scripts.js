@@ -35,3 +35,6 @@ $(document).ready(function(){
 	});
 });
 
+function carouselAlert() {
+    alert('Vendor Card - Still in Progress');
+}
