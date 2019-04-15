@@ -25,3 +25,5 @@
             %tr
               %td#products
                 %button#prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
+        - else
+          %tr{id: "#{letter}"}
