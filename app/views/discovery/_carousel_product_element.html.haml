@@ -1,2 +1,7 @@
-- if local_assigns[:product]
-    = local_assigns[:product].name
+%div{:class => "container carousel_element #{local_assigns[:tag]}", :id => local_assigns[:product].name.gsub!(" ", "_"), :onclick => "carouselAlert()"} 
+	%button
+		= image_tag local_assigns[:product].picture, :class => "image"
+	%p{:class => "bottom-left"} 
+		%td= local_assigns[:product].name
+	%p{:class => "overlay"}
+		"This is a test description."

@@ -8,6 +8,6 @@
     - if local_assigns[:type] == "product"
         - if local_assigns[:list]
             - local_assigns[:list].each do |product|
-                =render "carousel_product_element", product: product
+                =render "carousel_product_element", product: product, tag: -local_assigns[:tag]
 
     

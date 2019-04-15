@@ -30,6 +30,7 @@ When /I add a pre-existing vendor tag/ do
   step %{the vendor should have a pre-existing tag}
 end
 
+
 When /I add a new vendor tag/ do
   fill_in 'new_ownership_field', with: FactoryBot.attributes_for(:new_ownership)[:name]
   click_button 'Add new ownership type'

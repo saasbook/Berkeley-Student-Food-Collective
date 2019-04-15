@@ -20,8 +20,9 @@ body#discovery{
 }
 
 .image {
-  width: auto;
-  height: 300px;
+  width: 100%;
+  height: scale;
+  object-fit: contain;
 }
 
 .spreadLeft {
