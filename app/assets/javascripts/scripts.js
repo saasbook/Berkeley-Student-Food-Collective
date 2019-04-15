@@ -1,17 +1,11 @@
 "use strict";
 
-function routeToProductPage() {
-    routeToPage("products");
-
-}
-
-function routeToVendorPage() {
-    routeToPage("vendors");
-
-}
-
 function routeToPage(input) {
     window.location.href = "/" + input;
+}
+
+function routeToPageDirectly(input) {
+    window.location.href = input;
 }
 
 function confirmVendorCancel() {
