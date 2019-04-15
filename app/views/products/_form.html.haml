@@ -4,12 +4,15 @@
 = form_for @product do |f|
   #form_elements_div
     .form_group.element_div
-      = f.label :vendor_id, 'Select A Vendor'
-      = f.select :vendor_id, options_for_select(@vendors.collect{ |v| [v.name, v.id, name: v.name] }), {prompt: 'Select a Vendor'}
+      = f.label :vendor_id, 'Select a Vendor'
+      = f.collection_select :vendor_id, Vendor.all, :id, :name, {selected: @product.vendor_id, prompt: 'Select a Vendor'}
 
     .form_group.element_div
       = f.label :name
       = f.text_field :name
+    .form_group.element_div
+      = f.label :picture, 'Link to Picture'
+      = f.text_field :picture
     .form_group.element_div#dietary_div
       %h4 Dietary Restrictions
       .checkboxClass
@@ -21,6 +24,9 @@
       .checkboxClass
         = f.label :vegan
         = f.check_box :vegan
+      .checkboxClass
+        = f.label :organic
+        = f.check_box :organic
     .form_group.element_div#rfc_div
       %h4 Real Food Challenge
       .checkboxClass
@@ -35,10 +41,59 @@
       .checkboxClass
         = f.label :humane
         = f.check_box :humane
+
+    #certifications.element_div
+      = f.label :certifications, 'Certification Types'
+      -# Hidden select necessary to add additional existing tags
+      = f.collection_select :certification_ids, @product.certifications, :id, :name, {}, {hidden: true, multiple: true}
+      = f.fields_for :certifications do |ff|
+        %div.certification
+          = ff.text_field :name, readonly: true, disabled: true, size: 41
+          = ff.check_box :_destroy
+          = ff.label :_destroy, 'Remove Certification Type'
+
+    #new_certifications.element_div.add_tag
+      = select_tag :existing_certifications, options_from_collection_for_select(Certification.all, :id, :name)
+      = submit_tag 'Add existing certification type', type: :button, onclick: 'addExistingTag()'
+      = text_field_tag :new_certification_field, '', size: 41
+      = submit_tag 'Add new certification type', type: :button, onclick: 'addNewTag()'
+
+    #packagings.element_div
+      = f.label :packagings, 'Packaging Types'
+      -# Hidden select necessary to add additional existing tags
+      = f.collection_select :packaging_ids, @product.packagings, :id, :name, {}, {hidden: true, multiple: true}
+      = f.fields_for :packagings do |ff|
+        %div.packaging
+          = ff.text_field :name, readonly: true, disabled: true, size: 41
+          = ff.check_box :_destroy
+          = ff.label :_destroy, 'Remove Packaging Type'
+
+    #new_packagings.element_div.add_tag
+      = select_tag :existing_packagings, options_from_collection_for_select(Packaging.all, :id, :name)
+      = submit_tag 'Add existing packaging type', type: :button, onclick: 'addExistingTag()'
+      = text_field_tag :new_packaging_field, '', size: 41
+      = submit_tag 'Add new packaging type', type: :button, onclick: 'addNewTag()'
+
+    #nutritions.element_div
+      = f.label :nutritions, 'Nutrition Types'
+      -# Hidden select necessary to add additional existing tags
+      = f.collection_select :nutrition_ids, @product.nutritions, :id, :name, {}, {hidden: true, multiple: true}
+      = f.fields_for :nutritions do |ff|
+        %div.nutrition
+          = ff.text_field :name, readonly: true, disabled: true, size: 41
+          = ff.check_box :_destroy
+          = ff.label :_destroy, 'Remove Nutrition Type'
+
+    #new_nutritions.element_div.add_tag
+      = select_tag :existing_nutritions, options_from_collection_for_select(Nutrition.all, :id, :name)
+      = submit_tag 'Add existing nutrition type', type: :button, onclick: 'addExistingTag()'
+      = text_field_tag :new_nutrition_field, '', size: 41
+      = submit_tag 'Add new nutrition type', type: :button, onclick: 'addNewTag()'
+
     .form_group.element_div
       = f.label :upc, 'UPC'
       = f.text_field :upc
 
     .form_group#submit_div
       = f.submit class: 'btn btn-success'
-      %button.btn.btn-danger#cancel_button{type: 'button', onclick: 'confirmProductCancel()'} Cancel
+      = button_tag 'Cancel', type: :button, onclick: 'confirmProductCancel()', id: :cancel_button, class: 'btn btn-danger'

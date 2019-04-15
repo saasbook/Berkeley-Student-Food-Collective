@@ -1,4 +1,5 @@
 .carousel{id: local_assigns[:tag]}
+    =local_assigns[:tag]
     - if local_assigns[:type] == "vendor"
         - if local_assigns[:list]
             - local_assigns[:list].each do |vendor|
@@ -9,13 +10,4 @@
             - local_assigns[:list].each do |product|
                 =render "carousel_product_element", product: product
 
-    %button.carousel_element#button1 button1
-    %button.carousel_element#button2 button2
-    %button.carousel_element#button3 button3
-    %button.carousel_element#button4 button4
-    %button.carousel_element#button5 button5
-    %button.carousel_element#button6 button6
-    %button.carousel_element#button7 button7
-    %button.carousel_element#button8 button8
-    %button.carousel_element#button9 button9
-    %button.carousel_element#button10 button10
+    

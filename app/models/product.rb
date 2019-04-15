@@ -10,4 +10,8 @@ class Product < ActiveRecord::Base
   has_many :nutritions, through: :product_nutritions
   has_many :product_packagings
   has_many :packagings, through: :product_packagings
+
+  accepts_nested_attributes_for :certifications, :allow_destroy => true
+  accepts_nested_attributes_for :nutritions, :allow_destroy => true
+  accepts_nested_attributes_for :packagings, :allow_destroy => true
 end

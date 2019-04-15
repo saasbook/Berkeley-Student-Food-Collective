@@ -27,8 +27,38 @@ class DiscoveryController < ApplicationController
   	@element_list = {}
 
   	# PRODUCT TAGS
-
+  	@products = Product.all
   	@tags_hash = {}
+
+  	@products.each do |product|
+  		product.nutritions.each do |ownership|
+  			if @tags_hash.key?(ownership.name)
+  				@tags_hash[ownership.name].push(product)
+  			else
+  				@tags_hash[ownership.name] = [product]
+  			end
+  		end
+  	end
+
+  	@products.each do |product|
+  		product.certifications.each do |ownership|
+  			if @tags_hash.key?(ownership.name)
+  				@tags_hash[ownership.name].push(product)
+  			else
+  				@tags_hash[ownership.name] = [product]
+  			end
+  		end
+  	end
+
+  	@products.each do |product|
+  		product.packagings.each do |ownership|
+  			if @tags_hash.key?(ownership.name)
+  				@tags_hash[ownership.name].push(product)
+  			else
+  				@tags_hash[ownership.name] = [product]
+  			end
+  		end
+  	end
 
 
   	#@tags.each do |tag|
