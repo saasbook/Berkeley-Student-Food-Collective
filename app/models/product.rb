@@ -14,4 +14,42 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :certifications, :allow_destroy => true
   accepts_nested_attributes_for :nutritions, :allow_destroy => true
   accepts_nested_attributes_for :packagings, :allow_destroy => true
+
+  def self.get_tags_hash
+    @products = self.all
+    @tags_hash = {}
+
+    @products.each do |product|
+      product.nutritions.each do |ownership|
+        if @tags_hash.key?(ownership.name)
+          @tags_hash[ownership.name].push(product)
+        else
+          @tags_hash[ownership.name] = [product]
+        end
+      end
+    end
+
+    @products.each do |product|
+      product.certifications.each do |ownership|
+        if @tags_hash.key?(ownership.name)
+          @tags_hash[ownership.name].push(product)
+        else
+          @tags_hash[ownership.name] = [product]
+        end
+      end
+    end
+
+    @products.each do |product|
+      product.packagings.each do |ownership|
+        if @tags_hash.key?(ownership.name)
+          @tags_hash[ownership.name].push(product)
+        else
+          @tags_hash[ownership.name] = [product]
+        end
+      end
+    end
+
+    @tags_hash
+
+  end
 end

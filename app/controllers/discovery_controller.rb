@@ -10,60 +10,8 @@ class DiscoveryController < ApplicationController
   	#We will need to iterate through the passed in list of products/vendors 
   	#to create carousel_element partials for each item (not sure how to create one partial for both products + vendors)
 
-  	# VENDOR OWNERSHIPS
-  	@vendors = Vendor.all
-  	@ownerships_hash = {}
-  	@vendors.each do |vendor|
-  		vendor.ownerships.each do |ownership|
-  			if @ownerships_hash.key?(ownership.name)
-  				@ownerships_hash[ownership.name].push(vendor)
-  			else
-  				@ownerships_hash[ownership.name] = [vendor]
-  			end
-  		end
-  	end
-  	
- 
-  	@element_list = {}
-
-  	# PRODUCT TAGS
-  	@products = Product.all
-  	@tags_hash = {}
-
-  	@products.each do |product|
-  		product.nutritions.each do |ownership|
-  			if @tags_hash.key?(ownership.name)
-  				@tags_hash[ownership.name].push(product)
-  			else
-  				@tags_hash[ownership.name] = [product]
-  			end
-  		end
-  	end
-
-  	@products.each do |product|
-  		product.certifications.each do |ownership|
-  			if @tags_hash.key?(ownership.name)
-  				@tags_hash[ownership.name].push(product)
-  			else
-  				@tags_hash[ownership.name] = [product]
-  			end
-  		end
-  	end
-
-  	@products.each do |product|
-  		product.packagings.each do |ownership|
-  			if @tags_hash.key?(ownership.name)
-  				@tags_hash[ownership.name].push(product)
-  			else
-  				@tags_hash[ownership.name] = [product]
-  			end
-  		end
-  	end
-
-
-  	#@tags.each do |tag|
-  	#	@element_list[tag] = tag.vendors
-  	#end
+  	@ownerships_hash = Vendor.get_ownerships_hash
+   	@tags_hash = Product.get_tags_hash
   end
 
 end
