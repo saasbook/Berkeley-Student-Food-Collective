@@ -1,7 +1,7 @@
 FactoryBot.define do 
   factory :vendor do
     name {'Default Vendor Name'}
-    picture {'https://previews.123rf.com/images/rastudio/rastudio1611/rastudio161100449/65118808-hand-drawn-cartoon-of-supermarket-interior-colourful-cartoon-of-background-of-grocery-store-with-pro.jpg'}
+    picture {'https://google.com'}
     address {'Default Vendor Address'}
     facebook {'Default Vendor Facebook'}
     twitter {'Default Vendor Twitter'}

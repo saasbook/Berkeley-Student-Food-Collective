@@ -1,7 +1,7 @@
 FactoryBot.define do
 	factory :product do
 		name {'Default Product Name'}
-		picture {'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500'}
+		picture {'https://google.com'}
 		vegan {true}
 		gluten_free {false}
 		dairy_free {false}

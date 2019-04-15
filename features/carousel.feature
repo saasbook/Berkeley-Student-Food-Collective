@@ -18,6 +18,10 @@ Feature: View and Interact with a Carousel of Products and Vendors
     And I am on the Discovery page
   	And I see a carousel for the product tag type "Original Packaging Name" 
 	Then I should see all products with the tag "Original Packaging Name"
+	And I see a carousel for the product tag type "Original Nutrition Name" 
+	Then I should see all products with the tag "Original Nutrition Name"
+	And I see a carousel for the product tag type "Original Certification Name" 
+	Then I should see all products with the tag "Original Certification Name"
 
   @javascript
   Scenario: 
