@@ -13,7 +13,10 @@ body#discovery{
 }
 
 .carousel_header{
-  text-align: left;
+  font-weight: bold;
+  font-size: 40pt;
+  font-family: 'Arvo', sans-serif;
+  font-weight: 700;
 }
 
 .carousel_element{
@@ -44,38 +47,39 @@ body#discovery{
   opacity: 0%;
 }
 
-.bottom-left {
+.centered {
   position: absolute;
-  bottom: 10px;
-  left: 30px;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container {
   position: relative;
   color: white;
   text-shadow: -1px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
-  font-size: 20px;
   display: inline-block;
   width: 300px;
+  text-align: center;
   word-wrap: break-word;
+  font-size: 20pt;
+  font-family: 'Arvo', sans-serif;
+  font-weight: 400;
 }
 
 .overlay {
   position: absolute;
-  bottom: 10px;
-  left: 30px;
+  top: 75%;
+  left: 10%;
   opacity: 0;
   touch-action: none;
-  transition: opacity 0s;
+  transition: opacity 1s;
   width: 200px;
   word-wrap: break-word;
+  font-size: 14pt;
 }
 
 .container:hover .overlay {
   opacity: 1;
-  touch-action: auto;
-}
-.container:hover .bottom-left {
-  opacity: 0;
   touch-action: auto;
 }
