@@ -1,15 +1,15 @@
-$(document).ready(function(){
-  function classString(list){
-	var returnString = ".";
-	for (i = 0; i < list.length; i++) {
-	  returnString += list[i] + ".";
-	}
-	return returnString;
+$(document).ready(function() {
+  function classString(list) {
+		var returnString = ".";
+		for (i = 0; i < list.length; i++) {
+		  returnString += list[i] + ".";
+		}
+		return returnString;
   }
   $(".carousel_element").mouseover(function() {
 		over_index = $(this).index();
 		let classesOver = classString(event.currentTarget.classList).substring(0, classString(event.currentTarget.classList).length - 1);
-		$(classesOver).each(function(index){
+		$(classesOver).each(function(index) {
 	  	element_index = $(this).index();
 	  	if (element_index < over_index) {
 	  		$(this).context.classList.add("spreadLeft"); 
@@ -17,7 +17,7 @@ $(document).ready(function(){
 	  	if (element_index > over_index) {
 				$(this).context.classList.add("spreadRight"); 
 	  	}
-		});
+	  });
 	});
 	$(".carousel_element").mouseleave(function() {
 	  leave_index = $(this).index();
@@ -31,10 +31,9 @@ $(document).ready(function(){
 				$(this).context.classList.remove("spreadRight"); 
 		  }
 	  });
-  });
+	});
 });
 
 function carouselAlert() {
   alert('Vendor Card - Still in Progress');
 }
-
