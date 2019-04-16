@@ -36,11 +36,11 @@ class ProductsController < ApplicationController
     success = product.update_attributes(product_params)
 
     if success
-      flash[:message] = product.errors.full_messages
+      flash[:message] = 'Added Product'
       flash[:type] = 'alert alert-success'
       redirect_to products_path
     else
-      flash[:message] = product.errors.full_messages
+      flash[:message] = 'Product needs a name and a vendor'
       flash[:type] = 'alert alert-danger'
       flash[:product_params] = product_params
       redirect_to new_product_path
@@ -61,11 +61,11 @@ class ProductsController < ApplicationController
     success = product.update_attributes(product_params)
 
     if success
-      flash[:message] = product.errors.full_messages
+      flash[:message] = 'Updated Product'
       flash[:type] = 'alert alert-success'
       redirect_to products_path
     else
-      flash[:message] = product.errors.full_messages
+      flash[:message] = 'Product needs a name and a vendor'
       flash[:type] = 'alert alert-danger'
       # TODO: Fix redirect causing all changes to be reverted
       redirect_to edit_product_path
