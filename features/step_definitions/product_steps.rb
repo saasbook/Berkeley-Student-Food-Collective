@@ -1,45 +1,140 @@
-Given /I create a new product/ do
+Given /(?:other )?product tags already exist/ do
+  FactoryBot.create(:certification)
+  FactoryBot.create(:nutrition)
+  FactoryBot.create(:packaging)
+end
+
+Given /a product already exists/ do
   FactoryBot.create(:product)
 end
 
-When /I fill in the New Product form( except Vendor)?/ do |exclude_vendor|
-  step %{I am on the New Product page}
+Given /a product with tags already exists/ do
+  FactoryBot.create(:product)
+  %w(certification nutrition packaging).each do |tag_type|
+    FactoryBot.create("original_#{tag_type}")
+    "Product#{tag_type.capitalize}".constantize.create(product_id: 1, "#{tag_type}_id": 1)
+  end
+end
+
+When /I fill in the new product form( except the vendor field)?/ do |exclude_vendor|
+  step %{I am on the new product page}
   vendor_name = Vendor.first.name
   product_attributes = FactoryBot.attributes_for(:product)
   unless exclude_vendor
-    step %{I select "#{vendor_name}" from "product_vendor_id"}
+    select vendor_name, from: :product_vendor_id
   end
-  steps %Q{
-    Then I fill in "Name" with "#{product_attributes[:name]}"
-    And I fill in "UPC" with "#{product_attributes[:upc]}"
-  }
+  fill_in :Name, with: product_attributes[:name]
+  fill_in :UPC, with: product_attributes[:upc]
+  fill_in :Picture, with: product_attributes[:picture]
   product_attributes.each do |key, value|
-    unless [:name, :vendor_id, :upc].include?(key)
+    unless [:name, :vendor_id, :upc, :picture].include?(key)
       step %{I #{value ? '' : 'un'}check "product_#{key}"}
     end
   end
 end
 
-Then /the product should( not)? be (.*)/ do |has_not, action|
+When /I add pre-existing product tags/ do
+  %w(certification nutrition packaging).each do |tag_type|
+    select FactoryBot.attributes_for(tag_type)[:name], from: "existing_#{tag_type}s"
+    click_button "Add existing #{tag_type} type"
+  end
+  step %{the product should have pre-existing tags}
+end
+
+When /I add new product tags/ do
+  %w(certification nutrition packaging).each do |tag_type|
+    fill_in "new_#{tag_type}_field", with: FactoryBot.attributes_for("new_#{tag_type}")[:name]
+    click_button "Add new #{tag_type} type"
+  end
+  step %{the product should have new tags}
+end
+
+When /I select the product's vendor as the other vendor/ do
+  select FactoryBot.attributes_for(:other_vendor)[:name], from: :product_vendor_id
+end
+
+When /I remove the pre-existing product tags/ do
+  %w(certification nutrition packaging).each do |tag_type|
+    input = page.find("##{tag_type}s").find("input[value='#{FactoryBot.attributes_for(tag_type)[:name]}']")
+    input.sibling('input[type="checkbox"]').check
+  end
+end
+
+When /I remove the new product tags/ do
+  %w(certification nutrition packaging).each do |tag_type|
+    input = page.find("##{tag_type}s").find("input[value='#{FactoryBot.attributes_for("new_#{tag_type}")[:name]}']")
+    input.sibling('input[type="checkbox"]').check
+  end
+end
+
+When /I remove the original product tags/ do
+  %w(certification nutrition packaging).each do |tag_type|
+    input = page.find("##{tag_type}s").find("input[value='#{FactoryBot.attributes_for("original_#{tag_type}")[:name]}']")
+    input.sibling('input[type="checkbox"]').check
+  end
+end
+
+Then /the product should be successfully added/ do
   steps %Q{
-		Then I should be on the All Products page
-		And I should #{has_not.nil? ? '' : 'not '}see "#{action.capitalize} Product"
-	}
+    Then I should be on the products page
+    And I should see a success message
+    And I go to the edit product page
+    And I should see the product attributes filled in
+  }
+end
+
+Then /the product should be successfully updated/ do
+  steps %Q{
+    Then I should be on the products page
+    And I should see a success message
+    And I go to the edit product page
+  }
 end
 
 Then /I should see the product attributes(, except "(.*)",)? filled in/ do |exclude|
-  exclude = exclude.downcase unless exclude.nil?
   product_attributes = FactoryBot.attributes_for(:product)
-  # TODO: Check selected vendor name as well?
-  if exclude != "name"
+  unless exclude == 'vendor'
+    expect(page).to have_select('Select a Vendor', selected: FactoryBot.attributes_for(:vendor)[:name])
+  end
+  unless exclude == 'name'
     step %{the "Name" field should contain "#{product_attributes[:name]}"}
   end
-  if exclude != "upc"
-    step %{the "UPC" field should contain "#{product_attributes[:upc]}"}
-  end
+  step %{the "UPC" field should contain "#{product_attributes[:upc]}"}
+  step %{the "Picture" field should contain "#{product_attributes[:picture]}"}
   product_attributes.each do |key, value|
-    if not [:name, :vendor_id, :upc].include?(key) and exclude != key
+    if not [:name, :vendor_id, :upc, :picture].include?(key) and exclude != key
       step %{the "product_#{key}" checkbox should #{value ? '' : 'not '}be checked}
     end
   end
+end
+
+Then /the product should have pre-existing tags/ do
+  %w(certification nutrition packaging).each do |tag_type|
+    expect(page.find("##{tag_type}s")).to have_selector("input[value='#{FactoryBot.attributes_for(tag_type)[:name]}']")
+  end
+end
+
+Then /the product should have new tags/ do
+  %w(certification nutrition packaging).each do |tag_type|
+    expect(page.find("##{tag_type}s")).to have_selector("input[value='#{FactoryBot.attributes_for("new_#{tag_type}")[:name]}']")
+  end
+end
+
+Then /the product should have its original tags/ do
+  %w(certification nutrition packaging).each do |tag_type|
+    expect(page.find("##{tag_type}s")).to have_selector("input[value='#{FactoryBot.attributes_for("original_#{tag_type}")[:name]}']")
+  end
+end
+
+Then /the product should have no tags/ do
+  %w(certification nutrition packaging).each do |tag_type|
+    div = page.find("##{tag_type}s")
+    expect(div).not_to have_content(FactoryBot.attributes_for(tag_type)[:name])
+    expect(div).not_to have_content(FactoryBot.attributes_for("new_#{tag_type}")[:name])
+    expect(div).not_to have_content(FactoryBot.attributes_for("original_#{tag_type}")[:name])
+  end
+end
+
+Then /the product's vendor should be the other vendor/ do
+  expect(page).to have_select('Select a Vendor', selected: FactoryBot.attributes_for(:other_vendor)[:name])
 end

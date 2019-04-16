@@ -2,26 +2,26 @@
 @import url('https://fonts.googleapis.com/css?family=Arvo');
 @import "font-awesome";
 
-body{
+body {
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr;
 }
 
-#vendorsBody{
+#vendorsBody {
 	background-color: lightblue;
 }
 
-#productsBody{
+#productsBody {
 	background-color: lightgreen;
 }
 
-#form_div{
+#form_div {
 	display: grid;
 	grid-column: 2/3;
 	padding: 5px;
 }
 
-#form_elements_div{
+#form_elements_div {
 	background-color: lightgray;
 	display: flex;
 	flex-direction: column;
@@ -40,11 +40,11 @@ h4 {
 	text-decoration: underline;
 }
 
-label{
+label {
 	text-align: center;
 }
 
-.element_div{
+.element_div {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -52,30 +52,27 @@ label{
 	padding: 10px;
 }
 
-#submit_div{
+#submit_div {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: nowrap;
 	padding: 10px;
 }
 
-#submit_button:hover{
-	background-color: darken($blue, 10%)
+#submit_button:hover {
+	background-color: darken($blue, 10%);
 }
 
-#cancel_button:hover{
-    background-color: darken($red, 10%)
+#cancel_button:hover {
+    background-color: darken($red, 10%);
 }
 
-.checkboxClass{
-	display: grid;
-	grid-template-columns: 3fr 1fr;
+select {
+  width: 50%;
 }
 
-#vendorDropdown{
-	padding: 10px;
-	display: flex;
-	justify-content: center;
+.add_tag {
+  display: inline;
 }
 
 // Index Pages
