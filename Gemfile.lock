@@ -153,6 +153,8 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.2.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.8.0)
@@ -369,6 +371,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 2.5)
   jquery-rails
+  launchy
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.21)
   puma (~> 3.11)

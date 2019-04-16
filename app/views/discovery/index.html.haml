@@ -1,0 +1,6 @@
+%body#discovery
+	- @tags_hash.each do |tag, list|
+		=render "carousel", type: "product", tag: tag, list: list
+
+	- @ownerships_hash.each do |tag, list|
+		=render "carousel", type: "vendor", tag: tag, list: list
