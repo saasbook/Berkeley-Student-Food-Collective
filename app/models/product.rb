@@ -16,57 +16,53 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :packagings, :allow_destroy => true
 
   def self.get_tags_hash
-    @return = self.get_nutritions.merge(self.get_certifications)
-    @return.merge(self.get_packagings)
-    #self.get_nutritions + self.get_certifications + self.get_packagings
+    @products = Product.all
+    @return = self.get_nutritions(@products).merge(self.get_certifications(@products))
+    @return.merge(self.get_packagings(@products))
   end
 
-  def self.get_nutritions
-    @products = self.all
-    @tags_hash = {}
-
-    @products.each do |product|
-      product.nutritions.each do |ownership|
-        if @tags_hash.key?(ownership.name)
-          @tags_hash[ownership.name].push(product)
+  def self.get_nutritions(products)
+    @nut_hash = {}
+    products.each do |product|
+      product.nutritions.each do |nutrition|
+        if @nut_hash.key?(nutrition.name)
+          @nut_hash[nutrition.name].push(product)
         else
-          @tags_hash[ownership.name] = [product]
+          @nut_hash[nutrition.name] = [product]
         end
       end
     end
-    @tags_hash
+    @nut_hash
   end
 
-  def self.get_certifications
-    @products = self.all
-    @tags_hash = {}
+  def self.get_certifications(products)
+    @cert_hash = {}
 
-    @products.each do |product|
-      product.certifications.each do |ownership|
-        if @tags_hash.key?(ownership.name)
-          @tags_hash[ownership.name].push(product)
+    products.each do |product|
+      product.certifications.each do |cert|
+        if @cert_hash.key?(cert.name)
+          @cert_hash[cert.name].push(product)
         else
-          @tags_hash[ownership.name] = [product]
+          @cert_hash[cert.name] = [product]
         end
       end
     end
-    @tags_hash
+    @cert_hash
   end
 
-  def self.get_packagings
-    @products = self.all
-    @tags_hash = {}
+  def self.get_packagings(products)
+    @pack_hash = {}
 
-    @products.each do |product|
-      product.packagings.each do |ownership|
-        if @tags_hash.key?(ownership.name)
-          @tags_hash[ownership.name].push(product)
+    products.each do |product|
+      product.packagings.each do |packaging|
+        if @pack_hash.key?(packaging.name)
+          @pack_hash[packaging.name].push(product)
         else
-          @tags_hash[ownership.name] = [product]
+          @pack_hash[packaging.name] = [product]
         end
       end
     end
-    @tags_hash
+    @pack_hash
   end
 
 end
