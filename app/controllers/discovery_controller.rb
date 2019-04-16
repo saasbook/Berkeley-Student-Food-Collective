@@ -12,5 +12,6 @@ class DiscoveryController < ApplicationController
 
   	@ownerships_hash = Vendor.get_ownerships_hash
    	@tags_hash = Product.get_tags_hash
+   end
 
 end
