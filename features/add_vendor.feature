@@ -78,3 +78,9 @@ Feature: Add a new vendor to the database
     But I dismiss the popup
     Then I should be on the new vendor page
     And I should see the vendor attributes filled in
+
+  @javascript 
+  Scenario: Fill in new vendor form, but use a bad picture (sad)
+    When I fill in the vendor form but include a bad picture
+    And I submit the form
+    Then I should see an error message on the new vendor page

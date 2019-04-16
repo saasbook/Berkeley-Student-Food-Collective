@@ -33,6 +33,20 @@ When /I fill in the new product form( except the vendor field)?/ do |exclude_ven
   end
 end
 
+When /I fill in the product form but include a bad picture/ do 
+  step %{I am on the new product page}
+  vendor_name = Vendor.first.name
+  product_attributes = FactoryBot.attributes_for(:product)
+  fill_in :Name, with: product_attributes[:name]
+  fill_in :UPC, with: product_attributes[:upc]
+  fill_in :Picture, with: "www.google.com"
+  product_attributes.each do |key, value|
+    unless [:name, :vendor_id, :upc, :picture].include?(key)
+      step %{I #{value ? '' : 'un'}check "product_#{key}"}
+    end
+  end
+end
+
 When /I add pre-existing product tags/ do
   %w(certification nutrition packaging).each do |tag_type|
     select FactoryBot.attributes_for(tag_type)[:name], from: "existing_#{tag_type}s"
@@ -134,6 +148,7 @@ Then /the product should have no tags/ do
     expect(div).not_to have_content(FactoryBot.attributes_for("original_#{tag_type}")[:name])
   end
 end
+
 
 Then /the product's vendor should be the other vendor/ do
   expect(page).to have_select('Select a Vendor', selected: FactoryBot.attributes_for(:other_vendor)[:name])
