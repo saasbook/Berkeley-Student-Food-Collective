@@ -16,6 +16,12 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :packagings, :allow_destroy => true
 
   def self.get_tags_hash
+    @return = self.get_nutritions.merge(self.get_certifications)
+    @return.merge(self.get_packagings)
+    #self.get_nutritions + self.get_certifications + self.get_packagings
+  end
+
+  def self.get_nutritions
     @products = self.all
     @tags_hash = {}
 
@@ -28,6 +34,12 @@ class Product < ActiveRecord::Base
         end
       end
     end
+    @tags_hash
+  end
+
+  def self.get_certifications
+    @products = self.all
+    @tags_hash = {}
 
     @products.each do |product|
       product.certifications.each do |ownership|
@@ -38,6 +50,12 @@ class Product < ActiveRecord::Base
         end
       end
     end
+    @tags_hash
+  end
+
+  def self.get_packagings
+    @products = self.all
+    @tags_hash = {}
 
     @products.each do |product|
       product.packagings.each do |ownership|
@@ -48,8 +66,7 @@ class Product < ActiveRecord::Base
         end
       end
     end
-
     @tags_hash
-
   end
+
 end
