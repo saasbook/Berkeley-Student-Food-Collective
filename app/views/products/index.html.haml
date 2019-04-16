@@ -16,9 +16,9 @@
         %tr#letters
           - ('A'..'Z').to_a.each do |letter|
             %td.jump
-              %button#prod-link{type: 'button', onclick: "routeToPageDirectly('##{letter}')"} #{letter}
+              %button.prod-link{type: 'button', onclick: "routeToPageDirectly('##{letter}')"} #{letter}
           %td.jump
-            %button#prod-link{type: 'button', onclick: "routeToPageDirectly('##{1}')"} #{1}
+            %button.prod-link{type: 'button', onclick: "routeToPageDirectly('##{1}')"} #{1}
   %div#notice{class: flash[:type]}
     = flash[:message]
   %table#index
@@ -26,19 +26,19 @@
       - ('A'..'Z').to_a.each do |letter|
         - products_with_letter = Product.where("name LIKE ?", "#{letter}%")
         - if products_with_letter.length > 0
-          %tr#letter-heading
+          %tr.letter-heading
             %td{id: "#{letter}"}= letter
           - products_with_letter.each do |product|
             %tr
-              %td#products
-                %button#prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
+              %td.products
+                %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
         - else
           %tr{id: "#{letter}"}
       - products_with_nonletter = Product.where("name < 'A'")
       - if products_with_nonletter.length > 0
-        %tr#letter-heading
+        %tr.letter-heading
           %td{id: "1"}= 1
         - products_with_nonletter.each do |product|
           %tr
-            %td#products
-              %button#prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
+            %td.products
+              %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
