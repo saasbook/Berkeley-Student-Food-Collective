@@ -2,7 +2,12 @@
   %div
     %div.centered
       %image#logo{:src => image_url('logo450x429.png')}
-    %div#dropdown
+    %div.dropdown
+      %button.dropbtn
+        %i.fa.fa-plus
+      %div.dropdown-content
+        %button{type: 'button', onclick: "routeToPageDirectly('#{new_product_path}')"} Add Product
+        %button{type: 'button', onclick: "routeToPageDirectly('#{new_vendor_path}')"} Add Vendor
     %div.centered
       %button.togglePage#selected{type: 'button', onclick: "routeToPageDirectly('#{products_path}')"} PRODUCTS
       %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{vendors_path}')"} VENDORS

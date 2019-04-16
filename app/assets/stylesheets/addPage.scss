@@ -79,6 +79,14 @@ select {
 $selected-color: #E33D35;
 $unselected-color: #6FC051;
 
+.dropdown-content button:hover {
+	background-color: #BEBEBE
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .dropdown {
 	position: relative;
 	float: right;
@@ -99,9 +107,9 @@ $unselected-color: #6FC051;
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+	float: left;
 }
 
 .dropdown-content button {
@@ -118,17 +126,6 @@ $unselected-color: #6FC051;
 	cursor:pointer;
 	overflow: hidden;
 	outline:none;
-	word-wrap:break-word;
-}
-
-.dropdown-content button:hover {background-color: #BEBEBE}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
 }
 
 #letter-nav {
