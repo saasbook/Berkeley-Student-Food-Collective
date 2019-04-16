@@ -21,6 +21,7 @@ $(document).ready(function(){
 		});
 	});
 	$(".carousel_element").mouseleave(function() {
+
 		hovered_index = $(this).index();
 		classes = classString(event.currentTarget.classList).substring(0, classString(event.currentTarget.classList).length - 1);
 		$(classes).each(function(index){

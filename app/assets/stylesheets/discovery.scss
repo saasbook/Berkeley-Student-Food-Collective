@@ -14,9 +14,11 @@ body#discovery{
 
 .carousel_header{
   font-weight: bold;
-  font-size: 40pt;
   font-family: 'Arvo', sans-serif;
   font-weight: 700;
+  padding-bottom: 50px;
+  position: sticky;
+  left: 0;
 }
 
 .carousel_element{
@@ -79,7 +81,5 @@ body#discovery{
   font-size: 14pt;
 }
 
-.container:hover .overlay {
-  opacity: 1;
-  touch-action: auto;
-}
+
+
