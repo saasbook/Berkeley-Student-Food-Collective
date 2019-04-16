@@ -1,17 +1,25 @@
 "use strict";
 
+function routeToPage(input) {
+    window.location.href = "/" + input;
+}
+
+function routeToPageDirectly(input) {
+    window.location.href = input;
+}
+
 function confirmVendorCancel() {
-  confirmGeneralCancel("vendor");
+  confirmGeneralCancel("vendors");
 }
 
 function confirmProductCancel() {
-  confirmGeneralCancel("product");
+  confirmGeneralCancel("products");
 }
 
 function confirmGeneralCancel(input) {
-  let cancel = confirm("Are you sure you want to cancel creating this " + input + "? The information will not be saved!");
+  var cancel = confirm("Are you sure you want to cancel creating this " + input + "? The information will not be saved!");
   if (cancel) {
-    window.location.href = "/" + input + "s"
+      routeToPage(input);
   }
 }
 
