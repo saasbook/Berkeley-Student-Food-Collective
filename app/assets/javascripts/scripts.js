@@ -61,8 +61,4 @@ function addNewSelect(tagName, tagId) {
     // Append ot list of tag ids (so we can add additional existing tags)
     $("<option>").attr({value: tagId, selected: "selected"}).appendTo($(`#${formFor}_${tagType}_ids`));
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 04c01463b843656872bc16619249a435c132d509
