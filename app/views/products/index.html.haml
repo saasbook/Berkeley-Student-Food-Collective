@@ -1,6 +1,6 @@
 #form_div
   %div
-    %div.centered
+    %div.index-centered
       %image#logo{:src => image_url('logo450x429.png')}
     %div.dropdown
       %button.dropbtn
@@ -8,10 +8,10 @@
       %div.dropdown-content
         %button{type: 'button', onclick: "routeToPageDirectly('#{new_product_path}')"} Add Product
         %button{type: 'button', onclick: "routeToPageDirectly('#{new_vendor_path}')"} Add Vendor
-    %div.centered
+    %div.index-centered
       %button.togglePage#selected{type: 'button', onclick: "routeToPageDirectly('#{products_path}')"} PRODUCTS
       %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{vendors_path}')"} VENDORS
-    %table.centered
+    %table.index-centered
       %tbody#letter-nav
         %tr#letters
           - ('A'..'Z').to_a.each do |letter|
