@@ -12,6 +12,8 @@
           - ('A'..'Z').to_a.each do |letter|
             %td.jump
               %button#prod-link{type: 'button', onclick: "routeToPageDirectly('##{letter}')"} #{letter}
+          %td.jump
+            %button#prod-link{type: 'button', onclick: "routeToPageDirectly('##{1}')"} #{1}
   %div{class: flash[:type]}
     = flash[:message]
   %table#index
@@ -27,3 +29,11 @@
                 %button#prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_vendor_path(vendor.id)}')"} #{vendor.name}
         - else
           %tr{id: "#{letter}"}
+      - vendors_with_nonletter = Vendor.where("name < 'A'")
+      - if vendors_with_nonletter.length > 0
+        %tr#letter-heading
+          %td{id: "1"}= 1
+        - vendors_with_nonletter.each do |vendor|
+          %tr
+            %td#products
+              %button#prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_vendor_path(vendor.id)}')"} #{vendor.name}
