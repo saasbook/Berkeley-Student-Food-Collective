@@ -24,7 +24,7 @@
   %table#index
     %tbody
       - ('A'..'Z').to_a.each do |letter|
-        - vendors_with_letter = Vendor.where("name LIKE '#{letter}%'")
+        - vendors_with_letter = Vendor.where("name LIKE ?", "#{letter}%")
         - if vendors_with_letter.length > 0
           %tr#letter-heading
             %td{id: "#{letter}"}= letter

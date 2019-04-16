@@ -24,7 +24,7 @@
   %table#index
     %tbody
       - ('A'..'Z').to_a.each do |letter|
-        - products_with_letter = Product.where("name LIKE '#{letter}%'")
+        - products_with_letter = Product.where("name LIKE ?", "#{letter}%")
         - if products_with_letter.length > 0
           %tr#letter-heading
             %td{id: "#{letter}"}= letter
