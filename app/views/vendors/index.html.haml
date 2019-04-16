@@ -19,7 +19,7 @@
               %button#prod-link{type: 'button', onclick: "routeToPageDirectly('##{letter}')"} #{letter}
           %td.jump
             %button#prod-link{type: 'button', onclick: "routeToPageDirectly('##{1}')"} #{1}
-  %div{class: flash[:type]}
+  %div#notice{class: flash[:type]}
     = flash[:message]
   %table#index
     %tbody
