@@ -24,6 +24,14 @@ Given /a third vendor with a tag already exists/ do
   	VendorOwnership.create(vendor_id: 3, ownership_id: 3)
 end
 
+Given /I create a vendor with a bad picture/ do
+	FactoryBot.create(:vendor, name: "Fake Name", picture: "www.google.com")
+   	FactoryBot.create(:original_ownership)
+  	VendorOwnership.create(vendor_id: 1, ownership_id: 1)
+end
+
+
+
 
 
 

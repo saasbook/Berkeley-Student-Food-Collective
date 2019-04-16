@@ -43,6 +43,8 @@ Feature: Add a new product to the database
     Then the product should be successfully added
     And the product should have new tags
 
+
+
   @javascript
   Scenario: Add new product with existing tags and new tags (happy)
     Given product tags already exist
@@ -88,3 +90,9 @@ Feature: Add a new product to the database
     But I dismiss the popup
     Then I should be on the new product page
     And I should see the product attributes filled in
+
+  @javascript 
+  Scenario: Fill in new product form, but use a bad picture (sad)
+	When I fill in the product form but include a bad picture
+	And I submit the form
+	Then I should see an error message on the new product page
