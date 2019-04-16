@@ -1,0 +1,7 @@
+%div{:class => "container carousel_element #{local_assigns[:tag].gsub(" ", "_")}", :id => local_assigns[:product].name.gsub!(" ", "_"), :onclick => "carouselAlert()"} 
+	%button
+		= image_tag local_assigns[:product].picture, :class => "image"
+	%p{:class => "centered"} 
+		%td= local_assigns[:product].name
+	%p{:class => "overlay"}
+		"This is a test description."
