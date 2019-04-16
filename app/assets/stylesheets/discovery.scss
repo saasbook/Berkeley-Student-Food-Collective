@@ -59,14 +59,14 @@ body#discovery{
 .container {
   position: relative;
   color: #efefef;
-  text-shadow: -1px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
-  display: inline-block;
-  width: 300px;
   text-align: center;
-  word-wrap: break-word;
+  text-shadow: -1px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
   font-size: 20pt;
   font-family: 'Arvo', sans-serif;
   font-weight: 400;
+  display: inline-block;
+  width: 300px;
+  word-wrap: break-word;
 }
 
 .overlay {
@@ -74,12 +74,9 @@ body#discovery{
   top: 75%;
   left: 10%;
   opacity: 0;
+  font-size: 14pt;
   touch-action: none;
   transition: opacity 1s;
   width: 200px;
   word-wrap: break-word;
-  font-size: 14pt;
 }
-
-
-

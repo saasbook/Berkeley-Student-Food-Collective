@@ -29,7 +29,3 @@ Feature: View and Interact with a Carousel of Products and Vendors
     And I am on the Discovery page
   	And I see a carousel for the ownership type "Original Ownership Name" 
 	Then I should see all vendors with owned by "Original Ownership Name"
-
-	
-	
- 
