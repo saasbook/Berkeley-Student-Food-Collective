@@ -66,16 +66,23 @@ body#discovery{
   display: inline-block;
   width: 300px;
   word-wrap: break-word;
+  white-space: normal;
 }
 
 .overlay {
   position: absolute;
   top: 75%;
   left: 10%;
+  width: 80%;
   opacity: 0;
   font-size: 14pt;
   touch-action: none;
   transition: opacity 1s;
-  width: 200px;
   word-wrap: break-word;
+  white-space: normal;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+  touch-action: auto;
 }
