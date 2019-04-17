@@ -26,8 +26,10 @@ When /I fill in the new product form( except the vendor field)?/ do |exclude_ven
   fill_in :Name, with: product_attributes[:name]
   fill_in :UPC, with: product_attributes[:upc]
   fill_in :Picture, with: product_attributes[:picture]
+  fill_in :Origin, with: product_attributes[:origin]
+  fill_in :Cultural_history, with: product_attributes[:cultural_history]
   product_attributes.each do |key, value|
-    unless [:name, :vendor_id, :upc, :picture].include?(key)
+    unless [:name, :vendor_id, :upc, :picture, :origin, :cultural_history].include?(key)
       step %{I #{value ? '' : 'un'}check "product_#{key}"}
     end
   end
@@ -109,8 +111,14 @@ Then /I should see the product attributes(, except "(.*)",)? filled in/ do |excl
   unless exclude == 'picture'
     step %{the "Picture" field should contain "#{product_attributes[:picture]}"}
   end
+  unless exclude == 'origin'
+    step %{the "Origin" field should contain "#{product_attributes[:origin]}"}
+  end
+  unless exclude == 'cultural_history'
+    step %{the "Cultural_history" field should contain "#{product_attributes[:cultural_history]}"}
+  end
   product_attributes.each do |key, value|
-    if not [:name, :vendor_id, :upc, :picture].include?(key) and exclude != key
+    if not [:name, :vendor_id, :upc, :picture, :origin, :cultural_history].include?(key) and exclude != key
       step %{the "product_#{key}" checkbox should #{value ? '' : 'not '}be checked}
     end
   end
