@@ -2,6 +2,8 @@ FactoryBot.define do
 	factory :product do
 		name {'Default Product Name'}
 		picture {'http://www.google.com'}
+		origin { 'Default Product Origin' }
+		cultural_history { 'Default Product Cultural History' }
 		vegan {true}
 		gluten_free {false}
 		dairy_free {false}
