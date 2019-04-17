@@ -1,4 +1,3 @@
-
 Given /a vendor already exists/ do
   FactoryBot.create(:vendor)
 end
@@ -24,17 +23,6 @@ When /I fill in the new vendor form/ do
   end
 end
 
-When /I fill in the vendor form but include a bad picture/ do
-  step %{I go to the new vendor page}
-  FactoryBot.attributes_for(:vendor).each do |key, value|
-  	if key = "picture"
-  		fill_in "vendor_#{key}", with: value
-  	else
-    	fill_in "vendor_#{key}", with: value
-    end
-  end
-end
-
 When /I add a pre-existing vendor tag/ do
   select FactoryBot.attributes_for(:ownership)[:name], from: :existing_ownerships
   click_button 'Add existing ownership type'
@@ -46,6 +34,10 @@ When /I add a new vendor tag/ do
   fill_in 'new_ownership_field', with: FactoryBot.attributes_for(:new_ownership)[:name]
   click_button 'Add new ownership type'
   step %{the vendor should have a new tag}
+end
+
+When /I add a new blank vendor tag/ do
+  click_button 'Add new ownership type'
 end
 
 When /I fill in "Name" with the other vendor's name/ do

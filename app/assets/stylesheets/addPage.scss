@@ -3,82 +3,82 @@
 @import "font-awesome";
 
 body {
-	display: grid;
-	grid-template-columns: 1fr 2fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
 }
 
-#vendorsBody {
-	background-color: lightblue;
+#vendors_body {
+  background-color: lightblue;
 }
 
-#productsBody {
-	background-color: lightgreen;
+#products_body {
+  background-color: lightgreen;
 }
 
 #form_div {
-	display: grid;
-	grid-column: 2/3;
-	padding: 5px;
+  display: grid;
+  grid-column: 2/3;
+  padding: 5px;
 }
 
 #form_elements_div {
-	background-color: lightgray;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 
 h2 {
-	background-color: lightgray;
-	text-align: center;
+  background-color: lightgray;
+  text-align: center;
 }
 
 h4 {
-	background-color: lightgray;
-	text-align: center;
-	text-decoration: underline;
+  background-color: lightgray;
+  text-align: center;
+  text-decoration: underline;
 }
 
 label {
-	text-align: center;
+  text-align: center;
 }
 
 .element_div {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	border-bottom: groove;
-	padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-bottom: groove;
+  padding: 10px;
 }
 
 #submit_div {
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: nowrap;
-	padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  padding: 10px;
 }
 
 #submit_button:hover {
-	background-color: darken($blue, 10%);
+  background-color: darken($blue, 10%);
 }
 
 #cancel_button:hover {
-	background-color: darken($red, 10%);
+  background-color: darken($red, 10%);
 }
 
 select {
-	width: 50%;
+  width: 50%;
 }
 
 #vendorDropdown{
-	padding: 10px;
-	display: flex;
-	justify-content: center;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .add_tag {
-	display: inline;
+  display: inline;
 }
 
 // Index Pages
@@ -86,131 +86,131 @@ $selected-color: #E33D35;
 $unselected-color: #6FC051;
 
 .dropdown-content button:hover {
-	background-color: #BEBEBE
+  background-color: #BEBEBE
 }
 
 .dropdown:hover .dropdown-content {
-	display: block;
+  display: block;
 }
 
 .dropdown {
-	position: relative;
-	float: right;
-	display: inline-block;
+  position: relative;
+  float: right;
+  display: inline-block;
 }
 
 .dropbtn {
-	border: none;
-	background-color: Transparent;
+  border: none;
+  background-color: Transparent;
 }
 
 .fa-plus {
-	color: $unselected-color;
-	font-size: 30px;
+  color: $unselected-color;
+  font-size: 30px;
 }
 
 .dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;
-	float: left;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  float: left;
 }
 
 .dropdown-content button {
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	color: #000;
-	font-weight: normal;
-	font-size: 15pt;
-	font-family: 'Arvo', sans-serif;
-	background-color: Transparent;
-	background-repeat:no-repeat;
-	border: none;
-	cursor:pointer;
-	overflow: hidden;
-	outline:none;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: #000;
+  font-weight: normal;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
 }
 
 #letter-nav {
-	justify-content: center;
-	text-align: center;
-	margin-left:auto;
-	margin-right:auto;
-	table-layout: fixed;
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  table-layout: fixed;
 }
 
 #letters {
-	font-weight: normal;
-	font-size: 10pt;
-	font-family: 'Arvo', sans-serif;
-	color: #BEBEBE;
+  font-weight: normal;
+  font-size: 10pt;
+  font-family: 'Arvo', sans-serif;
+  color: #BEBEBE;
 }
 
 .jump {
-	padding: 5px;
-	color: #FFFFFF;
+  padding: 5px;
+  color: #FFFFFF;
 }
 
 #index {
-	justify-content: center;
-	text-align: center;
-	margin-left:auto;
-	margin-right:auto;
-	table-layout: fixed;
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  table-layout: fixed;
 }
 
-#letter-heading {
-	font-weight: bold;
-	font-size: 20pt;
-	font-family: 'Arvo', sans-serif;
+.letter-heading {
+  font-weight: bold;
+  font-size: 20pt;
+  font-family: 'Arvo', sans-serif;
 }
 
-#prod-link {
-	color: #000;
-	font-weight: normal;
-	font-size: 15pt;
-	font-family: 'Arvo', sans-serif;
-	background-color: Transparent;
-	background-repeat:no-repeat;
-	border: none;
-	cursor:pointer;
-	overflow: hidden;
-	outline:none;
-	word-wrap:break-word;
+.prod-link {
+  color: #000;
+  font-weight: normal;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap:break-word;
 }
 
 .togglePage {
-	margin: 10px;
-	color: #000;
-	font-size: 25pt;
-	font-family: 'Arvo', sans-serif;
-	font-weight: 1000;
-	background-color: Transparent;
-	background-repeat:no-repeat;
-	border: none;
-	cursor:pointer;
-	overflow: hidden;
-	outline:none;
+  margin: 10px;
+  color: #000;
+  font-size: 25pt;
+  font-family: 'Arvo', sans-serif;
+  font-weight: 1000;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
 }
 
-.centered {
-	display: flex;
-	justify-content: center;
+.index-centered {
+display: flex;
+justify-content: center;
 }
 
 #selected {
-	color: $selected-color;
-	text-decoration: underline;
+  color: $selected-color;
+  text-decoration: underline;
 }
 
 #unselected {
-	color: $unselected-color;
+  color: $unselected-color;
 }
 
 #logo {
-	height: 129px;
-	width: 135px;
+  height: 129px;
+  width: 135px;
 }
