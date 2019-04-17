@@ -4,4 +4,5 @@
   %p{:class => "discovery-centered"}
     %td= local_assigns[:product].name
   %p{:class => "overlay"}
-    "This is a test description."
+    - if local_assigns[:product].cultural_history
+      %td= local_assigns[:product].cultural_history
