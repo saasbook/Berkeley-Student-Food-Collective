@@ -6,7 +6,22 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id)
+    params.require(:product).permit(:name, :picture, :vegan, :gluten_free, :dairy_free, :organic, 
+                                    :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id,
+                                    certification_ids: [],
+                                    certifications_attributes: [:name, :id, :_destroy],
+                                    nutrition_ids: [],
+                                    nutritions_attributes: [:name, :id, :_destroy],
+                                    packaging_ids: [],
+                                    packagings_attributes: [:name, :id, :_destroy])
+  end
+
+  def product_params_without_nested
+    params.require(:product).permit(:name, :vegan, :gluten_free, :dairy_free, :organic,
+                                    :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id,
+                                    certification_ids: [],
+                                    nutrition_ids: [],
+                                    packaging_ids: [])
   end
 
   def new
@@ -16,9 +31,12 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.create(product_params)
-    if product.valid?
-      flash[:message] = "Added Product"
+    # Need create and update_attributes call to handle when I add existing tags, but then remove them all
+    product = Product.create(product_params_without_nested)
+    success = product.update_attributes(product_params)
+
+    if success
+      flash[:message] = 'Added Product'
       flash[:type] = 'alert alert-success'
       redirect_to products_path
     else
@@ -41,8 +59,9 @@ class ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     success = product.update_attributes(product_params)
+
     if success
-      flash[:message] = "Updated Product"
+      flash[:message] = 'Updated Product'
       flash[:type] = 'alert alert-success'
       redirect_to products_path
     else
