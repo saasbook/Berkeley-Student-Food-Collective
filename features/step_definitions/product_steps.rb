@@ -27,7 +27,7 @@ When /I fill in the new product form( except the vendor field)?/ do |exclude_ven
   fill_in :UPC, with: product_attributes[:upc]
   fill_in :Picture, with: product_attributes[:picture]
   fill_in :Origin, with: product_attributes[:origin]
-  fill_in :Cultural_history, with: product_attributes[:cultural_history]
+  fill_in :cultural_history, with: product_attributes[:cultural_history]
   product_attributes.each do |key, value|
     unless [:name, :vendor_id, :upc, :picture, :origin, :cultural_history].include?(key)
       step %{I #{value ? '' : 'un'}check "product_#{key}"}
