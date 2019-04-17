@@ -29,7 +29,7 @@ class VendorsController < ApplicationController
       flash[:type] = 'alert alert-success'
       redirect_to vendors_path
     else
-      flash[:message] = 'Vendor needs a unique name'
+      flash[:message] = vendor.errors.full_messages
       flash[:type] = 'alert alert-danger'
       flash[:vendor_params] = vendor_params
       redirect_to new_vendor_path
@@ -54,7 +54,7 @@ class VendorsController < ApplicationController
       flash[:type] = 'alert alert-success'
       redirect_to vendors_path
     else
-      flash[:message] = 'Vendor needs a unique name'
+      flash[:message] = vendor.errors.full_messages
       flash[:type] = 'alert alert-danger'
       # TODO: Fix redirect causing all changes to be reverted
       redirect_to edit_vendor_path

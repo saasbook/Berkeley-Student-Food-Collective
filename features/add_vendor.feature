@@ -41,6 +41,13 @@ Feature: Add a new vendor to the database
     And the vendor should have a new tag
 
   @javascript
+  Scenario: Add new vendor with blank tag name (sad)
+    When I add a new blank vendor tag
+    And I submit the form
+    Then I should see an error message on the new vendor page
+    And I should see the vendor attributes filled in
+
+  @javascript
   Scenario: Add new vendor with existing tag and new tag (happy)
     When I add a pre-existing vendor tag
     And I add a new vendor tag
@@ -79,8 +86,9 @@ Feature: Add a new vendor to the database
     Then I should be on the new vendor page
     And I should see the vendor attributes filled in
 
-  @javascript 
-  Scenario: Fill in new vendor form, but use a bad picture (sad)
-    When I fill in the vendor form but include a bad picture
+  @javascript
+  Scenario: Add new vendor with a bad picture (sad)
+    When I include a bad picture
     And I submit the form
     Then I should see an error message on the new vendor page
+    And I should see the vendor attributes, except "picture", filled in
