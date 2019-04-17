@@ -53,6 +53,9 @@ body#discovery{
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .container {
@@ -65,8 +68,8 @@ body#discovery{
   font-weight: 400;
   display: inline-block;
   width: 300px;
-  word-wrap: break-word;
-  white-space: normal;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .overlay {
@@ -74,12 +77,14 @@ body#discovery{
   top: 75%;
   left: 10%;
   width: 80%;
+  height: 95%;
   opacity: 0;
   font-size: 14pt;
   touch-action: none;
   transition: opacity 1s;
   word-wrap: break-word;
   white-space: normal;
+  overflow: hidden;
 }
 
 .container:hover .overlay {
