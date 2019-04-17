@@ -1,16 +1,16 @@
 class Product < ActiveRecord::Base
-	validate :picture_has_correct_format
+  validate :picture_has_correct_format
 
   def picture_has_correct_format
     unless picture.blank? || picture.downcase.start_with?('https://', 'http://')
-      errors.add(:picture, "must start with https:// or http://")
+      errors.add(:picture, 'must start with https:// or http://')
     end
   end
 
   validates :name, presence: true
   validates :vendor_id, presence: true
 
-	belongs_to :vendor
+  belongs_to :vendor
 
   has_many :product_certifications
   has_many :certifications, through: :product_certifications
