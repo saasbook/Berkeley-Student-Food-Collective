@@ -7,7 +7,7 @@ $(document).ready(function() {
     return returnString;
   }
 
-  function helperFunction(obj, apply) {
+  function hoverHelper(obj, apply) {
     let over_index = obj.index();
     let classesOver = classString(event.currentTarget.classList).substring(0, classString(event.currentTarget.classList).length - 1);
     $(classesOver).each(function(index) {
@@ -21,11 +21,11 @@ $(document).ready(function() {
   }
 
   $(".carousel_element").mouseover(function() {
-    helperFunction($(this), DOMTokenList.prototype.add);
+    hoverHelper($(this), DOMTokenList.prototype.add);
   });
 
   $(".carousel_element").mouseout(function() {
-    helperFunction($(this), DOMTokenList.prototype.remove);
+    hoverHelper($(this), DOMTokenList.prototype.remove);
   });
 });
 
