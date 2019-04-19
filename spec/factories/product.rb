@@ -7,7 +7,6 @@ FactoryBot.define do
 		vegan {true}
 		gluten_free {false}
 		dairy_free {false}
-    	organic {false}
 		lc_based {false}
 		fair {false}
 		eco_sound {false}
