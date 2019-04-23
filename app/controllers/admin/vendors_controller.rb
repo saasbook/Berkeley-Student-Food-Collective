@@ -27,12 +27,20 @@ class Admin::VendorsController < ApplicationController
     if success
       flash[:message] = 'Added Vendor'
       flash[:type] = 'alert alert-success'
+<<<<<<< HEAD
       redirect_to admin_vendors_path
+=======
+      redirect_to vendors_path
+>>>>>>> Changed Routing
     else
       flash[:message] = vendor.errors.full_messages
       flash[:type] = 'alert alert-danger'
       flash[:vendor_params] = vendor_params
+<<<<<<< HEAD
       redirect_to new_admin_vendor_path
+=======
+      redirect_to new_vendor_path
+>>>>>>> Changed Routing
     end
   end
 
@@ -52,12 +60,20 @@ class Admin::VendorsController < ApplicationController
     if success
       flash[:message] = 'Updated Vendor'
       flash[:type] = 'alert alert-success'
+<<<<<<< HEAD
       redirect_to admin_vendors_path
+=======
+      redirect_to vendors_path
+>>>>>>> Changed Routing
     else
       flash[:message] = vendor.errors.full_messages
       flash[:type] = 'alert alert-danger'
       # TODO: Fix redirect causing all changes to be reverted
+<<<<<<< HEAD
       redirect_to edit_admin_vendor_path
+=======
+      redirect_to edit_vendor_path
+>>>>>>> Changed Routing
     end
   end
 end
