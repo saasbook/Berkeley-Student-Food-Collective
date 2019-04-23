@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get 'discovery', action: :index, controller: 'discovery'
   resources :vendors, :products, :ownerships
   
-  root :to => redirect('/vendors')
+  root :to => redirect('/discovery')
 end
