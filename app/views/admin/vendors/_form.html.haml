@@ -1,0 +1,56 @@
+#notice{class: flash[:type]}
+  = flash[:message]
+
+= form_for @vendor do |f|
+  #form_elements_div
+    .form_group.element_div
+      = f.label :name
+      = f.text_field :name
+
+    .form_group.element_div
+      = f.label :picture, 'Link to Picture'
+      = f.text_field :picture
+
+    .form_group.element_div
+      = f.label :address
+      = f.text_field :address
+
+    .form_group.element_div
+      = f.label :story
+      = f.text_field :story
+
+    .form_group.element_div
+      = f.label :mission
+      = f.text_field :mission
+    
+    .form_group.element_div
+      = f.label :facebook
+      = f.text_field :facebook
+
+    .form_group.element_div
+      = f.label :twitter
+      = f.text_field :twitter
+
+    .form_group.element_div
+      = f.label :instagram
+      = f.text_field :instagram
+
+    #ownerships.element_div
+      = f.label :ownerships, 'Ownership Types'
+      -# Hidden select necessary to add additional existing tags
+      = f.collection_select :ownership_ids, @vendor.ownerships, :id, :name, {}, {hidden: true, multiple: true}
+      = f.fields_for :ownerships do |ff|
+        %div.ownership
+          = ff.text_field :name, readonly: true, disabled: true, size: 41
+          = ff.check_box :_destroy
+          = ff.label :_destroy, 'Remove Ownership Type'
+
+    #new_ownerships.element_div.add_tag
+      = select_tag :existing_ownerships, options_from_collection_for_select(Ownership.all, :id, :name)
+      = submit_tag 'Add existing ownership type', type: :button, onclick: 'addExistingTag()'
+      = text_field_tag :new_ownership_field, '', size: 41
+      = submit_tag 'Add new ownership type', type: :button, onclick: 'addNewTag()'
+
+    #submit_div.form_group
+      = f.submit class: 'btn btn-success'
+      = button_tag 'Cancel', type: :button, onclick: 'confirmVendorCancel()', id: :cancel_button, class: 'btn btn-danger'
