@@ -1,4 +1,3 @@
-%h1 Customer-Facing
 #form_div
   %div
     .index-centered
@@ -7,11 +6,11 @@
       %button.dropbtn
         %i.fa.fa-plus
       .dropdown-content
-        %button{type: 'button', onclick: "routeToPageDirectly('#{new_product_path}')"} Add Product
-        %button{type: 'button', onclick: "routeToPageDirectly('#{new_vendor_path}')"} Add Vendor
+        %button{type: 'button', onclick: "routeToPageDirectly('#{new_admin_product_path}')"} Add Product
+        %button{type: 'button', onclick: "routeToPageDirectly('#{new_admin_vendor_path}')"} Add Vendor
     .index-centered
-      %button.togglePage#selected{type: 'button', onclick: "routeToPageDirectly('#{products_path}')"} PRODUCTS
-      %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{vendors_path}')"} VENDORS
+      %button.togglePage#selected{type: 'button', onclick: "routeToPageDirectly('#{admin_products_path}')"} PRODUCTS
+      %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{admin_vendors_path}')"} VENDORS
     %table.index-centered
       %tbody#letter-nav
         %tr#letters
@@ -32,7 +31,7 @@
           - products_with_letter.each do |product|
             %tr
               %td.products
-                %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
+                %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
         - else
           %tr{id: "#{letter}"}
       - products_with_nonletter = Product.where("name < 'A'")
@@ -42,4 +41,4 @@
         - products_with_nonletter.each do |product|
           %tr
             %td.products
-              %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
+              %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}

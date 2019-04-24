@@ -38,12 +38,12 @@ class Admin::ProductsController < ApplicationController
     if success
       flash[:message] = 'Added Product'
       flash[:type] = 'alert alert-success'
-      redirect_to products_path
+      redirect_to admin_products_path
     else
       flash[:message] = product.errors.full_messages
       flash[:type] = 'alert alert-danger'
       flash[:product_params] = product_params
-      redirect_to new_product_path
+      redirect_to new_admin_product_path
     end
   end
 
@@ -63,12 +63,12 @@ class Admin::ProductsController < ApplicationController
     if success
       flash[:message] = 'Updated Product'
       flash[:type] = 'alert alert-success'
-      redirect_to products_path
+      redirect_to admin_products_path
     else
       flash[:message] = product.errors.full_messages
       flash[:type] = 'alert alert-danger'
       # TODO: Fix redirect causing all changes to be reverted
-      redirect_to edit_product_path
+      redirect_to edit_admin_product_path
     end
   end
 end
