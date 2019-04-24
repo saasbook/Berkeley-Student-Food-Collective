@@ -6,11 +6,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def product_params
-<<<<<<< HEAD
     params.require(:product).permit(:name, :picture, :origin, :cultural_history, :vegan, :gluten_free, :dairy_free, 
-=======
-    params.require(:product).permit(:name, :picture, :origin, :cultural_history, :vegan, :gluten_free, :dairy_free, :organic, 
->>>>>>> Changed Routing
                                     :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id,
                                     certification_ids: [],
                                     certifications_attributes: [:name, :id, :_destroy],
@@ -21,11 +17,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def product_params_without_nested
-<<<<<<< HEAD
     params.require(:product).permit(:name, :origin, :cultural_history, :vegan, :gluten_free, :dairy_free,
-=======
-    params.require(:product).permit(:name, :origin, :cultural_history, :vegan, :gluten_free, :dairy_free, :organic,
->>>>>>> Changed Routing
                                     :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id,
                                     certification_ids: [],
                                     nutrition_ids: [],
@@ -46,20 +38,12 @@ class Admin::ProductsController < ApplicationController
     if success
       flash[:message] = 'Added Product'
       flash[:type] = 'alert alert-success'
-<<<<<<< HEAD
       redirect_to admin_products_path
-=======
-      redirect_to products_path
->>>>>>> Changed Routing
     else
       flash[:message] = product.errors.full_messages
       flash[:type] = 'alert alert-danger'
       flash[:product_params] = product_params
-<<<<<<< HEAD
       redirect_to new_admin_product_path
-=======
-      redirect_to new_product_path
->>>>>>> Changed Routing
     end
   end
 
@@ -79,20 +63,12 @@ class Admin::ProductsController < ApplicationController
     if success
       flash[:message] = 'Updated Product'
       flash[:type] = 'alert alert-success'
-<<<<<<< HEAD
       redirect_to admin_products_path
-=======
-      redirect_to products_path
->>>>>>> Changed Routing
     else
       flash[:message] = product.errors.full_messages
       flash[:type] = 'alert alert-danger'
       # TODO: Fix redirect causing all changes to be reverted
-<<<<<<< HEAD
       redirect_to edit_admin_product_path
-=======
-      redirect_to edit_product_path
->>>>>>> Changed Routing
     end
   end
 end
