@@ -11,8 +11,8 @@ end
 Given /a product with tags already exists/ do
   FactoryBot.create(:product)
   %w(certification nutrition packaging).each do |tag_type|
-    FactoryBot.create("original_#{tag_type}")
-    "Product#{tag_type.capitalize}".constantize.create(product_id: 1, "#{tag_type}_id": 1)
+    @new_tag = FactoryBot.create("original_#{tag_type}")
+    "Product#{tag_type.capitalize}".constantize.create(product_id: 1, "#{tag_type}_id": @new_tag.id)
   end
 end
 

@@ -16,7 +16,6 @@ Feature: View and Interact with a Carousel of Products and Vendors
   Scenario: Carousels for products should show up correctly (happy)
     Given I create three new products
     And I am on the Discovery page
-    Then show me the page
     Then I should see a carousel for the product tag type "Original Packaging Name"
     And I should see all products with the tag "Original Packaging Name"
     And I should see a carousel for the product tag type "Original Nutrition Name"

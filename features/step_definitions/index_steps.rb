@@ -1,3 +1,11 @@
+Given /there exist (.*) tags of type (.*)/ do |num, type|
+	i = 0
+	num.to_i.times do
+		FactoryBot.create("original_#{type}", name: "Original #{type.capitalize} Name " + i.to_words)
+		i += 1
+	end
+end
+
 Given /there are (.*) (.*)/ do |num, type|
 	i = 0
 	num.to_i.times do
@@ -11,7 +19,7 @@ And /I click the "(.*)" element/ do |element_text|
 	click()
 end
 
-Then /I should see (.*) (.*) on the customer-facing page/ do |num, type|
+Then /I should see (.*) (.*) on the (.*)-facing page/ do |num, type, page|
 	expect(page).to have_selector(type, count: num.to_i)
 end
 

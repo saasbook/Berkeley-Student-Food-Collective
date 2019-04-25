@@ -30,6 +30,8 @@ module NavigationHelpers
 
     when /^the products page$/
       admin_products_path
+    when /^the tags page$/
+      admin_tags_path
 
     when /^the edit product page$/
       edit_admin_product_path(1)
