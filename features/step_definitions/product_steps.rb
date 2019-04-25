@@ -135,6 +135,7 @@ end
 Then /the product should have its original tags/ do
   %w(certification nutrition packaging).each do |tag_type|
     expect(page.find("##{tag_type}s")).to have_selector("input[value='#{FactoryBot.attributes_for("original_#{tag_type}")[:name]}']")
+    #expect(page.find("##{tag_type}s")).to have_css("input", :text => '#{FactoryBot.attributes_for("original_#{tag_type}")[:name]}')
   end
 end
 

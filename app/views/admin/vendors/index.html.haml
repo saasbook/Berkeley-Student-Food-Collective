@@ -8,6 +8,7 @@
       .dropdown-content
         %button{type: 'button', onclick: "routeToPageDirectly('#{new_admin_product_path}')"} Add Product
         %button{type: 'button', onclick: "routeToPageDirectly('#{new_admin_vendor_path}')"} Add Vendor
+        %button{type: 'button', onclick: "routeToPageDirectly('#{new_admin_tag_path}')"} Add Tag
     .index-centered
       %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{admin_products_path}')"} PRODUCTS
       %button.togglePage#selected{type: 'button', onclick: "routeToPageDirectly('#{admin_vendors_path}')"} VENDORS

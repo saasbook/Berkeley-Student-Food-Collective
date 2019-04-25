@@ -41,6 +41,11 @@ module NavigationHelpers
       products_path
     when /^the vendors index page$/
       vendors_path
+    when /^the product detail page$/
+      product_path(1)
+
+    when /^the vendor detail page$/
+      vendor_path(1)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

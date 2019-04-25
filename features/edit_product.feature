@@ -102,6 +102,7 @@ Feature: Edit an existing product in the database
 
   @javascript
   Scenario: Fill new product form, press cancel, but dismiss (happy)
+    Then show me the page
     When I press "Cancel"
     But I dismiss the popup
     Then I should be on the edit product page
