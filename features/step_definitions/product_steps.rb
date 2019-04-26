@@ -83,7 +83,7 @@ end
 
 Then /the product should be successfully added/ do
   steps %Q{
-    Then I should be on the products page
+    Then I should be on the volunteer-facing products index page
     And I should see a success message
     And I go to the edit product page
     And I should see the product attributes filled in
@@ -92,7 +92,7 @@ end
 
 Then /the product should be successfully updated/ do
   steps %Q{
-    Then I should be on the products page
+    Then I should be on the volunteer-facing products index page
     And I should see a success message
     And I go to the edit product page
   }
