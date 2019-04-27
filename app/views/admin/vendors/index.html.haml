@@ -33,7 +33,8 @@
           - vendors_with_letter.each do |vendor|
             %tr
               %td.products
-                %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_vendor_path(vendor.id)}')"} #{vendor.name}
+                - path = "vendors/#{vendor.id}/edit"
+                %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{path}')"} #{vendor.name}
         - else
           %tr{id: "#{letter}"}
       - vendors_with_nonletter = Vendor.where("name < 'A'")

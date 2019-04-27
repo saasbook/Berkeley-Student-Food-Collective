@@ -1,0 +1,8 @@
+%table.index-centered
+  %tbody#letter-nav
+    %tr#letters
+      - ('A'..'Z').to_a.each do |letter|
+        %td.jump
+          %button.prod-link{type: 'button', onclick: "routeToPageDirectly('##{letter}')"} #{letter}
+      %td.jump
+        %button.prod-link{type: 'button', onclick: "routeToPageDirectly('##{1}')"} #{1}

@@ -5,14 +5,7 @@
     .index-centered
       %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{products_path}')"} PRODUCTS
       %button.togglePage#selected{type: 'button', onclick: "routeToPageDirectly('#{vendors_path}')"} VENDORS
-    %table.index-centered
-      %tbody#letter-nav
-        %tr#letters
-          - ('A'..'Z').to_a.each do |letter|
-            %td.jump
-              %button.prod-link{type: 'button', onclick: "routeToPageDirectly('##{letter}')"} #{letter}
-          %td.jump
-            %button.prod-link{type: 'button', onclick: "routeToPageDirectly('##{1}')"} #{1}
+    = render 'letterNav'
   #notice{class: flash[:type]}
     = flash[:message]
   %table#index
