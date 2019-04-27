@@ -25,7 +25,3 @@ Certification.create(name: 'Non-GMO')
 
 Nutrition.create(name: 'Superfood')
 Nutrition.create(name: 'High in protein')
-
-Vendor.create(name: 'Vendor 1')
-
-Product.create(name: 'Product 1', vendor_id: 1)
