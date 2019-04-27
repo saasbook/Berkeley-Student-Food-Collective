@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_204458) do
+ActiveRecord::Schema.define(version: 2019_04_27_213037) do
 
   create_table "certifications", force: :cascade do |t|
     t.string "name"
@@ -94,15 +94,6 @@ ActiveRecord::Schema.define(version: 2019_04_27_204458) do
     t.datetime "updated_at", null: false
     t.index ["ownership_id"], name: "index_vendor_ownerships_on_ownership_id"
     t.index ["vendor_id"], name: "index_vendor_ownerships_on_vendor_id"
-  end
-
-  create_table "vendor_tags", force: :cascade do |t|
-    t.bigint "tag_id"
-    t.bigint "vendor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tag_id"], name: "index_vendor_tags_on_tag_id"
-    t.index ["vendor_id"], name: "index_vendor_tags_on_vendor_id"
   end
 
   create_table "vendors", force: :cascade do |t|
