@@ -25,7 +25,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def product_success(action)
-    flash[:message] = '#{action.capitalize}ed Product'
+    flash[:message] = "#{action.capitalize}ed Product"
     flash[:type] = 'alert alert-success'
     redirect_to admin_products_path
   end

@@ -13,7 +13,7 @@ class Admin::VendorsController < ApplicationController
   end
 
   def vendor_success(action)
-    flash[:message] = '#{action.capitalize}ed Vendor'
+    flash[:message] = "#{action.capitalize}ed Vendor"
     flash[:type] = 'alert alert-success'
     redirect_to admin_vendors_path
   end
