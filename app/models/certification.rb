@@ -1,4 +1,4 @@
-class Certification < ApplicationRecord
+class Certification < Tag
   validates :name, presence: true, uniqueness: true
 
   has_many :product_certifications

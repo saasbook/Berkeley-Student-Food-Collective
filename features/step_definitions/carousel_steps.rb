@@ -20,10 +20,10 @@ Given /I create three new products/ do
   FactoryBot.create(:product, name: "Second Product")
   FactoryBot.create(:product, name: "Third Product")
   %w(certification nutrition packaging).each do |tag_type|
-    FactoryBot.create("original_#{tag_type}")
-    "Product#{tag_type.capitalize}".constantize.create(product_id: 1, "#{tag_type}_id": 1)
-    "Product#{tag_type.capitalize}".constantize.create(product_id: 2, "#{tag_type}_id": 1)
-    "Product#{tag_type.capitalize}".constantize.create(product_id: 3, "#{tag_type}_id": 1)
+    @tag_type = FactoryBot.create("original_#{tag_type}")
+    "Product#{tag_type.capitalize}".constantize.create(product_id: 1, "#{tag_type}_id": @tag_type.id)
+    "Product#{tag_type.capitalize}".constantize.create(product_id: 2, "#{tag_type}_id": @tag_type.id)
+    "Product#{tag_type.capitalize}".constantize.create(product_id: 3, "#{tag_type}_id": @tag_type.id)
   end
 end
 

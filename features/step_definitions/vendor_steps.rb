@@ -7,9 +7,9 @@ Given /a(?:nother)? vendor tag already exists/ do
 end
 
 Given /a vendor with a tag already exists/ do
-  FactoryBot.create(:vendor)
-  FactoryBot.create(:original_ownership)
-  VendorOwnership.create(vendor_id: 1, ownership_id: 1)
+  @vendor = FactoryBot.create(:vendor)
+  @ownership = FactoryBot.create(:original_ownership)
+  VendorOwnership.create(vendor_id: @vendor.id, ownership_id: @ownership.id)
 end
 
 Given /another vendor already exists/ do

@@ -9,10 +9,12 @@
         %button{type: 'button', onclick: "routeToPageDirectly('#{new_admin_product_path}')"} Add Product
         %button{type: 'button', onclick: "routeToPageDirectly('#{new_admin_vendor_path}')"} Add Vendor
         %button{type: 'button', onclick: "routeToPageDirectly('#{new_admin_tag_path}')"} Add Tag
+
     .index-centered
-      %button.togglePage#selected{type: 'button', onclick: "routeToPageDirectly('#{admin_products_path}')"} PRODUCTS
+      %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{admin_products_path}')"} PRODUCTS
       %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{admin_vendors_path}')"} VENDORS
-      %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{admin_tags_path}')"} TAGS
+      %button.togglePage#selected{type: 'button', onclick: "routeToPageDirectly('#{admin_tags_path}')"} TAGS
+
     %table.index-centered
       %tbody#letter-nav
         %tr#letters
@@ -26,22 +28,21 @@
   %table#index
     %tbody
       - ('A'..'Z').to_a.each do |letter|
-        - products_with_letter = Product.where("name LIKE ?", "#{letter}%")
-        - if products_with_letter.length > 0
+        - vendors_with_letter = Tag.where("name LIKE ?", "#{letter}%")
+        - if vendors_with_letter.length > 0
           %tr.letter-heading
             %td{id: "#{letter}"}= letter
-          - products_with_letter.each do |product|
+          - vendors_with_letter.each do |vendor|
             %tr
               %td.products
-                %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
+                %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_vendor_path(vendor.id)}')"} #{vendor.name}
         - else
           %tr{id: "#{letter}"}
-      - products_with_nonletter = Product.where("name < 'A'")
-      - if products_with_nonletter.length > 0
+      - vendors_with_nonletter = Tag.where("name < 'A'")
+      - if vendors_with_nonletter.length > 0
         %tr.letter-heading
           %td{id: "1"}= 1
-        - products_with_nonletter.each do |product|
+        - vendors_with_nonletter.each do |vendor|
           %tr
             %td.products
-              %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_product_path(product.id)}')"} #{product.name} - #{product.vendor.name}
-
+              %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_vendor_path(vendor.id)}')"} #{vendor.name}
