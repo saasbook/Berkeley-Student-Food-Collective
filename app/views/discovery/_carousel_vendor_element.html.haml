@@ -1,4 +1,4 @@
-%div{:class => "container carousel_element #{local_assigns[:ownership].gsub(" ", "_")}", :id => local_assigns[:vendor].name.gsub(" ", "_"), :onclick => "carouselAlert()"} 
+%div{:class => "container carousel_element #{local_assigns[:ownership].gsub(" ", "_")}", :id => local_assigns[:vendor].name.gsub(" ", "_"), :onclick => "routeToPageDirectly('#{vendor_path(local_assigns[:vendor].id)}')"}
   %button
     = image_tag local_assigns[:vendor].picture, :class => "image"
   %p{:class => "discovery-centered"}

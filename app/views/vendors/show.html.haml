@@ -1,1 +1,18 @@
-%h1 Hello, Vendors!
+#form_div
+  %div#vendorHeader
+    %button#home{type: 'button', onclick: "routeToPageDirectly('#{discovery_path}')"}
+      %image#logo{:src => image_url('logo450x429.png')}
+    %div#vendorInfo
+      %h1
+        - @vendor.name
+      %h2.address
+        - if @vendor.address
+          - @vendor.address
+      %div#tagBtns
+        - if @vendor.ownerships.length > 0
+          - @vendor.ownerships[0...4].each do |o|
+            %div
+              %h4
+                - o.name
+    %div
+      %p HELLO
