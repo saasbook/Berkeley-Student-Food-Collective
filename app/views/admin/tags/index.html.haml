@@ -28,21 +28,21 @@
   %table#index
     %tbody
       - ('A'..'Z').to_a.each do |letter|
-        - vendors_with_letter = Tag.where("name LIKE ?", "#{letter}%")
-        - if vendors_with_letter.length > 0
+        - tags_with_letter = Tag.where("name LIKE ?", "#{letter}%")
+        - if tags_with_letter.length > 0
           %tr.letter-heading
             %td{id: "#{letter}"}= letter
-          - vendors_with_letter.each do |vendor|
+          - tags_with_letter.each do |tag|
             %tr
               %td.products
-                %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_vendor_path(vendor.id)}')"} #{vendor.name}
+                %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_tag_path(tag.id)}')"} #{tag.name}
         - else
           %tr{id: "#{letter}"}
-      - vendors_with_nonletter = Tag.where("name < 'A'")
-      - if vendors_with_nonletter.length > 0
+      - tags_with_nonletter = Tag.where("name < 'A'")
+      - if tags_with_nonletter.length > 0
         %tr.letter-heading
           %td{id: "1"}= 1
-        - vendors_with_nonletter.each do |vendor|
+        - tags_with_nonletter.each do |tag|
           %tr
             %td.products
-              %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_vendor_path(vendor.id)}')"} #{vendor.name}
+              %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_tag_path(tag.id)}')"} #{tag.name}
