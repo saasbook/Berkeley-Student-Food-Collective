@@ -76,7 +76,7 @@ Feature: Add a new vendor to the database
   Scenario: Fill new vendor form, press cancel, and confirm (happy)
     When I press "Cancel"
     And I confirm the popup
-    Then I should be on the vendors page
+    Then I should be on the volunteer-facing vendors index page
     And I should not see a success or error message
 
   @javascript

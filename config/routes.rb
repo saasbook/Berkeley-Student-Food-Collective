@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   get 'discovery', action: :index, controller: 'discovery'
   resources :vendors, :products, :ownerships
   
-  root :to => redirect('/vendors')
+  namespace :admin do 
+  	resources :products, :vendors
+  end
+  
+  root :to => redirect('/discovery')
 end

@@ -9,11 +9,11 @@ function routeToPageDirectly(input) {
 }
 
 function confirmVendorCancel() {
-  confirmGeneralCancel("vendors");
+  confirmGeneralCancel("admin/vendors");
 }
 
 function confirmProductCancel() {
-  confirmGeneralCancel("products");
+  confirmGeneralCancel("admin/products");
 }
 
 function confirmGeneralCancel(input) {

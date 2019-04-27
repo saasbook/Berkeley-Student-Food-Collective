@@ -97,7 +97,7 @@ Feature: Edit an existing product in the database
   Scenario: Fill new product form, press cancel, and confirm (happy)
     When I press "Cancel"
     And I confirm the popup
-    Then I should be on the products page
+    Then I should be on the volunteer-facing products index page
     And I should not see a success or error message
 
   @javascript
