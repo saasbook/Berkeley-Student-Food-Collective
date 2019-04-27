@@ -56,7 +56,7 @@ end
 
 Then /the vendor should be successfully added/ do
   steps %Q{
-    Then I should be on the vendors page
+    Then I should be on the volunteer-facing vendors index page
     And I should see a success message
     And I go to the edit vendor page
     And I should see the vendor attributes filled in
@@ -65,7 +65,7 @@ end
 
 Then /the vendor should be successfully updated/ do
   steps %Q{
-    Then I should be on the vendors page
+    Then I should be on the volunteer-facing vendors index page
     And I should see a success message
     And I go to the edit vendor page
   }

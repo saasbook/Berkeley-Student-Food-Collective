@@ -19,7 +19,7 @@ module NavigationHelpers
     when /^the new vendor page$/
       new_admin_vendor_path
 
-    when /^the vendors page$/
+    when /^the volunteer-facing vendors index page$/
       admin_vendors_path
 
     when /^the edit vendor page$/
@@ -28,7 +28,7 @@ module NavigationHelpers
     when /^the new product page$/
       new_admin_product_path
 
-    when /^the products page$/
+    when /^the volunteer-facing products index page$/
       admin_products_path
 
     when /^the edit product page$/
@@ -37,9 +37,9 @@ module NavigationHelpers
     when /^the Discovery page$/
       discovery_path
 
-    when /^the products index page$/
+    when /^the customer-facing products index page$/
       products_path
-    when /^the vendors index page$/
+    when /^the customer-facing vendors index page$/
       vendors_path
 
     # Add more mappings here.
