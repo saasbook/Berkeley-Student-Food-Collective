@@ -1,7 +1,7 @@
 #notice{class: flash[:type]}
   = flash[:message]
 
-= form_for @product do |f|
+= form_for [:admin, @product] do |f|
   #form_elements_div
     .form_group.element_div
       = f.label :vendor_id, 'Select a Vendor'

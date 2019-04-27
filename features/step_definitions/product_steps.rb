@@ -26,8 +26,9 @@ When /I fill in the new product form( except the vendor field)?/ do |exclude_ven
   fill_in :Name, with: product_attributes[:name]
   fill_in :UPC, with: product_attributes[:upc]
   fill_in :Picture, with: product_attributes[:picture]
+  fill_in :Origin, with: product_attributes[:origin]
   product_attributes.each do |key, value|
-    unless [:name, :vendor_id, :upc, :picture].include?(key)
+    unless [:name, :vendor_id, :upc, :picture, :origin, :cultural_history].include?(key)
       step %{I #{value ? '' : 'un'}check "product_#{key}"}
     end
   end
@@ -82,7 +83,7 @@ end
 
 Then /the product should be successfully added/ do
   steps %Q{
-    Then I should be on the products page
+    Then I should be on the volunteer-facing products index page
     And I should see a success message
     And I go to the edit product page
     And I should see the product attributes filled in
@@ -91,7 +92,7 @@ end
 
 Then /the product should be successfully updated/ do
   steps %Q{
-    Then I should be on the products page
+    Then I should be on the volunteer-facing products index page
     And I should see a success message
     And I go to the edit product page
   }
@@ -109,8 +110,11 @@ Then /I should see the product attributes(, except "(.*)",)? filled in/ do |excl
   unless exclude == 'picture'
     step %{the "Picture" field should contain "#{product_attributes[:picture]}"}
   end
+  unless exclude == 'origin'
+    step %{the "Origin" field should contain "#{product_attributes[:origin]}"}
+  end
   product_attributes.each do |key, value|
-    if not [:name, :vendor_id, :upc, :picture].include?(key) and exclude != key
+    if not [:name, :vendor_id, :upc, :picture, :origin, :cultural_history].include?(key) and exclude != key
       step %{the "product_#{key}" checkbox should #{value ? '' : 'not '}be checked}
     end
   end

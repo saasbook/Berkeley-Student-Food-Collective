@@ -7,9 +7,10 @@
       - local_assigns[:list].each do |vendor|
         - if vendor.picture != ""
           = render "carousel_vendor_element", vendor: vendor, ownership: -local_assigns[:tag]
-                
+              
   - if local_assigns[:type] == "product"
     - if local_assigns[:list]
       - local_assigns[:list].each do |product|
         - if product.picture != ""
           = render "carousel_product_element", product: product, tag: -local_assigns[:tag]
+

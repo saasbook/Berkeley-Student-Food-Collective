@@ -2,6 +2,8 @@ FactoryBot.define do
   factory :vendor do
     name {'Default Vendor Name'}
     picture {'http://www.google.com'}
+    story { 'Default Vendor Story' }
+    mission { 'Default Vendor Mission' }
     address {'Default Vendor Address'}
     facebook {'Default Vendor Facebook'}
     twitter {'Default Vendor Twitter'}
