@@ -82,13 +82,6 @@ ActiveRecord::Schema.define(version: 2019_04_24_202120) do
     t.index ["vendor_id"], name: "index_products_on_vendor_id"
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "type"
-  end
-
   create_table "vendor_ownerships", force: :cascade do |t|
     t.integer "vendor_id"
     t.integer "ownership_id"
@@ -96,15 +89,6 @@ ActiveRecord::Schema.define(version: 2019_04_24_202120) do
     t.datetime "updated_at", null: false
     t.index ["ownership_id"], name: "index_vendor_ownerships_on_ownership_id"
     t.index ["vendor_id"], name: "index_vendor_ownerships_on_vendor_id"
-  end
-
-  create_table "vendor_tags", force: :cascade do |t|
-    t.bigint "tag_id"
-    t.bigint "vendor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tag_id"], name: "index_vendor_tags_on_tag_id"
-    t.index ["vendor_id"], name: "index_vendor_tags_on_vendor_id"
   end
 
   create_table "vendors", force: :cascade do |t|
