@@ -1,4 +1,4 @@
-class Nutrition < ApplicationRecord
+class Nutrition < Tag
   validates :name, presence: true, uniqueness: true
 
   has_many :product_nutritions

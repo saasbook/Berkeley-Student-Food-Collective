@@ -11,6 +11,24 @@ class Admin::VendorsController < ApplicationController
     params.require(:vendor).permit(:name, :story, :mission, :description, :address, :facebook, :twitter, :instagram,
                                    ownership_ids: [])
   end
+
+  def vendor_success(action)
+    action = addE(action)
+    flash[:message] = "#{action.capitalize}d Vendor"
+    flash[:type] = 'alert alert-success'
+    redirect_to admin_vendors_path
+  end
+
+  def vendor_fail(action, vendor)
+    flash[:message] = vendor.errors.full_messages
+    flash[:type] = 'alert alert-danger'
+    if action == "add"
+      flash[:vendor_params] = vendor_params
+      redirect_to new_admin_vendor_path
+    elsif action == "update"
+      redirect_to edit_admin_vendor_path
+    end
+  end
     
   def new
     # Make new vendor so form knows to make submit button say "Create Vendor"
@@ -25,14 +43,9 @@ class Admin::VendorsController < ApplicationController
     success = vendor.update_attributes(vendor_params)
 
     if success
-      flash[:message] = 'Added Vendor'
-      flash[:type] = 'alert alert-success'
-      redirect_to admin_vendors_path
+      vendor_success("add")
     else
-      flash[:message] = vendor.errors.full_messages
-      flash[:type] = 'alert alert-danger'
-      flash[:vendor_params] = vendor_params
-      redirect_to new_admin_vendor_path
+      vendor_fail("add", vendor)
     end
   end
 
@@ -50,14 +63,9 @@ class Admin::VendorsController < ApplicationController
     success = vendor.update_attributes(vendor_params)
 
     if success
-      flash[:message] = 'Updated Vendor'
-      flash[:type] = 'alert alert-success'
-      redirect_to admin_vendors_path
+      vendor_success("update")
     else
-      flash[:message] = vendor.errors.full_messages
-      flash[:type] = 'alert alert-danger'
-      # TODO: Fix redirect causing all changes to be reverted
-      redirect_to edit_admin_vendor_path
+      vendor_fail("update", vendor)
     end
   end
 end

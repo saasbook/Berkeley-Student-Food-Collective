@@ -1,4 +1,4 @@
-class Ownership < ApplicationRecord
+class Ownership < Tag
   validates :name, presence: true, uniqueness: true
 
   has_many :vendor_ownerships
