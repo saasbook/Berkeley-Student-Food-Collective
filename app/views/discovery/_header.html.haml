@@ -1,0 +1,12 @@
+#notice{class: flash[:type]}
+  = flash[:message]
+
+%head#header
+  %nav.navbar.navbar-default{role: "navigation"}
+    %a{:href => "#"}
+      %image#logo{:src => image_url('logo450x429.png')}
+    %a.navbar-brand Berkeley Student Food Collective
+    %a{:href => "/discovery"} Home
+    %a{:href => "/vendors"} Vendors
+    %a{:href => "/products"} Products
+    %a{:href => "/tags"} Tags
