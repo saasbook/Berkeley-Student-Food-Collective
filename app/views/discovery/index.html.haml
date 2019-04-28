@@ -1,5 +1,5 @@
-= render "header"
 %body#discovery
+  = render "header"
   - @tags_hash.each do |tag, list|
     = render "carousel", type: "product", tag: tag, list: list
 
