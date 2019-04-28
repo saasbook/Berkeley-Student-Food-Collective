@@ -92,3 +92,4 @@ Feature: Add a new vendor to the database
     And I submit the form
     Then I should see an error message on the new vendor page
     And I should see the vendor attributes, except "picture", filled in
+    And no vendors should exist
