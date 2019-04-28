@@ -13,35 +13,5 @@
       %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{admin_products_path}')"} PRODUCTS
       %button.togglePage#selected{type: 'button', onclick: "routeToPageDirectly('#{admin_vendors_path}')"} VENDORS
       %button.togglePage#unselected{type: 'button', onclick: "routeToPageDirectly('#{admin_tags_path}')"} TAGS
-    %table.index-centered
-      %tbody#letter-nav
-        %tr#letters
-          - ('A'..'Z').to_a.each do |letter|
-            %td.jump
-              %button.prod-link{type: 'button', onclick: "routeToPageDirectly('##{letter}')"} #{letter}
-          %td.jump
-            %button.prod-link{type: 'button', onclick: "routeToPageDirectly('##{1}')"} #{1}
-  #notice{class: flash[:type]}
-    = flash[:message]
-  %table#index
-    %tbody
-      - ('A'..'Z').to_a.each do |letter|
-        - vendors_with_letter = Vendor.where("name LIKE ?", "#{letter}%")
-        - if vendors_with_letter.length > 0
-          %tr.letter-heading
-            %td{id: "#{letter}"}= letter
-          - vendors_with_letter.each do |vendor|
-            %tr
-              %td.products
-                - path = "vendors/#{vendor.id}/edit"
-                %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{path}')"} #{vendor.name}
-        - else
-          %tr{id: "#{letter}"}
-      - vendors_with_nonletter = Vendor.where("name < 'A'")
-      - if vendors_with_nonletter.length > 0
-        %tr.letter-heading
-          %td{id: "1"}= 1
-        - vendors_with_nonletter.each do |vendor|
-          %tr
-            %td.products
-              %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{edit_admin_vendor_path(vendor.id)}')"} #{vendor.name}
+  = render partial: 'indexBody', locals: {myclass: Vendor, admin: true}
+
