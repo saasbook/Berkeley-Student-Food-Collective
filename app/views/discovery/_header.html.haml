@@ -1,28 +1,18 @@
-%meta{:charset => "utf-8"}
-%meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
-%link{:rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"}
-%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"}
-%script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"}
-
-%div
-  %nav.navbar.navbar-inverse{role: "navigation"}
+%header
+  %div{:class => "navbar navbar-expand-lg navbar-dark bg-dark static-top"}
     %div{:class => "container-fluid"}
-      %a{:href => "/discovery"}
-        %image#logo{:src => image_url('logo450x429.png')}
       %div{:class => "navbar-header"}
-        %button{:type => "button", :class => "navbar-toggle collapsed", :data => {:toggle => "collapse", :target => "#navbar"}, :aria => {:expanded => "false", :controls => "navbar"}}
-          %span{:class => "sr-only"} Toggle navigation
-          %span{:class => "icon-bar"}
-          %span{:class => "icon-bar"}
-          %span{:class => "icon-bar"}
-        %a.navbar-brand{:href => "#"} Berkeley Student Food Collective
-      %div{:id => "navbar", :class => "navbar-collapse collapse"}
-        %ul{:class => "nav navbar-nav"}
-          %li
-            %a{:class => "active", :href => "/discovery"} Home
-          %li
-            %a{:href => "/vendors"} Vendors
-          %li
-            %a{:href => "/products"} Products
-          %li
-            %a{:href => "/tags"} Tags
+        %a.navbar-brand.navbar-left{:href => "/discovery"}
+          %image#logo{:src => image_url('logo450x429.png')}
+        %button{:type => "button", :class => "navbar-toggler", :data => {:toggle => "collapse", :target => "#navbarResponsive"}, :aria => {:expanded => "false", :controls => "navbarResponsive", :label => "Toggle navigation"}}
+          %span{:class => "navbar-toggler-icon"}
+      %div{:id => "navbarResponsive", :class => "collapse navbar-collapse"}
+        %ul{:class => "navbar-nav ml-auto"}
+          %li{:class => "nav-item"}
+            %a{:class => "nav-link", :href => "/discovery"} Home
+          %li{:class => "nav-item"}
+            %a{:class => "nav-link", :href => "/vendors"} Vendors
+          %li{:class => "nav-item"}
+            %a{:class => "nav-link", :href => "/products"} Products
+          %li{:class => "nav-item"}
+            %a{:class => "nav-link", :href => "/tags"} Tags

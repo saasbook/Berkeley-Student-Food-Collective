@@ -1,4 +1,4 @@
-body#discovery{
+#discovery{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr
@@ -93,7 +93,7 @@ body#discovery{
 }
 
 .navbar {
-  min-height: 80px;
+  min-height: 20px;
 }
 
 .navbar-brand {
@@ -108,11 +108,9 @@ body#discovery{
   padding: 9px 10px !important;
 }
 
-@media (min-width: 768px) {
-  .navbar-nav > li > a {
+.navbar-nav > li > a {
     /* (80px - line-height of 27px) / 2 = 26.5px */
     padding-top: 26.5px;
     padding-bottom: 26.5px;
     line-height: 27px;
   }
-}
