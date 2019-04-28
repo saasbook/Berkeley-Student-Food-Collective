@@ -151,3 +151,7 @@ end
 Then /the product's vendor should be the other vendor/ do
   expect(page).to have_select('Select a Vendor', selected: FactoryBot.attributes_for(:other_vendor)[:name])
 end
+
+Then /no products should exist/ do
+  expect(Product.count).to eq(0)
+end
