@@ -3,6 +3,6 @@
     %tr#letters
       - ('A'..'Z').to_a.each do |letter|
         %td.jump
-          %button.prod-link{type: 'button', onclick: "routeToPageDirectly('##{letter}')"} #{letter}
+          = button_to "#{letter}", "##{letter}", {method: :get, class: 'prod-link'}
       %td.jump
-        %button.prod-link{type: 'button', onclick: "routeToPageDirectly('##{1}')"} #{1}
+        = button_to "1", "#1", {method: :get, class: 'prod-link'}

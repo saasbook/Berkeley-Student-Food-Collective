@@ -18,7 +18,9 @@
       = button_to "VENDORS", {controller: "#{'admin/' if admin}vendors", action: :index}, {method: :get, class: 'togglePage', id: "selected"}
     -else
       = button_to "VENDORS", {controller: "#{'admin/' if admin}vendors", action: :index}, {method: :get, class: 'togglePage', id: "unselected"}
-    -if currentPage == "tag"
-      = button_to "TAGS", {controller: "#{'admin/' if admin}tags", action: :index}, {method: :get, class: 'togglePage', id: "selected"}
-    -else
-      = button_to "TAGS", {controller: "#{'admin/' if admin}tags", action: :index}, {method: :get, class: 'togglePage', id: "unselected"}
+    -if admin
+      -# NOTE: DELETE THIS IF STATEMENT ABOVE WHEN THE CUSTOMER-FACING TAGS PAGE IS IMPLEMENTED (AND UNINDENT THE NEXT BLOCK)
+      -if currentPage == "tag"
+        = button_to "TAGS", {controller: "#{'admin/' if admin}tags", action: :index}, {method: :get, class: 'togglePage', id: "selected"}
+      -else
+        = button_to "TAGS", {controller: "#{'admin/' if admin}tags", action: :index}, {method: :get, class: 'togglePage', id: "unselected"}
