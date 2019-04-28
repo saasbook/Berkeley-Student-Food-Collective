@@ -1,18 +1,54 @@
-#form_div
-  %div#vendorHeader
+#details
+  #vendorHeader
     %button#home{type: 'button', onclick: "routeToPageDirectly('#{discovery_path}')"}
-      %image#logo{:src => image_url('logo450x429.png')}
-    %div#vendorInfo
+      %image#logo-nav{:src => image_url('logo450x429.png')}
+    #vendorInfo
       %h1
-        - @vendor.name
-      %h2.address
-        - if @vendor.address
-          - @vendor.address
-      %div#tagBtns
+        = @vendor.name
+      %h2
+        %address
+          = @vendor.address
+      #tags
         - if @vendor.ownerships.length > 0
-          - @vendor.ownerships[0...4].each do |o|
-            %div
-              %h4
-                - o.name
-    %div
-      %p HELLO
+          - @vendor.ownerships[0...4].each do |tags|
+            %h3.tagBtns
+              = tags.name
+  #vendorContent
+    - if not @vendor.picture.empty?
+      #leftAlign
+        %image#vendorImage{:src => image_url(@vendor.picture)}
+        #social
+          %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.facebook}')"}
+            %i.fa.fa-facebook-square
+          %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.twitter}')"}
+            %i.fa.fa-twitter-square
+          %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.instagram}')"}
+            %i.fa.fa-instagram
+        #extendTags
+          - if @vendor.ownerships.length > 4
+            - @vendor.ownerships.each do |tags|
+              %h3.tagLinks
+                = tags.name
+    #vendorText
+      #mission
+        %h5.subhead Mission
+        %p.subheadtext
+          = @vendor.mission
+      #story
+        %h5.subhead Story
+        %p.subheadtext
+          = @vendor.story
+  #vendorFooter
+    - if @vendor.picture.empty?
+      #social
+        %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.facebook}')"}
+          %i.fa.fa-facebook-square
+        %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.twitter}')"}
+          %i.fa.fa-twitter-square
+        %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.instagram}')"}
+          %i.fa.fa-instagram
+      #extendTags
+        - if @vendor.ownerships.length > 4
+          - @vendor.ownerships.each do |tags|
+            %h3.tagLinks
+              = tags.name

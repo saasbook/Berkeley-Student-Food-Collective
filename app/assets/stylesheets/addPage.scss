@@ -86,8 +86,10 @@ select {
 $selected-color: #E33D35;
 $unselected-color: #6FC051;
 
+$gray-color: #BEBEBE;
+
 .dropdown-content button:hover {
-  background-color: #BEBEBE
+  background-color: $gray-color;
 }
 
 .dropdown:hover .dropdown-content {
@@ -214,4 +216,212 @@ justify-content: center;
 #logo {
   height: 129px;
   width: 135px;
+}
+
+// Customer-Facing Details Pages
+
+#details {
+  max-width: 1500px;
+  display: grid;
+  grid-column: 2/3;
+  padding: 5px;
+}
+
+#vendorHeader {
+  display: block;
+}
+
+#home {
+  background-color: Transparent;
+  border: none;
+}
+
+#logo-nav {
+  height: 30px;
+  width: 30px;
+
+}
+
+#vendorInfo {
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+h1 {
+  background-color: Transparent;
+  color: #000;
+  font-weight: normal;
+  font-size: 45pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+h2 {
+  background-color: Transparent;
+  color: #000;
+  font-weight: normal;
+  font-size: 25pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+address {
+  background-color: Transparent;
+}
+
+#social {
+  margin-top: 10px;
+  margin-left: -5px;
+}
+
+.socialBtn {
+  background-color: Transparent;
+  border: none;
+}
+
+.fa-facebook-square {
+  color: $unselected-color;
+  font-size: 30px;
+}
+
+.fa-twitter-square {
+  color: $unselected-color;
+  font-size: 30px;
+}
+
+.fa-instagram {
+  color: $unselected-color;
+  font-size: 30px;
+}
+
+#tags {
+  display: inline-flex;
+}
+
+.tagBtns {
+  background-color: $gray-color;
+  color: #fff;
+  font-weight: normal;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 150px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: -5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+}
+
+#vendorContent {
+  display: inline-flex;
+  padding: 5px;
+  max-width: 750px;
+  margin-top: 5px;
+}
+
+#vendorImage {
+  border-radius: 15px;
+  max-width: 250px;
+  max-height: 262px;
+  margin-right: 15px;
+}
+
+#vendorText {
+  color: #000;
+  font-weight: normal;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap: break-word;
+  min-width: 350px;
+  max-width: 500px;
+  margin-left: 15px;
+  padding-top: 5px;
+}
+
+#story {
+
+}
+
+#mission {
+
+}
+
+.subhead {
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  color: #000;
+  font-weight: bold;
+  font-size: 18pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap: break-word;
+}
+
+.subheadtext {
+  color: #000;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap: break-word;
+}
+
+#extendTags {
+  display: flex;
+  max-width: 250px;
+  flex-wrap: wrap;
+}
+
+.tagLinks {
+  color: $gray-color;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  margin-left: 5px;
+  margin-right: 5px;
+  word-wrap: break-word;
+  max-width: 250px;
+}
+
+.tagLinks:hover {
+  text-decoration: underline;
 }
