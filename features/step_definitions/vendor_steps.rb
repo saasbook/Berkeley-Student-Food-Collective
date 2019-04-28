@@ -98,3 +98,7 @@ Then /the vendor should have no tags/ do
   expect(div).not_to have_selector("input[value='#{FactoryBot.attributes_for(:new_ownership)[:name]}']")
   expect(div).not_to have_selector("input[value='#{FactoryBot.attributes_for(:original_ownership)[:name]}']")
 end
+
+Then /no vendors should exist/ do
+  expect(Vendor.count).to eq(0)
+end

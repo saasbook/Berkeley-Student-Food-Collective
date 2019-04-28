@@ -17,15 +17,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   def product_params_without_nested
-    params.require(:product).permit(:name, :origin, :cultural_history, :vegan, :gluten_free, :dairy_free,
-                                    :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id,
-                                    certification_ids: [],
-                                    nutrition_ids: [],
-                                    packaging_ids: [])
+    product_params.except(:certifications_attributes, :nutritions_attributes, :packagings_attributes)
   end
 
   def product_success(action)
-    flash[:message] = "#{action.capitalize}ed Product"
+    action = addE(action)
+    flash[:message] = "#{action.capitalize}d Product"
     flash[:type] = 'alert alert-success'
     redirect_to admin_products_path
   end
