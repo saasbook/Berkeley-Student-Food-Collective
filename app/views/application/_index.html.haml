@@ -5,7 +5,7 @@
   %tbody
     - ('A'..'Z').to_a.each do |letter|
       - item_with_letter = @class.where("name LIKE ?", "#{letter}%")
-      = render singleLetterItem, locals: {items: item_with_letter, letter: letter, action: :edit, controller: "admin/products"}
+      = render singleLetterItem, locals: {items: item_with_letter, letter: letter, action: action, controller: controller}
       // - if item_with_letter.length > 0
       //   %tr.letter-heading
       //     %td{id: "#{letter}"}= letter

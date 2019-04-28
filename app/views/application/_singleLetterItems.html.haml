@@ -4,6 +4,7 @@
         - items.each do |product|
           %tr
             %td.products
+            - path = "#{controller}/#{item.id}/#{action}"
               %button.prod-link{type: 'button', onclick: "routeToPageDirectly('#{path(product.id)}')"} #{product.name} - #{product.vendor.name}
       - else
         %tr{id: "#{letter}"}
