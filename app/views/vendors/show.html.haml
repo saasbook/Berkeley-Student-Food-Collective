@@ -5,9 +5,11 @@
     #vendorInfo
       %h1
         = @vendor.name
-      %h2
-        %address
-          = @vendor.address
+      %p
+        - addr = @vendor.address.split(",")
+        - for i in 0..addr.length do
+          %p#addr=addr[i]
+
       #tags
         - if @vendor.ownerships.length > 0
           - @vendor.ownerships[0...5].each do |tags|
