@@ -321,7 +321,7 @@ address {
   outline:none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 150px;
+  max-width: 250px;
   margin-left: 5px;
   margin-right: 5px;
   margin-top: -5px;
@@ -332,10 +332,14 @@ address {
   border-radius: 15px;
 }
 
+.tagBtns:hover {
+  max-width: none;
+}
+
 #vendorContent {
   display: inline-flex;
   padding: 5px;
-  max-width: 750px;
+  max-width: 1500px;
   margin-top: 5px;
 }
 
