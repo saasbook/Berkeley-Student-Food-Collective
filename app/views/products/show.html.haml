@@ -9,88 +9,21 @@
         Made by 
         = @product.vendor.name
       #tags
-        - if @product.certifications.length > 0
-          - @product.certifications[0...4].each do |tags|
+        - if @rfc.length > 0
+          - @rfc[0...4].each do |tag|
             %h3.tagBtns
-              = tags.name
-        - if @product.nutritions.length > 0
-          - @product.nutritions[0...4].each do |tags|
+              = tag
+        - if @tags.length > 0
+          - @tags[0...4-@rfc.length].each do |tag|
             %h3.tagBtns
-              = tags.name
-    - if not @product.picture.empty?
-      #detailsPageContent
-        - if (not @product.origin.empty?) or (not @product.cultural_history.empty?)
-          #leftAlign
-            %image#detailsPageImage.imageWithText{:src => image_url(@product.picture)}
-            #dietaryRestrictionsText
-              - if @product.vegan
-                %image#dietaryLogo{:src => image_url('product-icons/vegan.png')}
-              - if @product.gluten_free
-                %image#dietaryLogo{:src => image_url('product-icons/glutenfree.png')}
-              - if @product.dairy_free
-                %image#dietaryLogo{:src => image_url('product-icons/dairyfree.png')}
-            #extendTags
-              - if @product.certifications.length > 0
-                - @product.certifications.each do |tags|
-                  %h3.tagLinks
-                    = tags.name
-              - if @product.nutritions.length > 0
-                - @product.nutritions.each do |tags|
-                  %h3.tagLinks
-                    = tags.name
-              - if @product.packagings.length > 0
-                - @product.packagings.each do |tags|
-                  %h3.tagLinks
-                    = tags.name
-        #detailsPageText
-          - if not @product.origin.empty?
-            %h5.subhead Origin
-            %p.origintext
-              = @product.origin
-          - if not @product.cultural_history.empty?
-            %h5.subhead Cultural History
-            %p.subheadtext
-              = @product.cultural_history
-      - if (not @product.picture.empty?) and @product.origin.empty? and @product.cultural_history.empty?
-        %image#detailsPageImage.imageNoText{:src => image_url(@product.picture)}
-        #dietaryRestrictionsNoText
-          - if @product.vegan
-            %image#dietaryLogo{:src => image_url('product-icons/vegan.png')}
-          - if @product.gluten_free
-            %image#dietaryLogo{:src => image_url('product-icons/glutenfree.png')}
-          - if @product.dairy_free
-            %image#dietaryLogo{:src => image_url('product-icons/dairyfree.png')}
-          #extendTags
-            - if @product.certifications.length > 0
-              - @product.certifications.each do |tags|
-                %h3.tagLinks
-                  = tags.name
-            - if @product.nutritions.length > 0
-              - @product.nutritions.each do |tags|
-                %h3.tagLinks
-                  = tags.name
-            - if @product.packagings.length > 0
-              - @product.packagings.each do |tags|
-                %h3.tagLinks
-                  = tags.name
-  #vendorFooter
-    - if @product.picture.empty?
-      - if @product.vegan
-        %image#dietaryLogo{:src => image_url('product-icons/vegan.png')}
-      - if @product.gluten_free
-        %image#dietaryLogo{:src => image_url('product-icons/glutenfree.png')}
-      - if @product.dairy_free
-        %image#dietaryLogo{:src => image_url('product-icons/dairyfree.png')}
-      #extendTags
-        - if @product.certifications.length > 4
-          - @product.certifications[4..@product.certifications.length].each do |tags|
-            %h3.tagLinks
-              = tags.name
-        - if @product.nutritions.length > 4
-          - @product.nutritions[4..@product.certifications.length].each do |tags|
-            %h3.tagLinks
-              = tags.name
-        - if @product.packagings.length > 0
-          - @product.packagings.each do |tags|
-            %h3.tagLinks
-              = tags.name
+              = tag.name
+    - if (not @product.picture.empty?) and (not @product.origin.empty?) and @product.cultural_history.empty?
+      = render "details_photo_some_text"
+  - if (not @product.picture.empty?) and (not @product.origin.empty?) and (not @product.cultural_history.empty?)
+    = render "details_all_content"
+  - if (not @product.picture.empty?) and @product.origin.empty? and @product.cultural_history.empty?
+    = render "details_photo_no_text"
+  - if @product.picture.empty? and ((not @product.origin.empty?) or (not @product.cultural_history.empty?))
+    = render "details_text_no_photo"
+  - if @product.picture.empty? and @product.origin.empty? and @product.cultural_history.empty?
+    = render "details_no_content"
