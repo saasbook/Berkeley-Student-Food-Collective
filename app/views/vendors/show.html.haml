@@ -5,12 +5,14 @@
     #detailsPageInfo
       %h1
         = @vendor.name
-      %h2
-        %address
-          = @vendor.address
+      %p
+        - if not @vendor.address.empty?
+          - addr = @vendor.address.split(",")
+          - for i in 0..addr.length do
+            %p#addr=addr[i]
       #tags
         - if @vendor.ownerships.length > 0
-          - @vendor.ownerships[0...4].each do |tags|
+          - @vendor.ownerships[0...5].each do |tags|
             %h3.tagBtns
               = tags.name
   #detailsPageContent
@@ -26,7 +28,7 @@
             %i.fa.fa-instagram
         #extendTags
           - if @vendor.ownerships.length > 4
-            - @vendor.ownerships.each do |tags|
+            - @vendor.ownerships[4...@vendor.ownerships.length].each do |tags|
               %h3.tagLinks
                 = tags.name
     #detailsPageText
@@ -49,6 +51,6 @@
           %i.fa.fa-instagram
       #extendTags
         - if @vendor.ownerships.length > 4
-          - @vendor.ownerships.each do |tags|
+          - @vendor.ownerships[4...@vendor.ownerships.length].each do |tags|
             %h3.tagLinks
               = tags.name

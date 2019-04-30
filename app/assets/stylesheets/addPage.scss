@@ -253,7 +253,7 @@ h1 {
   background-color: Transparent;
   color: #000;
   font-weight: normal;
-  font-size: 45pt;
+  font-size: 35pt;
   font-family: 'Arvo', sans-serif;
   background-repeat:no-repeat;
   border: none;
@@ -262,17 +262,19 @@ h1 {
   outline:none;
 }
 
-h2 {
+#addr {
   background-color: Transparent;
   color: #000;
   font-weight: normal;
-  font-size: 25pt;
+  font-size: 15pt;
   font-family: 'Arvo', sans-serif;
   background-repeat:no-repeat;
   border: none;
   cursor:pointer;
   overflow: hidden;
   outline:none;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 address {
@@ -306,6 +308,7 @@ address {
 
 #tags {
   display: inline-flex;
+  margin: 5px;
 }
 
 .tagBtns {
@@ -321,7 +324,7 @@ address {
   outline:none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 150px;
+  max-width: 250px;
   margin-left: 5px;
   margin-right: 5px;
   margin-top: -5px;
@@ -332,10 +335,14 @@ address {
   border-radius: 15px;
 }
 
+.tagBtns:hover {
+   max-width: none;
+}
+
 #detailsPageContent {
   display: inline-flex;
   padding: 5px;
-  max-width: 750px;
+  max-width: 1500px;
   margin-top: 5px;
 }
 
