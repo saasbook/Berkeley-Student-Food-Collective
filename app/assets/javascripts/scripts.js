@@ -17,11 +17,10 @@ function confirmProductCancel() {
 }
 
 function confirmGeneralCancel(input) {
- let object = input.split("/")[1]
- let cancel = confirm("Are you sure you want to cancel creating this " + object.slice(0, object.length - 1) + "? The information will not be saved!");
- if (cancel) {
-     routeToPage(input);
- }
+  let cancel = confirm("Are you sure you want to discard these changes?");
+  if (cancel) {
+      routeToPage(input);
+  }
 }
 
 function addExistingTag() {
