@@ -42,12 +42,14 @@
               %h3.tagLinks
                 = tags.name
     #detailsPageText
-      %h5.subhead Origin
-      %p.subheadtext
-        = @product.origin
-      %h5.subhead Cultural History
-      %p.subheadtext
-        = @product.cultural_history
+      - if not @product.origin.empty?
+        %h5.subhead Origin
+        %p.origintext
+          = @product.origin
+      - if not @product.cultural_history.empty?
+        %h5.subhead Cultural History
+        %p.subheadtext
+          = @product.cultural_history
   #vendorFooter
     - if @product.picture.empty?
       - if @product.vegan

@@ -401,6 +401,23 @@ address {
   word-wrap: break-word;
 }
 
+.origintext {
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  color: #000;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap: break-word;
+}
+
 #extendTags {
   display: flex;
   max-width: 250px;
