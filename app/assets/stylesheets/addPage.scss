@@ -266,59 +266,6 @@ h1 {
   outline:none;
 }
 
-#addr {
-  background-color: Transparent;
-  color: #000;
-  font-weight: normal;
-  font-size: 15pt;
-  font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
-  overflow: hidden;
-  outline:none;
-  margin-top: 2px;
-  margin-bottom: 2px;
-}
-
-address {
-  background-color: Transparent;
-}
-
-#socialWithText {
-  margin-top: 10px;
-  margin-left: -5px;
-}
-
-#socialNoText {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  align-content: center;
-  text-align: center;
-}
-
-.socialBtn {
-  margin-top: 5px;
-  background-color: Transparent;
-  border: none;
-}
-
-.fa-facebook-square {
-  color: $unselected-color;
-  font-size: 30px;
-}
-
-.fa-twitter-square {
-  color: $unselected-color;
-  font-size: 30px;
-}
-
-.fa-instagram {
-  color: $unselected-color;
-  font-size: 30px;
-}
-
 #tags {
   display: inline-flex;
   margin: 5px;
@@ -350,6 +297,41 @@ address {
 
 .tagBtns:hover {
    max-width: none;
+}
+
+#extendTags {
+  padding-left: 10px;
+  margin-top: 10px;
+  max-width: 250px;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.extendContentMissing {
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  text-align: center;
+}
+
+.tagLinks {
+  color: $gray-color;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  background-color: Transparent;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  margin-left: 5px;
+  margin-right: 5px;
+  word-wrap: break-word;
+  max-width: 250px;
+}
+
+.tagLinks:hover {
+  text-decoration: underline;
 }
 
 #detailsPageContent {
@@ -387,18 +369,20 @@ address {
   overflow: hidden;
   outline:none;
   word-wrap: break-word;
+}
+
+.detailsTextNoImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+}
+
+.detailsTextWithImage {
   min-width: 350px;
   max-width: 500px;
   margin-left: 15px;
   padding-top: 5px;
-}
-
-#story {
-
-}
-
-#mission {
-
 }
 
 .subhead {
@@ -431,6 +415,68 @@ address {
   word-wrap: break-word;
 }
 
+// Vendor Details Page
+
+#addr {
+  background-color: Transparent;
+  color: #000;
+  font-weight: normal;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+address {
+  background-color: Transparent;
+}
+
+#story {
+}
+
+#mission {
+}
+
+#socialWithText {
+  margin-top: 10px;
+  margin-left: -5px;
+}
+
+#socialNoText {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  text-align: center;
+}
+
+.socialBtn {
+  margin-top: 5px;
+  background-color: Transparent;
+  border: none;
+}
+
+.fa-facebook-square {
+  color: $unselected-color;
+  font-size: 30px;
+}
+
+.fa-twitter-square {
+  color: $unselected-color;
+  font-size: 30px;
+}
+
+.fa-instagram {
+  color: $unselected-color;
+  font-size: 30px;
+}
+
+// Product Details Page
 .origintext {
   justify-content: center;
   text-align: center;
@@ -448,53 +494,20 @@ address {
   word-wrap: break-word;
 }
 
-#extendTags {
-  max-width: 250px;
-  flex-wrap: wrap;
-  display: flex;
-}
-
-.extendContentMissing {
-  margin-left: auto;
-  margin-right: auto;
-  align-content: center;
-  text-align: center;
-}
-
-.tagLinks {
-  color: $gray-color;
-  font-weight: normal;
-  font-size: 12pt;
-  font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
-  overflow: hidden;
-  margin-left: 5px;
-  margin-right: 5px;
-  word-wrap: break-word;
-  max-width: 250px;
-}
-
-.tagLinks:hover {
-  text-decoration: underline;
-}
-
-// Product Details Page
-
 .vendorName:hover {
   text-decoration: underline;
 }
 
-#dietaryRestrictionsNoText {
+#dietaryRestrictionsContentMissing {
   display: block;
+  margin-top: -5px;
   margin-left: auto;
   margin-right: auto;
   align-content: center;
   text-align: center;
 }
 
-#dietaryRestrictionsText {
+#dietaryRestrictionsFullContent {
   margin-left: 15px;
 }
 
