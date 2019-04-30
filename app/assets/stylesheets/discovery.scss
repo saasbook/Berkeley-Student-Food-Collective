@@ -1,4 +1,4 @@
-body#discovery{
+#discovery{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr
@@ -90,4 +90,27 @@ body#discovery{
 .container:hover .overlay {
   opacity: 1;
   touch-action: auto;
+}
+
+.navbar {
+  min-height: 20px;
+}
+
+.navbar-brand {
+  line-height: 80px;
+}
+
+/*@media (min-width: 100px) {
+.navbar-brand.abs
+    {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+}*/
+
+.navbar-toggle {
+  margin-top: 23px;
+  padding: 9px 10px !important;
 }

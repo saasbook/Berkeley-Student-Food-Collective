@@ -3,7 +3,6 @@
 @import "font-awesome";
 
 body {
-  display: grid;
   grid-template-columns: 1fr 2fr 1fr;
 }
 
@@ -220,6 +219,13 @@ justify-content: center;
 #logo {
   height: 129px;
   width: 135px;
+}
+
+// Discovery Page Header
+
+#logoheader {
+  height: 65px;
+  width: 67px;
 }
 
 // Customer-Facing Details Pages
