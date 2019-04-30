@@ -5,7 +5,7 @@
     #detailsPageInfo
       %h1
         = @product.name
-      %h2.vendorName{:onclick => "routeToPageDirectly('#{vendor_path(@product.vendor.id)}')"}
+      %h3.vendorName{:onclick => "routeToPageDirectly('#{vendor_path(@product.vendor.id)}')"}
         Made by 
         = @product.vendor.name
       #tags
