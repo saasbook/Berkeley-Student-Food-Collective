@@ -4,16 +4,16 @@ function routeToPage(input) {
     window.location.href = "/" + input;
 }
 
-function routeToPageDirectly(input) {
-    window.location.href = input;
-}
-
 function confirmVendorCancel() {
   confirmGeneralCancel("admin/vendors");
 }
 
 function confirmProductCancel() {
   confirmGeneralCancel("admin/products");
+}
+
+function confirmTagCancel() {
+  confirmGeneralCancel("admin/tags");
 }
 
 function confirmGeneralCancel(input) {
