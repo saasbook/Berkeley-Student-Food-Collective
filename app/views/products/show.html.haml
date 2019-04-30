@@ -42,14 +42,12 @@
               %h3.tagLinks
                 = tags.name
     #detailsPageText
-      #mission
-        %h5.subhead Origin
-        %p.subheadtext
-          = @product.origin
-      #story
-        %h5.subhead Cultural History
-        %p.subheadtext
-          = @product.cultural_history
+      %h5.subhead Origin
+      %p.subheadtext
+        = @product.origin
+      %h5.subhead Cultural History
+      %p.subheadtext
+        = @product.cultural_history
   #vendorFooter
     - if @product.picture.empty?
       - if @product.vegan
@@ -59,12 +57,12 @@
       - if @product.dairy_free
         %image#dietaryLogo{:src => image_url('product-icons/dairyfree.png')}
       #extendTags
-        - if @product.certifications.length > 0
-          - @product.certifications.each do |tags|
+        - if @product.certifications.length > 4
+          - @product.certifications[4...@product.certifications.length].each do |tags|
             %h3.tagLinks
               = tags.name
-        - if @product.nutritions.length > 0
-          - @product.nutritions.each do |tags|
+        - if @product.nutritions.length > 4
+          - @product.nutritions[4...@product.certifications.length].each do |tags|
             %h3.tagLinks
               = tags.name
         - if @product.packagings.length > 0
