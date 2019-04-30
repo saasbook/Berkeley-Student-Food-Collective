@@ -5,10 +5,9 @@
     #detailsPageInfo
       %h1
         = @product.name
-      %h2
-        %address
-          Made by 
-          = @product.vendor.name
+      %h2.vendorName{:onclick => "routeToPageDirectly('#{vendor_path(@product.vendor.id)}')"}
+        Made by 
+        = @product.vendor.name
       #tags
         - if @product.certifications.length > 0
           - @product.certifications[0...4].each do |tags|
