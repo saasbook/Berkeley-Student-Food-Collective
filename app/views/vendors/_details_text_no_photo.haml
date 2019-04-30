@@ -1,11 +1,6 @@
 #detailsPageText
   = render "details_text"
   #socialWithText
-    %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.facebook}')"}
-      %i.fa.fa-facebook-square
-    %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.twitter}')"}
-      %i.fa.fa-twitter-square
-    %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.instagram}')"}
-      %i.fa.fa-instagram
+    = render "details_social_buttons"
     #extendTags
       = render "details_extend_tags"

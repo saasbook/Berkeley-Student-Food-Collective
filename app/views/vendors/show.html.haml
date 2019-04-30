@@ -21,3 +21,5 @@
     = render "details_photo_no_text"
   - if @vendor.picture.empty? and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
     = render "details_text_no_photo"
+  - if @vendor.picture.empty? and @vendor.mission.empty? and @vendor.story.empty?
+    = render "details_no_content"

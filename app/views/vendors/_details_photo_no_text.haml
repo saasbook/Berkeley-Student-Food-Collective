@@ -1,11 +1,6 @@
 #center
   %image#detailsPageImage.imageNoText{:src => image_url(@vendor.picture)}
   #socialNoText
-    %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.facebook}')"}
-      %i.fa.fa-facebook-square
-    %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.twitter}')"}
-      %i.fa.fa-twitter-square
-    %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.instagram}')"}
-      %i.fa.fa-instagram
+    = render "details_social_buttons"
     #extendTags.extendContentMissing
       = render "details_extend_tags"
