@@ -7,7 +7,7 @@
         = @product.name
       %h2
         %address
-          made by 
+          Made by 
           = @product.vendor.name
       #tags
         - if @product.certifications.length > 0
@@ -58,11 +58,11 @@
         %image#dietaryLogo{:src => image_url('product-icons/dairyfree.png')}
       #extendTags
         - if @product.certifications.length > 4
-          - @product.certifications[4...@product.certifications.length].each do |tags|
+          - @product.certifications[4..@product.certifications.length].each do |tags|
             %h3.tagLinks
               = tags.name
         - if @product.nutritions.length > 4
-          - @product.nutritions[4...@product.certifications.length].each do |tags|
+          - @product.nutritions[4..@product.certifications.length].each do |tags|
             %h3.tagLinks
               = tags.name
         - if @product.packagings.length > 0
