@@ -81,6 +81,10 @@ When /I remove the original product tags/ do
   end
 end
 
+When /I click on the vendor name/ do
+  page.find(".vendorName").click
+end
+
 Then /the product should be successfully added/ do
   steps %Q{
     Then I should be on the volunteer-facing products index page
@@ -153,6 +157,10 @@ Then /I should see the vendor, photo, origin and cultural history of the product
   expect(page.find("#detailsPageImage")).not_to be nil
   expect(page.find(".origintext")).not_to be nil
   expect(page.find(".subheadtext")).not_to be nil
+end
+
+Then /^(?:|I )should navigate to (.+)$/ do |page_name|
+  expect(page.find('.vendorName')['onclick']).to include path_to(page_name)
 end
 
 Then /the product's vendor should be the other vendor/ do
