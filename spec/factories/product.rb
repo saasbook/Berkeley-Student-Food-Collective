@@ -10,7 +10,7 @@ FactoryBot.define do
 		lc_based {true}
 		fair {true}
 		eco_sound {true}
-		humane {false}
+		humane {true}
 		upc {'000000000000'}
 		vendor_id {1}
 	end
