@@ -12,9 +12,9 @@
             %p#addr=addr[i]
       #tags
         - if @vendor.ownerships.length > 0
-          - @vendor.ownerships[0...5].each do |tags|
+          - @vendor.ownerships[0...5].each do |tag|
             %h3.tagBtns
-              = tags.name
+              = tag.name
   #detailsPageContent
     - if not @vendor.picture.empty?
       #leftAlign
@@ -28,9 +28,9 @@
             %i.fa.fa-instagram
         #extendTags
           - if @vendor.ownerships.length > 4
-            - @vendor.ownerships[4...@vendor.ownerships.length].each do |tags|
+            - @vendor.ownerships[5...@vendor.ownerships.length].each do |tag|
               %h3.tagLinks
-                = tags.name
+                = tag.name
     #detailsPageText
       #mission
         %h5.subhead Mission
@@ -50,7 +50,7 @@
         %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.instagram}')"}
           %i.fa.fa-instagram
       #extendTags
-        - if @vendor.ownerships.length > 4
-          - @vendor.ownerships[4...@vendor.ownerships.length].each do |tags|
+        - if @vendor.ownerships.length > 5
+          - @vendor.ownerships[5...@vendor.ownerships.length].each do |tag|
             %h3.tagLinks
-              = tags.name
+              = tag.name
