@@ -1,0 +1,8 @@
+%table.index-centered
+  %tbody#letter-nav
+    %tr#letters
+      - ('A'..'Z').to_a.each do |letter|
+        %td.jump
+          = button_to "#{letter}", "##{letter}", {method: :get, class: 'prod-link'}
+      %td.jump
+        = button_to "1", "#1", {method: :get, class: 'prod-link'}

@@ -3,7 +3,6 @@
 @import "font-awesome";
 
 body {
-  display: grid;
   grid-template-columns: 1fr 2fr 1fr;
 }
 
@@ -86,7 +85,7 @@ select {
 $selected-color: #E33D35;
 $unselected-color: #6FC051;
 
-.dropdown-content button:hover {
+.dropdown-content form:hover {
   background-color: #BEBEBE
 }
 
@@ -119,7 +118,7 @@ $unselected-color: #6FC051;
   float: left;
 }
 
-.dropdown-content button {
+.dropdown-content form {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -214,4 +213,9 @@ justify-content: center;
 #logo {
   height: 129px;
   width: 135px;
+}
+
+#logoheader {
+  height: 65px;
+  width: 67px;
 }

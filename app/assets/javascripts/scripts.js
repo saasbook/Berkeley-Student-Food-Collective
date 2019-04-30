@@ -17,7 +17,7 @@ function confirmProductCancel() {
 }
 
 function confirmGeneralCancel(input) {
-  let cancel = confirm("Are you sure you want to cancel creating this " + input + "? The information will not be saved!");
+  let cancel = confirm("Are you sure you want to discard these changes?");
   if (cancel) {
       routeToPage(input);
   }
