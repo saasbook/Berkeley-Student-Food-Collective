@@ -28,7 +28,7 @@
             %i.fa.fa-instagram
         #extendTags
           - if @vendor.ownerships.length > 4
-            - @vendor.ownerships.each do |tags|
+            - @vendor.ownerships[4...@vendor.ownerships.length].each do |tags|
               %h3.tagLinks
                 = tags.name
     #vendorText
@@ -51,6 +51,6 @@
           %i.fa.fa-instagram
       #extendTags
         - if @vendor.ownerships.length > 4
-          - @vendor.ownerships.each do |tags|
+          - @vendor.ownerships[4...@vendor.ownerships.length].each do |tags|
             %h3.tagLinks
               = tags.name
