@@ -152,11 +152,41 @@ Then /the product should have no tags/ do
   end
 end
 
-Then /I should see the vendor, photo, origin and cultural history of the product/ do
+Then /I should see the vendor, photo, origin, cultural history and tags of the product/ do
   expect(page.find(".vendorName")).not_to be nil
   expect(page.find("#detailsPageImage")).not_to be nil
   expect(page.find(".origintext")).not_to be nil
   expect(page.find(".subheadtext")).not_to be nil
+
+  product_attributes = FactoryBot.attributes_for(:product)
+  rfcDiv = page.find("#tags")
+  if product_attributes[:lc_based]
+    rfcDiv.should have_content "Locally based"
+  else
+    rfcDiv.should_not have_content "Locally based"
+  end
+  if product_attributes[:fair]
+    rfcDiv.should have_content "Fairly traded"
+  else
+    rfcDiv.should_not have_content "Fairly traded"
+  end
+  if product_attributes[:eco_sound]
+    rfcDiv.should have_content "Ecologically Sound"
+  else
+    rfcDiv.should_not have_content "Ecologically Sound"
+  end
+  if product_attributes[:humane]
+    rfcDiv.should have_content "Humane"
+  else
+    rfcDiv.should_not have_content "Humane"
+  end
+
+  dietaryRestrictionsDiv = page.find("#dietaryRestrictionsFullContent")
+  if product_attributes[:vegan] or product_attributes[:gluten_free] or product_attributes[:dairy_free]
+    expect(dietaryRestrictionsDiv.find("#dietaryLogo")).not_to be nil
+  else
+    expect(dietaryRestrictionsDiv.find("#dietaryLogo")).to be nil
+  end
 end
 
 Then /^(?:|I )should navigate to (.+)$/ do |page_name|

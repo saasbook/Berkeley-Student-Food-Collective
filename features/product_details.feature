@@ -8,7 +8,7 @@ Scenario: See the customer-facing product details page (happy)
     Given a vendor already exists
     And a product already exists
     When I go to the customer-facing product detail page
-    Then I should see the vendor, photo, origin and cultural history of the product
+    Then I should see the vendor, photo, origin, cultural history and tags of the product
 
 Scenario: Click the vendor name on the customer-facing product details page (happy)
     Given a vendor already exists
