@@ -8,7 +8,4 @@
     %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.instagram}')"}
       %i.fa.fa-instagram
     #extendTags.extendContentMissing
-      - if @vendor.ownerships.length > 4
-        - @vendor.ownerships[5...@vendor.ownerships.length].each do |tag|
-          %h3.tagLinks
-            = tag.name
+      = render "details_extend_tags"

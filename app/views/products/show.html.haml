@@ -18,38 +18,62 @@
           - @product.nutritions[0...4].each do |tags|
             %h3.tagBtns
               = tags.name
-  #detailsPageContent
     - if not @product.picture.empty?
-      #leftAlign
-        %image#detailsPageImage{:src => image_url(@product.picture)}
-        - if @product.vegan
-          %image#dietaryLogo{:src => image_url('product-icons/vegan.png')}
-        - if @product.gluten_free
-          %image#dietaryLogo{:src => image_url('product-icons/glutenfree.png')}
-        - if @product.dairy_free
-          %image#dietaryLogo{:src => image_url('product-icons/dairyfree.png')}
-        #extendTags
-          - if @product.certifications.length > 0
-            - @product.certifications.each do |tags|
-              %h3.tagLinks
-                = tags.name
-          - if @product.nutritions.length > 0
-            - @product.nutritions.each do |tags|
-              %h3.tagLinks
-                = tags.name
-          - if @product.packagings.length > 0
-            - @product.packagings.each do |tags|
-              %h3.tagLinks
-                = tags.name
-    #detailsPageText
-      - if not @product.origin.empty?
-        %h5.subhead Origin
-        %p.origintext
-          = @product.origin
-      - if not @product.cultural_history.empty?
-        %h5.subhead Cultural History
-        %p.subheadtext
-          = @product.cultural_history
+      #detailsPageContent
+        - if (not @product.origin.empty?) or (not @product.cultural_history.empty?)
+          #leftAlign
+            %image#detailsPageImage.imageWithText{:src => image_url(@product.picture)}
+            #dietaryRestrictionsText
+              - if @product.vegan
+                %image#dietaryLogo{:src => image_url('product-icons/vegan.png')}
+              - if @product.gluten_free
+                %image#dietaryLogo{:src => image_url('product-icons/glutenfree.png')}
+              - if @product.dairy_free
+                %image#dietaryLogo{:src => image_url('product-icons/dairyfree.png')}
+            #extendTags
+              - if @product.certifications.length > 0
+                - @product.certifications.each do |tags|
+                  %h3.tagLinks
+                    = tags.name
+              - if @product.nutritions.length > 0
+                - @product.nutritions.each do |tags|
+                  %h3.tagLinks
+                    = tags.name
+              - if @product.packagings.length > 0
+                - @product.packagings.each do |tags|
+                  %h3.tagLinks
+                    = tags.name
+        #detailsPageText
+          - if not @product.origin.empty?
+            %h5.subhead Origin
+            %p.origintext
+              = @product.origin
+          - if not @product.cultural_history.empty?
+            %h5.subhead Cultural History
+            %p.subheadtext
+              = @product.cultural_history
+      - if (not @product.picture.empty?) and @product.origin.empty? and @product.cultural_history.empty?
+        %image#detailsPageImage.imageNoText{:src => image_url(@product.picture)}
+        #dietaryRestrictionsNoText
+          - if @product.vegan
+            %image#dietaryLogo{:src => image_url('product-icons/vegan.png')}
+          - if @product.gluten_free
+            %image#dietaryLogo{:src => image_url('product-icons/glutenfree.png')}
+          - if @product.dairy_free
+            %image#dietaryLogo{:src => image_url('product-icons/dairyfree.png')}
+          #extendTags
+            - if @product.certifications.length > 0
+              - @product.certifications.each do |tags|
+                %h3.tagLinks
+                  = tags.name
+            - if @product.nutritions.length > 0
+              - @product.nutritions.each do |tags|
+                %h3.tagLinks
+                  = tags.name
+            - if @product.packagings.length > 0
+              - @product.packagings.each do |tags|
+                %h3.tagLinks
+                  = tags.name
   #vendorFooter
     - if @product.picture.empty?
       - if @product.vegan

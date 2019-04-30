@@ -446,14 +446,10 @@ address {
 #extendTags {
   max-width: 250px;
   flex-wrap: wrap;
-}
-
-.extendWithFullContent {
   display: flex;
 }
 
 .extendContentMissing {
-  display: block;
   margin-left: auto;
   margin-right: auto;
   align-content: center;
