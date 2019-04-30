@@ -280,12 +280,21 @@ address {
   background-color: Transparent;
 }
 
-#social {
+#socialWithText {
   margin-top: 10px;
   margin-left: -5px;
 }
 
+#socialNoText {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  text-align: center;
+}
+
 .socialBtn {
+  margin-top: 5px;
   background-color: Transparent;
   border: none;
 }
@@ -349,6 +358,16 @@ address {
   border-radius: 15px;
   max-width: 250px;
   max-height: 262px;
+}
+
+.imageNoText {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+}
+
+.imageWithText {
   margin-right: 15px;
 }
 
@@ -425,9 +444,20 @@ address {
 }
 
 #extendTags {
-  display: flex;
   max-width: 250px;
   flex-wrap: wrap;
+}
+
+.extendWithFullContent {
+  display: flex;
+}
+
+.extendContentMissing {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  text-align: center;
 }
 
 .tagLinks {
@@ -449,11 +479,23 @@ address {
   text-decoration: underline;
 }
 
+#dietaryRestrictionsNoText {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  text-align: center;
+}
+
+#dietaryRestrictionsText {
+  margin-left: 15px;
+}
+
 #dietaryLogo {
-  width: 20%;
+  width: 60px;
   height: scale;
   margin-top: 10px;
-  margin-left: 5px;
   background-color: Transparent;
   border: none;
+  margin-right: 15px;
 }

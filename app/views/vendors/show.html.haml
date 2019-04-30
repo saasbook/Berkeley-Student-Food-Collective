@@ -12,45 +12,12 @@
             %p#addr=addr[i]
       #tags
         - if @vendor.ownerships.length > 0
-          - @vendor.ownerships[0...5].each do |tag|
+          - @vendor.ownerships[0...4].each do |tag|
             %h3.tagBtns
               = tag.name
-  #detailsPageContent
-    - if not @vendor.picture.empty?
-      #leftAlign
-        %image#detailsPageImage{:src => image_url(@vendor.picture)}
-        #social
-          %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.facebook}')"}
-            %i.fa.fa-facebook-square
-          %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.twitter}')"}
-            %i.fa.fa-twitter-square
-          %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.instagram}')"}
-            %i.fa.fa-instagram
-        #extendTags
-          - if @vendor.ownerships.length > 4
-            - @vendor.ownerships[5...@vendor.ownerships.length].each do |tag|
-              %h3.tagLinks
-                = tag.name
-    #detailsPageText
-      #mission
-        %h5.subhead Mission
-        %p.subheadtext
-          = @vendor.mission
-      #story
-        %h5.subhead Story
-        %p.subheadtext
-          = @vendor.story
-  #vendorFooter
-    - if @vendor.picture.empty?
-      #social
-        %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.facebook}')"}
-          %i.fa.fa-facebook-square
-        %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.twitter}')"}
-          %i.fa.fa-twitter-square
-        %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.instagram}')"}
-          %i.fa.fa-instagram
-      #extendTags
-        - if @vendor.ownerships.length > 5
-          - @vendor.ownerships[5...@vendor.ownerships.length].each do |tag|
-            %h3.tagLinks
-              = tag.name
+  - if (not @vendor.picture.empty?) and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
+    = render "details_all_content"
+  - if (not @vendor.picture.empty?) and @vendor.mission.empty? and @vendor.story.empty?
+    = render "details_photo_no_text"
+  - if @vendor.picture.empty? and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
+    = render "details_text_no_photo"

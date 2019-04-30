@@ -1,0 +1,24 @@
+#detailsPageText
+  - if not @vendor.mission.empty?
+    #mission
+    %h5.subhead Mission
+    %p.subheadtext
+      = @vendor.mission
+  - if not @vendor.story.empty?
+    #story
+      %h5.subhead Story
+      %p.subheadtext
+        = @vendor.story
+  #socialWithText
+    %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.facebook}')"}
+      %i.fa.fa-facebook-square
+    %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.twitter}')"}
+      %i.fa.fa-twitter-square
+    %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.instagram}')"}
+      %i.fa.fa-instagram
+    #extendTags.extendWithContent
+      - if @vendor.ownerships.length > 4
+        %h3.tagLinks Tags: 
+        - @vendor.ownerships[4...@vendor.ownerships.length].each do |tag|
+          %h3.tagLinks
+            = tag.name

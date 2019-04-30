@@ -1,0 +1,26 @@
+#detailsPageContent
+  #leftAlign
+    %image#detailsPageImage.imageWithText{:src => image_url(@vendor.picture)}
+    #socialWithText
+      %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.facebook}')"}
+        %i.fa.fa-facebook-square
+      %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.twitter}')"}
+        %i.fa.fa-twitter-square
+      %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.instagram}')"}
+        %i.fa.fa-instagram
+    #extendTags.extendWithFullContent
+      - if @vendor.ownerships.length > 4
+        - @vendor.ownerships[5...@vendor.ownerships.length].each do |tag|
+          %h3.tagLinks
+            = tag.name
+  #detailsPageText
+    - if not @vendor.mission.empty?
+      #mission
+        %h5.subhead Mission
+        %p.subheadtext
+          = @vendor.mission
+    - if not @vendor.story.empty?
+      #story
+        %h5.subhead Story
+        %p.subheadtext
+          = @vendor.story
