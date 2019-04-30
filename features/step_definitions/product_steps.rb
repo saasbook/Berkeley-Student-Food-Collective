@@ -148,6 +148,13 @@ Then /the product should have no tags/ do
   end
 end
 
+Then /I should see the vendor, photo, origin and cultural history of the product/ do
+  expect(page.find(".vendorName")).not_to be nil
+  expect(page.find("#detailsPageImage")).not_to be nil
+  expect(page.find(".origintext")).not_to be nil
+  expect(page.find(".subheadtext")).not_to be nil
+end
+
 Then /the product's vendor should be the other vendor/ do
   expect(page).to have_select('Select a Vendor', selected: FactoryBot.attributes_for(:other_vendor)[:name])
 end
