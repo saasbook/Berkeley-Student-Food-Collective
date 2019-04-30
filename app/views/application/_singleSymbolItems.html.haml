@@ -1,0 +1,13 @@
+- if items.length > 0
+  %tr.letter-heading
+    %td{id: "#{sym}"}= sym
+  - items.each do |item|
+    %tr
+      %td.products
+        -if admin
+          - path = {controller: "admin/#{myclass.name.downcase}s", action: "edit", id: item.id}
+        - else
+          - path = "##{sym}"
+        = button_to "#{item.name}", path, {method: :get, class: 'prod-link'}
+- else
+  %tr{id: "#{sym}"}

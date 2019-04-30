@@ -92,3 +92,4 @@ Feature: Add a new product to the database
     And I submit the form
     Then I should see an error message on the new product page
     And I should see the product attributes, except "picture", filled in
+    And no products should exist

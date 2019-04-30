@@ -11,8 +11,8 @@ end
 Given /a product with tags already exists/ do
   FactoryBot.create(:product)
   %w(certification nutrition packaging).each do |tag_type|
-    FactoryBot.create("original_#{tag_type}")
-    "Product#{tag_type.capitalize}".constantize.create(product_id: 1, "#{tag_type}_id": 1)
+    @new_tag = FactoryBot.create("original_#{tag_type}")
+    "Product#{tag_type.capitalize}".constantize.create(product_id: 1, "#{tag_type}_id": @new_tag.id)
   end
 end
 
@@ -135,6 +135,7 @@ end
 Then /the product should have its original tags/ do
   %w(certification nutrition packaging).each do |tag_type|
     expect(page.find("##{tag_type}s")).to have_selector("input[value='#{FactoryBot.attributes_for("original_#{tag_type}")[:name]}']")
+    #expect(page.find("##{tag_type}s")).to have_css("input", :text => '#{FactoryBot.attributes_for("original_#{tag_type}")[:name]}')
   end
 end
 
@@ -149,4 +150,8 @@ end
 
 Then /the product's vendor should be the other vendor/ do
   expect(page).to have_select('Select a Vendor', selected: FactoryBot.attributes_for(:other_vendor)[:name])
+end
+
+Then /no products should exist/ do
+  expect(Product.count).to eq(0)
 end

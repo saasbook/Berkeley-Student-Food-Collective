@@ -1,0 +1,26 @@
+%div
+  .index-centered
+    %image#logo{:src => image_url('logo450x429.png')}
+  -if admin
+    .dropdown
+      %button.dropbtn
+        %i.fa.fa-plus
+      .dropdown-content
+        = button_to "Add Product", new_admin_product_path, {method: :get, class: 'prod-link'}
+        = button_to "Add Vendor", new_admin_vendor_path, {method: :get, class: 'prod-link'}
+        = button_to "Add Tag", new_admin_tag_path, {method: :get, class: 'prod-link'}
+  .index-centered
+    -if currentPage == "product"
+      = button_to "PRODUCTS", {controller: "#{'admin/' if admin}products", action: :index}, {method: :get, class: 'togglePage', id: "selected"}
+    -else
+      = button_to "PRODUCTS", {controller: "#{'admin/' if admin}products", action: :index}, {method: :get, class: 'togglePage', id: "unselected"}
+    -if currentPage == "vendor"
+      = button_to "VENDORS", {controller: "#{'admin/' if admin}vendors", action: :index}, {method: :get, class: 'togglePage', id: "selected"}
+    -else
+      = button_to "VENDORS", {controller: "#{'admin/' if admin}vendors", action: :index}, {method: :get, class: 'togglePage', id: "unselected"}
+    -if admin
+      -# NOTE: DELETE THIS IF STATEMENT ABOVE WHEN THE CUSTOMER-FACING TAGS PAGE IS IMPLEMENTED (AND UNINDENT THE NEXT BLOCK)
+      -if currentPage == "tag"
+        = button_to "TAGS", {controller: "#{'admin/' if admin}tags", action: :index}, {method: :get, class: 'togglePage', id: "selected"}
+      -else
+        = button_to "TAGS", {controller: "#{'admin/' if admin}tags", action: :index}, {method: :get, class: 'togglePage', id: "unselected"}

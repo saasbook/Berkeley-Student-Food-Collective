@@ -1,0 +1,11 @@
+= render 'letterNav'
+#notice{class: flash[:type]}
+  = flash[:message]
+%table#index
+  %tbody
+    - ('A'..'Z').to_a.each do |letter|
+      - items_with_letter = myclass.where("name LIKE ?", "#{letter}%")
+      = render partial: 'singleSymbolItems', locals: {items: items_with_letter, sym: letter, admin: admin, myclass: myclass}
+    - items_with_nonletter = myclass.where("name < 'A'")
+    = render partial: 'singleSymbolItems', locals: {items: items_with_nonletter, sym: 1, admin: admin, myclass: myclass}
+

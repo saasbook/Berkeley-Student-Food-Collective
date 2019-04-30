@@ -17,11 +17,25 @@ class Admin::ProductsController < ApplicationController
   end
 
   def product_params_without_nested
-    params.require(:product).permit(:name, :origin, :cultural_history, :vegan, :gluten_free, :dairy_free,
-                                    :lc_based, :fair, :eco_sound, :humane, :upc, :vendor_id,
-                                    certification_ids: [],
-                                    nutrition_ids: [],
-                                    packaging_ids: [])
+    product_params.except(:certifications_attributes, :nutritions_attributes, :packagings_attributes)
+  end
+
+  def product_success(action)
+    action = addE(action)
+    flash[:message] = "#{action.capitalize}d Product"
+    flash[:type] = 'alert alert-success'
+    redirect_to admin_products_path
+  end
+
+  def product_fail(action, product)
+    flash[:message] = product.errors.full_messages
+    flash[:type] = 'alert alert-danger'
+    if action == "add"
+      flash[:product_params] = product_params
+      redirect_to new_admin_product_path
+    elsif action == "update"
+      redirect_to edit_admin_product_path
+    end
   end
 
   def new
@@ -36,14 +50,9 @@ class Admin::ProductsController < ApplicationController
     success = product.update_attributes(product_params)
 
     if success
-      flash[:message] = 'Added Product'
-      flash[:type] = 'alert alert-success'
-      redirect_to admin_products_path
+      product_success("add")
     else
-      flash[:message] = product.errors.full_messages
-      flash[:type] = 'alert alert-danger'
-      flash[:product_params] = product_params
-      redirect_to new_admin_product_path
+      product_fail("add", product)
     end
   end
 
@@ -61,14 +70,9 @@ class Admin::ProductsController < ApplicationController
     success = product.update_attributes(product_params)
 
     if success
-      flash[:message] = 'Updated Product'
-      flash[:type] = 'alert alert-success'
-      redirect_to admin_products_path
+      product_success("update")
     else
-      flash[:message] = product.errors.full_messages
-      flash[:type] = 'alert alert-danger'
-      # TODO: Fix redirect causing all changes to be reverted
-      redirect_to edit_admin_product_path
+      product_fail("update", product)
     end
   end
 end

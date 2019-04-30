@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_19_041847) do
+ActiveRecord::Schema.define(version: 2019_04_27_213037) do
 
   create_table "certifications", force: :cascade do |t|
     t.string "name"
@@ -80,6 +80,11 @@ ActiveRecord::Schema.define(version: 2019_04_19_041847) do
     t.text "cultural_history"
     t.string "picture"
     t.index ["vendor_id"], name: "index_products_on_vendor_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "type"
+    t.string "name"
   end
 
   create_table "vendor_ownerships", force: :cascade do |t|

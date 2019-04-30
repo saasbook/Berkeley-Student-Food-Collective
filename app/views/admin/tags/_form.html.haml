@@ -1,0 +1,12 @@
+#notice{class: flash[:type]}
+  = flash[:message]
+
+= form_for [:admin, @tag] do |f|
+  #form_elements_div
+    .form_group.element_div
+      = f.label :name
+      = f.text_field :name
+
+    #submit_div.form_group
+      = f.submit class: 'btn btn-success'
+      =#= button_tag 'Cancel', type: :button, onclick: 'confirmVendorCancel()', id: :cancel_button, class: 'btn btn-danger'

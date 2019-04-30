@@ -85,7 +85,6 @@ select {
 // Index Pages
 $selected-color: #E33D35;
 $unselected-color: #6FC051;
-
 $gray-color: #BEBEBE;
 
 .dropdown-content button:hover {
@@ -121,7 +120,7 @@ $gray-color: #BEBEBE;
   float: left;
 }
 
-.dropdown-content button {
+.dropdown-content form {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
