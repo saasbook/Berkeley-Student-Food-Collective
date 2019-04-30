@@ -227,7 +227,7 @@ justify-content: center;
   padding: 5px;
 }
 
-#vendorHeader {
+#detailsPageHeader {
   display: block;
 }
 
@@ -242,7 +242,7 @@ justify-content: center;
 
 }
 
-#vendorInfo {
+#detailsPageInfo {
   justify-content: center;
   text-align: center;
   margin-left:auto;
@@ -332,21 +332,21 @@ address {
   border-radius: 15px;
 }
 
-#vendorContent {
+#detailsPageContent {
   display: inline-flex;
   padding: 5px;
   max-width: 750px;
   margin-top: 5px;
 }
 
-#vendorImage {
+#detailsPageImage {
   border-radius: 15px;
   max-width: 250px;
   max-height: 262px;
   margin-right: 15px;
 }
 
-#vendorText {
+#detailsPageText {
   color: #000;
   font-weight: normal;
   font-size: 15pt;

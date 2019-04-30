@@ -1,8 +1,8 @@
 #details
-  #vendorHeader
+  #detailsPageHeader
     %button#home{type: 'button', onclick: "routeToPageDirectly('#{discovery_path}')"}
       %image#logo-nav{:src => image_url('logo450x429.png')}
-    #vendorInfo
+    #detailsPageInfo
       %h1
         = @vendor.name
       %h2
@@ -13,10 +13,10 @@
           - @vendor.ownerships[0...4].each do |tags|
             %h3.tagBtns
               = tags.name
-  #vendorContent
+  #detailsPageContent
     - if not @vendor.picture.empty?
       #leftAlign
-        %image#vendorImage{:src => image_url(@vendor.picture)}
+        %image#detailsPageImage{:src => image_url(@vendor.picture)}
         #social
           %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.facebook}')"}
             %i.fa.fa-facebook-square
@@ -29,7 +29,7 @@
             - @vendor.ownerships.each do |tags|
               %h3.tagLinks
                 = tags.name
-    #vendorText
+    #detailsPageText
       #mission
         %h5.subhead Mission
         %p.subheadtext
