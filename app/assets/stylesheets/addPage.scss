@@ -91,6 +91,10 @@ $selected-color: #E33D35;
 $unselected-color: #6FC051;
 $gray-color: #BEBEBE;
 
+.dropdown-content form:hover {
+  background-color: $gray-color;
+}
+
 .dropdown-content button:hover {
   background-color: $gray-color;
 }
