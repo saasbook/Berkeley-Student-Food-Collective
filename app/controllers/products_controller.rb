@@ -6,20 +6,20 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    
-    @product.tags = @product.certifications + @product.nutritions + @product.packagings
-    @product.rfc = []
+
+    @tags = @product.certifications + @product.nutritions + @product.packagings
+    @rfc = []
     if @product.lc_based
-    	@product.rfc.append(:lc_based)
+    	@rfc.append("Locally based")
     end
     if @product.fair
-    	@product.rfc.append(:fair)
+    	@rfc.append("Fairly traded")
     end
     if @product.eco_sound
-    	@product.rfc.append(:eco_sound)
+    	@rfc.append("Ecologically Sound")
     end
     if @product.humane
-    	@product.rfc.append(:humane)
+    	@rfc.append("Humane")
     end
   end
 
