@@ -1,0 +1,9 @@
+- if not @vendor.facebook.empty?
+  %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.facebook}')"}
+    %i.fa.fa-facebook-square
+- if not @vendor.twitter.empty?
+  %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.twitter}')"}
+    %i.fa.fa-twitter-square
+- if not @vendor.instagram.empty?
+  %button.socialBtn{type: 'button', onclick: "routeToPageDirectly('#{@vendor.instagram}')"}
+    %i.fa.fa-instagram

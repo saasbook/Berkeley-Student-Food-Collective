@@ -16,6 +16,10 @@ function confirmProductCancel() {
   confirmGeneralCancel("admin/products");
 }
 
+function confirmTagCancel() {
+  confirmGeneralCancel("admin/tags");
+}
+
 function confirmGeneralCancel(input) {
   let cancel = confirm("Are you sure you want to discard these changes?");
   if (cancel) {

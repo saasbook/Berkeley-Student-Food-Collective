@@ -1,0 +1,6 @@
+- if @product.vegan
+  %image#dietaryLogo{:src => image_url('product-icons/vegan.png')}
+- if @product.gluten_free
+  %image#dietaryLogo{:src => image_url('product-icons/glutenfree.png')}
+- if @product.dairy_free
+  %image#dietaryLogo{:src => image_url('product-icons/dairyfree.png')}

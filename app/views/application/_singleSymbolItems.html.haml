@@ -7,7 +7,7 @@
         -if admin
           - path = {controller: "admin/#{myclass.name.downcase}s", action: "edit", id: item.id}
         - else
-          - path = "##{sym}"
+          - path = {controller: "#{myclass.name.downcase}s", action: "show", id: item.id}
         = button_to "#{item.name}", path, {method: :get, class: 'prod-link'}
 - else
   %tr{id: "#{sym}"}

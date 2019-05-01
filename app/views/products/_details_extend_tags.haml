@@ -1,0 +1,6 @@
+- if @tags.length > 0
+  %h3.tagLinks Tags: 
+  - if @tags.length > (4 - @rfc.length)
+    - @tags[4 - @rfc.length...@tags.length].each do |tag|
+      %h3.tagLinks
+        = tag.name

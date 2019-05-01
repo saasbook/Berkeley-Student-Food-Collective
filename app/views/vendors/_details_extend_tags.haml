@@ -1,0 +1,5 @@
+- if @vendor.ownerships.length > 4
+  %h3.tagLinks Tags: 
+  - @vendor.ownerships[4...@vendor.ownerships.length].each do |tag|
+    %h3.tagLinks
+      = tag.name
