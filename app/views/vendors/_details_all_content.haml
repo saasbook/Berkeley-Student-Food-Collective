@@ -1,0 +1,9 @@
+#detailsPageContent
+  #leftAlign
+    %image#detailsPageImage.imageWithText{:src => image_url(@vendor.picture)}
+    #socialWithText
+      = render "details_social_buttons"
+    #extendTags
+      = render "details_extend_tags"
+  #detailsPageText
+    = render "details_text"

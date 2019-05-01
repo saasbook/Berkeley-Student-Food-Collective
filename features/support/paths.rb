@@ -43,10 +43,10 @@ module NavigationHelpers
       products_path
     when /^the customer-facing vendors index page$/
       vendors_path
-    when /^the product detail page$/
+    when /^the customer-facing product detail page$/
       product_path(1)
 
-    when /^the vendor detail page$/
+    when /^the customer-facing vendor detail page$/
       vendor_path(1)
 
     # Add more mappings here.

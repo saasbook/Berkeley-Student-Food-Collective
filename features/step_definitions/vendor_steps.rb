@@ -102,3 +102,10 @@ end
 Then /no vendors should exist/ do
   expect(Vendor.count).to eq(0)
 end
+
+Then /I should see the photo, mission, story, and social media of the vendor/ do
+  expect(page.find("#detailsPageImage")).not_to be nil
+  expect(page.find("#mission")).not_to be nil
+  expect(page.find("#story")).not_to be nil
+  expect(page.find("#socialWithText")).not_to be nil
+end

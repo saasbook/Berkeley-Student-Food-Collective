@@ -1,1 +1,29 @@
-%h1 Hello, Products!  
+#details
+  #detailsPageHeader
+    %button#home{type: 'button', onclick: "routeToPageDirectly('#{discovery_path}')"}
+      %image#logo-nav{:src => image_url('logo450x429.png')}
+    #detailsPageInfo
+      %h1
+        = @product.name
+      %h3.vendorName{:onclick => "routeToPageDirectly('#{vendor_path(@product.vendor.id)}')"}
+        Made by 
+        = @product.vendor.name
+      #tags
+        - if @rfc.length > 0
+          - @rfc[0...4].each do |tag|
+            %h3.tagBtns
+              = tag
+        - if @tags.length > 0
+          - @tags[0...4-@rfc.length].each do |tag|
+            %h3.tagBtns
+              = tag.name
+    - if (not @product.picture.empty?) and (not @product.origin.empty?) and @product.cultural_history.empty?
+      = render "details_photo_some_text"
+  - if (not @product.picture.empty?) and (not @product.origin.empty?) and (not @product.cultural_history.empty?)
+    = render "details_all_content"
+  - if (not @product.picture.empty?) and @product.origin.empty? and @product.cultural_history.empty?
+    = render "details_photo_no_text"
+  - if @product.picture.empty? and ((not @product.origin.empty?) or (not @product.cultural_history.empty?))
+    = render "details_text_no_photo"
+  - if @product.picture.empty? and @product.origin.empty? and @product.cultural_history.empty?
+    = render "details_no_content"

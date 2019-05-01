@@ -1,1 +1,25 @@
-%h1 Hello, Vendors!
+#details
+  #detailsPageHeader
+    %button#home{type: 'button', onclick: "routeToPageDirectly('#{discovery_path}')"}
+      %image#logo-nav{:src => image_url('logo450x429.png')}
+    #detailsPageInfo
+      %h1
+        = @vendor.name
+      %p
+        - if not @vendor.address.empty?
+          - addr = @vendor.address.split(",")
+          - for i in 0..addr.length do
+            %p#addr=addr[i]
+      #tags
+        - if @vendor.ownerships.length > 0
+          - @vendor.ownerships[0...4].each do |tag|
+            %h3.tagBtns
+              = tag.name
+  - if (not @vendor.picture.empty?) and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
+    = render "details_all_content"
+  - if (not @vendor.picture.empty?) and @vendor.mission.empty? and @vendor.story.empty?
+    = render "details_photo_no_text"
+  - if @vendor.picture.empty? and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
+    = render "details_text_no_photo"
+  - if @vendor.picture.empty? and @vendor.mission.empty? and @vendor.story.empty?
+    = render "details_no_content"
