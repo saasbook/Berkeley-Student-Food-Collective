@@ -6,9 +6,10 @@ Feature: View the Index Page of Tags
 
 
   Scenario: See the volunteer-facing tags index page (happy)
-    Given there exist three tags of type "nutrition"
+  	Given a vendor already exists
+    Given there exist 3 tags of type "nutrition"
     When I go to the volunteer-facing tags page
-    Then I should see three tags on the volunteer-facing page
+    Then I should see 3 tags on the volunteer-facing page
 
 
   
