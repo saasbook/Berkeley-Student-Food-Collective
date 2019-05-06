@@ -1,7 +1,6 @@
+= render partial: 'header', locals: {admin: false}
 #details
   #detailsPageHeader
-    %button#home{type: 'button', onclick: "routeToPageDirectly('#{discovery_path}')"}
-      %image#logo-nav{:src => image_url('logo450x429.png')}
     #detailsPageInfo
       %h1
         = @product.name
