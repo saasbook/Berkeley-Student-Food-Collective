@@ -9,6 +9,8 @@
       %div{:id => "navbarResponsive", :class => "collapse navbar-collapse w-100"}
         %ul{:class => "navbar-nav w-100"}
           -if admin
+            %li{:class => "navbar-text"}
+              %a ADMIN
             %li{:class => "nav-item"}
               %a{:class => "nav-link", :href => admin_vendors_path} Vendors
             %li{:class => "nav-item"}
