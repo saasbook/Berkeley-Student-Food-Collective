@@ -1,7 +1,7 @@
 #details
   #detailsPageHeader
-    %button#home{type: 'button', onclick: "routeToPageDirectly('#{discovery_path}')"}
-      %image#logo-nav{:src => image_url('logo450x429.png')}
+    = link_to discovery_path, id: 'home' do
+      = image_tag 'logo450x429.png', id: 'logo-nav'
     #detailsPageInfo
       %h1
         = @vendor.name
