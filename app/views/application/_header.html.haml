@@ -1,0 +1,18 @@
+%header
+  %div{:class => "navbar navbar-expand-md navbar-dark bg-dark static-top"}
+    %div{:class => "container-fluid"}
+      %div{:class => "navbar-header"}
+        %a{:class => "navbar-brand w-50", :href => discovery_path, id: "logo"}
+          %image#logoheader{:src => image_url('logo450x429.png')}
+      %button{:type => "button", :class => "navbar-toggler", :data => {:toggle => "collapse", :target => "#navbarResponsive"}, :aria => {:expanded => "false", :controls => "navbarResponsive", :label => "Toggle navigation"}}
+        %span{:class => "navbar-toggler-icon"}
+      %div{:id => "navbarResponsive", :class => "collapse navbar-collapse w-100"}
+        %ul{:class => "navbar-nav w-100"}
+          %li{:class => "nav-item"}
+            %a{:class => "nav-link", :href => discovery_path} Home
+          %li{:class => "nav-item"}
+            %a{:class => "nav-link", :href => vendors_path} Vendors
+          %li{:class => "nav-item"}
+            %a{:class => "nav-link", :href => products_path} Products
+          %li{:class => "nav-item"}
+            %a{:class => "nav-link", :href => tags_path} Tags
