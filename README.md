@@ -6,3 +6,9 @@
 # README
 
 Heroku link: http://bsfc.herokuapp.com
+
+#Summary
+
+This app creates a website for the Berkeley Student Food Collective which allows their customers to explore their products and vendors and allows the volunteers to upload products and vendors for the customers to view.
+
+#Summary
