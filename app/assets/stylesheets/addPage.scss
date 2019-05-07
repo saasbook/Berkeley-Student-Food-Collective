@@ -87,7 +87,7 @@ select {
 }
 
 // Index Pages
-$selected-color: #FFFFFF;
+$selected-color: #E33D35;
 $unselected-color: #6FC051;
 $gray-color: #BEBEBE;
 
@@ -211,7 +211,7 @@ display: flex;
 justify-content: center;
 }
 
-.selected {
+#selected {
   color: $selected-color;
   text-decoration: underline;
 }
