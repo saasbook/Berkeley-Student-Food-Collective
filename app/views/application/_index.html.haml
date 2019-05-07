@@ -1,3 +1,2 @@
-#form_div
-  = render partial: 'indexHeader', locals: {currentPage: myclass.name.downcase, admin: admin}
-  = render partial: 'indexBody', locals: {myclass: myclass, admin: admin}
+= render partial: 'header', locals: {currentPage: myclass.name.downcase, admin: admin}
+= render partial: 'indexBody', locals: {myclass: myclass, admin: admin}

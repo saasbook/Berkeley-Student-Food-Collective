@@ -101,6 +101,8 @@ $gray-color: #BEBEBE;
 
 .dropdown:hover .dropdown-content {
   display: block;
+  left:auto; 
+  right:0;
 }
 
 .dropdown {

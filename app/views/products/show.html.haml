@@ -1,13 +1,10 @@
+= render partial: 'header', locals: {currentPage: "product", admin: false}
 #details
   #detailsPageHeader
-    %button#home{type: 'button', onclick: "routeToPageDirectly('#{discovery_path}')"}
-      %image#logo-nav{:src => image_url('logo450x429.png')}
     #detailsPageInfo
       %h1
         = @product.name
-      %h3.vendorName{:onclick => "routeToPageDirectly('#{vendor_path(@product.vendor.id)}')"}
-        Made by 
-        = @product.vendor.name
+      = button_to "Made by #{@product.vendor.name}", vendor_path(@product.vendor.id), {method: :get, class: 'vendorName prod-link'}
       #tags
         - if @rfc.length > 0
           - @rfc[0...4].each do |tag|
