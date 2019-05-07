@@ -1,8 +1,8 @@
 %header
-  %div{:class => "navbar navbar-expand-md navbar-dark bg-dark static-top"}
+  %div{:class => "navbar navbar-expand-lg navbar-dark bg-dark static-top"}
     %div{:class => "container-fluid"}
       %div{:class => "navbar-header"}
-        = link_to discovery_path, id: "logo", class: "navbar-brand w-50" do
+        = link_to discovery_path, class: "navbar-brand w-50" do
           = image_tag "logo450x429.png", id: "logoheader"
       %button{:type => "button", :class => "navbar-toggler", :data => {:toggle => "collapse", :target => "#navbarResponsive"}, :aria => {:expanded => "false", :controls => "navbarResponsive", :label => "Toggle navigation"}}
         %span{:class => "navbar-toggler-icon"}
