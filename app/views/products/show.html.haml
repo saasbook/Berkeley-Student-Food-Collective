@@ -4,7 +4,7 @@
     #detailsPageInfo
       %h1
         = @product.name
-      = button_to "Made by #{@product.vendor.name}", vendor_path(@product.vendor.id), {method: :get, class: 'prod-link'}
+      = button_to "Made by #{@product.vendor.name}", vendor_path(@product.vendor.id), {method: :get, class: 'vendorName prod-link'}
       #tags
         - if @rfc.length > 0
           - @rfc[0...4].each do |tag|
