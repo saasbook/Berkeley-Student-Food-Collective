@@ -9,20 +9,19 @@
       %div{:id => "navbarResponsive", :class => "collapse navbar-collapse w-100"}
         %ul{:class => "navbar-nav w-100"}
           -if admin
-            %li{:class => "navbar-text"}
-              %a ADMIN
-            %li{:class => "nav-item  #{'active' if currentPage == 'vendor'}"}
+            %li{:class => "navbar-text"} ADMIN
+            %li{:class => "nav-item#{' active' if currentPage == 'vendor'}"}
               %a{:class => "nav-link", :href => admin_vendors_path} Vendors
-            %li{:class => "nav-item #{'active' if currentPage == 'product'}"}
+            %li{:class => "nav-item#{' active' if currentPage == 'product'}"}
               %a{:class => "nav-link", :href => admin_products_path} Products
-            %li{:class => "nav-item #{'active' if currentPage == 'tag'}"}
+            %li{:class => "nav-item#{' active' if currentPage == 'tag'}"}
               %a{:class => "nav-link", :href => admin_tags_path} Tags
           -else
-            %li{:class => "nav-item #{'active' if currentPage == 'discovery'}"}
+            %li{:class => "nav-item#{' active' if currentPage == 'discovery'}"}
               %a{:class => "nav-link", :href => discovery_path} Discovery
-            %li{:class => "nav-item #{'active' if currentPage == 'vendor'}"}
+            %li{:class => "nav-item#{' active' if currentPage == 'vendor'}"}
               %a{:class => "nav-link", :href => vendors_path} Vendors
-            %li{:class => "nav-item #{'active' if currentPage == 'product'}"}
+            %li{:class => "nav-item#{' active' if currentPage == 'product'}"}
               %a{:class => "nav-link", :href => products_path} Products
       -if admin
         .dropdown
