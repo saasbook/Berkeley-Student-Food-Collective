@@ -11,4 +11,10 @@ Heroku link: http://bsfc.herokuapp.com
 
 This app creates a website for the Berkeley Student Food Collective which allows their customers to explore their products and vendors and allows the volunteers to upload products and vendors for the customers to view.
 
-#Summary
+#Overview
+
+The Berkeley Student Food Collective (BSFC) needed a way to better express why they choose specific products and vendors to populate their store with. This website was designed to create a way so they can better explain those choices to their customers. Pages with '/admin' allow volunteers at BSFC to put specific products and vendors on their website. Other pages allow BSFC customers to view those products and vendors.
+
+#Installation
+
+You must have Ruby 2.4.0 to run this project locally. Run bundle install to import all gems.
