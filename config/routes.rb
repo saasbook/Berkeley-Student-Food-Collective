@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   end
   
   root :to => redirect('/discovery')
+  
+  get 'admin' => redirect('admin/vendors')
 end
