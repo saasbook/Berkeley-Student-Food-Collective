@@ -15,4 +15,4 @@ Scenario: Click the vendor name on the customer-facing product details page (hap
     And a product already exists
     When I go to the customer-facing product detail page
     And I click on the vendor name
-    Then I should navigate to the customer-facing vendor detail page
+    Then I should be on the customer-facing vendor detail page
