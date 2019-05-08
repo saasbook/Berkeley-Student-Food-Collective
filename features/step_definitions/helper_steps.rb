@@ -1,5 +1,5 @@
 When /I submit the form/ do
-  page.find('input[type="submit"]').click
+  page.find('.btn-success').click
 end
 
 When /I include a bad picture/ do
