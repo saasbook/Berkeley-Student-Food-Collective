@@ -1,7 +1,8 @@
 Given /there exist (.*) tags of type (.*)/ do |num, type|
+	stripped_type = type.gsub('"', '')
 	i = 0
 	num.to_i.times do
-		FactoryBot.create("original_#{type}", name: "Original #{type.capitalize} Name " + i.to_words)
+		FactoryBot.create("original_#{stripped_type}", name: "Original #{type.capitalize} Name " + i.to_words)
 		i += 1
 	end
 end
