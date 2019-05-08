@@ -31,18 +31,21 @@ Feature: View and Interact with a Carousel of Products and Vendors
     Then I should see all vendors with owned by "Original Ownership Name"
 
   Scenario: Carousel for products with nutrition tag
-    Given I create four new products
+    Given a vendor already exists
+    And there are 4 product
     And I am on the Discovery page
     And I should see a carousel for the type "Vegan"
     Then I should see all the "Vegan" products
 
   Scenario: Carousel for products with Real Food Challenge tag
-    Given I create four new products
+    Given a vendor already exists
+    And there are 4 product
     And I am on the Discovery page
     And I should see a carousel for the type "Humane"
     Then I should see all the "Humane" products
 
   Scenario: Don't see carousel for unused nutrition tag
-    Given I create four new products that are not Gluten Free
+    Given a vendor already exists
+    And there are 4 product
     And I am on the Discovery page
     Then I should not see a carousel for the type "Gluten Free"

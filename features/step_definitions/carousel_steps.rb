@@ -27,15 +27,6 @@ Given /I create three new products/ do
   end
 end
 
-Given /I create four new products.*/ do
-  step %{Given a vendor already exists}
-  FactoryBot.create(:product, name: "First Product")
-  FactoryBot.create(:product, name: "Second Product")
-  FactoryBot.create(:product, name: "Third Product")
-  FactoryBot.create(:product, name: "Four Product")
-end
-
-
 When /I hover over the second carousel element/ do
   find('#Fake_Name_2').hover
 end
