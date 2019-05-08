@@ -21,8 +21,8 @@ And /I click the "(.*)" element/ do |element_text|
 end
 
 Then /I should see (.*) (.*) on the (.*)-facing page/ do |num, type, page|
-	#expect(find('td', :class => type, count: 3)).not_to be nil
-	expect(page).to have_selector("td", :class => type, count: num.to_i)
+	class_name = type += "_row"
+	expect(has_selector?("tr", :class => class_name, count: num.to_i)).to be(true)
 end
 
 

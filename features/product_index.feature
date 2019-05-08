@@ -6,6 +6,6 @@ Feature: View the Index Page of Products
 
 Scenario: See the customer-facing products index page (happy)
   	Given a vendor already exists
-    Given there are 3 products
+    And there are 5 products
     When I go to the customer-facing products index page
-    Then I should see 3 products on the customer-facing page
+    Then I should see 5 products on the customer-facing page

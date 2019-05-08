@@ -5,7 +5,6 @@ Feature: View the Index Page of Vendors
   So that I can see all of the vendors that are available
 
   Scenario: See the customer-facing vendors index page (happy)
-    Given a vendor already exists
-    Given there are 3 vendors
+    Given there are 5 vendors
     When I go to the customer-facing vendors index page
-    Then I should see 3 vendors on the customer-facing page
+    Then I should see 5 vendors on the customer-facing page

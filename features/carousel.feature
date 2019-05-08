@@ -8,7 +8,6 @@ Feature: View and Interact with a Carousel of Products and Vendors
   Scenario: Hover Slide Interaction with Carousel (happy)
     Given I create 5 new vendors
     And I am on the Discovery page
-    Then show me the page
     When I hover over the second carousel element
     Then the left elements should shift to the left
     And the right elements should shift to the right

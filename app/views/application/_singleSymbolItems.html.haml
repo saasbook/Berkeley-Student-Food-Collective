@@ -2,8 +2,8 @@
   %tr.letter-heading
     %td{id: "#{sym}"}= sym
   - items.each do |item|
-    %tr
-      %td.products
+    %tr{class: "#{myclass.name.downcase}s_row"}
+      %td{class: "#{myclass.name.downcase}s"}
         -if admin
           - path = {controller: "admin/#{myclass.name.downcase}s", action: "edit", id: item.id}
         - else
