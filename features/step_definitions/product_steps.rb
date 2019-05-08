@@ -201,6 +201,8 @@ Then /no products should exist/ do
   expect(Product.count).to eq(0)
 end
 
-Then /no tags should be deleted/ do
-  expect(Tag.count).to eq(3)
+Then /no product tags should be deleted/ do
+  expect(Certification.count).to eq(1)
+  expect(Nutrition.count).to eq(1)
+  expect(Packaging.count).to eq(1)
 end

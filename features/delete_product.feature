@@ -22,4 +22,4 @@ Feature: Delete a product
     Then I should be on the volunteer-facing products index page
     And I should see a success message
     And no products should exist
-    And no tags should be deleted
+    And no product tags should be deleted
