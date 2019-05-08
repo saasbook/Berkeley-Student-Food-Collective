@@ -39,4 +39,4 @@ Feature: View and Interact with a Carousel of Products and Vendors
   Scenario: Carousel for product with Real Food Challenge tags
     Given I create four new products
     And I am on the Discovery page
-    And I should not see a carousel for the type "Gluten Free"
+    Then I should not see a carousel for the type "Gluten Free"
