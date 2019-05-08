@@ -1,0 +1,55 @@
+@import "externalStyling";
+@import "themeColors";
+
+#addr {
+  background-color: Transparent;
+  color: #000;
+  font-weight: normal;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+address {
+  background-color: Transparent;
+}
+
+#socialWithText {
+  margin-top: 10px;
+  margin-left: -5px;
+}
+
+#socialNoText {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  text-align: center;
+}
+
+.socialBtn {
+  margin-top: 5px;
+  background-color: Transparent;
+  border: none;
+}
+
+.fa-facebook-square {
+  color: $unselected-color;
+  font-size: 30px;
+}
+
+.fa-twitter-square {
+  color: $unselected-color;
+  font-size: 30px;
+}
+
+.fa-instagram {
+  color: $unselected-color;
+  font-size: 30px;
+}

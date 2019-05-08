@@ -1,0 +1,45 @@
+@import "externalStyling";
+@import "themeColors";
+
+.origintext {
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  color: #000;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap: break-word;
+}
+
+.vendorName:hover {
+  text-decoration: underline;
+}
+
+#dietaryRestrictionsContentMissing {
+  display: block;
+  margin-top: -5px;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  text-align: center;
+}
+
+#dietaryRestrictionsFullContent {
+  margin-left: 15px;
+}
+
+#dietaryLogo {
+  width: 60px;
+  height: scale;
+  margin-top: 10px;
+  background-color: Transparent;
+  border: none;
+  margin-right: 15px;
+}
