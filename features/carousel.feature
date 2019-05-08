@@ -29,3 +29,15 @@ Feature: View and Interact with a Carousel of Products and Vendors
     And I am on the Discovery page
     And I should see a carousel for the ownership type "Original Ownership Name"
     Then I should see all vendors with owned by "Original Ownership Name"
+
+  Scenario: Carousel for products with nutrition tags
+    Given I create four new products
+    And I am on the Discovery page
+    And I should see a carousel for the type "Vegan"
+    Then I should see all the "Vegan" products
+
+  Scenario: Carousel for product with Real Food Challenge tags
+    Given I create four new products
+    And I am on the Discovery page
+    And I should see a carousel for the type "Humane"
+    Then I should see all the "Humane" products
