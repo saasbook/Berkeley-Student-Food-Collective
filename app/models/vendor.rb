@@ -14,18 +14,22 @@ class Vendor < ActiveRecord::Base
 
   accepts_nested_attributes_for :ownerships, :allow_destroy => true
 
+
   def self.get_ownerships_hash
-    @vendors = self.all
     @ownerships_hash = {}
-    @vendors.each do |vendor|
-      vendor.ownerships.each do |ownership|
-        if @ownerships_hash.key?(ownership.name)
-          @ownerships_hash[ownership.name].push(vendor)
-        else
-          @ownerships_hash[ownership.name] = [vendor]
-        end
-      end
+    @ownerships = Ownership.all
+    @ownerships.each do |ownership|
+      @ownerships_hash[ownership.name] = [ownership.vendors, vendors_with_pictures(ownership.vendors).length >= 4]
     end
     @ownerships_hash
   end
+
+  def self.vendors_with_pictures(vendors_array)
+    vendors_with_pics = vendors_array.reject {|vendor| vendor.picture == ""}
+  end
+
+
+
+
+
 end
