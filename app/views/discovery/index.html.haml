@@ -1,5 +1,5 @@
 %body
-  = render "header"
+  = render partial: 'header', locals: {currentPage: "discovery", admin: false}
   %div#discovery
     - @tags_hash.each do |tag, tuple|
       - @list = tuple[0]
