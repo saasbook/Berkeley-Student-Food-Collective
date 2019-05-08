@@ -26,7 +26,7 @@ Feature: View and Interact with a Carousel of Products and Vendors
   @javascript
   Scenario: Carousels for vendors should show up correctly (happy)
     Given I create three new vendors
-    Then show me the Discovery page
+    And I am on the Discovery page
     And I should see a carousel for the ownership type "Original Ownership Name"
     Then I should see all vendors with owned by "Original Ownership Name"
 
