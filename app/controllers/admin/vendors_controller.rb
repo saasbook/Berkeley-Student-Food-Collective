@@ -70,7 +70,7 @@ class Admin::VendorsController < ApplicationController
 
   def destroy
     vendor = Vendor.find(params[:id])
-    success = Vendor.destroy
+    success = vendor.destroy
     if success
       vendor_success("delete")
     else
