@@ -51,6 +51,13 @@ class Product < ActiveRecord::Base
         end
       end
     end
+    
+    tags.each do |tag_type, tag_name|
+      if tags_hash[tag_name].length == 0
+        tags_hash.delete(tag_name)
+      end
+    end
+    
     tags_hash
   end
       
