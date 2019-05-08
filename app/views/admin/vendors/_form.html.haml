@@ -54,5 +54,5 @@
     #submit_div.form_group
       = f.submit class: 'btn btn-success'
       -if @vendor.persisted?
-        = button_to 'Delete', admin_vendor_path, {method: :delete, data: {confirm: 'Are you sure you want to delete this vendor?'}, class: 'btn btn-danger', id: :delete_button}
+        = link_to 'Delete', admin_vendor_path, {method: :delete, data: {confirm: 'Are you sure you want to delete this vendor?'}, class: 'btn btn-danger', id: :delete_button}
       = button_tag 'Cancel', type: :button, onclick: 'confirmVendorCancel()', id: :cancel_button, class: 'btn btn-warning'
