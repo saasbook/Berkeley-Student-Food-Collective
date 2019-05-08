@@ -7,7 +7,7 @@ Feature: Delete a vendor
   Scenario: Delete a vendor without tags
     Given a vendor already exists
     And I am on the edit vendor page
-    When I press "Delete"
+    When I follow "Delete"
     Then I should be on the volunteer-facing vendors index page
     And I should see a success message
     And no vendors should exist
@@ -15,7 +15,7 @@ Feature: Delete a vendor
   Scenario: Delete a vendor with tags
     Given a vendor with a tag already exists
     And I am on the edit vendor page
-    When I press "Delete"
+    When I follow "Delete"
     Then I should be on the volunteer-facing vendors index page
     And I should see a success message
     And no vendors should exist
@@ -25,7 +25,7 @@ Feature: Delete a vendor
     Given a vendor with a tag already exists
     And a product with tags already exists
     And I am on the edit vendor page
-    When I press "Delete"
+    When I follow "Delete"
     Then I should be on the volunteer-facing vendors index page
     And I should see a success message
     And no vendors should exist

@@ -10,7 +10,7 @@ Feature: Delete a product
   Scenario: Delete a product without tags
     Given a product already exists
     And I am on the edit product page
-    When I press "Delete"
+    When I follow "Delete"
     Then I should be on the volunteer-facing products index page
     And I should see a success message
     And no products should exist
@@ -18,7 +18,7 @@ Feature: Delete a product
   Scenario: Delete a product with tags
     Given a product with tags already exists
     And I am on the edit product page
-    When I press "Delete"
+    When I follow "Delete"
     Then I should be on the volunteer-facing products index page
     And I should see a success message
     And no products should exist
