@@ -12,12 +12,12 @@ class Product < ActiveRecord::Base
 
   belongs_to :vendor
 
-  has_many :product_certifications
-  has_many :certifications, through: :product_certifications
-  has_many :product_nutritions
-  has_many :nutritions, through: :product_nutritions
-  has_many :product_packagings
-  has_many :packagings, through: :product_packagings
+  has_many :product_certifications, dependent: :destroy
+  has_many :certifications, through: :product_certifications, dependent: :destroy
+  has_many :product_nutritions, dependent: :destroy
+  has_many :nutritions, through: :product_nutritions, dependent: :destroy
+  has_many :product_packagings, dependent: :destroy
+  has_many :packagings, through: :product_packagings, dependent: :destroy
 
   accepts_nested_attributes_for :certifications, :allow_destroy => true
   accepts_nested_attributes_for :nutritions, :allow_destroy => true
