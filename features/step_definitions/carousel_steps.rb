@@ -27,7 +27,7 @@ Given /I create three new products/ do
   end
 end
 
-Given /I create four new products/ do
+Given /I create four new products.*/ do
   step %{Given a vendor already exists}
   FactoryBot.create(:product, name: "First Product")
   FactoryBot.create(:product, name: "Second Product")
