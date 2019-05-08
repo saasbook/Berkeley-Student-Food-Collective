@@ -1,8 +1,12 @@
 %body
-  = render partial: 'header', locals: {currentPage: "discovery", admin: false}
+  = render "header"
   %div#discovery
-    - @tags_hash.each do |tag, list|
-      = render "carousel", type: "product", tag: tag, list: list
+    - @tags_hash.each do |tag, tuple|
+      - @list = tuple[0]
+      - @display = tuple[1]
+      -if @display 
+        = render "carousel", type: "product", tag: tag, list: @list
 
     - @ownerships_hash.each do |tag, list|
-      = render "carousel", type: "vendor", tag: tag, list: list
+      - if list.length >= 4
+        = render "carousel", type: "vendor", tag: tag, list: list

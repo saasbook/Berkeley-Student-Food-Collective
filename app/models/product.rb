@@ -30,11 +30,16 @@ class Product < ActiveRecord::Base
       tag_hash = tag_klass.all.each_with_object({}) do |tag, hash|
         products_array = tag.products.to_a
         unless products_array.empty?
-          hash[tag.name] = products_array
+          hash[tag.name] = [products_array, products_with_pictures(products_array).length >= 4]
         end
       end
       tags_hash.update(tag_hash)
     end
     tags_hash
   end
+
+  def self.products_with_pictures(products_array)
+    prod_with_pics = products_array.reject {|product| product.picture == ""}
+  end
 end
+
