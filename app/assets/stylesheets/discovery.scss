@@ -74,12 +74,12 @@
 
 .overlay {
   position: absolute;
-  top: 75%;
+  top: 80%;
   left: 10%;
   width: 80%;
   height: 95%;
   opacity: 0;
-  font-size: 14pt;
+  font-size: 10pt;
   touch-action: none;
   transition: opacity 1s;
   word-wrap: break-word;
@@ -99,16 +99,6 @@
 .navbar-brand {
   line-height: 80px;
 }
-
-/*@media (min-width: 100px) {
-.navbar-brand.abs
-    {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        text-align: center;
-    }
-}*/
 
 .navbar-toggle {
   margin-top: 23px;

@@ -35,6 +35,29 @@ class Product < ActiveRecord::Base
       end
       tags_hash.update(tag_hash)
     end
+    self.get_dietary_and_rfc_tags(tags_hash)
+  end
+  
+  def self.get_dietary_and_rfc_tags(tags_hash)
+    tags = [["vegan", "Vegan"], ["gluten_free", "Gluten Free"], ["dairy_free", "Dairy Free"], ["lc_based", "Locally Based"], ["fair", "Fairly Traded"], ["eco_sound", "Ecologically Sound"], ["humane", "Humane"]]
+    tags.each do |tag_type, tag_name|
+      tags_hash[tag_name] = []
+    end
+    
+    Product.all.each do |product|
+      tags.each do |tag_type, tag_name|
+        if product[tag_type]
+          tags_hash[tag_name] += [product]
+        end
+      end
+    end
+    
+    tags.each do |tag_type, tag_name|
+      if tags_hash[tag_name].length == 0
+        tags_hash.delete(tag_name)
+      end
+    end
+    
     tags_hash
   end
 
@@ -42,4 +65,3 @@ class Product < ActiveRecord::Base
     prod_with_pics = products_array.reject {|product| product.picture == ""}
   end
 end
-

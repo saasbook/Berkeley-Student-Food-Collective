@@ -1,13 +1,13 @@
 Given /I create (.*) new vendors/ do |num|
-	i = 1
-	@ownership = FactoryBot.create(:original_ownership)
+  i = 1
+  @ownership = FactoryBot.create(:original_ownership)
 
-	num.to_i.times do
+  num.to_i.times do
     @name = "Fake Name"
-		@vendor = FactoryBot.create(:vendor, name: "Fake Name #{i.to_s}")
-  	VendorOwnership.create(vendor_id: @vendor.id, ownership_id: @ownership.id)
-  	i += 1
-	end
+    @vendor = FactoryBot.create(:vendor, name: "Fake Name #{i.to_s}")
+    VendorOwnership.create(vendor_id: @vendor.id, ownership_id: @ownership.id)
+    i += 1
+  end
 end
 
 Given /I create a vendor with a bad picture/ do
@@ -47,10 +47,28 @@ Then /I should see a carousel for the ownership type "(.*)"/ do |ownership_type|
   expect(@found).not_to be(nil)
 end
 
+Then /I should see a carousel for the type "(.*)"/ do |nutrition_or_rfc_type|
+  @formatted = nutrition_or_rfc_type.gsub(' ', '_')
+  @found = find("##{@formatted}")
+  expect(@found).not_to be(nil)
+end
+
+Then /I should not see a carousel for the type "(.*)"/ do |nutrition_or_rfc_type|
+  @formatted = nutrition_or_rfc_type.gsub(' ', '_')
+  expect(page).not_to have_selector("##{@formatted}")
+end
+
 Then /I should see (.*) vendors with owned by "(.*)"/ do |count, ownership_type|
   @classes = ".container.carousel_element." + ownership_type.gsub(" ", "_")
   @all_vendors = page.all(:css, @classes)
   expect(@all_vendors.length).to be(count.to_i)
+end
+
+Then /I should see all the "(.*)" products/ do |nutrition_or_rfc_type|
+  @count = 4
+  @classes = ".container.carousel_element." + nutrition_or_rfc_type.gsub(" ", "_")
+  @all_vendors = page.all(:css, @classes)
+  expect(@all_vendors.length).to be(@count)
 end
 
 Then /I should see a carousel for the product tag type "(.*)"/ do |tag_type|
@@ -77,7 +95,7 @@ Then /the right elements should shift to the right/ do
   @classes = find("#Fake_Name_3")['class'].split(" ")
   expect(@classes).to include("carousel_element")
   expect(@classes).to include("spreadRight")
-end	
+end 
 
 Then /I should see a vendor carousel for (.*)/ do |type|
   expect(find_by_id("#{type}")).not_to be nil
