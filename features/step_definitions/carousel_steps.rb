@@ -31,9 +31,6 @@ Given /I create (.*) new products/ do |num|
     @products.each do |product|
       "Product#{tag_type.capitalize}".constantize.create(product_id: product.id, "#{tag_type}_id": @tag_type.id)
     end
-    #{}"Product#{tag_type.capitalize}".constantize.create(product_id: 1, "#{tag_type}_id": @tag_type.id)
-    #{}"Product#{tag_type.capitalize}".constantize.create(product_id: 2, "#{tag_type}_id": @tag_type.id)
-    #{}"Product#{tag_type.capitalize}".constantize.create(product_id: 3, "#{tag_type}_id": @tag_type.id)
   end
 end
 
