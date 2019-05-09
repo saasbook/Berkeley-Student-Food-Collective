@@ -40,22 +40,15 @@ class Product < ActiveRecord::Base
   
   def self.get_dietary_and_rfc_tags(tags_hash)
     tags = [["vegan", "Vegan"], ["gluten_free", "Gluten Free"], ["dairy_free", "Dairy Free"], ["lc_based", "Locally Based"], ["fair", "Fairly Traded"], ["eco_sound", "Ecologically Sound"], ["humane", "Humane"]]
+
     tags.each do |tag_type, tag_name|
-      tags_hash[tag_name] = []
-    end
-    
-    Product.all.each do |product|
-      tags.each do |tag_type, tag_name|
+      products_array = []
+      Product.all.each do |product|
         if product[tag_type]
-          tags_hash[tag_name] += [product]
+          products_array += [product]
         end
       end
-    end
-    
-    tags.each do |tag_type, tag_name|
-      if tags_hash[tag_name].length == 0
-        tags_hash.delete(tag_name)
-      end
+      tags_hash[tag_name] = [products_array, products_with_pictures(products_array).length >= 4]
     end
     
     tags_hash
