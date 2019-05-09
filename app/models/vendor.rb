@@ -14,7 +14,6 @@ class Vendor < ActiveRecord::Base
 
   accepts_nested_attributes_for :ownerships, :allow_destroy => true
 
-
   def self.get_ownerships_hash
     @ownerships_hash = {}
     @ownerships = Ownership.all
@@ -27,9 +26,4 @@ class Vendor < ActiveRecord::Base
   def self.vendors_with_pictures(vendors_array)
     vendors_with_pics = vendors_array.reject {|vendor| vendor.picture == ""}
   end
-
-
-
-
-
 end
