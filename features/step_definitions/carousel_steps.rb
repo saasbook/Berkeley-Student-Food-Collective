@@ -1,3 +1,15 @@
+Given /I create (.*) new vendors/ do |num|
+  i = 1
+  @ownership = FactoryBot.create(:original_ownership)
+
+  num.to_i.times do
+    @name = "Fake Name"
+    @vendor = FactoryBot.create(:vendor, name: "Fake Name #{i.to_s}")
+    VendorOwnership.create(vendor_id: @vendor.id, ownership_id: @ownership.id)
+    i += 1
+  end
+end
+
 Given /I create (.*) new photo-less vendors/ do |num|
   i = 1
   @ownership = FactoryBot.create(:original_ownership)
@@ -8,18 +20,6 @@ Given /I create (.*) new photo-less vendors/ do |num|
     VendorOwnership.create(vendor_id: @vendor.id, ownership_id: @ownership.id)
     @vendor[:picture] = ''
     @vendor.save!
-    i += 1
-  end
-end
-
-Given /I create (.*) new vendors/ do |num|
-  i = 1
-  @ownership = FactoryBot.create(:original_ownership)
-
-  num.to_i.times do
-    @name = "Fake Name"
-    @vendor = FactoryBot.create(:vendor, name: "Fake Name #{i.to_s}")
-    VendorOwnership.create(vendor_id: @vendor.id, ownership_id: @ownership.id)
     i += 1
   end
 end
