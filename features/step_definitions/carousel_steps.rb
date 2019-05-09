@@ -37,9 +37,27 @@ Then /I should see a carousel for the ownership type "(.*)"/ do |ownership_type|
   expect(@found).not_to be(nil)
 end
 
+Then /I should see a carousel for the type "(.*)"/ do |nutrition_or_rfc_type|
+  @formatted = nutrition_or_rfc_type.gsub(' ', '_')
+  @found = find("##{@formatted}")
+  expect(@found).not_to be(nil)
+end
+
+Then /I should not see a carousel for the type "(.*)"/ do |nutrition_or_rfc_type|
+  @formatted = nutrition_or_rfc_type.gsub(' ', '_')
+  expect(page).not_to have_selector("##{@formatted}")
+end
+
 Then /I should see all vendors with owned by "(.*)"/ do |ownership_type|
   @count = 3
   @classes = ".container.carousel_element." + ownership_type.gsub(" ", "_")
+  @all_vendors = page.all(:css, @classes)
+  expect(@all_vendors.length).to be(@count)
+end
+
+Then /I should see all the "(.*)" products/ do |nutrition_or_rfc_type|
+  @count = 4
+  @classes = ".container.carousel_element." + nutrition_or_rfc_type.gsub(" ", "_")
   @all_vendors = page.all(:css, @classes)
   expect(@all_vendors.length).to be(@count)
 end
