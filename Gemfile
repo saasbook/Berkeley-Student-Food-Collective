@@ -30,7 +30,6 @@ gem 'twitter-bootstrap-rails'
 gem 'font-awesome-rails'
 gem 'to_words'
 
-
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
