@@ -1,3 +1,17 @@
+Given /I create (.*) new photo-less vendors/ do |num|
+  i = 1
+  @ownership = FactoryBot.create(:original_ownership)
+
+  num.to_i.times do
+    @name = "Fake Name"
+    @vendor = FactoryBot.create(:vendor, name: "Fake Name #{i.to_s}")
+    VendorOwnership.create(vendor_id: @vendor.id, ownership_id: @ownership.id)
+    @vendor[:picture] = ''
+    @vendor.save!
+    i += 1
+  end
+end
+
 Given /I create (.*) new vendors/ do |num|
   i = 1
   @ownership = FactoryBot.create(:original_ownership)
@@ -23,6 +37,26 @@ Given /I create (.*) new products/ do |num|
   i = 0
   num.to_i.times do 
     @product =FactoryBot.create(:product, name: "Product #{i.to_s}")
+    @products << @product
+  end
+  
+  %w(certification nutrition packaging).each do |tag_type|
+    @tag_type = FactoryBot.create("original_#{tag_type}")
+    @products.each do |product|
+      "Product#{tag_type.capitalize}".constantize.create(product_id: product.id, "#{tag_type}_id": @tag_type.id)
+    end
+  end
+end
+
+Given /I create (.*) new photo-less products/ do |num|
+  step %{Given a vendor already exists}
+
+  @products = []
+  i = 0
+  num.to_i.times do 
+    @product =FactoryBot.create(:product, name: "Product #{i.to_s}")
+    @product[:picture] = ''
+    @product.save!
     @products << @product
   end
   

@@ -39,8 +39,22 @@ Feature: View and Interact with a Carousel of Products and Vendors
     And I am on the Discovery page
     Then I should not see a carousel for the ownership type "Original Ownership Name"
 
+  Scenario: Don't see carousel for tag with photo-less vendors
+    Given I create 5 new photo-less vendors
+    And I am on the Discovery page
+    Then I should not see a carousel for the ownership type "Original Ownership Name"
+
   Scenario: Don't see carousel for tag with 3 products
     Given I create 3 new products
+    And I am on the Discovery page
+    Then I should not see a carousel for the type "Original Packaging Name"
+    Then I should not see a carousel for the type "Original Nutrition Name"
+    Then I should not see a carousel for the type "Original Certification Name"
+    Then I should not see a carousel for the type "Vegan"
+    Then I should not see a carousel for the type "Humane"
+
+  Scenario: Don't see carousel for tag with photo-less products
+    Given I create 5 new photo-less products
     And I am on the Discovery page
     Then I should not see a carousel for the type "Original Packaging Name"
     Then I should not see a carousel for the type "Original Nutrition Name"
