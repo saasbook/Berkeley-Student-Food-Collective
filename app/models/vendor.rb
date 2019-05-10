@@ -20,7 +20,9 @@ class Vendor < ActiveRecord::Base
     @ownerships.each do |ownership|
       @ownerships_hash[ownership.name] = [ownership.vendors, vendors_with_pictures(ownership.vendors).length >= 4]
     end
-    @ownerships_hash[0..15]
+    #puts "Ownership Length: #{@ownerships_hash.length}"
+    @ownerships_hash
+    
   end
 
   def self.vendors_with_pictures(vendors_array)
