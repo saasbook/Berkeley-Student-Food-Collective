@@ -1,0 +1,182 @@
+@import "externalStyling";
+@import "themeColors";
+
+#details {
+  max-width: 1500px;
+  display: grid;
+  grid-column: 2/3;
+  padding: 5px;
+}
+
+#detailsPageHeader {
+  display: block;
+}
+
+#detailsPageInfo {
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+h1 {
+  background-color: Transparent;
+  color: #000;
+  font-weight: normal;
+  font-size: 35pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+#tags {
+  display: inline-flex;
+  margin: 5px;
+}
+
+.tagBtns {
+  background-color: $gray-color;
+  color: #fff;
+  font-weight: normal;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 250px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: -5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+}
+
+.tagBtns:hover {
+   max-width: none;
+}
+
+#extendTags {
+  padding-left: 10px;
+  margin-top: 10px;
+  max-width: 250px;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.extendContentMissing {
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  text-align: center;
+}
+
+.tagLinks {
+  color: $gray-color;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  background-color: Transparent;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  margin-left: 5px;
+  margin-right: 5px;
+  word-wrap: break-word;
+  max-width: 250px;
+}
+
+.tagLinks:hover {
+  text-decoration: underline;
+}
+
+#detailsPageContent {
+  display: inline-flex;
+  padding: 5px;
+  max-width: 1500px;
+  margin-top: 5px;
+}
+
+#detailsPageImage {
+  border-radius: 15px;
+  max-width: 250px;
+  max-height: 262px;
+}
+
+.imageNoText {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+}
+
+.imageWithText {
+  margin-right: 15px;
+}
+
+#detailsPageText {
+  color: #000;
+  font-weight: normal;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap: break-word;
+}
+
+.detailsTextNoImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+}
+
+.detailsTextWithImage {
+  min-width: 350px;
+  max-width: 500px;
+  margin-left: 15px;
+  padding-top: 5px;
+}
+
+.subhead {
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  color: #000;
+  font-weight: bold;
+  font-size: 18pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap: break-word;
+}
+
+.subheadtext {
+  color: #000;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap: break-word;
+}
