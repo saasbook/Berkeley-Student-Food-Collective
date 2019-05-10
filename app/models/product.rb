@@ -30,7 +30,6 @@ class Product < ActiveRecord::Base
     end
     new_hash = self.get_dietary_and_rfc_tags(tags_hash)
     new_hash
-    
   end
 
   def self.update_tags_hash(tag_type, tags_hash)

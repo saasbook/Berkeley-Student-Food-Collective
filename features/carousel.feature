@@ -53,6 +53,19 @@ Feature: View and Interact with a Carousel of Products and Vendors
     Then I should not see a carousel for the type "Vegan"
     Then I should not see a carousel for the type "Humane"
 
+  Scenario: Only see up to fourteen products
+    Given I create 16 new products
+    And I am on the Discovery page
+    Then I should see a carousel for the product tag type "Original Packaging Name"
+    And I should see 14 products with the tag "Original Packaging Name"
+
+  Scenario: Only see up to fourteen vendors
+    Given I create 16 new vendors
+    And I am on the Discovery page
+    Then I should see a carousel for the ownership type "Original Ownership Name"
+    Then I should see 14 vendors with owned by "Original Ownership Name"
+
+
   Scenario: Don't see carousel for tag with photo-less products
     Given I create 5 new photo-less products
     And I am on the Discovery page
