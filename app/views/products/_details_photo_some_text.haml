@@ -1,9 +1,9 @@
 #detailsPageContent
   #leftAlign
-    %image#detailsPageImage.imageWithText{:src => image_url(@product.picture)}
+    = image_tag @product.picture, id: 'detailsPageImage', class: 'imageWithText'
   #detailsPageText.detailsTextWithImage
-    = render "details_text"
+    = render 'details_text'
     #dietaryRestrictionsContentMissing
-      = render "details_dietary_restrictions"
+      = render 'details_dietary_restrictions'
       #extendTags.extendContentMissing
-        = render "details_extend_tags"
+        = render 'details_extend_tags'
