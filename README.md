@@ -9,6 +9,12 @@
 
 http://bsfc.herokuapp.com
 
+Our practice is to deploy to Heroku using the release branch of the repository.
+
+## Pivotal Tracker
+
+https://www.pivotaltracker.com/n/projects/2317544
+
 ## Summary
 
 This app creates a website for the Berkeley Student Food Collective which allows their customers to explore their products and vendors and allows the volunteers to upload products and vendors for the customers to view.
@@ -19,7 +25,7 @@ The Berkeley Student Food Collective (BSFC) needed a way to better express why t
 
 ## Installation
 
-Must have Ruby 2.4.0 to run this project locally. Run `bundle install` to import all gems.
+Must have Ruby 2.4.0 to run this project locally. Run `bundle install --without production` to import all gems and `rake db:setup` to initialize the database.
 
 ## Directory Structure
 
