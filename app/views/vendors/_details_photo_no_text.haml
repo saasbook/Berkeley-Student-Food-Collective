@@ -1,6 +1,6 @@
 #center
-  %image#detailsPageImage.imageNoText{:src => image_url(@vendor.picture)}
+  = image_tag @vendor.picture, id: 'detailsPageImage', class: 'imageNoText'
   #socialNoText
-    = render "details_social_buttons"
+    = render 'details_social_buttons'
     #extendTags.extendContentMissing
-      = render "details_extend_tags"
+      = render 'details_extend_tags'
