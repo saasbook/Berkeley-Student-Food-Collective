@@ -26,6 +26,12 @@ class Product < ActiveRecord::Base
   def self.get_tags_hash
     tags_hash = {}
     [:certification, :nutrition, :packaging].each do |tag_type|
+      tags_hash = update_tags_hash(tag_type, tags_hash)
+    end
+    self.get_dietary_and_rfc_tags(tags_hash)
+  end
+
+  def self.update_tags_hash(tag_type, tags_hash)
       tag_klass = tag_type.to_s.camelize.constantize  # Symbol to actual class
       tag_hash = tag_klass.all.each_with_object({}) do |tag, hash|
         products_array = tag.products.to_a
@@ -34,8 +40,6 @@ class Product < ActiveRecord::Base
         end
       end
       tags_hash.update(tag_hash)
-    end
-    self.get_dietary_and_rfc_tags(tags_hash)
   end
   
   def self.get_dietary_and_rfc_tags(tags_hash)
