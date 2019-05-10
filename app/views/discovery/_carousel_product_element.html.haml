@@ -1,4 +1,4 @@
-%div{:class => "container carousel_element #{tag}", :id => product.name.gsub(' ', '_'), :onclick => "routeToPageDirectly('#{product_path(product.id)}')"}
+.carousel_element.container{class: tag, :id => product.name.gsub(' ', '_'), :onclick => "routeToPageDirectly('#{product_path(product.id)}')"}
   %button
     = image_tag product.picture, :class => 'image'
   %p.discovery-centered

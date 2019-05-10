@@ -1,4 +1,4 @@
-%div{:class => "container carousel_element #{ownership}", :id => vendor.name.gsub(' ', '_'), :onclick => "routeToPageDirectly('#{vendor_path(vendor.id)}')"}
+.carousel_element.container{:class => ownership, :id => vendor.name.gsub(' ', '_'), :onclick => "routeToPageDirectly('#{vendor_path(vendor.id)}')"}
   %button
     = image_tag vendor.picture, :class => 'image'
   %p.discovery-centered
