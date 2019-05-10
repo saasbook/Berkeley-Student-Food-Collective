@@ -19,7 +19,7 @@ The Berkeley Student Food Collective (BSFC) needed a way to better express why t
 
 ## Installation
 
-Must have Ruby 2.4.0 to run this project locally. Run bundle install to import all gems.
+Must have Ruby 2.4.0 to run this project locally. Run `bundle install` to import all gems.
 
 ## Directory Structure
 
