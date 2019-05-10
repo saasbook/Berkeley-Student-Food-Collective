@@ -1,7 +1,9 @@
-%div{:class => "container carousel_element #{local_assigns[:tag].gsub(" ", "_")}", :id => local_assigns[:product].name.gsub(" ", "_"), :onclick => "routeToPageDirectly('#{product_path(local_assigns[:product].id)}')"}
+%div{:class => "container carousel_element #{tag}", :id => product.name.gsub(' ', '_'), :onclick => "routeToPageDirectly('#{product_path(product.id)}')"}
   %button
-    = image_tag local_assigns[:product].picture, :class => "image"
-  %p{:class => "discovery-centered"}
-    %td= local_assigns[:product].name
-  %p{:class => "overlay"}
-    %td= "Click here to learn more..."
+    = image_tag product.picture, :class => 'image'
+  %p.discovery-centered
+    %td
+      = product.name
+  %p.overlay
+    %td
+      = 'Click here to learn more...'
