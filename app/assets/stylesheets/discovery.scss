@@ -11,21 +11,20 @@
 
 .header_image{
   background-color: $gray-image-color;
-  min-width: -webkit-fill-available;
+  min-width: 100vw;
   height: scale;
   width: scale;
-  // position: absolute;
 }
 
 .img_hdr_text{
   color: white;
   font-weight: bold;
   font-family: 'Arvo', sans-serif;
-  font-size: 10vw;
+  font-size: 8vw;
   text-align: center;
   justify-content: center;
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -35,6 +34,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   background-color: $gray-image-color;
+  top: -5%;
 }
 
 .carousel{
@@ -43,6 +43,13 @@
   padding: 50px;
   text-align: center;
   border-bottom-style: outset;
+  scroll-behavior: smooth;
+  overflow: -moz-scrollbars-none;
+  border: none;
+}
+
+.carousel::-webkit-scrollbar{
+  display: none;
 }
 
 .carousel_header{
@@ -51,6 +58,7 @@
   padding-bottom: 50px;
   position: sticky;
   left: 0;
+  color: white;
 }
 
 .carousel_element{
@@ -72,8 +80,7 @@
   max-width: 200px;
   max-height: 200px;
   border-radius: 15px;
-  border-color: white;
-  border-width: 5px;
+  border: 5px solid white;
 }
 
 .spreadLeft {
