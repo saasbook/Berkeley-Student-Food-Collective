@@ -1,4 +1,6 @@
-= render 'letterNav'
+#letter-nav-padding
+  - if mobile_device == "desktop"
+    = render 'letterNav'
 #notice{class: flash[:type]}
   = flash[:message]
 %table#index
