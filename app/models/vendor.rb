@@ -25,6 +25,6 @@ class Vendor < ActiveRecord::Base
   end
 
   def self.vendors_with_pictures(vendors_array)
-    vendors_array.reject { |vendor| vendor.picture == '' }
+    vendors_array.reject { |vendor| vendor.picture.blank? }
   end
 end
