@@ -1,9 +1,10 @@
-.carousel_element.container{class: tag, :id => product.name.gsub(' ', '_'), :onclick => "routeToPageDirectly('#{product_path(product.id)}')"}
+.carousel_element.container{class: tag_snaked, id: item.name.downcase.gsub(' ', '_'), onclick: "routeToPageDirectly('#{item_path}')"}
+  -#= link_to item_path do
   %button
-    = image_tag product.picture, :class => 'image'
+    = image_tag item.picture, class: 'image'
   %p.discovery-centered
     %td
-      = product.name
+      = item.name
   %p.overlay
     %td
       = 'Click here to learn more...'

@@ -3,8 +3,8 @@
   #discovery
     - @products_tags_hash.each do |tag, list|
       - tag_snaked = tag.downcase.gsub(' ', '_')
-      = render 'carousel', type: 'product', tag: tag, tag_snaked: tag_snaked, list: list
+      = render 'carousel', type: 'product', tag_name: tag, tag_snaked: tag_snaked, list: list
 
     - @vendors_tags_hash.each do |tag, list|
       - tag_snaked = tag.downcase.gsub(' ', '_')
-      = render 'carousel', type: 'vendor', tag: tag, tag_snaked: tag_snaked, list: list
+      = render 'carousel', type: 'vendor', tag_name: tag, tag_snaked: tag_snaked, list: list
