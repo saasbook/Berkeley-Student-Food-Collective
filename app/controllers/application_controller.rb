@@ -9,5 +9,4 @@ class ApplicationController < ActionController::Base
     end
     action
   end
-
 end
