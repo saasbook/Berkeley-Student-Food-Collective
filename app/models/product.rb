@@ -28,8 +28,7 @@ class Product < ActiveRecord::Base
     [:certification, :nutrition, :packaging].each do |tag_type|
       tags_hash = update_tags_hash(tag_type, tags_hash)
     end
-    new_hash = self.get_dietary_and_rfc_tags(tags_hash)
-    new_hash
+    self.get_dietary_and_rfc_tags(tags_hash)
   end
 
   def self.update_tags_hash(tag_type, tags_hash)
