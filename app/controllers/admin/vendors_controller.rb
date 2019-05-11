@@ -11,21 +11,16 @@ class Admin::VendorsController < ApplicationController
     vendor_params.except(:ownerships_attributes)
   end
 
-  def vendor_success(action)
-    action = addE(action)
-    flash[:message] = "#{action.capitalize}d Vendor"
-    flash[:type] = 'alert alert-success'
-    redirect_to admin_vendors_path
-  end
-
-  def vendor_fail(action, vendor)
-    flash[:message] = vendor.errors.full_messages
-    flash[:type] = 'alert alert-danger'
-    if action == "add"
+  def verify_and_redirect(success, vendor)
+    if success
+      flash[:message] = 'Success!'
+      flash[:type] = 'alert alert-success'
+      redirect_to admin_vendors_path
+    else
+      flash[:message] = vendor.errors.full_messages
+      flash[:type] = 'alert alert-danger'
       flash[:vendor_params] = vendor_params
-      redirect_to new_admin_vendor_path
-    elsif action == "update"
-      redirect_to edit_admin_vendor_path
+      redirect_back(fallback_location: admin_vendors_path)
     end
   end
     
@@ -40,12 +35,7 @@ class Admin::VendorsController < ApplicationController
     # Need create and update_attributes call to handle when I add existing tags, but then remove them all
     vendor = Vendor.create(vendor_params_without_nested)
     success = vendor.update_attributes(vendor_params)
-
-    if success
-      vendor_success("add")
-    else
-      vendor_fail("add", vendor)
-    end
+    verify_and_redirect(success, vendor)
   end
 
   def index
@@ -60,21 +50,12 @@ class Admin::VendorsController < ApplicationController
   def update
     vendor = Vendor.find(params[:id])
     success = vendor.update_attributes(vendor_params)
-
-    if success
-      vendor_success("update")
-    else
-      vendor_fail("update", vendor)
-    end
+    verify_and_redirect(success, vendor)
   end
 
   def destroy
     vendor = Vendor.find(params[:id])
     success = vendor.destroy
-    if success
-      vendor_success("delete")
-    else
-      vendor_fail("delete", vendor)
-    end
+    verify_and_redirect(success, vendor)
   end
 end
