@@ -5,18 +5,22 @@
   width: 67px;
 }
 
+.navbar {
+  background-color: $gray-image-color;
+}
+
 // Dropdown for adding a new product or vendor
 .dropdown-content form:hover {
-  background-color: $gray-color;
+  background-color: $gray-image-color;
 }
 
 .dropdown-content button:hover {
-  background-color: $gray-color;
+  background-color: $gray-image-color;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-  left:auto; 
+  left:auto;
   right:0;
 }
 

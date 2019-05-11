@@ -1,6 +1,9 @@
 %body
   = render partial: 'header', locals: {currentPage: "discovery", admin: false}
-  %div#discovery
+  #image_header
+    %image{src: image_url('discovery_image.jpeg'), class: 'header_image'}
+    %h1.img_hdr_text STORIES FROM BSFC
+  #discovery
     - @tags_hash.each do |tag, list|
       = render "carousel", type: "product", tag: tag, list: list
 

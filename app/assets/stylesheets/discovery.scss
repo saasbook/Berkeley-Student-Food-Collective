@@ -1,7 +1,40 @@
+@import "themeColors";
+
+// @function get-vw($item) {
+//   $vw-context: (1000*.01) * 1px;
+//   @return ($target/$vw-context) * 1vw;
+// }
+
+#image_header{
+  color: white;
+}
+
+.header_image{
+  background-color: $gray-image-color;
+  min-width: -webkit-fill-available;
+  height: scale;
+  width: scale;
+  // position: absolute;
+}
+
+.img_hdr_text{
+  color: white;
+  font-weight: bold;
+  font-family: 'Arvo', sans-serif;
+  font-size: 10vw;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 #discovery{
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr
+  grid-template-rows: 1fr 1fr;
+  background-color: $gray-image-color;
 }
 
 .carousel{
@@ -32,7 +65,7 @@
   background-color: Transparent;
 }
 
-.image {
+.element_image {
   width: scale;
   height: scale;
   object-fit: contain;
