@@ -63,8 +63,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
+  max-width: 180px;
+  max-height: 180px;
+  word-wrap: break-word;
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .container {
