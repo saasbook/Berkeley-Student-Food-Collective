@@ -57,6 +57,6 @@ class Admin::ProductsController < ApplicationController
   def destroy
     product = Product.find(params[:id])
     success = product.destroy
-    verify_and_redirect(success, product, admin_products_path, product_params)
+    verify_and_redirect(success, product, admin_products_path, nil)
   end
 end

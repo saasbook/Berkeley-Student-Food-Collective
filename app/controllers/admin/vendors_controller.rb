@@ -49,6 +49,7 @@ class Admin::VendorsController < ApplicationController
   def destroy
     vendor = Vendor.find(params[:id])
     success = vendor.destroy
-    verify_and_redirect(success, vendor, admin_vendors_path, vendor_params)
+    puts 'got here!'
+    verify_and_redirect(success, vendor, admin_vendors_path, nil)
   end
 end
