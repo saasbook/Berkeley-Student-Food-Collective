@@ -4,12 +4,12 @@
   - if type == 'vendor'
     - if list
       - list.each do |vendor|
-        - if vendor.picture != ''
+        - if vendor.picture.present?
           = render 'carousel_element', item: vendor, item_path: vendor_path(vendor.id), tag_snaked: tag_snaked
               
   - if type == 'product'
     - if list
       - list.each do |product|
-        - if product.picture != ''
+        - if product.picture.present?
           = render 'carousel_element', item: product, item_path: product_path(product.id), tag_snaked: tag_snaked
 
