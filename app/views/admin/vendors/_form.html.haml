@@ -40,7 +40,7 @@
       -# Hidden select necessary to add additional existing tags
       = f.collection_select :ownership_ids, @vendor.ownerships, :id, :name, {}, {hidden: true, multiple: true}
       = f.fields_for :ownerships do |ff|
-        %div.ownership
+        .ownership
           = ff.text_field :name, readonly: true, disabled: true, size: 41
           = ff.check_box :_destroy
           = ff.label :_destroy, 'Remove Ownership Type'

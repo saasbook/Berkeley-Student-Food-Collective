@@ -69,13 +69,12 @@ Given /I create (.*) new photo-less products/ do |num|
 end
 
 When /I hover over the second carousel element/ do
-  find('#Fake_Name_2').hover
+  find('#fake_name_2').hover
 end
 
 Then /I should see a carousel for the ownership type "(.*)"/ do |ownership_type|
-  @formatted = ownership_type.gsub(' ', '_')
-  @found = find("##{@formatted}")
-  expect(@found).not_to be(nil)
+  @formatted = ownership_type.downcase.gsub(' ', '_')
+  expect(page).not_to have_select("##{@formatted}")
 end
 
 Then /I should not see a carousel for the ownership type "(.*)"/ do |ownership_type|
@@ -88,34 +87,34 @@ Then /I should not see a carousel for the type "(.*)"/ do |nutrition_or_rfc_type
   expect(page).not_to have_selector("##{@formatted}")
 end
 
+
 Then /I should see (.*) vendors with owned by "(.*)"/ do |count, ownership_type|
-  @classes = ".container.carousel_element." + ownership_type.gsub(" ", "_")
+  @classes = ".container.carousel_element." + ownership_type.downcase.gsub(" ", "_")
   @all_vendors = page.all(:css, @classes)
-  expect(@all_vendors.length).to be(count.to_i)
+  expect(@all_vendors.length).to eq(count.to_i)
 end
 
 Then /I should see a carousel for the product tag type "(.*)"/ do |tag_type|
-  @formatted = tag_type.gsub(' ', '_')
+  @formatted = tag_type.downcase.gsub(' ', '_')
   @found = find("##{@formatted}")
   expect(@found).not_to be(nil)
 end
 
-
 Then /I should see (.*) products with the tag "(.*)"/ do |num, tag_type|
   @count = num.to_i
-  @classes = ".container.carousel_element." + tag_type.gsub(" ", "_")
+  @classes = ".container.carousel_element." + tag_type.downcase.gsub(" ", "_")
   @all_vendors = page.all(:css, @classes)
   expect(@all_vendors.length).to be(@count)
 end
 
 Then /the left elements should shift to the left/ do
-  @classes = find("#Fake_Name_1")['class'].split(" ")
+  @classes = find("#fake_name_1")['class'].split(" ")
   expect(@classes).to include("carousel_element")
   expect(@classes).to include("spreadLeft")
 end
 
 Then /the right elements should shift to the right/ do
-  @classes = find("#Fake_Name_3")['class'].split(" ")
+  @classes = find("#fake_name_3")['class'].split(" ")
   expect(@classes).to include("carousel_element")
   expect(@classes).to include("spreadRight")
 end 
