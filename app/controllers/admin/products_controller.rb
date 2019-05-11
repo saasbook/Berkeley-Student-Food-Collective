@@ -75,4 +75,14 @@ class Admin::ProductsController < ApplicationController
       product_fail("update", product)
     end
   end
+
+  def destroy
+    product = Product.find(params[:id])
+    success = product.destroy
+    if success
+      product_success("delete")
+    else
+      product_fail("delete", product)
+    end
+  end
 end
