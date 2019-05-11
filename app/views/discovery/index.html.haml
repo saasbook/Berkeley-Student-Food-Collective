@@ -1,10 +1,6 @@
 %body
   = render 'header', currentPage: 'discovery', admin: false
   #discovery
-    - @products_tags_hash.each do |tag, list|
-      - tag_snaked = tag.downcase.gsub(' ', '_')
-      = render 'carousel', type: 'product', tag_name: tag, tag_snaked: tag_snaked, list: list
-
-    - @vendors_tags_hash.each do |tag, list|
-      - tag_snaked = tag.downcase.gsub(' ', '_')
-      = render 'carousel', type: 'vendor', tag_name: tag, tag_snaked: tag_snaked, list: list
+    - @hashes.each do |type, type_hash|
+      - type_hash.each do |tag, list|
+        = render 'carousel', type: type, tag: tag, list: list

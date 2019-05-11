@@ -16,15 +16,15 @@ class Vendor < ActiveRecord::Base
 
   def self.get_tags_hash
     tags_hash = {}
-    self.all.each do |vendor|
-      vendor.ownerships.each do |ownership|
-        if tags_hash.key?(ownership.name)
-          tags_hash[ownership.name].push(vendor)
-        else
-          tags_hash[ownership.name] = [vendor]
-        end
+    Ownership.all.each do |ownership|
+      if vendors_with_pictures(ownership.vendors).length >= 4
+        tags_hash[ownership.name] = ownership.vendors
       end
     end
     tags_hash
+  end
+
+  def self.vendors_with_pictures(vendors_array)
+    vendors_array.reject { |vendor| vendor.picture == '' }
   end
 end
