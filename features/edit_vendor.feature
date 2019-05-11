@@ -24,7 +24,7 @@ Feature: Edit an existing vendor in the database
     When I fill in "Name" with ""
     And I submit the form
     Then I should see an error message on the edit vendor page
-    And I should see the vendor attributes filled in
+    And I should see the vendor attributes, except "Name", filled in
     And the vendor should have its original tag
 
   Scenario: Try editing vendor with duplicate name (sad)
@@ -33,7 +33,8 @@ Feature: Edit an existing vendor in the database
     When I fill in "Name" with the other vendor's name
     And I submit the form
     Then I should see an error message on the edit vendor page
-    And I should see the vendor attributes filled in
+    And I should see the vendor attributes, except "Name", filled in
+    And the vendor should have the other vendor's name
     And the vendor should have its original tag
 
   @javascript
