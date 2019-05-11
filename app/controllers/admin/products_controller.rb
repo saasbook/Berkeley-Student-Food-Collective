@@ -21,17 +21,17 @@ class Admin::ProductsController < ApplicationController
   end
 
   def verify_and_redirect(success, product)
-      if success
-        flash[:message] = 'Success!'
-        flash[:type] = 'alert alert-success'
-        redirect_to admin_products_path
-      else
-        flash[:message] = product.errors.full_messages
-        flash[:type] = 'alert alert-danger'
-        flash[:product_params] = product_params
-        redirect_back(fallback_location: admin_products_path)
-      end
+    if success
+      flash[:message] = 'Success!'
+      flash[:type] = 'alert alert-success'
+      redirect_to admin_products_path
+    else
+      flash[:message] = product.errors.full_messages
+      flash[:type] = 'alert alert-danger'
+      flash[:product_params] = product_params
+      redirect_back(fallback_location: admin_products_path)
     end
+  end
 
   def new
     # Make new product so form knows to make submit button say "Create Product"
@@ -53,6 +53,10 @@ class Admin::ProductsController < ApplicationController
   def edit
     # Get product so form knows to make submit button say "Update Product"
     @product = Product.find(params[:id])
+    # Pass in params from form if redirected from #update
+    if flash[:product_params]
+      @product.assign_attributes(flash[:product_params])
+    end
   end
 
   def update
