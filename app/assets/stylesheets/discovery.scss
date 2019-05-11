@@ -45,7 +45,7 @@
   scroll-behavior: smooth;
   overflow: -moz-scrollbars-none;
   border: none;
-  margin-bottom: 2%;
+  margin-bottom: 12vh;
   margin-left: 1vw;
   margin-right: 1vw;
   scrollbar-width: none
@@ -74,6 +74,7 @@
 
 .carousel_image {
   background-color: Transparent;
+  background-size: contain;
 }
 
 .element_image {
