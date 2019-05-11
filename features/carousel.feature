@@ -6,7 +6,7 @@ Feature: View and Interact with a Carousel of Products and Vendors
 
   @javascript
   Scenario: Hover Slide Interaction with Carousel (happy)
-    Given I create three new vendors
+    Given I create 5 new vendors
     And I am on the Discovery page
     When I hover over the second carousel element
     Then the left elements should shift to the left
@@ -14,38 +14,68 @@ Feature: View and Interact with a Carousel of Products and Vendors
 
   @javascript
   Scenario: Carousels for products should show up correctly (happy)
-    Given I create three new products
+    Given I create 5 new products
     And I am on the Discovery page
     Then I should see a carousel for the product tag type "Original Packaging Name"
-    And I should see all products with the tag "Original Packaging Name"
+    And I should see 5 products with the tag "Original Packaging Name"
     And I should see a carousel for the product tag type "Original Nutrition Name"
-    And I should see all products with the tag "Original Nutrition Name"
+    And I should see 5 products with the tag "Original Nutrition Name"
     And I should see a carousel for the product tag type "Original Certification Name"
-    And I should see all products with the tag "Original Certification Name"
+    And I should see 5 products with the tag "Original Certification Name"
+    And I should see a carousel for the product tag type "Vegan"
+    And I should see 5 products with the tag "Vegan"
+    And I should see a carousel for the product tag type "Humane"
+    And I should see 5 products with the tag "Humane"
 
   @javascript
   Scenario: Carousels for vendors should show up correctly (happy)
-    Given I create three new vendors
+    Given I create 5 new vendors
     And I am on the Discovery page
     And I should see a carousel for the ownership type "Original Ownership Name"
-    Then I should see all vendors with owned by "Original Ownership Name"
+    Then I should see 5 vendors with owned by "Original Ownership Name"
 
-  Scenario: Carousel for products with nutrition tag
-    Given a vendor already exists
-    And there are 4 product
+  Scenario: Don't see carousel for tag with 3 vendors
+    Given I create 3 new vendors
     And I am on the Discovery page
-    And I should see a carousel for the type "Vegan"
-    Then I should see all the "Vegan" products
+    Then I should not see a carousel for the ownership type "Original Ownership Name"
 
-  Scenario: Carousel for products with Real Food Challenge tag
-    Given a vendor already exists
-    And there are 4 product
+  Scenario: Don't see carousel for tag with photo-less vendors
+    Given I create 5 new photo-less vendors
     And I am on the Discovery page
-    And I should see a carousel for the type "Humane"
-    Then I should see all the "Humane" products
+    Then I should not see a carousel for the ownership type "Original Ownership Name"
+
+  Scenario: Don't see carousel for tag with 3 products
+    Given I create 3 new products
+    And I am on the Discovery page
+    Then I should not see a carousel for the type "Original Packaging Name"
+    Then I should not see a carousel for the type "Original Nutrition Name"
+    Then I should not see a carousel for the type "Original Certification Name"
+    Then I should not see a carousel for the type "Vegan"
+    Then I should not see a carousel for the type "Humane"
+
+  Scenario: Only see up to fourteen products
+    Given I create 16 new products
+    And I am on the Discovery page
+    Then I should see a carousel for the product tag type "Original Packaging Name"
+    And I should see 15 products with the tag "Original Packaging Name"
+
+  Scenario: Only see up to fourteen vendors
+    Given I create 16 new vendors
+    And I am on the Discovery page
+    Then I should see a carousel for the ownership type "Original Ownership Name"
+    Then I should see 15 vendors with owned by "Original Ownership Name"
+
+
+  Scenario: Don't see carousel for tag with photo-less products
+    Given I create 5 new photo-less products
+    And I am on the Discovery page
+    Then I should not see a carousel for the type "Original Packaging Name"
+    Then I should not see a carousel for the type "Original Nutrition Name"
+    Then I should not see a carousel for the type "Original Certification Name"
+    Then I should not see a carousel for the type "Vegan"
+    Then I should not see a carousel for the type "Humane"
 
   Scenario: Don't see carousel for unused nutrition tag
-    Given a vendor already exists
-    And there are 4 product
+    Given I create 5 new products
     And I am on the Discovery page
     Then I should not see a carousel for the type "Gluten Free"
