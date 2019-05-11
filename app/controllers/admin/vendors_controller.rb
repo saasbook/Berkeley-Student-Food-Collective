@@ -45,6 +45,10 @@ class Admin::VendorsController < ApplicationController
   def edit
     # Get vendor so form knows to make submit button say "Update Vendor"
     @vendor = Vendor.find(params[:id])
+    # Pass in params from form if redirected from #update
+    if flash[:vendor_params]
+      @vendor.assign_attributes(flash[:vendor_params])
+    end
   end
 
   def update
