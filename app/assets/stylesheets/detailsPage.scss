@@ -5,36 +5,53 @@
   max-width: 1500px;
   display: grid;
   grid-column: 2/3;
-  padding: 5px;
+  margin: 0px;
+  padding: 0px;
 }
 
 #detailsPageHeader {
   display: block;
-}
-
-#detailsPageInfo {
+  background-color: $gray-image-color;
+  position: relative;
+  width: 100vw;
+  height: 45vh;
   justify-content: center;
   text-align: center;
   margin-left:auto;
   margin-right:auto;
+  word-wrap: break-word;
 }
 
-h1 {
-  background-color: Transparent;
-  color: #000;
+.item_name {
+  color: white;
   font-weight: normal;
-  font-size: 35pt;
+  font-size: 5vw;
   font-family: 'Arvo', sans-serif;
+  background-color: Transparent;
   background-repeat:no-repeat;
+  word-wrap: break-word;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
   outline:none;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#accents {
+  display: inline-block;
+  position: absolute;
+  top: 97.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #tags {
   display: inline-flex;
-  margin: 5px;
+  margin-top: 7.5vh;
+  justify-content: center;
 }
 
 .tagBtns {
@@ -51,9 +68,8 @@ h1 {
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 250px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: -5px;
+  margin-left: 1vw;
+  margin-right: 1vw;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
