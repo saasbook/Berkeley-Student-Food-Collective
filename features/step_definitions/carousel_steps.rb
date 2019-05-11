@@ -28,17 +28,17 @@ Given /I create three new products/ do
 end
 
 When /I hover over the second carousel element/ do
-  find('#Fake_Name_2').hover
+  find('#fake_name_2').hover
 end
 
 Then /I should see a carousel for the ownership type "(.*)"/ do |ownership_type|
-  @formatted = ownership_type.gsub(' ', '_')
+  @formatted = ownership_type.downcase.gsub(' ', '_')
   @found = find("##{@formatted}")
   expect(@found).not_to be(nil)
 end
 
 Then /I should see a carousel for the type "(.*)"/ do |nutrition_or_rfc_type|
-  @formatted = nutrition_or_rfc_type.gsub(' ', '_')
+  @formatted = nutrition_or_rfc_type.downcase.gsub(' ', '_')
   @found = find("##{@formatted}")
   expect(@found).not_to be(nil)
 end
@@ -50,20 +50,20 @@ end
 
 Then /I should see all vendors with owned by "(.*)"/ do |ownership_type|
   @count = 3
-  @classes = ".container.carousel_element." + ownership_type.gsub(" ", "_")
+  @classes = ".container.carousel_element." + ownership_type.downcase.gsub(" ", "_")
   @all_vendors = page.all(:css, @classes)
   expect(@all_vendors.length).to be(@count)
 end
 
 Then /I should see all the "(.*)" products/ do |nutrition_or_rfc_type|
   @count = 4
-  @classes = ".container.carousel_element." + nutrition_or_rfc_type.gsub(" ", "_")
+  @classes = ".container.carousel_element." + nutrition_or_rfc_type.downcase.gsub(" ", "_")
   @all_vendors = page.all(:css, @classes)
   expect(@all_vendors.length).to be(@count)
 end
 
 Then /I should see a carousel for the product tag type "(.*)"/ do |tag_type|
-  @formatted = tag_type.gsub(' ', '_')
+  @formatted = tag_type.downcase.gsub(' ', '_')
   @found = find("##{@formatted}")
   expect(@found).not_to be(nil)
 end
@@ -71,19 +71,19 @@ end
 
 Then /I should see all products with the tag "(.*)"/ do |tag_type|
   @count = 3
-  @classes = ".container.carousel_element." + tag_type.gsub(" ", "_")
+  @classes = ".container.carousel_element." + tag_type.downcase.gsub(" ", "_")
   @all_vendors = page.all(:css, @classes)
   expect(@all_vendors.length).to be(@count)
 end
 
 Then /the left elements should shift to the left/ do
-  @classes = find("#Fake_Name")['class'].split(" ")
+  @classes = find("#fake_name")['class'].split(" ")
   expect(@classes).to include("carousel_element")
   expect(@classes).to include("spreadLeft")
 end
 
 Then /the right elements should shift to the right/ do
-  @classes = find("#Fake_Name_3")['class'].split(" ")
+  @classes = find("#fake_name_3")['class'].split(" ")
   expect(@classes).to include("carousel_element")
   expect(@classes).to include("spreadRight")
 end	

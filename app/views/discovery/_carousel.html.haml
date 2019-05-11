@@ -1,16 +1,15 @@
-.carousel{id: tag}
-  - header_name = 'carousel_header ' + tag
-  %h3{class: header_name}
-    = tag
+.carousel{id: tag_snaked}
+  %h3.carousel_header{class: tag_snaked}
+    = tag_name
   - if type == 'vendor'
     - if list
       - list.each do |vendor|
         - if vendor.picture != ''
-          = render 'carousel_vendor_element', vendor: vendor, ownership: tag
+          = render 'carousel_element', item: vendor, item_path: vendor_path(vendor.id), tag_snaked: tag_snaked
               
   - if type == 'product'
     - if list
       - list.each do |product|
         - if product.picture != ''
-          = render 'carousel_product_element', product: product, tag: tag
+          = render 'carousel_element', item: product, item_path: product_path(product.id), tag_snaked: tag_snaked
 
