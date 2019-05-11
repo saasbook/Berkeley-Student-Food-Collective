@@ -66,8 +66,6 @@
 
 .carousel_element {
   transition: 0.5s transform;
-  max-width: 500px;
-  max-height: 200px;
 }
 
 .carousel_image {
@@ -107,6 +105,11 @@
   width: 80%;
   white-space: nowrap;
   overflow: hidden;
+}
+
+#carousel_parallax {
+  background-color: white;
+  width: 100vw;
 }
 
 .container {

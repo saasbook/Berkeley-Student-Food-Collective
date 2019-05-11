@@ -1,5 +1,10 @@
 %div{:class => "container carousel_element #{local_assigns[:tag].gsub(" ", "_")}", :id => local_assigns[:product].name.gsub(" ", "_"), :onclick => "routeToPageDirectly('#{product_path(local_assigns[:product].id)}')"}
   #carousel_image.button
     = image_tag local_assigns[:product].picture, :class => "element_image"
-  %p{:class => "discovery-centered"}
-    %td= local_assigns[:product].name
+  -# %p{:class => "discovery-centered"}
+  -#   %td= local_assigns[:product].name
+  #carousel_parallax
+    %p.name_heading
+      = local_assigns[:product].name
+
+    -# add an onclick; onclick it sets the visibility property of the box to block
