@@ -1,4 +1,4 @@
-= render partial: 'header', locals: {currentPage: "product", admin: false}
+= render 'header', currentPage: 'product', admin: false
 #details
   #detailsPageHeader
     #detailsPageInfo
@@ -15,12 +15,12 @@
             %h3.tagBtns
               = tag.name
     - if (not @product.picture.empty?) and (not @product.origin.empty?) and @product.cultural_history.empty?
-      = render "details_photo_some_text"
+      = render 'details_photo_some_text'
   - if (not @product.picture.empty?) and (not @product.origin.empty?) and (not @product.cultural_history.empty?)
-    = render "details_all_content"
+    = render 'details_all_content'
   - if (not @product.picture.empty?) and @product.origin.empty? and @product.cultural_history.empty?
-    = render "details_photo_no_text"
+    = render 'details_photo_no_text'
   - if @product.picture.empty? and ((not @product.origin.empty?) or (not @product.cultural_history.empty?))
-    = render "details_text_no_photo"
+    = render 'details_text_no_photo'
   - if @product.picture.empty? and @product.origin.empty? and @product.cultural_history.empty?
-    = render "details_no_content"
+    = render 'details_no_content'

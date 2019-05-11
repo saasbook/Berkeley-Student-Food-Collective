@@ -1,17 +1,16 @@
-.carousel{id: local_assigns[:tag].gsub(" ", "_")}
-  - header_name = "carousel_header " + local_assigns[:tag].gsub(" ", "_")
-  %h3{:class => header_name}
-    =local_assigns[:tag]
-  - if local_assigns[:type] == "vendor"
-    - if local_assigns[:list]
-      - local_assigns[:list][0..14].each do |vendor|
-        - if vendor.picture != ""
-          = render "carousel_vendor_element", vendor: vendor, ownership: -local_assigns[:tag]
-    }
+- tag_snaked = tag.downcase.gsub(' ', '_')
+.carousel{id: tag_snaked}
+  %h3.carousel_header{class: tag_snaked}
+    = tag
+  - if type == :vendor
+    - if list
+      - list[0..14].each do |vendor|
+        - if vendor.picture.present?
+          = render 'carousel_element', item: vendor, item_path: vendor_path(vendor.id), tag_snaked: tag_snaked
               
-  - if local_assigns[:type] == "product"
-    - if local_assigns[:list]
-      - local_assigns[:list][0..14].each do |product|
-        - if product.picture != ""
-          = render "carousel_product_element", product: product, tag: -local_assigns[:tag]
+  - if type == :product
+    - if list
+      - list[0..14].each do |product|
+        - if product.picture.present?
+          = render 'carousel_element', item: product, item_path: product_path(product.id), tag_snaked: tag_snaked
 

@@ -19,7 +19,7 @@
     .form_group.element_div
       = f.label :cultural_history
       = f.text_area :cultural_history
-    .form_group.element_div#dietary_div
+    #dietary_div.form_group.element_div
       %h4 Dietary Restrictions
       .checkboxClass
         = f.label :gluten_free
@@ -30,7 +30,7 @@
       .checkboxClass
         = f.label :vegan
         = f.check_box :vegan
-    .form_group.element_div#rfc_div
+    #rfc_div.form_group.element_div
       %h4 Real Food Challenge
       .checkboxClass
         = f.label :lc_based, 'Locally based'
@@ -50,7 +50,7 @@
       -# Hidden select necessary to add additional existing tags
       = f.collection_select :certification_ids, @product.certifications, :id, :name, {}, {hidden: true, multiple: true}
       = f.fields_for :certifications do |ff|
-        %div.certification
+        .certification
           = ff.text_field :name, readonly: true, disabled: true, size: 41
           = ff.check_box :_destroy
           = ff.label :_destroy, 'Remove Certification Type'
@@ -66,7 +66,7 @@
       -# Hidden select necessary to add additional existing tags
       = f.collection_select :packaging_ids, @product.packagings, :id, :name, {}, {hidden: true, multiple: true}
       = f.fields_for :packagings do |ff|
-        %div.packaging
+        .packaging
           = ff.text_field :name, readonly: true, disabled: true, size: 41
           = ff.check_box :_destroy
           = ff.label :_destroy, 'Remove Packaging Type'
@@ -82,7 +82,7 @@
       -# Hidden select necessary to add additional existing tags
       = f.collection_select :nutrition_ids, @product.nutritions, :id, :name, {}, {hidden: true, multiple: true}
       = f.fields_for :nutritions do |ff|
-        %div.nutrition
+        .nutrition
           = ff.text_field :name, readonly: true, disabled: true, size: 41
           = ff.check_box :_destroy
           = ff.label :_destroy, 'Remove Nutrition Type'

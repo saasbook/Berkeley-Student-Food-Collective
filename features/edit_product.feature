@@ -34,7 +34,7 @@ Feature: Edit an existing product in the database
     When I fill in "Name" with ""
     And I submit the form
     Then I should see an error message on the edit product page
-    And I should see the product attributes filled in
+    And I should see the product attributes, except "Name", filled in
     And the product should have its original tags
 
   @javascript

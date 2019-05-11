@@ -104,6 +104,9 @@ end
 
 Then /I should see the product attributes(, except "(.*)",)? filled in/ do |exclude|
   product_attributes = FactoryBot.attributes_for(:product)
+  if exclude
+    exclude = exclude.downcase
+  end
   unless exclude == 'vendor'
     expect(page).to have_select('Select a Vendor', selected: FactoryBot.attributes_for(:vendor)[:name])
   end
@@ -183,9 +186,9 @@ Then /I should see the vendor, photo, origin, cultural history and tags of the p
 
   dietaryRestrictionsDiv = page.find("#dietaryRestrictionsFullContent")
   if product_attributes[:vegan] or product_attributes[:gluten_free] or product_attributes[:dairy_free]
-    expect(dietaryRestrictionsDiv.find("#dietaryLogo")).not_to be nil
+    expect(dietaryRestrictionsDiv.find(".dietaryLogo")).not_to be nil
   else
-    expect(dietaryRestrictionsDiv.find("#dietaryLogo")).to be nil
+    expect(dietaryRestrictionsDiv.find(".dietaryLogo")).to be nil
   end
 end
 
