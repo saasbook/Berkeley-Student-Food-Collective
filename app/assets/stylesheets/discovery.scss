@@ -34,18 +34,21 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   background-color: $gray-image-color;
-  top: -5%;
+  margin-top: -3%;
 }
 
 .carousel {
   overflow: auto;
   white-space: nowrap;
-  padding: 50px;
   text-align: center;
   border-bottom-style: outset;
   scroll-behavior: smooth;
   overflow: -moz-scrollbars-none;
   border: none;
+  margin-bottom: 2%;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  scrollbar-width: none
 }
 
 .carousel::-webkit-scrollbar {
@@ -55,10 +58,10 @@
 .carousel_header {
   font-weight: bold;
   font-family: 'Arvo', sans-serif;
-  padding-bottom: 50px;
   position: sticky;
   left: 0;
   color: white;
+  margin-bottom: 4.5vh;
 }
 
 .carousel_element {
