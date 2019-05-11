@@ -4,11 +4,8 @@
     #detailsPageInfo
       %h1
         = @vendor.name
-      %p
-        - if not @vendor.address.empty?
-          - addr = @vendor.address.split(',')
-          - for i in 0..addr.length do
-            %p#addr=addr[i]
+      - if not @vendor.address.empty?
+        %p#addr= @vendor.address
       #tags
         - if @vendor.ownerships.length > 0
           - @vendor.ownerships[0...4].each do |tag|
