@@ -6,4 +6,4 @@
         - @list = tuple[0]
         - @display = tuple[1]
         -if @display 
-          = render "carousel", type: type, tag: tag, list: @list
+          = render "carousel", type: type.to_s, tag: tag, list: @list
