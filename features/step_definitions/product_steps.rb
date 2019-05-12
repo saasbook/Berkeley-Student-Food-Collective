@@ -186,9 +186,9 @@ Then /I should see the vendor, photo, origin, cultural history and tags of the p
 
   dietaryRestrictionsDiv = page.find(".dietaryRestrictionsFullContent")
   if product_attributes[:vegan] or product_attributes[:gluten_free] or product_attributes[:dairy_free]
-    expect(dietaryRestrictionsDiv.find(".dietaryLogo")).not_to be nil
+    expect(dietaryRestrictionsDiv.find(".iconLogo")).not_to be nil
   else
-    expect(dietaryRestrictionsDiv.find(".dietaryLogo")).to be nil
+    expect(dietaryRestrictionsDiv.find(".iconLogo")).to be nil
   end
 end
 
