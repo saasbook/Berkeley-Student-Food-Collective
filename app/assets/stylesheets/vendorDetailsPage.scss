@@ -3,17 +3,24 @@
 
 #addr {
   background-color: Transparent;
-  color: #000;
+  color: white;
+  // font-weight: normal;
+  // font-size: 15pt;
+  // font-family: 'Arvo', sans-serif;
+  // background-repeat:no-repeat;
+  // border: none;
+  // cursor:pointer;
+  // overflow: hidden;
+  // outline:none;
+  // margin-top: 2px;
+  // margin-bottom: 2px;
   font-weight: normal;
-  font-size: 15pt;
+  font-size: 2.25vw;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
   overflow: hidden;
   outline:none;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  word-wrap: none;
+  max-width: 75vw;
 }
 
 address {
@@ -37,19 +44,4 @@ address {
   margin-top: 5px;
   background-color: Transparent;
   border: none;
-}
-
-.fa-facebook-square {
-  color: $unselected-color;
-  font-size: 30px;
-}
-
-.fa-twitter-square {
-  color: $unselected-color;
-  font-size: 30px;
-}
-
-.fa-instagram {
-  color: $unselected-color;
-  font-size: 30px;
 }
