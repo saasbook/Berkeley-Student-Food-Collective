@@ -6,7 +6,7 @@
     - if not @vendor.address.empty?
       %p#addr
         = @vendor.address
-    #accents
+    #accents.socialButtons
       = render 'details_social_buttons'
     #tags
       - if @vendor.ownerships.length > 0
