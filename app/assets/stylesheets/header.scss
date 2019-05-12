@@ -25,11 +25,11 @@
 
 // Dropdown for adding a new product or vendor
 .dropdown-content form:hover {
-  background-color: $gray-image-color;
+  background-color: $gray-color;
 }
 
 .dropdown-content button:hover {
-  background-color: $gray-image-color;
+  background-color: $gray-color;
 }
 
 .dropdown:hover .dropdown-content {
@@ -77,4 +77,8 @@
   cursor:pointer;
   overflow: hidden;
   outline:none;
+}
+
+.admin {
+  color: $selected-color;
 }

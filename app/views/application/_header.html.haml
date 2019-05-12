@@ -10,7 +10,7 @@
         %ul.navbar-nav.w-100
           -if admin
             %li.navbar-text ADMIN
-            %li.nav-item{class: ('active' if currentPage == 'vendor')}
+            %li.nav-item.admin{class: ('active' if currentPage == 'vendor')}
               = link_to 'Vendors', admin_vendors_path, class: 'nav-link'
             %li.nav-item{class: ('active' if currentPage == 'product')}
               = link_to 'Products', admin_products_path, class: 'nav-link'
