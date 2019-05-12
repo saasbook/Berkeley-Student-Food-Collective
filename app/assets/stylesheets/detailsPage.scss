@@ -144,7 +144,7 @@
 
 #detailsPageImage {
   border-radius: 15px;
-  max-width: 25vw;
+  width: 25vw;
   height: scale;
 }
 
@@ -170,7 +170,7 @@
   overflow: hidden;
   outline:none;
   word-wrap: break-word;
-  min-width: 60vh;
+  width: 60vw;
   justify-content: center;
 }
 
@@ -184,9 +184,14 @@
 
 .detailsTextWithImage {
   position: absolute;
-  max-width: 60vw;
   right: 5vw;
   margin-left: 2.5vw;
+}
+
+.pageText {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .subhead {
