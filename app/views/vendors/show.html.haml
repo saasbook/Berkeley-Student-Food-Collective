@@ -4,7 +4,7 @@
     %h1.item_name
       = @vendor.name
       - if not @vendor.address.empty?
-        %p#addr
+        #addr
           = @vendor.address
     #socialButtons
       = render 'details_social_buttons'
