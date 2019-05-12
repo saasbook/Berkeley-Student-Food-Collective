@@ -17,8 +17,8 @@
   height: 45vh;
   justify-content: center;
   text-align: center;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left:0px;
+  margin-right:0px;
   word-wrap: break-word;
 }
 
@@ -29,7 +29,7 @@
   font-family: 'Arvo', sans-serif;
   background-color: Transparent;
   background-repeat:no-repeat;
-  word-wrap: break-word;
+  word-wrap: none;
   border: none;
   cursor: pointer;
   overflow: hidden;
@@ -52,6 +52,7 @@
   display: inline-flex;
   margin-top: 7.5vh;
   justify-content: center;
+  width: 100vw;
 }
 
 .tagBtns {
@@ -81,10 +82,30 @@
    max-width: none;
 }
 
+#center {
+  margin-top: 5vh;
+}
+
+#detailsPageContent {
+  display: inline-flex;
+  max-width: 1500px;
+  margin-top: 5vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  min-width: 90vw;
+}
+
+#leftSidebar {
+  margin-right: 2.5vw;
+  max-width: 25vw;
+  position: absolute;
+}
+
 #extendTags {
-  padding-left: 10px;
-  margin-top: 10px;
-  max-width: 250px;
+  margin-top: 2vh;
+  justify-content: center;
+  text-align: center;
+  max-width: 25vw;
   flex-wrap: wrap;
   display: flex;
 }
@@ -94,6 +115,20 @@
   margin-right: auto;
   align-content: center;
   text-align: center;
+}
+
+.tagHeader {
+  color: $gray-color;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat:no-repeat;
+  background-color: Transparent;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  word-wrap: none;
+  display: block;
 }
 
 .tagLinks {
@@ -106,27 +141,19 @@
   border: none;
   cursor:pointer;
   overflow: hidden;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 1vw;
+  margin-right: 1vw;
   word-wrap: break-word;
-  max-width: 250px;
 }
 
 .tagLinks:hover {
   text-decoration: underline;
 }
 
-#detailsPageContent {
-  display: inline-flex;
-  padding: 5px;
-  max-width: 1500px;
-  margin-top: 5px;
-}
-
 #detailsPageImage {
   border-radius: 15px;
-  max-width: 250px;
-  max-height: 262px;
+  max-width: 25vw;
+  height: scale;
 }
 
 .imageNoText {
@@ -137,7 +164,7 @@
 }
 
 .imageWithText {
-  margin-right: 15px;
+  margin-right: 2.5vw;
 }
 
 #detailsPageText {
@@ -151,6 +178,8 @@
   overflow: hidden;
   outline:none;
   word-wrap: break-word;
+  min-width: 60vh;
+  justify-content: center;
 }
 
 .detailsTextNoImage {
@@ -158,13 +187,14 @@
   margin-left: auto;
   margin-right: auto;
   align-content: center;
+  margin-top: 2.5vh;
 }
 
 .detailsTextWithImage {
-  min-width: 350px;
-  max-width: 500px;
-  margin-left: 15px;
-  padding-top: 5px;
+  position: absolute;
+  max-width: 60vw;
+  right: 5vw;
+  margin-left: 2.5vw;
 }
 
 .subhead {
@@ -195,4 +225,9 @@
   overflow: hidden;
   outline:none;
   word-wrap: break-word;
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom: 5vh;
 }
