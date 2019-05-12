@@ -4,7 +4,7 @@
     %h1.item_name
       = @product.name
       = button_to "Made by #{@product.vendor.name}", vendor_path(@product.vendor.id), {method: :get, class: 'vendorName prod-link'}
-    #accents
+    #accents.dietaryRestrictionsFullContent
       = render 'details_dietary_restrictions'
   #tags
     - if @rfc.length > 0

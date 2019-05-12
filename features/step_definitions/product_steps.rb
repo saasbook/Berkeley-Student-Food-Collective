@@ -159,7 +159,7 @@ Then /I should see the vendor, photo, origin, cultural history and tags of the p
   expect(page.find(".vendorName")).not_to be nil
   expect(page.find("#detailsPageImage")).not_to be nil
   expect(page.find(".origintext")).not_to be nil
-  expect(page.find(".subheadtext")).not_to be nil
+  expect(page.find(".culturaltxt")).not_to be nil
 
   product_attributes = FactoryBot.attributes_for(:product)
   rfcDiv = page.find("#tags")
@@ -184,7 +184,7 @@ Then /I should see the vendor, photo, origin, cultural history and tags of the p
     rfcDiv.should_not have_content "Humane"
   end
 
-  dietaryRestrictionsDiv = page.find("#dietaryRestrictionsFullContent")
+  dietaryRestrictionsDiv = page.find(".dietaryRestrictionsFullContent")
   if product_attributes[:vegan] or product_attributes[:gluten_free] or product_attributes[:dairy_free]
     expect(dietaryRestrictionsDiv.find(".dietaryLogo")).not_to be nil
   else
