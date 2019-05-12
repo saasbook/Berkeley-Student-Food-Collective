@@ -3,16 +3,16 @@
   #detailsPageHeader
     %h1.item_name
       = @vendor.name
-    - if not @vendor.address.empty?
-      %p#addr
-        = @vendor.address
-    #accents.socialButtons
+      - if not @vendor.address.empty?
+        %p#addr
+          = @vendor.address
+    #socialButtons
       = render 'details_social_buttons'
-    #tags
-      - if @vendor.ownerships.length > 0
-        - @vendor.ownerships[0...4].each do |tag|
-          %h3.tagBtns
-            = tag.name
+  #tags
+    - if @vendor.ownerships.length > 0
+      - @vendor.ownerships[0...4].each do |tag|
+        %h3.tagBtns
+          = tag.name
   - if (not @vendor.picture.empty?) and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
     = render 'details_all_content'
   - elsif (not @vendor.picture.empty?) and @vendor.mission.empty? and @vendor.story.empty?

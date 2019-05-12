@@ -2,7 +2,6 @@
 @import "themeColors";
 
 #addr {
-  background-color: Transparent;
   color: white;
   font-weight: normal;
   font-size: 2.25vw;
@@ -11,23 +10,24 @@
   outline:none;
   word-wrap: none;
   max-width: 75vw;
-}
-
-#socialWithText {
-  margin-top: 10px;
-  margin-left: -5px;
-}
-
-#socialNoText {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  align-content: center;
-  text-align: center;
+  left: 50%;
 }
 
 .socialBtn {
-  margin-top: 5px;
+  width: scale;
+  height: scale;
+  max-width: 75px;
+  margin-top: 10px;
   background-color: Transparent;
   border: none;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
+#socialButtons {
+  display: inline-flex;
+  position: absolute;
+  top: 97.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

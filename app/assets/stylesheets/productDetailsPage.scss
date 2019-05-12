@@ -15,3 +15,23 @@
 .vendorName:hover {
   text-decoration: underline;
 }
+
+// These are in different CSS classes because they style different types of elements
+#accents {
+  display: inline-block;
+  position: absolute;
+  top: 97.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.iconLogo {
+  width: scale;
+  height: scale;
+  max-width: 55px;
+  margin-top: 10px;
+  background-color: Transparent;
+  border: none;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
