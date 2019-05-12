@@ -5,18 +5,36 @@
   width: 67px;
 }
 
+.navbar {
+  background-color: $gray-image-color;
+  font-family: 'Arvo', sans-serif;
+  font-size: 135%;
+  display: inline-block;
+  min-height: 80px;
+  max-height: 10vh;
+}
+
+@media (min-width: 768px) {
+  .navbar .navbar-nav {
+    text-align: center;
+    justify-content: center;
+    float: none;
+    margin-left: -67px;
+  }
+}
+
 // Dropdown for adding a new product or vendor
 .dropdown-content form:hover {
-  background-color: $gray-color;
+  background-color: $gray-image-color;
 }
 
 .dropdown-content button:hover {
-  background-color: $gray-color;
+  background-color: $gray-image-color;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-  left:auto; 
+  left:auto;
   right:0;
 }
 

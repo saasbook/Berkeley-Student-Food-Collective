@@ -8,3 +8,25 @@
   %p.overlay
     %td
       = 'Click here to learn more...'
+
+
+-# %div{:class => "container carousel_element #{local_assigns[:ownership].gsub(" ", "_")}", :id => local_assigns[:vendor].name.gsub(" ", "_"), :onclick => "routeToPageDirectly('#{vendor_path(local_assigns[:vendor].id)}')"}
+  #carousel_image.button
+    = image_tag local_assigns[:vendor].picture, :class => "element_image"
+  -# %p{:class => "discovery-centered"}
+  -#   %td= local_assigns[:vendor].name
+  #carousel_parallax
+    %h1.name_heading
+      = local_assigns[:vendor].name
+    - if not @vendor.mission.empty?
+      #mission
+        %h5.subhead Mission
+        %p.subtext
+          = @vendor.mission
+    - if not @vendor.story.empty?
+      #story
+        %h5.subhead Story
+        %p.subtext
+          = @vendor.story
+
+    -# add an onclick; onclick it sets the visibility property of the box to block
