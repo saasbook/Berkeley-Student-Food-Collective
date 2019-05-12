@@ -17,8 +17,8 @@
   height: 45vh;
   justify-content: center;
   text-align: center;
-  margin-left:0px;
-  margin-right:0px;
+  margin-left: 0px;
+  margin-right: 0px;
   word-wrap: break-word;
 }
 
@@ -27,13 +27,12 @@
   font-weight: normal;
   font-size: 5vw;
   font-family: 'Arvo', sans-serif;
-  background-color: Transparent;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   word-wrap: none;
   border: none;
   cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
   position: relative;
   top: 50%;
   left: 50%;
@@ -66,9 +65,9 @@
   font-weight: normal;
   font-size: 15pt;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
   outline:none;
   text-overflow: ellipsis;
@@ -76,10 +75,7 @@
   max-width: 250px;
   margin-left: 1vw;
   margin-right: 1vw;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 10px;
   border-radius: 15px;
 }
 
@@ -127,10 +123,10 @@
   font-weight: normal;
   font-size: 12pt;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-color: Transparent;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
   word-wrap: none;
   display: block;
@@ -141,10 +137,10 @@
   font-weight: normal;
   font-size: 12pt;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-color: Transparent;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
   margin-left: 1vw;
   margin-right: 1vw;
@@ -177,9 +173,9 @@
   font-weight: normal;
   font-size: 15pt;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
   outline:none;
   word-wrap: break-word;
@@ -210,17 +206,17 @@
 .subhead {
   justify-content: center;
   text-align: center;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   color: #000;
   font-weight: bold;
   font-size: 18pt;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
   word-wrap: break-word;
 }
 
@@ -229,15 +225,15 @@
   font-weight: normal;
   font-size: 12pt;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
   outline:none;
   word-wrap: break-word;
   justify-content: center;
   text-align: center;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 5vh;
 }

@@ -159,7 +159,7 @@ Then /I should see the vendor, photo, origin, cultural history and tags of the p
   expect(page.find(".vendorName")).not_to be nil
   expect(page.find("#detailsPageImage")).not_to be nil
   expect(page.find(".origintext")).not_to be nil
-  expect(page.find(".culturaltxt")).not_to be nil
+  expect(page.find(".culturaltext")).not_to be nil
 
   product_attributes = FactoryBot.attributes_for(:product)
   rfcDiv = page.find("#tags")
