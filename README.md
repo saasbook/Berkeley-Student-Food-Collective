@@ -38,5 +38,9 @@ Set up as a standard rails app. Notable choices include:
 
 The main three models are Vendor, Product, and Tag. Certification, Nutrition, Ownership, and Packaging inherit from Tag and therefore all live in the Tag table in the database with different types. They each have a "belongs to" relationship with either a Vendor or Product model. Product\_Certification, Product\_Nutrition, Product\_Packaging, and Vendor\_Ownership are models linking the two tables they mention.
 
+## How to Run Tests
+
+Use `bundle exec cucumber` to run all cucumber tests.
+
 ## Miscellaneous
 - How to update the banner image on the discovery page: Go into app/assets/images and add the image file. Rename it to discovery_image.jpeg
