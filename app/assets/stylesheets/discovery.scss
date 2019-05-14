@@ -20,7 +20,7 @@
   text-align: center;
   justify-content: center;
   position: absolute;
-  top: 60%;
+  top: 63%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -31,6 +31,7 @@
   grid-template-rows: 1fr 1fr;
   background-color: $gray-image-color;
   margin-top: -3%;
+  width: 100vw;
 }
 
 .carousel {
@@ -45,7 +46,7 @@
   margin-left: 1vw;
   margin-right: 1vw;
   scrollbar-width: none;
-	width: 100vw;
+	width: 98vw;
 }
 
 #carousel_item {
