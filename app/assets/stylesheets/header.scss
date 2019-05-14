@@ -5,6 +5,25 @@
   width: 67px;
 }
 
+.navbar {
+  background-color: $gray-image-color;
+  font-family: 'Arvo', sans-serif;
+  font-size: 135%;
+  display: inline-block;
+  min-height: 80px;
+  width: 100vw;
+}
+
+@media (min-width: 768px) {
+  .navbar .navbar-nav {
+    text-align: center;
+    justify-content: center;
+    float: none;
+    padding-bottom: 1vh;
+    width: 100vw;
+  }
+}
+
 // Dropdown for adding a new product or vendor
 .dropdown-content form:hover {
   background-color: $gray-color;
@@ -16,7 +35,7 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
-  left:auto; 
+  left:auto;
   right:0;
 }
 
@@ -59,4 +78,8 @@
   cursor:pointer;
   overflow: hidden;
   outline:none;
+}
+
+.admin {
+  color: $selected-color;
 }

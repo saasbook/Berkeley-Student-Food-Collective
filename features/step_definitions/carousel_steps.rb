@@ -35,11 +35,11 @@ Given /I create (.*) new products/ do |num|
 
   @products = []
   i = 0
-  num.to_i.times do 
+  num.to_i.times do
     @product =FactoryBot.create(:product, name: "Product #{i.to_s}")
     @products << @product
   end
-  
+
   %w(certification nutrition packaging).each do |tag_type|
     @tag_type = FactoryBot.create("original_#{tag_type}")
     @products.each do |product|
@@ -53,23 +53,19 @@ Given /I create (.*) new photo-less products/ do |num|
 
   @products = []
   i = 0
-  num.to_i.times do 
+  num.to_i.times do
     @product =FactoryBot.create(:product, name: "Product #{i.to_s}")
     @product[:picture] = ''
     @product.save!
     @products << @product
   end
-  
+
   %w(certification nutrition packaging).each do |tag_type|
     @tag_type = FactoryBot.create("original_#{tag_type}")
     @products.each do |product|
       "Product#{tag_type.capitalize}".constantize.create(product_id: product.id, "#{tag_type}_id": @tag_type.id)
     end
   end
-end
-
-When /I hover over the second carousel element/ do
-  find('#fake_name_2').hover
 end
 
 Then /I should see a carousel for the ownership type "(.*)"/ do |ownership_type|
@@ -106,18 +102,6 @@ Then /I should see (.*) products with the tag "(.*)"/ do |num, tag_type|
   @all_vendors = page.all(:css, @classes)
   expect(@all_vendors.length).to be(@count)
 end
-
-Then /the left elements should shift to the left/ do
-  @classes = find("#fake_name_1")['class'].split(" ")
-  expect(@classes).to include("carousel_element")
-  expect(@classes).to include("spreadLeft")
-end
-
-Then /the right elements should shift to the right/ do
-  @classes = find("#fake_name_3")['class'].split(" ")
-  expect(@classes).to include("carousel_element")
-  expect(@classes).to include("spreadRight")
-end 
 
 Then /I should see a vendor carousel for (.*)/ do |type|
   expect(find_by_id("#{type}")).not_to be nil
