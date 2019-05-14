@@ -43,7 +43,12 @@
   margin-bottom: 12vh;
   margin-left: 1vw;
   margin-right: 1vw;
-  scrollbar-width: none
+  scrollbar-width: none;
+	width: 100vw;
+}
+
+#carousel_item {
+  max-width: 500px;
 }
 
 .carousel::-webkit-scrollbar {
