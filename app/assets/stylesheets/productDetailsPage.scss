@@ -1,45 +1,26 @@
 @import "externalStyling";
 @import "themeColors";
 
-.origintext {
-  justify-content: center;
-  text-align: center;
-  margin-left:auto;
-  margin-right:auto;
-  color: #000;
+.vendorName {
+  color: white;
   font-weight: normal;
-  font-size: 12pt;
+  font-size: 1.75vw;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
   overflow: hidden;
-  outline:none;
-  word-wrap: break-word;
+  outline: none;
+  word-wrap: none;
+  max-width: 75vw;
 }
 
 .vendorName:hover {
   text-decoration: underline;
 }
 
-#dietaryRestrictionsContentMissing {
-  display: block;
-  margin-top: -5px;
-  margin-left: auto;
-  margin-right: auto;
-  align-content: center;
-  text-align: center;
-}
-
-#dietaryRestrictionsFullContent {
-  margin-left: 15px;
-}
-
-.dietaryLogo {
-  width: 60px;
-  height: scale;
-  margin-top: 10px;
-  background-color: Transparent;
-  border: none;
-  margin-right: 15px;
+// These are in different CSS classes because they style different types of elements
+#accents {
+  display: inline-block;
+  position: absolute;
+  top: 97.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

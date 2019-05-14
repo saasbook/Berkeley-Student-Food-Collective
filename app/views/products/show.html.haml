@@ -1,26 +1,21 @@
 = render 'header', currentPage: 'product', admin: false
 #details
   #detailsPageHeader
-    #detailsPageInfo
-      %h1
-        = @product.name
+    %h1.item_name
+      = @product.name
       = button_to "Made by #{@product.vendor.name}", vendor_path(@product.vendor.id), {method: :get, class: 'vendorName prod-link'}
-      #tags
-        - if @rfc.length > 0
-          - @rfc[0...4].each do |tag|
-            %h3.tagBtns
-              = tag
-        - if @tags.length > 0
-          - @tags[0...4-@rfc.length].each do |tag|
-            %h3.tagBtns
-              = tag.name
-    - if (not @product.picture.empty?) and (not @product.origin.empty?) and @product.cultural_history.empty?
-      = render 'details_photo_some_text'
-  - if (not @product.picture.empty?) and (not @product.origin.empty?) and (not @product.cultural_history.empty?)
+    #accents.dietaryRestrictionsFullContent
+      = render 'details_dietary_restrictions'
+  #tags
+    - if @rfc.length > 0
+      - @rfc[0...4].each do |tag|
+        %h3.tagBtns
+          = tag
+  - if (not @product.picture.empty?) and ((not @product.origin.empty?) or (not @product.cultural_history.empty?))
     = render 'details_all_content'
-  - if (not @product.picture.empty?) and @product.origin.empty? and @product.cultural_history.empty?
+  - elsif (not @product.picture.empty?) and @product.origin.empty? and @product.cultural_history.empty?
     = render 'details_photo_no_text'
-  - if @product.picture.empty? and ((not @product.origin.empty?) or (not @product.cultural_history.empty?))
+  - elsif @product.picture.empty? and ((not @product.origin.empty?) or (not @product.cultural_history.empty?))
     = render 'details_text_no_photo'
-  - if @product.picture.empty? and @product.origin.empty? and @product.cultural_history.empty?
+  - elsif @product.picture.empty? and @product.origin.empty? and @product.cultural_history.empty?
     = render 'details_no_content'

@@ -1,9 +1,9 @@
 - if not @vendor.facebook.empty?
   = button_to @vendor.facebook, {method: :get, class: 'socialBtn'} do
-    %i.fa.fa-facebook-square
+    = image_tag 'vendor-icons/facebook', class: 'iconLogo'
 - if not @vendor.twitter.empty?
   = button_to @vendor.twitter, {method: :get, class: 'socialBtn'} do
-    %i.fa.fa-twitter-square
+    = image_tag 'vendor-icons/twitter', class: 'iconLogo'
 - if not @vendor.instagram.empty?
   = button_to @vendor.instagram, {method: :get, class: 'socialBtn'} do
-    %i.fa.fa-instagram
+    = image_tag 'vendor-icons/instagram', class: 'iconLogo'

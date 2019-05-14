@@ -2,54 +2,34 @@
 @import "themeColors";
 
 #addr {
-  background-color: Transparent;
-  color: #000;
+  color: white;
   font-weight: normal;
-  font-size: 15pt;
+  font-size: 1.75vw;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
   overflow: hidden;
-  outline:none;
-  margin-top: 2px;
-  margin-bottom: 2px;
-}
-
-address {
-  background-color: Transparent;
-}
-
-#socialWithText {
-  margin-top: 10px;
-  margin-left: -5px;
-}
-
-#socialNoText {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  align-content: center;
-  text-align: center;
+  outline: none;
+  word-wrap: none;
+  max-width: 75vw;
+  margin-left: 50%;
+  margin-top: 1vh;
+  transform: translateX(-50%);
 }
 
 .socialBtn {
-  margin-top: 5px;
+  width: scale;
+  height: scale;
+  max-width: 75px;
+  margin-top: 10px;
   background-color: Transparent;
   border: none;
+  margin-right: 1vw;
+  margin-left: 1vw;
 }
 
-.fa-facebook-square {
-  color: $unselected-color;
-  font-size: 30px;
-}
-
-.fa-twitter-square {
-  color: $unselected-color;
-  font-size: 30px;
-}
-
-.fa-instagram {
-  color: $unselected-color;
-  font-size: 30px;
+#socialButtons {
+  display: inline-flex;
+  position: absolute;
+  top: 97.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
