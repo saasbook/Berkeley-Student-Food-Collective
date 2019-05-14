@@ -2,6 +2,7 @@
 
 #image_header {
   color: white;
+  position: relative;
 }
 
 .header_image {
@@ -19,7 +20,7 @@
   text-align: center;
   justify-content: center;
   position: absolute;
-  top: 65%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
