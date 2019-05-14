@@ -5,36 +5,58 @@
   max-width: 1500px;
   display: grid;
   grid-column: 2/3;
-  padding: 5px;
+  margin: 0px;
+  padding: 0px;
 }
 
 #detailsPageHeader {
   display: block;
-}
-
-#detailsPageInfo {
+  background-color: $gray-image-color;
+  position: relative;
+  width: 100vw;
+  height: 45vh;
   justify-content: center;
   text-align: center;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  word-wrap: break-word;
 }
 
-h1 {
-  background-color: Transparent;
-  color: #000;
+.item_name {
+  color: white;
   font-weight: normal;
-  font-size: 35pt;
+  font-size: 5vw;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
+  word-wrap: none;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.iconLogo {
+  width: scale;
+  height: scale;
+  max-width: 55px;
+  margin-top: 10px;
+  background-color: Transparent;
+  border: none;
+  margin-right: 1vw;
+  margin-left: 1vw;
 }
 
 #tags {
   display: inline-flex;
-  margin: 5px;
+  margin-top: 7.5vh;
+  justify-content: center;
+  width: 100vw;
 }
 
 .tagBtns {
@@ -43,21 +65,17 @@ h1 {
   font-weight: normal;
   font-size: 15pt;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
   outline:none;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 250px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: -5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding: 5px 10px;
   border-radius: 15px;
 }
 
@@ -65,10 +83,30 @@ h1 {
    max-width: none;
 }
 
+#center {
+  margin-top: 5vh;
+}
+
+#detailsPageContent {
+  display: inline-flex;
+  max-width: 1500px;
+  margin-top: 5vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  min-width: 90vw;
+}
+
+#leftSidebar {
+  margin-right: 2.5vw;
+  max-width: 25vw;
+  position: absolute;
+}
+
 #extendTags {
-  padding-left: 10px;
-  margin-top: 10px;
-  max-width: 250px;
+  margin-top: 2vh;
+  justify-content: center;
+  text-align: center;
+  max-width: 25vw;
   flex-wrap: wrap;
   display: flex;
 }
@@ -80,37 +118,43 @@ h1 {
   text-align: center;
 }
 
+.tagHeader {
+  color: $gray-color;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat: no-repeat;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  word-wrap: none;
+  display: block;
+}
+
 .tagLinks {
   color: $gray-color;
   font-weight: normal;
   font-size: 12pt;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-color: Transparent;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 1vw;
+  margin-right: 1vw;
   word-wrap: break-word;
-  max-width: 250px;
 }
 
 .tagLinks:hover {
   text-decoration: underline;
 }
 
-#detailsPageContent {
-  display: inline-flex;
-  padding: 5px;
-  max-width: 1500px;
-  margin-top: 5px;
-}
-
 #detailsPageImage {
   border-radius: 15px;
-  max-width: 250px;
-  max-height: 262px;
+  width: 25vw;
+  height: scale;
 }
 
 .imageNoText {
@@ -121,7 +165,7 @@ h1 {
 }
 
 .imageWithText {
-  margin-right: 15px;
+  margin-right: 2.5vw;
 }
 
 #detailsPageText {
@@ -129,12 +173,14 @@ h1 {
   font-weight: normal;
   font-size: 15pt;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
   outline:none;
   word-wrap: break-word;
+  width: 60vw;
+  justify-content: center;
 }
 
 .detailsTextNoImage {
@@ -142,29 +188,35 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   align-content: center;
+  margin-top: 2.5vh;
 }
 
 .detailsTextWithImage {
-  min-width: 350px;
-  max-width: 500px;
-  margin-left: 15px;
-  padding-top: 5px;
+  position: absolute;
+  right: 5vw;
+  margin-left: 2.5vw;
+}
+
+.pageText {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .subhead {
   justify-content: center;
   text-align: center;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   color: #000;
   font-weight: bold;
   font-size: 18pt;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
   word-wrap: break-word;
 }
 
@@ -173,10 +225,15 @@ h1 {
   font-weight: normal;
   font-size: 12pt;
   font-family: 'Arvo', sans-serif;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
   outline:none;
   word-wrap: break-word;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5vh;
 }

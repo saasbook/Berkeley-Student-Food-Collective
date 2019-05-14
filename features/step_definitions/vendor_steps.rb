@@ -111,7 +111,7 @@ Then /I should see the photo, mission, story, and social media of the vendor/ do
   expect(page.find("#detailsPageImage")).not_to be nil
   expect(page.find("#mission")).not_to be nil
   expect(page.find("#story")).not_to be nil
-  expect(page.find("#socialWithText")).not_to be nil
+  expect(page.find("#socialButtons")).not_to be nil
 end
 
 Then /no vendor tags should be deleted/ do

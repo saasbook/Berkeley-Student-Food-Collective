@@ -1,9 +1,8 @@
 #detailsPageContent
-  #leftAlign
+  #leftSidebar
     = image_tag @vendor.picture, id: 'detailsPageImage', class: 'imageWithText'
-    #socialWithText
-      = render 'details_social_buttons'
     #extendTags
       = render 'details_extend_tags'
-  #detailsPageText
-    = render 'details_text'
+  #detailsPageText.detailsTextWithImage
+    .pageText
+      = render 'details_text'
