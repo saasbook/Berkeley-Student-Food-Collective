@@ -1,5 +1,4 @@
 .carousel_element.container{class: tag_snaked, id: item.name.downcase.gsub(' ', '_'), onclick: "routeToPageDirectly('#{item_path}')"}
-  -#= link_to item_path do
   #carousel_image.button
     = image_tag item.picture, class: 'element_image'
   #carousel_element_text
