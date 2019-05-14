@@ -9,7 +9,6 @@
   background-color: $gray-image-color;
   width: 100vw;
   height: scale;
-  width: scale;
 }
 
 .img_hdr_text {
@@ -20,7 +19,7 @@
   text-align: center;
   justify-content: center;
   position: absolute;
-  top: 63%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
