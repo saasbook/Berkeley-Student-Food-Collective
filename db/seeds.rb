@@ -26,6 +26,8 @@ Certification.create(name: 'Non-GMO')
 Nutrition.create(name: 'Superfood')
 Nutrition.create(name: 'High in protein')
 
+=begin
+
 @vendor_picture = "http://image.shutterstock.com/image-vector/vector-illustration-supermarket-grocery-store-260nw-518613133.jpg"
 
 @first_vendor = Vendor.create(name: 'First Vendor', picture: @vendor_picture, address: "", facebook: "", twitter: "", instagram: "", story: "", mission: "")
@@ -34,7 +36,6 @@ Nutrition.create(name: 'High in protein')
 @fourth_vendor = Vendor.create(name: 'Fourth Vendor', picture: @vendor_picture, address: "", facebook: "", twitter: "", instagram: "", story: "", mission: "")
 @fifth_vendor = Vendor.create(name: 'Fifth Vendor', picture: @vendor_picture, address: "", facebook: "", twitter: "", instagram: "", story: "", mission: "")
 
-#@default_vendor = Vendor.create(name: 'Default Vendor Name', picture: @vendor_picture, address: "", facebook: "", twitter: "", instagram: "", story: "", mission: "")
 
 @first_vendor.ownerships << @poc
 @second_vendor.ownerships << @poc
@@ -55,6 +56,8 @@ Nutrition.create(name: 'High in protein')
 @third_product.certifications << @halal
 @fourth_product.certifications << @halal
 @fifth_product.certifications << @halal
+
+=end
 
 
 
