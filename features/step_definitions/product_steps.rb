@@ -18,7 +18,8 @@ end
 
 When /I fill in the new product form( except the vendor field)?/ do |exclude_vendor|
   step %{I am on the new product page}
-  vendor_name = Vendor.first.name
+  #vendor_name = Vendor.first.name
+  vendor_name = FactoryBot.attributes_for(:vendor)[:name]
   product_attributes = FactoryBot.attributes_for(:product)
   unless exclude_vendor
     select vendor_name, from: :product_vendor_id
