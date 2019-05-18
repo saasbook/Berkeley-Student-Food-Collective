@@ -26,7 +26,7 @@ Certification.create(name: 'Non-GMO')
 Nutrition.create(name: 'Superfood')
 Nutrition.create(name: 'High in protein')
 
-
+=begin
 @lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
 @vendor_picture = "http://image.shutterstock.com/image-vector/vector-illustration-supermarket-grocery-store-260nw-518613133.jpg"
@@ -61,6 +61,7 @@ Nutrition.create(name: 'High in protein')
 @third_product.certifications << @halal
 @fourth_product.certifications << @halal
 @fifth_product.certifications << @halal
+=end
 
 
 
