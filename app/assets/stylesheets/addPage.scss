@@ -1,0 +1,75 @@
+@import "externalStyling";
+@import "themeColors";
+
+body {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+#vendors_body {
+  background-color: lightblue;
+}
+
+#products_body {
+  background-color: lightgreen;
+}
+
+#form_div {
+  display: grid;
+  grid-column: 2/3;
+  padding: 5px;
+}
+
+#form_elements_div {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+h2 {
+  background-color: lightgray;
+  text-align: center;
+}
+
+h3 {
+  background-color: transparent;
+  text-align: center;
+  font-family: 'Arvo', sans-serif;
+}
+
+h4 {
+  background-color: lightgray;
+  text-align: center;
+  text-decoration: underline;
+}
+
+label {
+  text-align: center;
+}
+
+.element_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-bottom: groove;
+  padding: 10px;
+}
+
+#submit_div {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  padding: 10px;
+}
+
+#cancel_button:hover {
+  background-color: darken($red, 10%);
+}
+
+select {
+  width: 50%;
+}
+
+.add_tag {
+  display: inline;
+}

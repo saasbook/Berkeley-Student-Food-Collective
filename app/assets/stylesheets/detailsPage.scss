@@ -1,0 +1,239 @@
+@import "externalStyling";
+@import "themeColors";
+
+#details {
+  max-width: 1500px;
+  display: grid;
+  grid-column: 2/3;
+  margin: 0px;
+  padding: 0px;
+}
+
+#detailsPageHeader {
+  display: block;
+  background-color: $gray-image-color;
+  position: relative;
+  width: 100vw;
+  height: 45vh;
+  justify-content: center;
+  text-align: center;
+  margin-left: 0px;
+  margin-right: 0px;
+  word-wrap: break-word;
+}
+
+.item_name {
+  color: white;
+  font-weight: normal;
+  font-size: 5vw;
+  font-family: 'Arvo', sans-serif;
+  background-repeat: no-repeat;
+  word-wrap: none;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.iconLogo {
+  width: scale;
+  height: scale;
+  max-width: 55px;
+  margin-top: 10px;
+  background-color: Transparent;
+  border: none;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
+#tags {
+  display: inline-flex;
+  margin-top: 7.5vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.tagBtns {
+  background-color: $gray-color;
+  color: #fff;
+  font-weight: normal;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline:none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 250px;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.tagBtns:hover {
+   max-width: none;
+}
+
+#center {
+  margin-top: 5vh;
+}
+
+#detailsPageContent {
+  display: inline-flex;
+  max-width: 1500px;
+  margin-top: 5vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  min-width: 90vw;
+}
+
+#leftSidebar {
+  margin-right: 2.5vw;
+  max-width: 25vw;
+  position: absolute;
+}
+
+#extendTags {
+  margin-top: 2vh;
+  justify-content: center;
+  text-align: center;
+  max-width: 25vw;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.extendContentMissing {
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  text-align: center;
+}
+
+.tagHeader {
+  color: $gray-color;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat: no-repeat;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  word-wrap: none;
+  display: block;
+}
+
+.tagLinks {
+  color: $gray-color;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat: no-repeat;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  word-wrap: break-word;
+}
+
+.tagLinks:hover {
+  text-decoration: underline;
+}
+
+#detailsPageImage {
+  border-radius: 15px;
+  width: 25vw;
+  height: scale;
+}
+
+.imageNoText {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+}
+
+.imageWithText {
+  margin-right: 2.5vw;
+}
+
+#detailsPageText {
+  color: #000;
+  font-weight: normal;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap: break-word;
+  width: 60vw;
+  justify-content: center;
+}
+
+.detailsTextNoImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  margin-top: 2.5vh;
+}
+
+.detailsTextWithImage {
+  position: absolute;
+  right: 5vw;
+  margin-left: 2.5vw;
+}
+
+.pageText {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.subhead {
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000;
+  font-weight: bold;
+  font-size: 18pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  word-wrap: break-word;
+}
+
+.subheadtext {
+  color: #000;
+  font-weight: normal;
+  font-size: 12pt;
+  font-family: 'Arvo', sans-serif;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap: break-word;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5vh;
+}

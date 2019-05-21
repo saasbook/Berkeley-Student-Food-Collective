@@ -1,0 +1,27 @@
+version: "2"
+plugins:
+  brakeman:
+    enabled: true
+  bundler-audit:
+    enabled: true
+  csslint:
+    enabled: true
+  flog:
+    enabled: true
+exclude_patterns:
+  - "app/channels/"
+  - "app/jobs/"
+  - "app/mailers/"
+  - "config/"
+  - "coverage/"
+  - "db/"
+  - "dist/"
+  - "features/"
+  - "lib/"
+  - "**/node_modules/"
+  - "script/"
+  - "**/spec/"
+  - "**/test/"
+  - "**/tests/"
+  - "**/vendor/"
+  - "**/*.d.ts"

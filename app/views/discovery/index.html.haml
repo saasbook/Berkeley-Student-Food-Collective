@@ -1,0 +1,9 @@
+%body
+  = render 'header', currentPage: 'discovery', admin: false
+  #image_header
+    %image{src: image_url('discovery.png'), class: 'header_image'}
+    %h1.img_hdr_text STORIES FROM BSFC
+  #discovery
+    - @hashes.each do |type, type_hash|
+      - type_hash.each do |tag, list|
+        = render 'carousel', type: type, tag: tag, list: list

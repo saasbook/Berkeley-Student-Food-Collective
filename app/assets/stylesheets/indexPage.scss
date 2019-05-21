@@ -1,0 +1,58 @@
+@import "themeColors";
+
+#letter-nav {
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  table-layout: fixed;
+}
+
+#letter-nav-padding {
+  padding-top: 10px;
+}
+
+#letters {
+  font-weight: normal;
+  font-size: 10pt;
+  font-family: 'Arvo', sans-serif;
+  color: #BEBEBE;
+}
+
+.jump {
+  padding: 5px;
+  color: #FFFFFF;
+}
+
+#index {
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  table-layout: fixed;
+}
+
+.letter-heading {
+  font-weight: bold;
+  font-size: 20pt;
+  font-family: 'Arvo', sans-serif;
+}
+
+.prod-link {
+  color: #000;
+  font-weight: normal;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  word-wrap:break-word;
+}
+
+.index-centered {
+display: flex;
+justify-content: center;
+}

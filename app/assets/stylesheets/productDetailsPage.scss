@@ -1,0 +1,26 @@
+@import "externalStyling";
+@import "themeColors";
+
+.vendorName {
+  color: white;
+  font-weight: normal;
+  font-size: 1.75vw;
+  font-family: 'Arvo', sans-serif;
+  overflow: hidden;
+  outline: none;
+  word-wrap: none;
+  max-width: 75vw;
+}
+
+.vendorName:hover {
+  text-decoration: underline;
+}
+
+// These are in different CSS classes because they style different types of elements
+#accents {
+  display: inline-block;
+  position: absolute;
+  top: 97.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

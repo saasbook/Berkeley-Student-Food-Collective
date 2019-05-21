@@ -1,0 +1,21 @@
+= render 'header', currentPage: 'product', admin: false
+#details
+  #detailsPageHeader
+    %h1.item_name
+      = @product.name
+      = button_to "Made by #{@product.vendor.name}", vendor_path(@product.vendor.id), {method: :get, class: 'vendorName prod-link'}
+    #accents.dietaryRestrictionsFullContent
+      = render 'details_dietary_restrictions'
+  #tags
+    - if @rfc.length > 0
+      - @rfc[0...4].each do |tag|
+        %h3.tagBtns
+          = tag
+  - if (not @product.picture.empty?) and ((not @product.origin.empty?) or (not @product.cultural_history.empty?))
+    = render 'details_all_content'
+  - elsif (not @product.picture.empty?) and @product.origin.empty? and @product.cultural_history.empty?
+    = render 'details_photo_no_text'
+  - elsif @product.picture.empty? and ((not @product.origin.empty?) or (not @product.cultural_history.empty?))
+    = render 'details_text_no_photo'
+  - elsif @product.picture.empty? and @product.origin.empty? and @product.cultural_history.empty?
+    = render 'details_no_content'

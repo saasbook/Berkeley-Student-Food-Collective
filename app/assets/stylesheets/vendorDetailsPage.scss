@@ -1,0 +1,35 @@
+@import "externalStyling";
+@import "themeColors";
+
+#addr {
+  color: white;
+  font-weight: normal;
+  font-size: 1.75vw;
+  font-family: 'Arvo', sans-serif;
+  overflow: hidden;
+  outline: none;
+  word-wrap: none;
+  max-width: 75vw;
+  margin-left: 50%;
+  margin-top: 1vh;
+  transform: translateX(-50%);
+}
+
+.socialBtn {
+  width: scale;
+  height: scale;
+  max-width: 75px;
+  margin-top: 10px;
+  background-color: Transparent;
+  border: none;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
+#socialButtons {
+  display: inline-flex;
+  position: absolute;
+  top: 97.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

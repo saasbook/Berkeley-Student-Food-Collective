@@ -1,0 +1,8 @@
+#detailsPageContent
+  #leftSidebar
+    = image_tag @vendor.picture, id: 'detailsPageImage', class: 'imageWithText'
+    #extendTags
+      = render 'details_extend_tags'
+  #detailsPageText.detailsTextWithImage
+    .pageText
+      = render 'details_text'
