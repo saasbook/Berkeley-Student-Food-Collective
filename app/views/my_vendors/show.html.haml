@@ -1,0 +1,23 @@
+= render 'header', currentPage: 'myvendor', admin: false
+#details
+  #detailsPageHeader
+    %h1.item_name
+      = @vendor.name
+      - if not @vendor.address.empty?
+        #addr
+          = @vendor.address
+    #socialButtons
+      = render 'details_social_buttons'
+  #tags
+    - if @vendor.ownerships.length > 0
+      - @vendor.ownerships[0...4].each do |tag|
+        %h3.tagBtns
+          = tag.name
+  - if (not @vendor.picture.empty?) and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
+    = render 'details_all_content'
+  - elsif (not @vendor.picture.empty?) and @vendor.mission.empty? and @vendor.story.empty?
+    = render 'details_photo_no_text'
+  - elsif @vendor.picture.empty? and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
+    = render 'details_text_no_photo'
+  - elsif @vendor.picture.empty? and @vendor.mission.empty? and @vendor.story.empty?
+    = render 'details_no_content'
