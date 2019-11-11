@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_213037) do
+ActiveRecord::Schema.define(version: 2019_11_09_011008) do
 
   create_table "certifications", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "my_products", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "picture"
+    t.integer "my_vendor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["my_vendor_id"], name: "index_my_products_on_my_vendor_id"
+  end
+
+  create_table "my_vendors", force: :cascade do |t|
+    t.string "name"
+    t.string "story"
+    t.string "address"
+    t.string "facebook"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +56,12 @@ ActiveRecord::Schema.define(version: 2019_04_27_213037) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "producer_tags", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "picture"
   end
 
   create_table "product_certifications", force: :cascade do |t|
@@ -63,6 +91,19 @@ ActiveRecord::Schema.define(version: 2019_04_27_213037) do
     t.index ["product_id"], name: "index_product_packagings_on_product_id"
   end
 
+  create_table "product_tag_categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+  end
+
+  create_table "product_tags", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "picture"
+    t.integer "product_tag_category_id"
+    t.index ["product_tag_category_id"], name: "index_product_tags_on_product_tag_category_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.boolean "vegan"
@@ -80,6 +121,20 @@ ActiveRecord::Schema.define(version: 2019_04_27_213037) do
     t.text "cultural_history"
     t.string "picture"
     t.index ["vendor_id"], name: "index_products_on_vendor_id"
+  end
+
+  create_table "tagged_products", force: :cascade do |t|
+    t.integer "my_product_id"
+    t.integer "product_tag_id"
+    t.index ["my_product_id"], name: "index_tagged_products_on_my_product_id"
+    t.index ["product_tag_id"], name: "index_tagged_products_on_product_tag_id"
+  end
+
+  create_table "tagged_vendors", force: :cascade do |t|
+    t.integer "my_vendor_id"
+    t.integer "producer_tag_id"
+    t.index ["my_vendor_id"], name: "index_tagged_vendors_on_my_vendor_id"
+    t.index ["producer_tag_id"], name: "index_tagged_vendors_on_producer_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|

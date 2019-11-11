@@ -1,34 +1,34 @@
-@import "themeColors";
+@import 'themeColors';
 
 #letter-nav {
   justify-content: center;
   text-align: center;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   table-layout: fixed;
 }
 
 #letter-nav-padding {
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 #letters {
   font-weight: normal;
   font-size: 10pt;
   font-family: 'Arvo', sans-serif;
-  color: #BEBEBE;
+  color: #bebebe;
 }
 
 .jump {
-  padding: 5px;
-  color: #FFFFFF;
+  padding: 7px;
+  color: #ffffff;
 }
 
 #index {
   justify-content: center;
   text-align: center;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   table-layout: fixed;
 }
 
@@ -44,15 +44,15 @@
   font-size: 15pt;
   font-family: 'Arvo', sans-serif;
   background-color: Transparent;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
-  outline:none;
-  word-wrap:break-word;
+  outline: none;
+  word-wrap: break-word;
 }
 
 .index-centered {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }

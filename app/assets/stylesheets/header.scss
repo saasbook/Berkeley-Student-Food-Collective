@@ -1,4 +1,4 @@
-@import "themeColors";
+@import 'themeColors';
 
 #logoheader {
   height: 65px;
@@ -14,12 +14,17 @@
   width: 100vw;
 }
 
+.nav-item {
+  padding-right: 70px;
+}
+
 @media (min-width: 768px) {
   .navbar .navbar-nav {
     text-align: center;
     justify-content: center;
     float: none;
-    padding-bottom: 1vh;
+    padding-bottom: 0vh;
+    padding-left: 50px;
     width: 100vw;
   }
 }
@@ -35,8 +40,8 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
-  left:auto;
-  right:0;
+  left: auto;
+  right: 0;
 }
 
 .dropdown {
@@ -59,7 +64,7 @@
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   float: left;
 }
@@ -73,11 +78,11 @@
   font-size: 15pt;
   font-family: 'Arvo', sans-serif;
   background-color: Transparent;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
 }
 
 .admin {
