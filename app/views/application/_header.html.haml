@@ -18,16 +18,31 @@
               = link_to 'Tags', admin_tags_path, class: 'nav-link'
           
           -else
-            %li.nav-item{class: ('active' if currentPage == 'discovery')}
-              = link_to 'Discovery', discovery_path, class: 'nav-link'
-            %li.nav-item{class: ('active' if currentPage == 'vendor')}
-              = link_to 'Vendors', vendors_path, class: 'nav-link'
-            %li.nav-item{class: ('active' if currentPage == 'product')}
-              = link_to 'Products', products_path, class: 'nav-link'
-            %li.nav-item{class: ('active' if currentPage == 'product_tags')}
-              = link_to 'Product Tags', product_tags_path, class: 'nav-link'
-            %li.nav-item{class: ('active' if currentPage == 'producer_tags')}
-              = link_to 'Producer Tags', producer_tags_path, class: 'nav-link'
+            
+            %li.dropdown
+              %a.dropdown{href: discovery_path, class: 'nav-link'}
+                Discovery
+              
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: producer_tags_path, class: 'nav-link'}
+                Vendors
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{href:vendors_path } All Vendors
+                %li
+                  %a{href: producer_tags_path} By Category
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: product_tags_path, class: 'nav-link'}
+                Products
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{href: products_path} All Products
+                %li
+                  %a{href: product_tags_path} by Category
+            
+        
         %button 
           =button_to 'Login', discovery_path, {method: :get, class: 'prod-link'}
       -if admin
