@@ -1,7 +1,6 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/4f477d37fd3794829697/maintainability)](https://codeclimate.com/github/dwang733/Berkeley-Student-Food-Collective/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/4f477d37fd3794829697/test_coverage)](https://codeclimate.com/github/dwang733/Berkeley-Student-Food-Collective/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4f477d37fd3794829697/maintainability)](https://codeclimate.com/github/asliakalin/Berkeley-Student-Food-Collective/maintability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4f477d37fd3794829697/test_coverage)](hhttps://codeclimate.com/github/asliakalin/Berkeley-Student-Food-Collective/test_coverage)
 [![Build Status](https://travis-ci.com/dwang733/Berkeley-Student-Food-Collective.svg?branch=master)](https://travis-ci.com/dwang733/Berkeley-Student-Food-Collective)
-
 
 # README
 
@@ -31,16 +30,18 @@ Must have Ruby 2.4.0 to run this project locally. Run `bundle install --without 
 ## Directory Structure
 
 Set up as a standard rails app. Notable choices include:
+
 - All views which are associated with paths prepended with "admin" are in the folder "admin" under views.
 - Partials shared among multiple views live in the "application" folder under views.
 
 ## Models
 
-The main three models are Vendor, Product, and Tag. Certification, Nutrition, Ownership, and Packaging inherit from Tag and therefore all live in the Tag table in the database with different types. They each have a "belongs to" relationship with either a Vendor or Product model. Product\_Certification, Product\_Nutrition, Product\_Packaging, and Vendor\_Ownership are models linking the two tables they mention.
+The main three models are Vendor, Product, and Tag. Certification, Nutrition, Ownership, and Packaging inherit from Tag and therefore all live in the Tag table in the database with different types. They each have a "belongs to" relationship with either a Vendor or Product model. Product_Certification, Product_Nutrition, Product_Packaging, and Vendor_Ownership are models linking the two tables they mention.
 
 ## How to Run Tests
 
 Use `bundle exec cucumber` to run all cucumber tests.
 
 ## Miscellaneous
+
 - How to update the banner image on the discovery page: Go into app/assets/images and add the image file. Rename it to discovery_image.jpeg
