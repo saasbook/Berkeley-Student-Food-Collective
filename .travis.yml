@@ -1,13 +1,12 @@
 language: ruby
 rvm:
- - 2.4.0
+  - 2.4.0
 
 bundler_args: --without production
 
 cache: bundler
 
-services:
-  postgresql
+services: postgresql
 
 addons:
   firefox: latest
@@ -15,7 +14,7 @@ addons:
 env:
   global:
     # in TravisCI settings, set CCKEY to your CodeClimate Test Reporter ID:
-    - CC_TEST_REPORTER_ID=0120833aebc933152e439ca3e9bb55ae6a474db0190dc63123fc28eba7c1cb90
+    - CC_TEST_REPORTER_ID=7d5540307d57c3f4d6378f0f62b4051db7ada3c91892e35301200a27081a683b
     - CCTR=./cc-test-reporter
     # set to whatever timezone your app assumes from this list:
     # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -23,8 +22,8 @@ env:
     - MOZ_HEADLESS=1
 
 before_install:
-    - gem update --system
-    - gem install bundler
+  - gem update --system
+  - gem install bundler
 
 before_script:
   # install CodeClimate test reporter and tell it we are starting a test run
@@ -40,8 +39,8 @@ script:
   - bundle exec rake db:setup
   # insert here any other steps needed (load other sample data, etc) before starting tests
   # run RSpec tests, and capture coverage
-#  - bundle exec rspec
-#  - $CCTR format-coverage --output coverage/codeclimate.$SUITE.json -t simplecov
+  #  - bundle exec rspec
+  #  - $CCTR format-coverage --output coverage/codeclimate.$SUITE.json -t simplecov
   # run Cucumber scenarios, and capture coverage. --strict means undefined steps result in a failure.
   - bundle exec cucumber --strict
   - $CCTR format-coverage --output coverage/codeclimate.$SUITE.json -t simplecov
