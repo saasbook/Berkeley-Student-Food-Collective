@@ -6,6 +6,10 @@ class MyVendorsController < ApplicationController
     @vendors = Vendor.all
   end
 
+  def indextags
+    @vendors = Vendor.all
+  end
+
   def show
     @vendor = Vendor.find(params[:id])
   end
