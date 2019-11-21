@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :my_vendors, :my_products, :product_tags, :producer_tags, :product_tag_categories, :vendors, :products
   
   root :to => redirect('/discovery')
-  get 'map' => redirect('vendors/maps')
+  get 'admin' => redirect('admin/my_vendors')
 end

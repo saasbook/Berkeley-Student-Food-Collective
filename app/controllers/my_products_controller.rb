@@ -7,6 +7,10 @@ class MyProductsController < ApplicationController
     @products = MyProduct.all
   end
 
+  def indextags
+    @products = MyProduct.all
+  end
+
   def show
     @product = MyProduct.find(params[:id])
     @tags = @product.product_tags
