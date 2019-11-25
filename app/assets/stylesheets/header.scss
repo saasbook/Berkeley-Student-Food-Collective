@@ -10,8 +10,8 @@
   font-family: 'Arvo', sans-serif;
   font-size: 135%;
   display: inline-block;
-  min-height: 80px;
   width: 100vw;
+  height: 5vw;
 }
 
 .nav-item {
@@ -42,6 +42,11 @@
   display: block;
   left: auto;
   right: 0;
+}
+
+.fa-plus:hover,
+.fa:hover {
+  transform: scale(2);
 }
 
 .dropdown {

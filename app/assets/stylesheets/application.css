@@ -14,9 +14,10 @@
  *= require_self
  */
 .dropdown,
-.nav-item {
+.dropdown-toggle {
   padding-right: 70px;
   padding-top: 10px;
+  font-size: 130%;
 }
 
 .dropdown-menu {
