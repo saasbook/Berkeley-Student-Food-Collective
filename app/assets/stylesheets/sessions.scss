@@ -1,3 +1,54 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+  color: rgba(13, 33, 84, 0.865);
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+h3,
+h2 {
+  color: rgba(13, 33, 84, 0.865);
+  background: none;
+  padding-left: 50px;
+  text-align: left;
+  padding-bottom: 40px;
+  padding-top: 10px;
+}
+
+div.formsdiv {
+  padding-left: 60px;
+  padding-bottom: 20px;
+}
+
+div.formsdiv > div {
+  padding-bottom: 10px;
+}
+.navlinks-first:hover,
+.navlinks-next:hover {
+  background-color: white;
+  color: black;
+  transform: scale(2);
+}
+
+.navlinks-first {
+  padding-left: 50px;
+  text-decoration-color: rgba(13, 33, 84, 0.865);
+  font-size: 22px;
+}
+
+.navlinks-next {
+  margin-left: 5px;
+  text-decoration-color: rgba(13, 33, 84, 0.865);
+  font-size: 22px;
+}
+
+.info {
+  padding-left: 50px;
+}
+
+.info-title {
+  font-size: 24px;
+}

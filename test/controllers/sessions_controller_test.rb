@@ -11,13 +11,8 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get login" do
-    get sessions_login_url
-    assert_response :success
-  end
-
-  test "should get welcome" do
-    get sessions_welcome_url
+  test "should get destroy" do
+    get sessions_destroy_url
     assert_response :success
   end
 
