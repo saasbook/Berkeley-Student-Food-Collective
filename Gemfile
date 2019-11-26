@@ -90,3 +90,12 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bundler', '>=2.0.0'
+
+# To use controller variables as javascript variables
+gem 'gon'
+
+# To secure the API key
+gem 'figaro', '~> 1.1', '>= 1.1.1'
+
+# To convert addresses into latitude and longitude
+gem 'geocoder'

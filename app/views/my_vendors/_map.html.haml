@@ -1,0 +1,4 @@
+#map
+= javascript_include_tag "map.js"
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=" + Figaro.env.MapKey + "&callback=initMap"}
+  :cdata

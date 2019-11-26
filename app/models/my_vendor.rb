@@ -2,7 +2,6 @@
 Created by CS169 Fall 2019 Team.
 """
 class MyVendor < ActiveRecord::Base
-
   validate :picture_has_correct_format
 
   def picture_has_correct_format
@@ -20,6 +19,9 @@ class MyVendor < ActiveRecord::Base
 
   accepts_nested_attributes_for :ownerships, :allow_destroy => true
 
+  geocoded_by :address
+  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
+
   def self.get_tags_hash
     tags_hash = {}
     Ownership.all.each do |ownership|
@@ -33,4 +35,5 @@ class MyVendor < ActiveRecord::Base
   def self.vendors_with_pictures(vendors_array)
     vendors_array.reject { |vendor| vendor.picture.blank? }
   end
+
 end
