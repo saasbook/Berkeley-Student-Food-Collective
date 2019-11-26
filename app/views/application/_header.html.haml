@@ -26,7 +26,7 @@
               %li
                 %a{href: producer_tags_path} By Category
               %li
-                %a{href: "#"} Maps
+                %a{href: map_path} Maps
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: product_tags_path, class: 'nav-link'}
               Products
@@ -42,11 +42,11 @@
       .dropdown
         %i.fa.fa-plus
         .dropdown-content
-          =button_to 'New Product', new_admin_product_path, {method: :get, class: 'prod-link'}
-          =button_to 'New Vendor', new_admin_vendor_path, {method: :get, class: 'prod-link'}
+          =button_to 'New Product', new_my_product_path, {method: :get, class: 'prod-link'}
+          =button_to 'New Vendor', new_my_vendor_path, {method: :get, class: 'prod-link'}
           =button_to 'New Product Tag', new_product_tag_path, {method: :get, class: 'prod-link'}
           =button_to 'New Producer Tag', new_producer_tag_path, {method: :get, class: 'prod-link'}
-          =button_to 'New Tag Category', new_admin_product_tag_category_path, {method: :get, class: 'prod-link'}
+          =button_to 'New Tag Category', new_product_tag_category_path, {method: :get, class: 'prod-link'}
       %button 
         =button_to 'Logout', logout_path, {method: :get, class: 'prod-link'}
     - else

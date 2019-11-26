@@ -1,22 +1,19 @@
-<p id="notice"><%= notice %></p>
+<p id="notice", class="toppage" ><%= notice%></p>
 
-<h1>Admins</h1>
+<h1> The Admins Control </h1>
+
+<h2> Use the links below to remove admin accounts as needed: </h2>
 
 <table>
   <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
+    
   </thead>
 
   <tbody>
     <% @admins.each do |admin| %>
       <tr>
-        <td><%= admin.name %></td>
-        <td><%= link_to 'Show', admin %></td>
-        <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-        <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="field"><%= admin.name %></td>
+        <td class="field"><%= button_to 'Remove', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +21,10 @@
 
 <br>
 
-<%= link_to 'New Admin', new_admin_path %>
+
+<h2> Use the link below to add a new admin account: </h2>
+<%= button_to 'Add New Admin', signup_path, :class=>"button", method: :get%>
+
+<br>
+
+<%= link_to 'Return to Main Page', discovery_path,:class=>"navlinks-first"  %>

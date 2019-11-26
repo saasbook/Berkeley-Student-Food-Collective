@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_123317) do
+ActiveRecord::Schema.define(version: 2019_11_26_005734) do
 
   create_table "admins", force: :cascade do |t|
     t.string "password_digest"
