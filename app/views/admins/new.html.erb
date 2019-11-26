@@ -1,7 +1,8 @@
-<h1>New Admin</h1>
+<h1> New Admin Signup </h1>
+<h2> Enter your information below to signup as an admin. </h2>
 
 <%= render 'form', admin: @admin %>
 
-<%= link_to 'Back to Admins', admins_path %>
+<%= link_to 'Back to Admins', index_path, :class=>"navlinks-first" %> | 
 
-<%= link_to 'Back to Main Page', discovery_path %>
+<%= link_to 'Back to Main Page', discovery_path,:class=>"navlinks-next"  %>

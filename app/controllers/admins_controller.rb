@@ -54,10 +54,14 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.json
   def destroy
-    @admin.destroy
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
-      format.json { head :no_content }
+      if current_admin != @admin
+        @admin.destroy
+        format.html { redirect_to index_path, notice: 'Admin was successfully deleted.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to index_path, notice: 'You need to logout first to erase your current account.' }
+      end
     end
   end
 

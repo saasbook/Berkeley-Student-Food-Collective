@@ -1,5 +1,12 @@
 @import 'themeColors';
 
+#notice {
+  margin-top: 10px;
+  margin-left: 5px;
+  font-size: 40px;
+  background: blue($color: #000000);
+}
+
 #letter-nav {
   justify-content: center;
   text-align: center;
