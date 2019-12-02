@@ -1,0 +1,22 @@
+#letter-nav-padding
+  - if mobile_device == "desktop"
+    = render 'letterNav'
+#notice{class: flash[:type]}
+  = flash[:message]
+%table#index
+  %tbody
+
+    #image
+    %img.imageNoText{ src: 'https://article.images.consumerreports.org/f_auto/prod/content/dam/CRO%20Images%202019/Money/04April/CR-Money-Inlinehero-grocery-store-best-produce-0419', width:"571" , height:"381"}
+
+    #story
+      %h5.subhead Our Products
+      %p.subheadtext.storytext
+        = "We hand selecet each of our vendors to ensure that our customers are receiving quality products. We take pride in having fresh and organic products available to our customers. A full list of our products can be found below.  "
+
+    - ('A'..'Z').to_a.each do |letter|
+      - items_with_letter = myclass.where("name LIKE ?", "#{letter}%")
+      = render 'singleSymbolItems', items: items_with_letter, sym: letter, admin: admin, myclass: myclass
+    - items_with_nonletter = myclass.where("name < 'A'")
+    = render 'singleSymbolItems', items: items_with_nonletter, sym: 1, admin: admin, myclass: myclass
+
