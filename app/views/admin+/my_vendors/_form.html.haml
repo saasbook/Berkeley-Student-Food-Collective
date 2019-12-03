@@ -18,10 +18,6 @@
     .form_group.element_div
       = f.label :story
       = f.text_area :story, rows: 6
-
-    -#.form_group.element_div
-    -#  = f.label :mission
-    -#  = f.text_area :mission, rows: 6
     
     .form_group.element_div
       = f.label :facebook
@@ -34,22 +30,20 @@
     .form_group.element_div
       = f.label :instagram
       = f.text_field :instagram
-
-    #ownerships.element_div
-      = f.label :ownerships, 'Ownership Types'
+    
+    #producer_tags.element_div
+      = f.label :ownerships, 'Vendor Tags'
       -# Hidden select necessary to add additional existing tags
-      = f.collection_select :ownership_ids, @vendor.ownerships, :id, :name, {}, {hidden: true, multiple: true}
-      = f.fields_for :ownerships do |ff|
-        .ownership
+      = f.collection_select :producer_tag_ids, @vendor.producer_tags, :id, :name, {}, {hidden: true, multiple: true}
+      = f.fields_for :producer_tags do |ff|
+        .producer_tag
           = ff.text_field :name, readonly: true, disabled: true, size: 41
           = ff.check_box :_destroy
-          = ff.label :_destroy, 'Remove Ownership Type'
+          = ff.label :_destroy, 'Remove Tag'
 
-    #new_ownerships.element_div.add_tag
-      = select_tag :existing_ownerships, options_from_collection_for_select(Ownership.all, :id, :name)
-      = submit_tag 'Add existing ownership type', type: :button, onclick: 'addExistingTag()'
-      = text_field_tag :new_ownership_field, '', size: 41
-      = submit_tag 'Add new ownership type', type: :button, onclick: 'addNewTag()'
+    #new_producer_tags.element_div.add_tag
+      = select_tag :producer_tags, options_from_collection_for_select(ProducerTag.all, :id, :name)
+      = submit_tag 'Add Vendor Tag', type: :button, onclick: 'addExistingTag()'
 
     #submit_div.form_group
       = f.submit class: 'btn btn-success'

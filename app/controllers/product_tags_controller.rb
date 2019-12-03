@@ -9,7 +9,12 @@ class ProductTagsController < ApplicationController
   end
 
   def new 
-    render 'admin+/my_tags/new'
+    if current_admin
+      @product_tag = ProductTag.new(flash[:prev_params])
+			render 'admin+/product_tags/new'
+		else
+			redirect_to(discovery_path)
+		end
   end
 
   def product_tag_params
