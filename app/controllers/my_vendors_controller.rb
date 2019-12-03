@@ -13,6 +13,72 @@ class MyVendorsController < ApplicationController
   def show
     @vendor = MyVendor.find(params[:id])
   end
+  
+  def vendor_params
+    # ownership_ids allow us to add existing tags (since it's not supported by nested attributes)
+    # nested attributes let us add new tags and remove existing ones
+    params.require(:my_vendor).permit(:name, :picture, :story, :mission, :description, :address, :facebook, :twitter, :instagram)
+  end
+
+  def vendor_params_without_nested
+    vendor_params.except(:ownerships_attributes)
+  end
+    
+  def new
+    if current_admin
+      # Make new vendor so form knows to make submit button say "Create Vendor"
+      # Pass in params from form if redirected from #create
+      @vendor = MyVendor.new(flash[:prev_params])
+      render 'admin+/my_vendors/new'
+    else
+      redirect_to(my_vendors_path)
+    end
+  end
+
+  def create
+    if current_admin
+      # Creates vendor associated with given tags, and creates new tags if necessary
+      # Need create and update_attributes call to handle when I add existing tags, but then remove them all
+      vendor = MyVendor.create(vendor_params_without_nested)
+      success = vendor.update_attributes(vendor_params)
+      verify_and_redirect(success, vendor, my_vendors_path, vendor_params)
+    else 
+      redirect_to(my_vendors_path)
+    end
+  end
+
+  def edit
+    if current_admin
+      # Get vendor so form knows to make submit button say "Update Vendor"
+      @vendor = MyVendor.find(params[:id])
+      # Pass in params from form if redirected from #update
+      if flash[:prev_params]
+        @vendor.assign_attributes(flash[:prev_params])
+      end
+    else 
+      redirect_to(my_vendors_path)
+    end
+  end
+
+  def update
+    if current_admin
+      vendor = MyVendor.find(params[:id])
+      success = vendor.update_attributes(vendor_params)
+      verify_and_redirect(success, vendor, my_vendors_path, vendor_params)
+    else
+      redirect_to(my_vendors_path)
+    end
+  end
+
+  def destroy
+    if current_admin
+      vendor = MyVendor.find(params[:id])
+      success = vendor.destroy
+      verify_and_redirect(success, vendor, my_vendors_path, nil)
+    else 
+      redirect_to(my_vendors_path)
+    end
+  end
 
   def map
   	map_locations = []
@@ -27,6 +93,6 @@ class MyVendorsController < ApplicationController
   	
   	gon.vendor_list = map_locations
   end
-  
-  end
+
+end
   

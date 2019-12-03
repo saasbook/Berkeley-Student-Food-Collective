@@ -12,12 +12,10 @@ class MyVendor < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
 
   has_many :my_products
-  has_many :tagged_vendors
+  has_many :tagged_vendors, dependent: :destroy
   has_many :producer_tags, :through => :tagged_vendors
-  has_many :vendor_ownerships, dependent: :destroy
-  has_many :ownerships, through: :vendor_ownerships, dependent: :destroy
 
-  accepts_nested_attributes_for :ownerships, :allow_destroy => true
+  accepts_nested_attributes_for :producer_tags, :allow_destroy => true
 
   geocoded_by :address
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
