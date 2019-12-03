@@ -1,0 +1,15 @@
+#newDetailsPageContent
+
+  - if not @vendor.picture.empty?
+    #image
+      %img.imageNoText{ src: @vendor.picture, width:"600" , height:"400"}
+
+  - if not @vendor.story.empty?
+    #story
+      %h5.subhead Mission & Story
+      %p.subheadtext.storytext
+        = @vendor.story
+
+
+
+

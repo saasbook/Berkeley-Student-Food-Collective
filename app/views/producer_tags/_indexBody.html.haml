@@ -1,0 +1,23 @@
+#letter-nav-padding
+  - if mobile_device == "desktop"
+    = render 'letterNav'
+#notice{class: flash[:type]}
+  = flash[:message]
+%table#index
+  %tbody
+
+    #image
+    %img.imageNoText{ src: 'https://whyy.org/wp-content/uploads/2017/10/farm-768x512.jpg', width:"571" , height:"381"}
+
+    #story
+      %h5.subhead Our Vendors
+      %p.subheadtext.storytext
+        = "Diversity helps businesses and communities thrive. It’s that simple. When there are more options,
+        more voices and more ideas, there are more opportunities for business excellence. We pride ourselves in having diverse and unique vendors. You can find a full list of our vendors below."
+
+    - ('A'..'Z').to_a.each do |letter|
+      - items_with_letter = myclass.where("name LIKE ?", "#{letter}%")
+      = render 'singleSymbolItems', items: items_with_letter, sym: letter, admin: admin, myclass: myclass
+    - items_with_nonletter = myclass.where("name < 'A'")
+    = render 'singleSymbolItems', items: items_with_nonletter, sym: 1, admin: admin, myclass: myclass
+
