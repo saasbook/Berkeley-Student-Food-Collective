@@ -9,7 +9,8 @@ class ProducerTagsController < ApplicationController
   	def new
     	# Make new product so form knows to make submit button say "Create Product"
     	# Pass in params from form if redirected from #create
-    	@producer_tag = ProducerTag.new(flash[:prev_params])
+		@producer_tag = ProducerTag.new(flash[:prev_params])
+		render '/admin+/producer_tags/new'
   	end
   
   end
