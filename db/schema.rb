@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2019_11_26_082448) do
     t.string "twitter"
     t.string "instagram"
     t.string "picture"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

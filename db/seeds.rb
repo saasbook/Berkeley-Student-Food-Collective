@@ -48,11 +48,11 @@
 @twitter = "http://twitter.com/dangfoods?"
 @instagram = "http://www.instagram.com/dangfoods/?"
 
-@first_vendor = MyVendor.create(name: 'First Vendor', picture: @vendor_picture, address: "", facebook: @facebook, twitter: @twitter, instagram: @instagram,  story: "")
-@second_vendor = MyVendor.create(name: 'Second Vendor', picture: @vendor_picture, address: "", facebook: @facebook, twitter: @twitter, instagram: @instagram, story: "")
-@third_vendor = MyVendor.create(name: 'Third Vendor', picture: @vendor_picture, address: "", facebook: @facebook, twitter: @twitter, instagram: @instagram, story: "")
-@fourth_vendor = MyVendor.create(name: 'Fourth Vendor', picture: @vendor_picture, address: "", facebook: @facebook, twitter: @twitter, instagram: @instagram, story: "")
-@fifth_vendor = MyVendor.create(name: 'Fifth Vendor', picture: @vendor_picture, address: "", facebook: @facebook, twitter: @twitter, instagram: @instagram, story: "")
+@first_vendor = MyVendor.create(name: 'First Vendor', picture: @vendor_picture, address: "3254 Adeline St., Berkeley, CA 94703", facebook: @facebook, twitter: @twitter, instagram: @instagram,  story: "")
+@second_vendor = MyVendor.create(name: 'Second Vendor', picture: @vendor_picture, address: "San Francisco, CA", facebook: @facebook, twitter: @twitter, instagram: @instagram, story: "")
+@third_vendor = MyVendor.create(name: 'Third Vendor', picture: @vendor_picture, address: "PO Box 2352, Beverly Hills, CA 90213", facebook: @facebook, twitter: @twitter, instagram: @instagram, story: "")
+@fourth_vendor = MyVendor.create(name: 'Fourth Vendor', picture: @vendor_picture, address: "21-23 Park Avenue Yonkers, NY 10703", facebook: @facebook, twitter: @twitter, instagram: @instagram, story: "")
+@fifth_vendor = MyVendor.create(name: 'Fifth Vendor', picture: @vendor_picture, address: "Nectar Foods, Inc. Portland, Oregon 97212", facebook: @facebook, twitter: @twitter, instagram: @instagram, story: "")
 
 @first_product = MyProduct.create(name: 'First Product', my_vendor: @first_vendor, picture: @product_picture)
 @second_product = MyProduct.create(name: 'Second Product', my_vendor: @first_vendor, picture: @product_picture)

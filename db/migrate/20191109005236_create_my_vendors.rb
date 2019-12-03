@@ -8,6 +8,8 @@ class CreateMyVendors < ActiveRecord::Migration[5.2]
       t.string :twitter
       t.string :instagram
       t.string :picture
+      t.float :latitude
+      t.float :longitude
       t.timestamps
     end
   end
