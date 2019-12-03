@@ -3,11 +3,15 @@ Created by CS169 Fall 2019 Team.
 """
 class MyVendorsController < ApplicationController
   def index
-    @vendors = Vendor.all
+    @vendors = MyVendor.all
+  end
+
+  def indextags
+    @vendors = MyVendor.all
   end
 
   def show
-    @vendor = Vendor.find(params[:id])
+    @vendor = MyVendor.find(params[:id])
   end
   
   end

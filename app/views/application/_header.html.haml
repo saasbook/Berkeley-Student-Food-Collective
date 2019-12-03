@@ -12,31 +12,30 @@
             %li.dropdown
               %a.dropdown{href: admin_path(current_admin), class: 'nav-link'}
                 ADMIN
-          
-          %li.dropdown
-            %a.dropdown{href: discovery_path, class: 'nav-link'}
-              Discovery
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", href: producer_tags_path, class: 'nav-link'}
-              Vendors
-              %b.caret
-            %ul.dropdown-menu
-              %li
-                %a{href:vendors_path } All Vendors
-              %li
-                %a{href: producer_tags_path} By Category
-              %li
-                %a{href: map_path} Maps
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", href: product_tags_path, class: 'nav-link'}
-              Products
-              %b.caret
-            %ul.dropdown-menu
-              %li
-                %a{href: products_path} All Products
-              %li
-                %a{href: product_tags_path} by Category
-            
+          -else
+
+            %li.dropdown
+              %a.dropdown{href: discovery_path, class: 'nav-link'}
+                Discovery
+              
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: producer_tags_path, class: 'nav-link'}
+                Vendors
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{href:my_vendors_path } All Vendors
+                %li
+                  %a{href: producer_tags_path} By Category
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: product_tags_path, class: 'nav-link'}
+                Products
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{href: my_products_path} All Products
+                %li
+                  %a{href: product_tags_path} by Category
       
     -if current_admin
       .dropdown

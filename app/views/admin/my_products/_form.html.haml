@@ -4,8 +4,8 @@
 = form_for [:admin, @product] do |f|
   #form_elements_div
     .form_group.element_div
-      = f.label :vendor_id, 'Select a Vendor'
-      = f.collection_select :vendor_id, Vendor.all, :id, :name, {selected: @product.vendor_id, prompt: 'Select a Vendor'}
+      = f.label :my_vendor_id, 'Select a Vendor'
+      = f.collection_select :my_vendor_id, MyVendor.all, :id, :name, {selected: @product.my_vendor_id, prompt: 'Select a Vendor'}
 
     .form_group.element_div
       = f.label :name
@@ -13,47 +13,47 @@
     .form_group.element_div
       = f.label :picture, 'Link to Picture'
       = f.text_field :picture
-    .form_group.element_div
-      = f.label :origin
-      = f.text_field :origin
-    .form_group.element_div
-      = f.label :cultural_history
-      = f.text_area :cultural_history
-    #dietary_div.form_group.element_div
-      %h4 Dietary Restrictions
-      .checkboxClass
-        = f.label :gluten_free
-        = f.check_box :gluten_free
-      .checkboxClass
-        = f.label :dairy_free
-        = f.check_box :dairy_free
-      .checkboxClass
-        = f.label :vegan
-        = f.check_box :vegan
-    #rfc_div.form_group.element_div
-      %h4 Real Food Challenge
-      .checkboxClass
-        = f.label :lc_based, 'Locally based'
-        = f.check_box :lc_based
-      .checkboxClass
-        = f.label :fair, 'Fairly traded'
-        = f.check_box :fair
-      .checkboxClass
-        = f.label :eco_sound, 'Ecologically sound'
-        = f.check_box :eco_sound
-      .checkboxClass
-        = f.label :humane
-        = f.check_box :humane
+    -#.form_group.element_div
+    -#  = f.label :origin
+    -#  = f.text_field :origin
+    -#.form_group.element_div
+    -#  = f.label :cultural_history
+    -#  = f.text_area :cultural_history
+    -##dietary_div.form_group.element_div
+    -#  %h4 Dietary Restrictions
+    -#  .checkboxClass
+    -#    = f.label :gluten_free
+    -#    = f.check_box :gluten_free
+    -#  .checkboxClass
+    -#    = f.label :dairy_free
+    -#    = f.check_box :dairy_free
+    -#  .checkboxClass
+    -#    = f.label :vegan
+    -#    = f.check_box :vegan
+    -##rfc_div.form_group.element_div
+    -#  %h4 Real Food Challenge
+    -#  .checkboxClass
+    -#    = f.label :lc_based, 'Locally based'
+    -#    = f.check_box :lc_based
+    -#  .checkboxClass
+    -#    = f.label :fair, 'Fairly traded'
+    -#    = f.check_box :fair
+    -#  .checkboxClass
+    -#    = f.label :eco_sound, 'Ecologically sound'
+    -#    = f.check_box :eco_sound
+    -#  .checkboxClass
+    -#    = f.label :humane
+    -#    = f.check_box :humane
 
-    #certifications.element_div
-      = f.label :certifications, 'Certification Types'
-      -# Hidden select necessary to add additional existing tags
-      = f.collection_select :certification_ids, @product.certifications, :id, :name, {}, {hidden: true, multiple: true}
-      = f.fields_for :certifications do |ff|
-        .certification
-          = ff.text_field :name, readonly: true, disabled: true, size: 41
-          = ff.check_box :_destroy
-          = ff.label :_destroy, 'Remove Certification Type'
+    -##certifications.element_div
+    -#  = f.label :certifications, 'Certification Types'
+    -#  -# Hidden select necessary to add additional existing tags
+    -#  = f.collection_select :certification_ids, @product.certifications, :id, :name, {}, {hidden: true, multiple: true}
+    -#  = f.fields_for :certifications do |ff|
+    -#    .certification
+    -#      = ff.text_field :name, readonly: true, disabled: true, size: 41
+    -#      = ff.check_box :_destroy
+    -#      = ff.label :_destroy, 'Remove Certification Type'
 
     #new_certifications.element_div.add_tag
       = select_tag :existing_certifications, options_from_collection_for_select(Certification.all, :id, :name)
@@ -61,15 +61,15 @@
       = text_field_tag :new_certification_field, '', size: 41
       = submit_tag 'Add new certification type', type: :button, onclick: 'addNewTag()'
 
-    #packagings.element_div
-      = f.label :packagings, 'Packaging Types'
-      -# Hidden select necessary to add additional existing tags
-      = f.collection_select :packaging_ids, @product.packagings, :id, :name, {}, {hidden: true, multiple: true}
-      = f.fields_for :packagings do |ff|
-        .packaging
-          = ff.text_field :name, readonly: true, disabled: true, size: 41
-          = ff.check_box :_destroy
-          = ff.label :_destroy, 'Remove Packaging Type'
+    -##packagings.element_div
+    -#  = f.label :packagings, 'Packaging Types'
+    -#  -# Hidden select necessary to add additional existing tags
+    -#  = f.collection_select :packaging_ids, @product.packagings, :id, :name, {}, {hidden: true, multiple: true}
+    -#  = f.fields_for :packagings do |ff|
+    -#    .packaging
+    -#      = ff.text_field :name, readonly: true, disabled: true, size: 41
+    -#      = ff.check_box :_destroy
+    -#      = ff.label :_destroy, 'Remove Packaging Type'
 
     #new_packagings.element_div.add_tag
       = select_tag :existing_packagings, options_from_collection_for_select(Packaging.all, :id, :name)
@@ -77,15 +77,15 @@
       = text_field_tag :new_packaging_field, '', size: 41
       = submit_tag 'Add new packaging type', type: :button, onclick: 'addNewTag()'
 
-    #nutritions.element_div
-      = f.label :nutritions, 'Nutrition Types'
-      -# Hidden select necessary to add additional existing tags
-      = f.collection_select :nutrition_ids, @product.nutritions, :id, :name, {}, {hidden: true, multiple: true}
-      = f.fields_for :nutritions do |ff|
-        .nutrition
-          = ff.text_field :name, readonly: true, disabled: true, size: 41
-          = ff.check_box :_destroy
-          = ff.label :_destroy, 'Remove Nutrition Type'
+    -##nutritions.element_div
+    -#  = f.label :nutritions, 'Nutrition Types'
+    -#  -# Hidden select necessary to add additional existing tags
+    -#  = f.collection_select :nutrition_ids, @product.nutritions, :id, :name, {}, {hidden: true, multiple: true}
+    -#  = f.fields_for :nutritions do |ff|
+    -#    .nutrition
+    -#      = ff.text_field :name, readonly: true, disabled: true, size: 41
+    -#      = ff.check_box :_destroy
+    -#      = ff.label :_destroy, 'Remove Nutrition Type'
 
     #new_nutritions.element_div.add_tag
       = select_tag :existing_nutritions, options_from_collection_for_select(Nutrition.all, :id, :name)
@@ -93,9 +93,9 @@
       = text_field_tag :new_nutrition_field, '', size: 41
       = submit_tag 'Add new nutrition type', type: :button, onclick: 'addNewTag()'
 
-    .form_group.element_div
-      = f.label :upc, 'UPC'
-      = f.text_field :upc
+    -#.form_group.element_div
+    -#  = f.label :upc, 'UPC'
+    -#  = f.text_field :upc
 
     .form_group#submit_div
       = f.submit class: 'btn btn-success'
