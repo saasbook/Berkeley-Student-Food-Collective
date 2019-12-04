@@ -17,17 +17,17 @@ class ProducerTagsController < ApplicationController
 			redirect_to(discovery_path)
 		end
 	end
-	def product_tag_params
-    	params.require(:product_tag).permit(:name, :description, :picture)
+	def producer_tag_params
+    	params.require(:producer_tag).permit(:product_tag_category_id, :name, :description, :picture)
   	end
 
   	def create
     	if current_admin
       		# Creates vendor associated with given tags, and creates new tags if necessary
       		# Need create and update_attributes call to handle when I add existing tags, but then remove them all
-      		product_tag = ProductTag.create(product_tag_params)
-      		success = product_tag.update_attributes(product_tag_params)
-      		verify_and_redirect(success, product_tag, discovery_path, product_tag_params)
+      		producer_tag = ProducerTag.create(producer_tag_params)
+      		success = producer_tag.update_attributes(producer_tag_params)
+      		verify_and_redirect(success, producer_tag, discovery_path, producer_tag_params)
     	else 
       		redirect_to(discovery_path)
     	end
