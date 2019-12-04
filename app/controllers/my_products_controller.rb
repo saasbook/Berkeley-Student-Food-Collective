@@ -23,7 +23,7 @@ class MyProductsController < ApplicationController
   end
   
   def product_params
-    params.require(:my_product).permit(:name, :picture, :description)
+    params.require(:my_product).permit(:my_vendor_id, :name, :picture, :description)
   end
 
   def product_params_without_nested
