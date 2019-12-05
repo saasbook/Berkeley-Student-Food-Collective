@@ -18,7 +18,7 @@ class MyProductsController < ApplicationController
   end
 
   def show
-    @product = My_Product.find(params[:id])
+    @product = MyProduct.find(params[:id])
     @tags = @product.product_tags
   end
   
