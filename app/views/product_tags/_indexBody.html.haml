@@ -15,8 +15,8 @@
         = "We hand selecet each of our vendors to ensure that our customers are receiving quality products. We take pride in having fresh and organic products available to our customers. A full list of our products can be found below.  "
 
     - ('A'..'Z').to_a.each do |letter|
-      - items_with_letter = myclass.where("name LIKE ?", "#{letter}%")
-      = render 'singleSymbolItems', items: items_with_letter, sym: letter, admin: admin, myclass: myclass
+      - items_with_letter = ProductTag.where("name LIKE ?", "#{letter}%")
+      = render 'singleSymbolItems', items: items_with_letter, sym: letter, admin: admin, myclass: ProductTag
     - items_with_nonletter = myclass.where("name < 'A'")
     = render 'singleSymbolItems', items: items_with_nonletter, sym: 1, admin: admin, myclass: myclass
 

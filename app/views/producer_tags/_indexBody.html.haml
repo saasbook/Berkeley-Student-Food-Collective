@@ -16,8 +16,13 @@
         more voices and more ideas, there are more opportunities for business excellence. We pride ourselves in having diverse and unique vendors. You can find a full list of our vendors below."
 
     - ('A'..'Z').to_a.each do |letter|
-      - items_with_letter = myclass.where("name LIKE ?", "#{letter}%")
-      = render 'singleSymbolItems', items: items_with_letter, sym: letter, admin: admin, myclass: myclass
+      - items_with_letter = ProducerTag.where("name LIKE ?", "#{letter}%")
+      = render 'singleSymbolItems', items: items_with_letter, sym: letter, admin: admin, myclass: ProducerTag
     - items_with_nonletter = myclass.where("name < 'A'")
     = render 'singleSymbolItems', items: items_with_nonletter, sym: 1, admin: admin, myclass: myclass
-
+    -#- ProducerTag.all.to_a.each do |tagNames|
+    -#  - items_with_tag = tagNames
+    -#  = render 'singleSymbolItems', items: items_with_tag, sym: tagNames, admin: admin, myclass: myclass
+    -#- items_with_notag = MyVendor.where(producer_tags: nil)
+    -#= render 'singleSymbolItems', items: items_with_notag, sym: 1, admin: admin, myclass: myclass
+    -#= render 'singleSymbolItems', items: ProductTags, sym: 

@@ -18,7 +18,7 @@ class ProductTagsController < ApplicationController
   end
 
   def product_tag_params
-    params.require(:product_tag).permit(:product_tag_category_id, :name, :description, :picture)
+    params.require(:product_tag).permit(:product_tag_category_id, :name, :description)
   end
 
   def create
