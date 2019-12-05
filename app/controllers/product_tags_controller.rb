@@ -46,4 +46,9 @@ class ProductTagsController < ApplicationController
     end
   end
 
+  def show
+    @product_tag = ProductTag.find(params[:id])
+    #@tags = @product.product_tags
+  end
+
 end

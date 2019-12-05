@@ -2,12 +2,7 @@
 #details
   #detailsPageHeader
     %h1.item_name
-      = @vendor.name
-      - if not @vendor.address.empty?
-        #addr
-          = @vendor.address
-    #socialButtons
-      = render 'details_social_buttons'
+      = @producer_tag.name
   -##tags
   -#  - if @vendor.ownerships.length > 0
   -#    - @vendor.ownerships[0...4].each do |tag|

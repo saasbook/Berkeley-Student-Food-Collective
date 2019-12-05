@@ -45,4 +45,9 @@ class ProducerTagsController < ApplicationController
       		redirect_back(fallback_location: index_page)
     	end
   	end
+
+  	def show
+    	@producer_tag = ProducerTag.find(params[:id])
+    	#@tags = @product.product_tags
+  	end
 end
