@@ -1,0 +1,61 @@
+@import 'themeColors';
+
+
+.footer-static {
+  position:relative;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 120px;
+  background-color: $gray-image-color;
+  overflow: hidden;
+  max-height: calc(100% - 100px);
+  overflow: hidden;
+  margin-top: 60px;
+
+  clear: both;
+  //position: relative;
+  z-index: 10;
+
+}
+
+.footer_hov_link:hover{
+  color:ghostwhite!important;
+  background-color: transparent;
+}
+
+.footer-content{
+  text-align: center;
+  justify-content: center;
+  float: none;
+  color: $gray-color;
+  padding-top: 5vh;
+
+}
+
+.nav-item {
+  padding-right: 70px;
+}
+
+@media (min-width: 768px) {
+  .navbar .navbar-nav {
+    text-align: center;
+    justify-content: center;
+    float: none;
+    padding-bottom: 0vh;
+    padding-left: 50px;
+    width: 100vw;
+  }
+}
+
+
+
+.fa-plus {
+  color: $unselected-color;
+  font-size: 30px;
+}
+
+
+.admin {
+  color: $selected-color;
+}

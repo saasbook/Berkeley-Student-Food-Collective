@@ -13,23 +13,3 @@
  *= require_tree .
  *= require_self
  */
-.dropdown,
-.dropdown-toggle {
-  padding-right: 70px;
-  padding-top: 10px;
-  font-size: 130%;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  float: left;
-}
-
-.dropdown-menu > li > a {
-  color: darkslategrey;
-  padding-left: 10px;
-}

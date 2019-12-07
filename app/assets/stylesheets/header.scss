@@ -5,13 +5,13 @@
   width: 67px;
 }
 
-.navbar {
+  .navbar {
   background-color: $gray-image-color;
   font-family: 'Arvo', sans-serif;
-  font-size: 135%;
+  font-size: 100%; //changes size of green plus button in admin view
   display: inline-block;
   width: 100vw;
-  height: 5vw;
+  height: 7vw;
 }
 
 .nav-item {
@@ -26,10 +26,11 @@
     padding-bottom: 0vh;
     padding-left: 50px;
     width: 100vw;
+    font-size: 75% //changes font of nav bar headers i.e Discover and Vendors
   }
 }
 
-// Dropdown for adding a new product or vendor
+// Dropdown for adding a new item to a form in the admin page
 .dropdown-content form:hover {
   background-color: $gray-color;
 }
@@ -92,4 +93,27 @@
 
 .admin {
   color: $selected-color;
+}
+
+//Dropdown for the vendors and products menu
+.dropdown,
+.dropdown-toggle {
+  padding-right: 70px;
+  padding-top: 10px;
+  font-size: 130%;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  float: left;
+}
+
+.dropdown-menu > li > a {
+  color: darkslategrey;
+  background-color: transparent;
+  padding-left: 10px;
 }
