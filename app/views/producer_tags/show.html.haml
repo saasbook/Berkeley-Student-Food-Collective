@@ -1,8 +1,14 @@
-= render 'header', currentPage: 'myvendor', admin: false
+= render 'header', admin: false
 #details
   #detailsPageHeader
     %h1.item_name
       = @producer_tag.name
+
+  - @tags.each do |tag|
+    - items_with_letter = MyVendor.where(id: tag.my_vendor_id)
+    = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyVendor
+    -#- items_with_nonletter = MyVendor.where(id: tag.my_vendor_id)
+    -#= render 'singleSymbolItems', items: items_with_nonletter, sym: 1, admin: false, myclass: MyVendor
   -##tags
   -#  - if @vendor.ownerships.length > 0
   -#    - @vendor.ownerships[0...4].each do |tag|
@@ -17,6 +23,9 @@
   -#- elsif @vendor.picture.empty? and @vendor.mission.empty? and @vendor.story.empty?
   -#  = render 'details_no_content'
 
+
+
   -#content
   = render 'all_content'
+
 

@@ -48,6 +48,6 @@ class ProducerTagsController < ApplicationController
 
   	def show
     	@producer_tag = ProducerTag.find(params[:id])
-    	#@tags = @product.product_tags
+    	@tags = TaggedVendor.where(producer_tag_id: params[:id])
   	end
 end
