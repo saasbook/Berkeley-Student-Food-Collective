@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  resources:landings
   resources :sessions, only: [:new, :create, :destroy]
   get '/supersecret', to: 'admins#new', as: 'signup'
   get '/seealladmins', to: 'admins#index', as: 'index'

@@ -1,5 +1,5 @@
 Given /a vendor already exists/ do
-  FactoryBot.create(:vendor)
+  FactoryBot.create(:my_vendor)
 end
 
 Given /a(?:nother)? vendor tag already exists/ do

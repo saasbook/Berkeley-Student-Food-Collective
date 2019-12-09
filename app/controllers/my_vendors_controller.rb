@@ -1,6 +1,5 @@
-"""
-Created by CS169 Fall 2019 Team.
-"""
+# Created by CS169 Fall 2019 Team.
+
 class MyVendorsController < ApplicationController
   def index
     @vendors = MyVendor.all
