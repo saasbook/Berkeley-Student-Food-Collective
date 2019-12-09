@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_032846) do
+ActiveRecord::Schema.define(version: 2019_12_09_231257) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_032846) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tagslist"
   end
 
   create_table "nutritions", force: :cascade do |t|
