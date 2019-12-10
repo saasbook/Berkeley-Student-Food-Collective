@@ -19,6 +19,10 @@
       = f.label :description
       = f.text_area :description, rows: 6
 
+    .form_group.element_div
+      = f.label :tagslist
+      = f.text_field :tagslist
+
     #product_tags.element_div
       = f.label :product_tags, 'Product Tags'
       -# Hidden select necessary to add additional existing tags

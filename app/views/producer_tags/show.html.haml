@@ -4,9 +4,16 @@
     %h1.item_name
       = @producer_tag.name
 
-  - ('A'..'Z').to_a.each do |tag|
-    - items_with_letter = MyVendor.where(id: 1)
-    = render 'singleSymbolItems', items: items_with_letter, sym: tag, admin: false, myclass: MyVendor
+  - @tags.each do |v|
+    - items_with_letter = MyVendor.where(id: v)
+    = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyVendor
+
+  -#- ('A'..'Z').to_a.each do |tag|
+  -#  - items_with_letter = MyVendor.where(id: 1)
+  -#  = render 'singleSymbolItems', items: items_with_letter, sym: tag, admin: false, myclass: MyVendor
+
+
+
     -#- items_with_nonletter = MyVendor.where(id: tag.my_vendor_id)
     -#= render 'singleSymbolItems', items: items_with_nonletter, sym: 1, admin: false, myclass: MyVendor
   -##tags
