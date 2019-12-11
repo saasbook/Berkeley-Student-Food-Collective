@@ -17,7 +17,7 @@ function confirmProductCancel() {
 }
 
 function confirmTagCancel() {
-  confirmGeneralCancel('');
+  confirmGeneralCancel('discovery');
 }
 
 function confirmGeneralCancel(input) {

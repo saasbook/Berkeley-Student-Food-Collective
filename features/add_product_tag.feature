@@ -42,6 +42,6 @@ Feature: Add a new product tag to the database
   Scenario: Fill new product tag, press cancel, but dismiss (happy)
     And I fill in "Name" with "Producer Tag 2"
     When I press "Cancel"
-    But I dismiss the popup
+    And I dismiss the popup
     Then I should see the new product tag page
     And I should see the tag category attributes filled in
