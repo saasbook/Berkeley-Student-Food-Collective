@@ -10,7 +10,13 @@ class MyProductsController < ApplicationController
 
   def index
     @products = MyProduct.all
-    # @description = Landing.where(id: 3).allproductsdescription
+    if Landing.exists?
+      @picture = Landing.last.allprodcutspicture
+      @description = Landing.last.allproductsdescription
+    else
+      @picture = nil
+      @description = nil
+    end
   end
 
   def indextags

@@ -11,12 +11,12 @@
   %tbody
 
     #image
-    %img.imageNoText{ src: 'https://ulmhawkeyeonline.com/wp-content/uploads/2017/11/636163135798656945362117651_vegan-1.jpg', width:"571" , height:"381"}
+    %img.imageNoText{ src: @producer_tag.picture, width:"571" , height:"381"}
 
     #story
       %h5.subhead
       %p.subheadtext.storytext
-        = "This is what vegan means! Enter paragraph here"
+        = @producer_tag.description
     - @tags.each do |v|
       - items_with_letter = MyVendor.where(id: v)
       = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyVendor
