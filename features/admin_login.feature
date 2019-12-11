@@ -6,56 +6,43 @@ Feature: Login as an admin
 
     Background: There is one admin
         Given I am not logged in
-        Given there is an admin with name "Asli" and password "1234"
+        Given there are no admin accounts exists
+        Then I go to The Admins Control page
+        When I press "Add New Admin"
+        And I fill in "Name" with "Asli"
+        And I fill in "Password" with "1234"
+        And I fill in "Password confirmation" with "1234"
+        When I press "Create Admin"
+        Then I go to the Discovery page
 
     Scenario: Successful login with submit from main page(happy)
-        Given I am on the discovery page
-        When I click on 'Login'
-        Then I see the welcome admin page
-        Then I enter Name as "Asli" and Password as "1234"
-        And I click "Login"
-        Then I should see the admin discovery page
-        And I should see 'Logout' button on navigation bar
-        And I should see 'Admin' link on navigation bar
-
-    Scenario: Successful login with submit from vendors (happy)
-        Given I am on the vendors page
-        When I click on 'Login'
-        Then I see the welcome admin page
-        Then I enter Name as "Asli" and Password as "1234"
-        And I click "Login"
-        Then I should see the admin discovery page
-        And I should see 'Logout' button on navigation bar
-        And I should see 'Admin' link on navigation bar
-
-    Scenario: Successful login with submit from products (happy)
-        Given I am on the products page
-        When I click on 'Login'
-        Then I see the welcome admin page
-        Then I enter Name as "Asli" and Password as "1234"
-        And I click "Login"
-        Then I should see the admin discovery page
-        And I should see 'Logout' button on navigation bar
-        And I should see 'Admin' link on navigation bar
+        When I press "Login"
+        Then I am on the Admin Welcome page
+        And I fill in "Name" with "Asli"
+        And I fill in "Password" with "1234"
+        And I press "Login"
+        Then I should be on the Discovery page
+        And I should see "ADMIN"
 
     Scenario: Unsuccessful login (sad)
-        When I click on 'Login'
-        Then I see the welcome admin page
-        Then I enter my name as "Not Admin" and password "4321"
-        And I click "Login"
-        Then I should see "Name of password is invalid" alert
-        And I should see welcome admin page
-        And I should see 'Login' on navigation bar
+        When I press "Login"
+        Then I am on the Admin Welcome page
+        And I fill in "Name" with "Not Admin"
+        And I fill in "Password" with "4321"
+        And I press "Login"
+        Then I should see "Name or password is invalid"
+        And I am on the Admin Welcome page
 
     Scenario: Cancel login without putting on anything
-        When I click on 'Login'
-        Then I see the welcome admin page
-        When I click 'Cancel'
-        Then I am on discovery page
+        When I press "Login"
+        Then I am on the Admin Welcome page
+        When I follow "Cancel"
+        Then I am on the Discovery page
 
     Scenario: Cancel login after typing
-        When I click on 'Login'
-        Then I see the welcome admin page
-        Then I fill name as 'whatever' and password as '123'
-        When I click 'Cancel'
-        Then I am on discovery page
+        When I press "Login"
+        Then I am on the Admin Welcome page
+        And I fill in "Name" with "Not Admin"
+        And I fill in "Password" with "4321"
+        When I follow "Cancel"
+        Then I am on the Discovery page

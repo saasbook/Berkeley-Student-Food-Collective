@@ -16,11 +16,29 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
+    when /^logout$/
+      logout_path
+
+    when /^Maps$/
+      map_my_vendors_path
+    
+    when /^the Admin Welcome page$/
+      login_path
+    
+    when /^The Admins Control page$/
+      index_path
+
     when /^the new vendor page$/
       new_admin_vendor_path
 
     when /^the volunteer-facing vendors index page$/
       admin_vendors_path
+
+    when /^New Admin Signup page$/
+      signup_path
+    
+    when /^Admin Edit page$/
+      admin_path(1)
 
     when /^the edit vendor page$/
       edit_admin_vendor_path(1)
@@ -40,14 +58,16 @@ module NavigationHelpers
       discovery_path
 
     when /^the customer-facing products index page$/
-      products_path
+      my_products_path
+
     when /^the customer-facing vendors index page$/
-      vendors_path
+      my_vendors_path
+
     when /^the customer-facing product detail page$/
-      product_path(1)
+      my_product_path(1)
 
     when /^the customer-facing vendor detail page$/
-      vendor_path(1)
+      my_vendor_path(1)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

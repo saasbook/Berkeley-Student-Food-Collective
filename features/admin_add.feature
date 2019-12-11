@@ -5,82 +5,105 @@ Feature: Add new admin account
     So that I can exert my admin privileges
 
     Background: No admins yet
-        Given there are no admin accounts
-        When I go to "/seealladmins"
-        Then I should see The Admins Control page
-        And I should not see current admins
+        Given there no admin accounts exist
+        And I am on The Admins Control page
 
     Scenario: Add new admin (happy)
-        When I click on "Add New Admin" button
-        Then I should see New Admin Signup form
-        And I fill name as "Asli" and password as "1234"
-        And I click "Create Admin"
-        And I should see "Admin was successfully created." alert
-        And I should see "Hello Asli!" on the page
+        When I press "Add New Admin"
+        Then I should be on New Admin Signup page
+        And I fill in "Name" with "Asli"
+        And I fill in "Password" with "1234"
+        And I fill in "Password confirmation" with "1234"
+        When I press "Create Admin"
+        Then I should be on Admin Edit page
+        Then I should see "Admin was successfully created."
+        And I should see "Hello Asli!"
 
     Scenario: Return to Main page from control
-        When I click on 'Return to Main Page'
-        Then I should be on discovery page
+        When I follow "Return to Main Page"
+        Then I should be on the Discovery page
 
-    Scenario: See added admins
-        When I click on "Add New Admin" button
-        Then I should see New Admin Signup form
-        And I fill name as "Asli" and password as "1234"
-        And I click "Create Admin"
-        And I should see "Admin was successfully created."
+    Scenario: See added admins after adding an admin
+        Then I should not see "Asli"
+        When I press "Add New Admin"
+        Then I should be on New Admin Signup page
+        And I fill in "Name" with "Asli"
+        And I fill in "Password" with "1234"
+        And I fill in "Password confirmation" with "1234"
+        When I press "Create Admin"
+        Then I should be on Admin Edit page
+        Then I should see "Admin was successfully created."
         And I should see "Hello Asli!"
-        When I go to "/seealladmins"
-        Then I should see The Admins Control page
-        And I should see "Asli" in current admins
+        When I go to The Admins Control page
+        And I should see "Asli"
+
 
     Scenario: Can't add multiple admins with same name
-        When I click on "Add New Admin" button
-        Then I should see New Admin Signup form
-        And I fill name as "Asli" and password as "1234"
-        And I click "Create Admin"
-        And I should see "Admin was successfully created."
+        When I press "Add New Admin"
+        Then I should be on New Admin Signup page
+        And I fill in "Name" with "Asli"
+        And I fill in "Password" with "1234"
+        And I fill in "Password confirmation" with "1234"
+        When I press "Create Admin"
+        Then I should be on Admin Edit page
+        Then I should see "Admin was successfully created."
         And I should see "Hello Asli!"
-        When I go to "/seealladmins"
-        Then I should see The Admins Control page
-        And I should see "Asli" in current admins
-        When I click on "Add New Admin" button
-        Then I should see New Admin Signup form
-        And I fill name as "Asli" and password as "12345"
-        And I click "Create Admin"
-        Then I should see 'Name has already been taken' error
+        When I go to The Admins Control page
+        And I should see "Asli"
+        When I press "Add New Admin"
+        Then I should be on New Admin Signup page
+        And I fill in "Name" with "Asli"
+        And I fill in "Password" with "1234567"
+        And I fill in "Password confirmation" with "1234567"
+        When I press "Create Admin"
+        Then I should see "Name has already been taken"
 
-
-    Scenario: Can have multiple admins
-        When I click on "Add New Admin" button
-        Then I should see New Admin Signup form
-        And I fill name as "Asli" and password as "1234"
-        And I click "Create Admin"
-        And I should see "Admin was successfully created."
-        And I should see "Hello Asli!"
-        When I go to "/seealladmins"
-        Then I should see The Admins Control page
-        And I should see "Asli" in current admins
-        When I click on "Add New Admin" button
-        Then I should see New Admin Signup form
-        And I fill name as "Asli2" and password as "12345"
-        And I click "Create Admin"
-        And I should see "Admin was successfully created."
-        And I should see "Hello Asli2!"
-        When I go to "/seealladmins"
-        Then I should see The Admins Control page
-        And I should see "Asli" in current admins
-        And I should see "Asli2" in current admins
+    Scenario: Can't add new admin if passwords don't match
+        When I press "Add New Admin"
+        Then I should be on New Admin Signup page
+        And I fill in "Name" with "Asli"
+        And I fill in "Password" with "1234"
+        And I fill in "Password confirmation" with "12"
+        When I press "Create Admin"
+        Then I should see "Password confirmation doesn't match Password"
+        When I go to The Admins Control page
+        Then I should not see "Asli"
 
 
     Scenario: Back to see all admins from signup form
-        When I click on "Add New Admin" button
-        Then I should see New Admin Signup form
-        And I fill name as "Asli" and password as "1234"
-        When I click on 'View All Admins'
-        Then I should see The Admins Control page
+        When I press "Add New Admin"
+        Then I should be on New Admin Signup page
+        And I fill in "Name" with "Asli"
+        And I fill in "Password" with "1234"
+        And I fill in "Password confirmation" with "1234"
+        When I follow "View All Admins"
+        Then I should be on The Admins Control page
 
     Scenario: Return to Main page from signup
-        When I click on "Add New Admin" button
-        Then I should see New Admin Signup form
-        When I click on 'Back to Main Page'
-        Then I should be on discovery page
+        When I press "Add New Admin"
+        Then I should be on New Admin Signup page
+        When I follow "Back to Main Page"
+        Then I should be on the Discovery page
+
+    Scenario: Possible to have multiple admins with different names
+        When I press "Add New Admin"
+        Then I should be on New Admin Signup page
+        And I fill in "Name" with "Asli"
+        And I fill in "Password" with "1234"
+        And I fill in "Password confirmation" with "1234"
+        And I press "Create Admin"
+        And I should see "Admin was successfully created."
+        And I should see "Hello Asli!"
+        When I go to The Admins Control page
+        And I should see "Asli"
+        When I press "Add New Admin"
+        Then I should be on New Admin Signup page
+        And I fill in "Name" with "Asli2"
+        And I fill in "Password" with "12345"
+        And I fill in "Password confirmation" with "12345"
+        And I press "Create Admin"
+        Then I should see "Admin was successfully created."
+        And I should see "Hello Asli2!"
+        Then I go to The Admins Control page
+        And I should see "Asli"
+        And I should see "Asli2"
