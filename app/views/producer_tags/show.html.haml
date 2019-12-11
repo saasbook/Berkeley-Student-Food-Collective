@@ -1,38 +1,27 @@
-= render 'header', admin: false
+= render 'header', currentPage: 'my_product', admin: false
 #details
   #detailsPageHeader
     %h1.item_name
       = @producer_tag.name
 
-  - @tags.each do |v|
-    - items_with_letter = MyVendor.where(id: v)
-    = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyVendor
+#letter-nav-padding
+#notice{class: flash[:type]}
+  = flash[:message]
+%table#index
+  %tbody
 
-  -#- ('A'..'Z').to_a.each do |tag|
-  -#  - items_with_letter = MyVendor.where(id: 1)
-  -#  = render 'singleSymbolItems', items: items_with_letter, sym: tag, admin: false, myclass: MyVendor
+    #image
+    %img.imageNoText{ src: 'https://ulmhawkeyeonline.com/wp-content/uploads/2017/11/636163135798656945362117651_vegan-1.jpg', width:"571" , height:"381"}
 
-
-
-    -#- items_with_nonletter = MyVendor.where(id: tag.my_vendor_id)
-    -#= render 'singleSymbolItems', items: items_with_nonletter, sym: 1, admin: false, myclass: MyVendor
-  -##tags
-  -#  - if @vendor.ownerships.length > 0
-  -#    - @vendor.ownerships[0...4].each do |tag|
-  -#      %h3.tagBtns
-  -#        = tag.name
-  -#- if (not @vendor.picture.empty?) and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
-  -#  = render 'details_all_content'
-  -#- elsif (not @vendor.picture.empty?) and @vendor.mission.empty? and @vendor.story.empty?
-  -#  = render 'details_photo_no_text'
-  -#- elsif @vendor.picture.empty? and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
-  -#  = render 'details_text_no_photo'
-  -#- elsif @vendor.picture.empty? and @vendor.mission.empty? and @vendor.story.empty?
-  -#  = render 'details_no_content'
+    #story
+      %h5.subhead
+      %p.subheadtext.storytext
+        = "This is what vegan means! Enter paragraph here"
+    - @tags.each do |v|
+      - items_with_letter = MyVendor.where(id: v)
+      = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyVendor
 
 
-
-  -#content
-  = render 'all_content'
+= render 'footer', currentPage: 'my_product', admin: false
 
 
