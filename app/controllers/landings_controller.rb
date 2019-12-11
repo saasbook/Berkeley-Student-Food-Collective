@@ -1,7 +1,7 @@
 class LandingsController < ApplicationController
 
   def new
-    @landing = Landing.new
+    @landing = Landing.last
   end
 
   def user_params

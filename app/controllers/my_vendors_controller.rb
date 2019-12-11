@@ -3,6 +3,10 @@
 class MyVendorsController < ApplicationController
   def index
     @vendors = MyVendor.all
+    @picture = Landing.last.allvendorspicture
+    @description = Landing.last.allvendorsdescription
+    # @picture = Landing.find(3).allvendorspicture
+    # @description = Landing.find(3).allvendorsdescription
   end
 
   def indextags
@@ -46,7 +50,9 @@ class MyVendorsController < ApplicationController
     end
   end
 
+
   def edit
+    # raise(Exception)
     if current_admin
       # Get vendor so form knows to make submit button say "Update Vendor"
       @vendor = MyVendor.find(params[:id])
@@ -54,8 +60,9 @@ class MyVendorsController < ApplicationController
       if flash[:prev_params]
         @vendor.assign_attributes(flash[:prev_params])
       end
-    else 
-      redirect_to(my_vendors_path)
+      render "admin+/my_vendors/edit"
+    else
+      redirect_to(my_vendors_path) && return
     end
   end
 
