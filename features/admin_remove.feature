@@ -5,17 +5,22 @@ Feature: Admins should be able to remove admins from the control page
     I want to be able to access admin privileges when I log in until I log out
 
     Background: Logged in
-        Given there are admins "Asli", "Asli1", "Asli2", and "Asli3"
-        Given I am logged in as admin "Asli"
-        When I go to URL "/seealladmins"
-        Then I should see "Asli", "Asli1", "Asli2", "Asli3"
+        Given admins "Asli", "Asli1", "Asli2", "Asli3" exist
+        Given I am logged in as admin "Asli3"
+        Then I go to The Admins Control page
+        Then I should see "Asli"
+        And I should see "Asli1"
+        And I should see "Asli2"
+        And I should see "Asli3"
 
     Scenario: can't remove logged in admin
-        When I click on "Remove" button for "Asli1"
-        Then I should see an alert "Are you sure?"
-        And I click "OK"
-        Then I should see "Asli", "Asli2", "Asli3" on the page
-        And I should not see "Asli1" on the page
+        When I press "Remove"
+        Then I should see "Are you sure?"
+        And I press "OK"
+        Then I should see "Asli1"
+        Then I should see "Asli2"
+        Then I should see "Asli3"
+        And I should not see "Asli"
 
         When I click on "Remove" button for "Asli2"
         Then I should see an alert "Are you sure?"
