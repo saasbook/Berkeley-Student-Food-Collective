@@ -1,40 +1,61 @@
-        Given I am a client
-        When I click on Login
-        Then I enter my name and password
+Feature: Login as an admin
+
+    As an admin
+    I want to be able to login, view forms and logout
+    So that I can exert my admin privileges
+
+    Background: There is one admin
+        Given I am not logged in
+        Given there is an admin with name "Asli" and password "1234"
+
+    Scenario: Successful login with submit from main page(happy)
+        Given I am on the discovery page
+        When I click on 'Login'
+        Then I see the welcome admin page
+        Then I enter Name as "Asli" and Password as "1234"
         And I click "Login"
-        I should see alert "Name or Password incorrect"
-        Then I click Cancel
-        Then I get back to the main page
+        Then I should see the admin discovery page
+        And I should see 'Logout' button on navigation bar
+        And I should see 'Admin' link on navigation bar
 
-        Given I am an admin
-        When I click on Login
-        And I enter my name and password
+    Scenario: Successful login with submit from vendors (happy)
+        Given I am on the vendors page
+        When I click on 'Login'
+        Then I see the welcome admin page
+        Then I enter Name as "Asli" and Password as "1234"
         And I click "Login"
-        I should see alert "Login Successful"
-        Then I should see "ADMIN" link on navigation bar
-        And I should see "Logout" button on navigation bar
+        Then I should see the admin discovery page
+        And I should see 'Logout' button on navigation bar
+        And I should see 'Admin' link on navigation bar
 
-        Given I am an admin
-        When I go to URL "/seealladmins"
-        Then I should see "The Admins Control"
-        When I click on "Add New Admin" button
-        Then I should see alert "New Admin" form
-        And I fill name "Asli" and password "1234"
-        And I click "Create Admin"
-        And I should see "Admin was successfully created."
-        And I should see "Hello Asli!"
-        When I refresh the page, I shouldn't see "Admin was successfully created."
-        And I should see "Hello Asli!"
+    Scenario: Successful login with submit from products (happy)
+        Given I am on the products page
+        When I click on 'Login'
+        Then I see the welcome admin page
+        Then I enter Name as "Asli" and Password as "1234"
+        And I click "Login"
+        Then I should see the admin discovery page
+        And I should see 'Logout' button on navigation bar
+        And I should see 'Admin' link on navigation bar
 
+    Scenario: Unsuccessful login (sad)
+        When I click on 'Login'
+        Then I see the welcome admin page
+        Then I enter my name as "Not Admin" and password "4321"
+        And I click "Login"
+        Then I should see "Name of password is invalid" alert
+        And I should see welcome admin page
+        And I should see 'Login' on navigation bar
 
-        As a user without admin privileges
-        I should not be able to access any data manipulating pages even if I put the url down directly through '../new' addresses
+    Scenario: Cancel login without putting on anything
+        When I click on 'Login'
+        Then I see the welcome admin page
+        When I click 'Cancel'
+        Then I am on discovery page
 
-        When I am logged in as an admin "Asli"
-        And I go to '/my_products/new' page
-        Then I see New Product form
-
-        When I am not logged in as an admin
-        And I go to '/my_products/new' page
-        Then I don't see 'New Product' form.
-        And I get redirected to the 'my_products' index page.
+    Scenario: Cancel login after typing
+        When I click on 'Login'
+        Then I see the welcome admin page
+        Then I fill name as 'whatever' and password as '123'
+        When I click 'Cancel'
+        Then I am on discovery page
