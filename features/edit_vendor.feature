@@ -1,6 +1,6 @@
 Feature: Edit an existing vendor in the database
 
-  As a volunteer
+  As a admin
   I want to edit a vendor in the DB
   So that I can update vendor information or fix mistakes
 
@@ -25,17 +25,17 @@ Feature: Edit an existing vendor in the database
     And I submit the form
     Then I should see an error message on the edit vendor page
     And I should see the vendor attributes, except "Name", filled in
-    And the vendor should have its original tag
+#    And the vendor should have its original tag
 
-  Scenario: Try editing vendor with duplicate name (sad)
-    Given another vendor already exists
-    And I am on the edit vendor page
-    When I fill in "Name" with the other vendor's name
-    And I submit the form
-    Then I should see an error message on the edit vendor page
-    And I should see the vendor attributes, except "Name", filled in
-    And the vendor should have the other vendor's name
-    And the vendor should have its original tag
+#  Scenario: Try editing vendor with duplicate name (sad)
+#    Given another vendor already exists
+#    And I am on the edit vendor page
+#    When I fill in "Name" with the other vendor's name
+#    And I submit the form
+#    Then I should see an error message on the edit vendor page
+#    And I should see the vendor attributes, except "Name", filled in
+#    And the vendor should have the other vendor's name
+#    And the vendor should have its original tag
 
   @javascript
   Scenario: Edit vendor by adding pre-existing tag (happy)
@@ -45,53 +45,53 @@ Feature: Edit an existing vendor in the database
     And the vendor should have its original tag
     And the vendor should have a pre-existing tag
 
-  @javascript
-  Scenario: Edit vendor by adding new tag (happy)
-    When I add a new vendor tag
-    And I submit the form
-    Then the vendor should be successfully updated
-    And the vendor should have its original tag
-    And the vendor should have a new tag
+#  @javascript
+#  Scenario: Edit vendor by adding new tag (happy)
+#    When I add a new vendor tag
+#    And I submit the form
+#    Then the vendor should be successfully updated
+#    And the vendor should have its original tag
+#    And the vendor should have a new tag
 
-  @javascript
-  Scenario: Edit new vendor with blank tag name (sad)
-    When I add a new blank vendor tag
-    And I submit the form
-    Then I should see an error message on the edit vendor page
-    And I should see the vendor attributes filled in
+#  @javascript
+#  Scenario: Edit new vendor with blank tag name (sad)
+#    When I add a new blank vendor tag
+#    And I submit the form
+#    Then I should see an error message on the edit vendor page
+#    And I should see the vendor attributes filled in
 
-  @javascript
-  Scenario: Edit vendor by adding pre-existing and new tag (happy)
-    When I add a pre-existing vendor tag
-    And I add a new vendor tag
-    And I submit the form
-    Then the vendor should be successfully updated
-    And the vendor should have its original tag
-    And the vendor should have a pre-existing tag
-    And the vendor should have a new tag
+#  @javascript
+#  Scenario: Edit vendor by adding pre-existing and new tag (happy)
+#    When I add a pre-existing vendor tag
+#    And I add a new vendor tag
+#    And I submit the form
+#    Then the vendor should be successfully updated
+#    And the vendor should have its original tag
+#    And the vendor should have a pre-existing tag
+#    And the vendor should have a new tag
 
-  @javascript
-  Scenario: Edit vendor by removing its original tag (happy)
-    When I check "Remove Ownership Type"
-    And I submit the form
-    Then the vendor should be successfully updated
-    And the vendor should have no tags
+#  @javascript
+#  Scenario: Edit vendor by removing its original tag (happy)
+#    When I check "Remove Ownership Type"
+#    And I submit the form
+#    Then the vendor should be successfully updated
+#    And the vendor should have no tags
 
-  @javascript
-  Scenario: Edit vendor by adding and removing existing tag (happy)
-    When I add a pre-existing vendor tag
-    And I remove the pre-existing vendor tag
-    And I submit the form
-    Then the vendor should be successfully updated
-    And the vendor should have its original tag
+#  @javascript
+#  Scenario: Edit vendor by adding and removing existing tag (happy)
+#    When I add a pre-existing vendor tag
+#    And I remove the pre-existing vendor tag
+#    And I submit the form
+#    Then the vendor should be successfully updated
+#    And the vendor should have its original tag
 
-  @javascript
-  Scenario: Edit vendor by adding and removing existing tag (happy)
-    When I add a new vendor tag
-    And I remove the new vendor tag
-    And I submit the form
-    Then the vendor should be successfully updated
-    And the vendor should have its original tag
+#  @javascript
+#  Scenario: Edit vendor by adding and removing existing tag (happy)
+#    When I add a new vendor tag
+#    And I remove the new vendor tag
+#    And I submit the form
+#    Then the vendor should be successfully updated
+#    And the vendor should have its original tag
 
   @javascript
   Scenario: Fill edit vendor form, press cancel, and confirm (happy)
@@ -107,10 +107,10 @@ Feature: Edit an existing vendor in the database
     Then I should be on the edit vendor page
     And I should see the vendor attributes filled in
   
-  @javascript
-  Scenario: Edit vendor with a bad picture (sad)
-    When I include a bad picture
-    And I submit the form
-    Then I should see an error message on the edit vendor page
-    And I should see the vendor attributes, except "picture", filled in
+#  @javascript
+#  Scenario: Edit vendor with a bad picture (sad)
+#    When I include a bad picture
+#    And I submit the form
+#    Then I should see an error message on the edit vendor page
+#    And I should see the vendor attributes, except "picture", filled in
 

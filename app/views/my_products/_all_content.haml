@@ -1,7 +1,6 @@
 #newDetailsPageContent
 
   -# visible tags on each page
-  %h5.subhead Tags
   - @tags.each do |t|
     - items_with_letter = ProductTag.where(id: t)
     = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: ProductTag

@@ -1,19 +1,26 @@
-Given /a vendor already exists/ do
-  FactoryBot.create(:my_vendor)
+# Given /a(?:nother)? vendor tag already exists/ do
+#   FactoryBot.create(:ownership)
+# end
+
+# Given /a vendor with a tag already exists/ do
+#   @vendor = FactoryBot.create(:vendor)
+#   @ownership = FactoryBot.create(:original_ownership)
+#   VendorOwnership.create(vendor_id: @vendor.id, ownership_id: @ownership.id)
+# end
+
+When /I visit the vendor detail page/ do
+  @vendor = MyVendor.new(name: 'Vendor1',
+                         picture: 'https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528',
+                         story: 'These are apples',
+                         facebook: 'https://www.facebook.com/',
+                         twitter: 'https://www.facebook.com/',
+                         instagram: 'https://www.facebook.com/')
+  visit "/my_vendors/#{@vendor.id}"
 end
 
-Given /a(?:nother)? vendor tag already exists/ do
-  FactoryBot.create(:ownership)
-end
-
-Given /a vendor with a tag already exists/ do
-  @vendor = FactoryBot.create(:vendor)
-  @ownership = FactoryBot.create(:original_ownership)
-  VendorOwnership.create(vendor_id: @vendor.id, ownership_id: @ownership.id)
-end
-
-Given /another vendor already exists/ do
-  FactoryBot.create(:vendor, name: FactoryBot.attributes_for(:other_vendor)[:name])
+Then /I should see the photo and story of the vendor/ do
+  expect(page.find("#image")).not_to be nil
+  expect(page.find("#story")).not_to be nil
 end
 
 When /I fill in the new vendor form/ do
