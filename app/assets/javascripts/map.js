@@ -1,5 +1,5 @@
 function initMap() {
-  var center = {lat: 37.868490, lng: -122.260410};
+  var center = gon.center;
   var locations = gon.vendor_list;
 
   var map = new google.maps.Map(document.getElementById('map'), {

@@ -5,7 +5,7 @@
       = @vendor.name
       - if not @vendor.address.empty?
         #addr
-          = @vendor.address
+          = link_to @vendor.address, map_my_vendors_path(id: @vendor.id)
     #socialButtons
       = render 'details_social_buttons'
   -##tags

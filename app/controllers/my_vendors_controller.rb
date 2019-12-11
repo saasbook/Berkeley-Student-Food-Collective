@@ -107,6 +107,17 @@ class MyVendorsController < ApplicationController
 	  	map_locations << vendor_info
   	end
   	
+  	if params[:id] != nil then
+  		vendor = MyVendor.find(params[:id])
+  		if (vendor.geocoded?) then
+			gon.center = {lat: vendor.latitude, lng: vendor.longitude}
+  		else
+			gon.center = {lat: 37.868490, lng: -122.260410}
+  		end
+  	else
+  		gon.center = {lat: 37.868490, lng: -122.260410}
+  	end
+  	
   	gon.vendor_list = map_locations
   end
 
