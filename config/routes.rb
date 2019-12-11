@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'discovery', action: :index, controller: 'discovery'
 
   resources :admins, only: [:create, :show, :edit, :update, :destroy] 
-  resources :my_products, :product_tags, :producer_tags, :product_tag_categories
+  resources :my_products, :product_tags, :producer_tags, :product_tag_categories, :my_vendors
 
   resources :my_vendors do
     get 'map', on: :collection

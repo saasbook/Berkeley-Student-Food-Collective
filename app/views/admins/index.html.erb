@@ -13,7 +13,7 @@
     <% @admins.each do |admin| %>
       <tr>
         <td class="field"><%= admin.name %></td>
-        <td class="field"><%= button_to 'Remove', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="remove_button"><%= button_to 'Remove', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
