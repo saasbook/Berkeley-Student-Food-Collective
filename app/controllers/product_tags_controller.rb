@@ -1,11 +1,17 @@
-"""
-Created by CS169 Fall 2019 Team.
-"""
+# Created by CS169 Fall 2019 Team.
+
 class ProductTagsController < ApplicationController
 
   def index
-    render '/my_tags/index'
     @tags = ProductTag.all
+    if Landing.exists?
+      @picture = Landing.last.productsbycatpicture
+      @description = Landing.last.productsbycatdescription
+    else
+      @picture = nil
+      @description = nil
+    end
+    render '/my_tags/index'
   end
 
   def new 

@@ -11,12 +11,13 @@
   %tbody
 
     #image
-    %img.imageNoText{ src: 'https://ulmhawkeyeonline.com/wp-content/uploads/2017/11/636163135798656945362117651_vegan-1.jpg', width:"571" , height:"381"}
+      -#doesn't work when you do @product_tag.picture for some reason
+      %img.imageNoText{ src: 'https://images.theconversation.com/files/277221/original/file-20190530-69079-1uozmb5.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=496&fit=clip', width:"571" , height:"381"}
 
     #story
       %h5.subhead
       %p.subheadtext.storytext
-        = "This is what vegan means! Enter paragraph here"
+        = @product_tag.description
 
     - @tags.each do |v|
       - items_with_letter = MyProduct.where(id: v)
