@@ -13,6 +13,9 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
+    when /^Maps$/
+      map_my_vendors_path
+
     when /^the home\s?page$/
       '/'
 

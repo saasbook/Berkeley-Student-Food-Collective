@@ -3,10 +3,14 @@
 class MyVendorsController < ApplicationController
   def index
     @vendors = MyVendor.all
-    @picture = Landing.last.allvendorspicture
-    @description = Landing.last.allvendorsdescription
-    # @picture = Landing.find(3).allvendorspicture
-    # @description = Landing.find(3).allvendorsdescription
+    if Landing.exists?
+      @picture = Landing.last.allvendorspicture
+      @description = Landing.last.allvendorsdescription
+    else
+      @picture = nil
+      @description = nil
+    end
+
   end
 
   def indextags
