@@ -33,6 +33,20 @@ class ProductTagsController < ApplicationController
     end
   end
 
+  def edit
+    if current_admin
+      # Get vendor so form knows to make submit button say "Update Vendor"
+      @product_tag = ProductTag.find(params[:id])
+      # Pass in params from form if redirected from #update
+      if flash[:prev_params]
+        @product_tag.assign_attributes(flash[:prev_params])
+      end
+      render "admin+/product_tags/edit"
+    else
+      redirect_to(my_vendors_path) && return
+    end
+  end
+
   def verify_and_redirect(success, item, index_page, params)
     if success
       flash[:message] = 'Success!'

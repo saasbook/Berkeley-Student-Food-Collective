@@ -9,7 +9,7 @@ class MyVendor < ActiveRecord::Base
   end
   validates :name, presence: true, uniqueness: true
 
-  has_many :my_products
+  has_many :my_products, dependent: :destroy
   has_many :tagged_vendors, dependent: :destroy
   has_many :producer_tags, :through => :tagged_vendors
 

@@ -15,4 +15,19 @@ class LandingsController < ApplicationController
       redirect_to new_landing_path
     end
   end
+
+  def update
+    @landing = Landing.find(params[:id])
+
+    if @landing.update(user_params)
+      redirect_to @landing
+    else
+      render 'edit'
+    end
+  end
+
+  def show
+    @landing = Landing.find(params[:id])
+    render 'edit'
+  end
 end

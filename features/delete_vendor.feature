@@ -1,6 +1,6 @@
 Feature: Delete a vendor
   
-  As a volunteer,
+  As a admin,
   I want to be able to delete a vendor
   So I can remove outdated or incorrect vendor
   
