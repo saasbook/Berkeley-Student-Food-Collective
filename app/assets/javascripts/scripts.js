@@ -27,6 +27,7 @@ function confirmGeneralCancel(input) {
   }
 }
 
+
 function addExistingTag() {
   let parent = $(event.target).parent();
   let selectedOption = parent.find('select option:selected');

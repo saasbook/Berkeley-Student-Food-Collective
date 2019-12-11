@@ -37,6 +37,8 @@ module NavigationHelpers
     when /^The Admins Control page$/
       index_path
 
+
+
     when /^the new vendor page$/
       new_admin_vendor_path
 

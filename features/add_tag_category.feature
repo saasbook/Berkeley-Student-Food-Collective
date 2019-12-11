@@ -1,3 +1,4 @@
+#complete
 Feature: Add a new tag category to the database
 
   As an admin
@@ -5,12 +6,29 @@ Feature: Add a new tag category to the database
   So that customers can learn more about the products
 
   Background:
-    Given I fill the new tag category form
+    Given I am not logged in
+    Given there are no admin accounts exists
+    Then I go to The Admins Control page
+    When I press "Add New Admin"
+    And I fill in "Name" with "ikram"
+    And I fill in "Password" with "123"
+    And I fill in "Password confirmation" with "123"
+    When I press "Create Admin"
+    Then I go to the Discovery page
+    When I press "Login"
+    Then I am on the Admin Welcome page
+    And I fill in "Name" with "ikram"
+    And I fill in "Password" with "123"
+    And I press "Login"
+    Then I should be on the Discovery page
+    And I should see "ADMIN"
+    Given I visit the new tag category form
 
   Scenario: Add new tag category (happy)
+    And I fill in "Name" with "Tag"
+    And I fill in "Description" with "Hello"
     When I submit the form
-    Then the tag category should be successfully added
-    And I should be on the discovery page
+    Then I should be on the discovery page
 
 
   @javascript
@@ -22,7 +40,8 @@ Feature: Add a new tag category to the database
 
   @javascript
   Scenario: Fill new tag category, press cancel, but dismiss (happy)
+    And I fill in "Name" with "Tag"
     When I press "Cancel"
     But I dismiss the popup
-    Then I should be on the new tag category page
+    Then I should see the new tag category page
     And I should see the tag category attributes filled in
