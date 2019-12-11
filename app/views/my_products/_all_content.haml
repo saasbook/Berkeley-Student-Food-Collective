@@ -4,11 +4,11 @@
     #image
       %img.imageNoText{ src: @product.picture, width:"600" , height:"400"}
 
-  - if not @vendor.description.empty?
+  - if not @product.description.empty?
     #story
       %h5.subhead Mission & Story
       %p.subheadtext.storytext
-        = @vendor.description
+        = @product.description
 
 
 
