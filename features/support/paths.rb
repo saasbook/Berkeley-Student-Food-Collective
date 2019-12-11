@@ -16,12 +16,18 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
+    when /^ADMIN$/
+      admin_path(1)
+
     when /^logout$/
       logout_path
 
     when /^Maps$/
       map_my_vendors_path
     
+    when /^new product page$/
+      new_my_product_path
+
     when /^the Admin Welcome page$/
       login_path
     

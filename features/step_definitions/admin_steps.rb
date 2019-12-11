@@ -7,42 +7,12 @@ Given /^I am not logged in$/ do
 end
 
 
-Given /^admins "Asli", "Asli1", "Asli2", "Asli3 exist"$/ do 
-    Given %{there no admin accounts exist}
-    And %{I go to The Admins Control page}
-    When %{I press "Add New Admin"}
-    And %{I fill in "Name" with "Asli"}
-    And %{I fill in "Password" with "1234"}
-    And %{I fill in "Password confirmation" with "1234"}
-    When %{I press "Create Admin"}
-
-    And %{I go to The Admins Control page}
-    When %{I press "Add New Admin"}
-    And %{I fill in "Name" with "Asli1"}
-    And %{I fill in "Password" with "1234"}
-    And %{I fill in "Password confirmation" with "1234"}
-    When %{I press "Create Admin"}
-
-    And %{I go to The Admins Control page}
-    When %{I press "Add New Admin"}
-    And %{I fill in "Name" with "Asli2"}
-    And %{I fill in "Password" with "1234"}
-    And %{I fill in "Password confirmation" with "1234"}
-    When %{I press "Create Admin"}
-
-    And %{I go to The Admins Control page}
-    When %{I press "Add New Admin"}
-    Then %{I should be on New Admin Signup page}
-    And %{I fill in "Name" with "Asli3"}
-    And %{I fill in "Password" with "1234"}
-    And %{I fill in "Password confirmation" with "1234"}
-    When %{I press "Create Admin"}
+Then /^I remove the first admin$/ do
+    accept_alert do
+        first(".remove_button").click
+    end
 end
 
-Given /^I am logged in as admin "Asli3"$/ do
-    When %{I press "Login"}
-    Then %{I am on the Admin Welcome page}
-    And %{I fill in "Name" with "Asli3"}
-    And %{I fill in "Password" with "1234"}
-    And %{I press "Login"}
+And /^I confirm the alert box$/ do
+    page.driver.browser.switch_to.alert.accept
 end
