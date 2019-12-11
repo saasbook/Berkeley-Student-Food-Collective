@@ -1,6 +1,5 @@
-"""
-Created by CS169 Fall 2019 Team.
-"""
+# Created by CS169 Fall 2019 Team.
+
 class ProducerTagsController < ApplicationController
 
 	def index
@@ -48,6 +47,12 @@ class ProducerTagsController < ApplicationController
 
   	def show
     	@producer_tag = ProducerTag.find(params[:id])
-    	@tags = TaggedVendor.where(producer_tag_id: params[:id])
+			@myname = @producer_tag.name.downcase
+			@tags = []
+			MyVendor.all.each do |v|
+				if (v.tagslist != nil) && (v.tagslist.downcase.include? @myname)
+					@tags << v.id
+				end
+			end
   	end
 end

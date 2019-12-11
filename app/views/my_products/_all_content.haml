@@ -4,5 +4,12 @@
     #image
       %img.imageNoText{ src: @product.picture, width:"600" , height:"400"}
 
+  - if not @product.description.empty?
+    #story
+      %h5.subhead Mission & Story
+      %p.subheadtext.storytext
+        = @product.description
 
 
+
+= render 'footer', currentPage: 'my_product', admin: false

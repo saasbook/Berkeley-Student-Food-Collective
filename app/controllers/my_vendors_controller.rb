@@ -3,6 +3,10 @@
 class MyVendorsController < ApplicationController
   def index
     @vendors = MyVendor.all
+    @picture = Landing.last.allvendorspicture
+    @description = Landing.last.allvendorsdescription
+    # @picture = Landing.find(3).allvendorspicture
+    # @description = Landing.find(3).allvendorsdescription
   end
 
   def indextags
@@ -16,7 +20,7 @@ class MyVendorsController < ApplicationController
   def vendor_params
     # ownership_ids allow us to add existing tags (since it's not supported by nested attributes)
     # nested attributes let us add new tags and remove existing ones
-    params.require(:my_vendor).permit(:name, :picture, :story, :mission, :description, :address, :facebook, :twitter, :instagram)
+    params.require(:my_vendor).permit(:name, :picture, :story, :mission, :description, :address, :facebook, :twitter, :instagram, :tagslist)
   end
 
   def vendor_params_without_nested
@@ -46,7 +50,9 @@ class MyVendorsController < ApplicationController
     end
   end
 
+
   def edit
+    # raise(Exception)
     if current_admin
       # Get vendor so form knows to make submit button say "Update Vendor"
       @vendor = MyVendor.find(params[:id])
@@ -54,8 +60,9 @@ class MyVendorsController < ApplicationController
       if flash[:prev_params]
         @vendor.assign_attributes(flash[:prev_params])
       end
-    else 
-      redirect_to(my_vendors_path)
+      render "admin+/my_vendors/edit"
+    else
+      redirect_to(my_vendors_path) && return
     end
   end
 

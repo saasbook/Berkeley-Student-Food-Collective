@@ -1,6 +1,5 @@
-"""
-Created by CS169 Fall 2019 Team.
-"""
+# Created by CS169 Fall 2019 Team.
+
 class MyProductsController < ApplicationController
   include ControllerVerification
   
@@ -11,6 +10,7 @@ class MyProductsController < ApplicationController
 
   def index
     @products = MyProduct.all
+    # @description = Landing.where(id: 3).allproductsdescription
   end
 
   def indextags
@@ -23,7 +23,7 @@ class MyProductsController < ApplicationController
   end
   
   def product_params
-    params.require(:my_product).permit(:my_vendor_id, :name, :picture, :description)
+    params.require(:my_product).permit(:my_vendor_id, :name, :picture, :description, :tagslist)
   end
 
   def product_params_without_nested

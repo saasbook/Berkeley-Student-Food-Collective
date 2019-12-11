@@ -23,9 +23,4 @@
       = render 'singleSymbolItems', items: items_with_letter, sym: letter, admin: admin, myclass: ProducerTag
     - items_with_nonletter = myclass.where("name < 'A'")
     = render 'singleSymbolItems', items: items_with_nonletter, sym: 1, admin: admin, myclass: myclass
-    -#- ProducerTag.all.to_a.each do |tagNames|
-    -#  - items_with_tag = tagNames
-    -#  = render 'singleSymbolItems', items: items_with_tag, sym: tagNames, admin: admin, myclass: myclass
-    -#- items_with_notag = MyVendor.where(producer_tags: nil)
-    -#= render 'singleSymbolItems', items: items_with_notag, sym: 1, admin: admin, myclass: myclass
-    -#= render 'singleSymbolItems', items: ProductTags, sym: 
+

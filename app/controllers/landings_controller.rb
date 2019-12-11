@@ -1,7 +1,7 @@
 class LandingsController < ApplicationController
 
   def new
-    @landing = Landing.new
+    @landing = Landing.last
   end
 
   def user_params
@@ -10,7 +10,7 @@ class LandingsController < ApplicationController
   end
 
   def create
-    @landing = Landing.new(user_params)
+    @landing = Landing.create(user_params)
     if @landing.save
       redirect_to new_landing_path
     end
