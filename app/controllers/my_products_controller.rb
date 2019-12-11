@@ -19,7 +19,13 @@ class MyProductsController < ApplicationController
 
   def show
     @product = MyProduct.find(params[:id])
-    @tags = @product.product_tags
+    @myname = @product.name.downcase
+    @tags = []
+    ProductTag.all.each do |t|
+      if (@product.tagslist != nil) && (@product.tagslist.downcase.include? t.name.downcase)
+        @tags << t.id
+      end
+    end
   end
   
   def product_params

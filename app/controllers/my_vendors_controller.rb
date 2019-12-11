@@ -15,6 +15,13 @@ class MyVendorsController < ApplicationController
 
   def show
     @vendor = MyVendor.find(params[:id])
+    @myname = @vendor.name.downcase
+    @tags = []
+    ProducerTag.all.each do |t|
+      if (@vendor.tagslist != nil) && (@vendor.tagslist.downcase.include? t.name.downcase)
+        @tags << t.id
+      end
+    end
   end
   
   def vendor_params
