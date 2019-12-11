@@ -9,13 +9,23 @@
 %table#index
   %tbody
 
-    #image
-    %img.imageNoText{ src: 'https://www.thespruceeats.com/thmb/dKBTj4v5MiwBna3Z4ZJoOgp-qEw=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-883886156-5ba7f85646e0fb0050bdf098.jpg', width:"571" , height:"381"}
+    - if @picture == nil?
+      #image
+        %img.imageNoText{ src: 'https://www.nofany.org/images/Soul_Fire_farm_copy_copy.jpg', width:"571" , height:"381"}
+    - else
+      #image
+        %img.imageNoText{ src: @picture, width:"571" , height:"381"}
 
-    #story
-      %h5.subhead
-      %p.subheadtext.storytext
-        = "We hand selecet each of our vendors to ensure that our customers are receiving quality products. We take pride in having fresh and organic products available to our customers. A full list of our products can be found below.  "
+    - if @description == nil?
+      #story
+        %h5.subhead
+          %p.subheadtext.storytext
+            = "Pending Description"
+    - else
+      #story
+        %h5.subhead
+          %p.subheadtext.storytext
+            = @description
 
     - ('A'..'Z').to_a.each do |letter|
       - items_with_letter = ProductTag.where("name LIKE ?", "#{letter}%")

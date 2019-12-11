@@ -3,8 +3,15 @@
 class ProducerTagsController < ApplicationController
 
 	def index
-      render '/my_tags/index'
-    end
+		if Landing.exists?
+			@picture = Landing.last.vendorsbycatpicture
+			@description = Landing.last.vendorsbycatdescription
+		else
+			@picture = nil
+			@description = nil
+		end
+		render '/my_tags/index'
+	end
 	
 	def new
 		if current_admin
