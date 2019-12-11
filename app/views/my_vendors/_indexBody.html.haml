@@ -9,13 +9,23 @@
 %table#index
   %tbody
 
-    #image
-    %img.imageNoText{ src: @picture, width:"571" , height:"381"}
+    - if @picture == nil?
+      #image
+        %img.imageNoText{ src: 'https://www.nofany.org/images/Soul_Fire_farm_copy_copy.jpg', width:"571" , height:"381"}
+    - else
+      #image
+        %img.imageNoText{ src: @picture, width:"571" , height:"381"}
 
-    #story
-      %h5.subhead
-      %p.subheadtext.storytext
-        = @description
+    - if @description == nil?
+      #story
+        %h5.subhead
+          %p.subheadtext.storytext
+            = "Pending Description"
+    - else
+      #story
+        %h5.subhead
+          %p.subheadtext.storytext
+          = @description
 
     - ('A'..'Z').to_a.each do |letter|
       - items_with_letter = myclass.where("name LIKE ?", "#{letter}%")

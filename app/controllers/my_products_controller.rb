@@ -66,6 +66,7 @@ class MyProductsController < ApplicationController
       if flash[:prev_params]
         @product.assign_attributes(flash[:prev_params])
       end
+      render "admin+/my_products/edit"
     else
       redirect_to(my_products_path)
     end
