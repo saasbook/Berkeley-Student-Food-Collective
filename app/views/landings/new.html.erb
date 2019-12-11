@@ -1,6 +1,6 @@
 Enter information for landing pages
 <hr>
-<%= form_for @landing do|f| -%>
+<%= form_for Landing.new do|f| -%>
   All Vendors Picture Link: <%= f.text_field :allvendorspicture %> <br />
   All Vendors Description: <%= f.text_field :allvendorsdescription %> <br />
   Vendors By Category Picture Link: <%= f.text_field :vendorsbycatpicture %> <br />

@@ -52,7 +52,6 @@ class MyVendorsController < ApplicationController
 
 
   def edit
-    # raise(Exception)
     if current_admin
       # Get vendor so form knows to make submit button say "Update Vendor"
       @vendor = MyVendor.find(params[:id])
