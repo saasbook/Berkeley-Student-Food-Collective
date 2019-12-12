@@ -1,10 +1,7 @@
 #newDetailsPageContent
 
   -# visible tags on each page, make it look nice
-  %h5.subhead Tags
-  - @tags.each do |t|
-    - items_with_letter = ProducerTag.where(id: t)
-    = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: ProducerTag
+  -#%h5.subhead Tags
 
   - if not @vendor.picture.empty?
     #image
