@@ -16,11 +16,3 @@ Given /I visit the new product form/ do
 end
 
 
-# And /product tags already exist/ do
-#
-# end
-#
-# And /I fill in the new product form/ do
-#
-# end
-

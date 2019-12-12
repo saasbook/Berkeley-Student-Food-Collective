@@ -9,5 +9,6 @@ Enter information for landing pages
   All Products Description: <%= f.text_field :allproductsdescription %> <br />
   Products By Category Picture Link: <%= f.text_field :productsbycatpicture %> <br />
   Products By Category Description: <%= f.text_field :productsbycatdescription %> <br />
-  <%= f.submit %>
+  <%= f.submit :class => 'btn btn-warning' %>
+  <%= link_to "Back to Main Page", '/discovery', class: 'btn btn-warning' %>
 <% end -%>

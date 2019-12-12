@@ -72,7 +72,7 @@ class MyVendorsController < ApplicationController
       end
       render "admin+/my_vendors/edit"
     else
-      redirect_to(my_vendors_path) && return
+      redirect_to(my_vendors_path)
     end
   end
 

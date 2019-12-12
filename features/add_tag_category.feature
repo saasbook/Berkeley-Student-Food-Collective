@@ -7,24 +7,14 @@ Feature: Add a new tag category to the database
 
   Background:
     Given I am not logged in
-    Given there are no admin accounts exists
-    Then I go to The Admins Control page
-    When I press "Add New Admin"
-    And I fill in "Name" with "ikram"
-    And I fill in "Password" with "123"
-    And I fill in "Password confirmation" with "123"
-    When I press "Create Admin"
-    Then I go to the Discovery page
-    When I press "Login"
-    Then I am on the Admin Welcome page
-    And I fill in "Name" with "ikram"
-    And I fill in "Password" with "123"
-    And I press "Login"
-    Then I should be on the Discovery page
-    And I should see "ADMIN"
+
+  Scenario: Add new tag category without being logged in (happy)
     Given I visit the new tag category form
+    Then I should be on the discovery page
 
   Scenario: Add new tag category (happy)
+    Given I am logged in as an admin
+    Given I visit the new tag category form
     And I fill in "Name" with "Tag"
     And I fill in "Description" with "Hello"
     When I submit the form
@@ -33,6 +23,8 @@ Feature: Add a new tag category to the database
 
   @javascript
   Scenario: Fill new tag category form, press cancel, and confirm (happy)
+    Given I am logged in as an admin
+    Given I visit the new tag category form
     When I press "Cancel"
     And I confirm the popup
     Then I should be on the discovery page
@@ -40,6 +32,8 @@ Feature: Add a new tag category to the database
 
   @javascript
   Scenario: Fill new tag category, press cancel, but dismiss (happy)
+    Given I am logged in as an admin
+    Given I visit the new tag category form
     And I fill in "Name" with "Tag"
     When I press "Cancel"
     But I dismiss the popup
