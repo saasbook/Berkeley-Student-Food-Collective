@@ -6,7 +6,6 @@
   font-weight: normal;
   font-size: 1.75vw;
   font-family: 'Arvo', sans-serif;
-  line-height: 8vh;
 }
 
 #addr a:hover {
@@ -14,8 +13,9 @@
 }
 
 #addr {
-  height: 8vh;
-  line-height: 4vh;
+  height: 10vh;
+  line-height: 2vh;
+  margin-bottom: 1vh;
 }
 
 .socialBtn {

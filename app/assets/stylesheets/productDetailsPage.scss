@@ -25,8 +25,8 @@ a:hover:not(.active) {
 .edit_button a {
   color: #bfbfbf;
   text-decoration: none;
-  padding-left: 40%;
-  padding-right: 40%;
+  padding-left: 35%;
+  padding-right: 35%;
 }
 
 .edit_button {
@@ -34,7 +34,8 @@ a:hover:not(.active) {
   transition-duration: 0.4s;
   font-size: 36px;
   display: flexbox;
-  margin-top: 20px;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
   text-align: center;
   text-decoration: none;
 }
