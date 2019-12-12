@@ -86,6 +86,34 @@ Then /I should see the edit form/ do
   find('#vendors_body')
 end
 
-And /I should see the producer tag attributes filled in/ do
+And /I click the Edit Previous button/ do
+  click_link('Edit Previous')
+end
 
+And /I click the Back to Main Page button/ do
+  click_link('Back to Main Page')
+end
+
+And /I select an option from the drop down/ do
+
+end
+
+When /I visit the all producer tag page/ do
+  visit("/producer_tags")
+end
+
+When /I visit the all product tag page/ do
+  visit("/product_tags")
+end
+
+
+And /Landing already exist/ do
+  @landing = Landing.new(allvendorspicture: "https://cdn1-www.dogtime.com/assets/uploads/2011/03/puppy-development.jpg",
+                         allvendorsdescription: "Pending",
+                         vendorsbycatpicture: "https://cdn1-www.dogtime.com/assets/uploads/2011/03/puppy-development.jpg",
+                         vendorsbycatdescription: "Pending",
+                         allprodcutspicture: "https://cdn1-www.dogtime.com/assets/uploads/2011/03/puppy-development.jpg",
+                         allproductsdescription: "Pending",
+                         productsbycatpicture: "https://cdn1-www.dogtime.com/assets/uploads/2011/03/puppy-development.jpg",
+                         productsbycatdescription: "Pending",)
 end

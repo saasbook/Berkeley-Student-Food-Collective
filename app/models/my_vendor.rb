@@ -1,12 +1,12 @@
 # Created by CS169 Fall 2019 Team.
 class MyVendor < ActiveRecord::Base
-  validate :picture_has_correct_format
-
-  def picture_has_correct_format
-    unless picture.blank? || picture.downcase.start_with?('https://', 'http://')
-      errors.add(:picture, 'must start with https:// or http://')
-    end
-  end
+  # validate :picture_has_correct_format
+  #
+  # def picture_has_correct_format
+  #   unless picture.blank? || picture.downcase.start_with?('https://', 'http://')
+  #     errors.add(:picture, 'must start with https:// or http://')
+  #   end
+  # end
   validates :name, presence: true, uniqueness: true
 
   has_many :my_products, dependent: :destroy

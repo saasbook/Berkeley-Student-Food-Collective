@@ -1,6 +1,5 @@
-"""
-Created by CS169 Fall 2019 Team.
-"""
+# Created by CS169 Fall 2019 Team.
+
 class ProductTagCategoriesController < ApplicationController
 
   def new 
@@ -23,8 +22,8 @@ class ProductTagCategoriesController < ApplicationController
       product_category_tag = ProductTagCategory.create(product_tag_category_params)
       success = product_category_tag.update_attributes(product_tag_category_params)
       verify_and_redirect(success, product_category_tag, discovery_path, product_tag_category_params)
-    else 
-      redirect_to(discovery_path)
+    # else
+    #   redirect_to(discovery_path)
     end
   end
 
@@ -33,11 +32,12 @@ class ProductTagCategoriesController < ApplicationController
       flash[:message] = 'Success!'
       flash[:type] = 'alert alert-success'
       redirect_to index_page
-    else
-      flash[:message] = item.errors.full_messages
-      flash[:type] = 'alert alert-danger'
-      flash[:prev_params] = params
-      redirect_back(fallback_location: index_page)
+    # currently never enters else so need to fix later
+    # else
+    #   flash[:message] = item.errors.full_messages
+    #   flash[:type] = 'alert alert-danger'
+    #   flash[:prev_params] = params
+    #   redirect_back(fallback_location: index_page)
     end
   end
 

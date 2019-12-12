@@ -34,8 +34,8 @@ class ProductTagsController < ApplicationController
       product_tag = ProductTag.create(product_tag_params)
       success = product_tag.update_attributes(product_tag_params)
       verify_and_redirect(success, product_tag, discovery_path, product_tag_params)
-    else 
-      redirect_to(discovery_path)
+    # else
+    #   redirect_to(discovery_path)
     end
   end
 
@@ -50,6 +50,16 @@ class ProductTagsController < ApplicationController
       render "admin+/product_tags/edit"
     else
       redirect_to(my_vendors_path) && return
+    end
+  end
+
+  def update
+    if current_admin
+      prodTags = ProductTag.find(params[:id])
+      success = prodTags.update_attributes(product_tag_params)
+      verify_and_redirect(success, prodTags, product_tag_path, product_tag_params)
+      # else
+      # 	redirect_to(my_vendors_path)
     end
   end
 

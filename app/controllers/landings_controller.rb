@@ -1,7 +1,11 @@
 class LandingsController < ApplicationController
 
   def new
-    @landing = Landing.last
+    if current_admin
+      @landing = Landing.last
+    else
+      redirect_to discovery_path
+    end
   end
 
   def user_params
@@ -10,9 +14,12 @@ class LandingsController < ApplicationController
   end
 
   def create
-    @landing = Landing.create(user_params)
-    if @landing.save
-      redirect_to new_landing_path
+
+    if current_admin
+      @landing = Landing.create(user_params)
+      if @landing.save
+        redirect_to discovery_path
+      end
     end
   end
 
@@ -20,14 +27,14 @@ class LandingsController < ApplicationController
     @landing = Landing.find(params[:id])
 
     if @landing.update(user_params)
-      redirect_to @landing
-    else
-      render 'edit'
+      redirect_to discovery_path
+    # else
+    #   render 'edit'
     end
   end
 
-  def show
-    @landing = Landing.find(params[:id])
-    render 'edit'
-  end
+  # def show
+  #   @landing = Landing.find(params[:id])
+  #   # render 'edit'
+  # end
 end

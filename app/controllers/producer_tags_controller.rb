@@ -25,21 +25,17 @@ class ProducerTagsController < ApplicationController
 	end
 	def producer_tag_params
     	params.require(:producer_tag).permit(:product_tag_category_id, :name, :description, :picture)
-  	end
+	end
 
-  	def create
-    	if current_admin
-      		# Creates vendor associated with given tags, and creates new tags if necessary
-      		# Need create and update_attributes call to handle when I add existing tags, but then remove them all
-      		producer_tag = ProducerTag.create(producer_tag_params)
-      		success = producer_tag.update_attributes(producer_tag_params)
-      		verify_and_redirect(success, producer_tag, discovery_path, producer_tag_params)
-    	else 
-      		redirect_to(discovery_path)
-    	end
+	def create
+		if current_admin
+			# Creates vendor associated with given tags, and creates new tags if necessary
+			# Need create and update_attributes call to handle when I add existing tags, but then remove them all
+			producer_tag = ProducerTag.create(producer_tag_params)
+			success = producer_tag.update_attributes(producer_tag_params)
+			verify_and_redirect(success, producer_tag, discovery_path, producer_tag_params)
 		end
-
-
+	end
 
 
 	def edit
@@ -52,7 +48,7 @@ class ProducerTagsController < ApplicationController
 			end
 			render "admin+/vendor_tags/edit"
 		else
-			redirect_to(my_vendors_path) && return
+			redirect_to(my_vendors_path)
 		end
 	end
 
@@ -61,23 +57,24 @@ class ProducerTagsController < ApplicationController
 			prodTag = ProducerTag.find(params[:id])
 			success = prodTag.update_attributes(producer_tag_params)
 			verify_and_redirect(success, prodTag, producer_tag_path, producer_tag_params)
-		else
-			redirect_to(my_vendors_path)
+		# else
+		# 	redirect_to(my_vendors_path)
 		end
 	end
 
-  	def verify_and_redirect(success, item, index_page, params)
+	def verify_and_redirect(success, item, index_page, params)
     	if success
       		flash[:message] = 'Success!'
       		flash[:type] = 'alert alert-success'
       		redirect_to index_page
-    	else
-      		flash[:message] = item.errors.full_messages
-      		flash[:type] = 'alert alert-danger'
-      		flash[:prev_params] = params
-      		redirect_back(fallback_location: index_page)
+			# 	currently never enters else statement
+    	# else
+      # 		flash[:message] = item.errors.full_messages
+      # 		flash[:type] = 'alert alert-danger'
+      # 		flash[:prev_params] = params
+      # 		redirect_back(fallback_location: index_page)
     	end
-  	end
+  end
 
   	def show
     	@producer_tag = ProducerTag.find(params[:id])
