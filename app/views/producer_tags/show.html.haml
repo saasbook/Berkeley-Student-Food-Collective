@@ -3,6 +3,9 @@
   #detailsPageHeader
     %h1.item_name
       = @producer_tag.name
+      -if current_admin
+        .edit_button
+          %a{href: edit_producer_tag_path(@producer_tag)} Edit
     
 
 #letter-nav-padding
