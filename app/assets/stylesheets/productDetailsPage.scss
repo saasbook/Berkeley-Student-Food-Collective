@@ -24,3 +24,22 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.socialBtn {
+  width: scale;
+  height: scale;
+  max-width: 75px;
+  margin-top: 10px;
+  background-color: Transparent;
+  border: none;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
+#socialButtons {
+  display: inline-flex;
+  position: absolute;
+  top: 97.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -7,7 +7,9 @@
         #addr
           = link_to @vendor.address, map_my_vendors_path(id: @vendor.id)
     #socialButtons
-      = render 'details_social_buttons'
+      - @tags.each do |t|
+        - items_with_letter = ProducerTag.where(id: t)
+        = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: ProducerTag
   -##tags
   -#  - if @vendor.ownerships.length > 0
   -#    - @vendor.ownerships[0...4].each do |tag|

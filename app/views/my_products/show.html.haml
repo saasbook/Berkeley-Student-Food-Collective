@@ -3,4 +3,8 @@
   #detailsPageHeader
     %h1.item_name
       = @product.name
+    #socialButtons
+      - @tags.each do |t|
+        - items_with_letter = ProductTag.where(id: t)
+        = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: ProductTag
   = render 'all_content'
