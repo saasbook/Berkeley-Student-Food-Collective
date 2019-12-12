@@ -40,6 +40,8 @@ class ProducerTagsController < ApplicationController
 		end
 
 
+
+
 	def edit
 		if current_admin
 			# Get vendor so form knows to make submit button say "Update Vendor"
@@ -51,6 +53,16 @@ class ProducerTagsController < ApplicationController
 			render "admin+/vendor_tags/edit"
 		else
 			redirect_to(my_vendors_path) && return
+		end
+	end
+
+	def update
+		if current_admin
+			prodTag = ProducerTag.find(params[:id])
+			success = prodTag.update_attributes(producer_tag_params)
+			verify_and_redirect(success, prodTag, producer_tag_path, producer_tag_params)
+		else
+			redirect_to(my_vendors_path)
 		end
 	end
 

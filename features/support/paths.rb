@@ -38,6 +38,15 @@ module NavigationHelpers
       index_path
 
 
+    when /^new producer tag$/
+      new_producer_tag_path
+
+    when /^the edit producer tag page$/
+      edit_producer_tag_path(1)
+
+    when /^the producer tag page$/
+     producer_tag_path(1)
+
 
     when /^the new vendor page$/
       new_admin_vendor_path

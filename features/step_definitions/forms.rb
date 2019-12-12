@@ -46,3 +46,46 @@ end
 Then /I should see the new product tag page/ do
   visit('/product_tags/new?')
 end
+
+Given /I am logged in as an admin/ do
+  steps %{
+    Given I am not logged in
+    Given there are no admin accounts exists
+    Then I go to The Admins Control page
+    When I press "Add New Admin"
+    And I fill in "Name" with "ikram"
+    And I fill in "Password" with "123"
+    And I fill in "Password confirmation" with "123"
+    When I press "Create Admin"
+    Then I go to the Discovery page
+    When I press "Login"
+    Then I am on the Admin Welcome page
+    And I fill in "Name" with "ikram"
+    And I fill in "Password" with "123"
+    And I press "Login"
+    Then I should be on the Discovery page
+    And I should see "ADMIN"
+  }
+end
+
+And /A producer tag exist/ do
+  @producer_tag = ProducerTag.new(name: "Producer Tag", picture: "https://media2.s-nbcnews.com/j/newscms/2018_20/1339477/puppy-cute-today-180515-main_a936531048fdb698635dd1b418abdee9.fit-760w.jpg", description: "Hello")
+
+end
+
+When /I visit a specific producer tag/ do
+  visit("producer_tags/#{@producer_tag.id}")
+end
+
+Then /I should see an edit button/ do
+  expect(page.should have_selector('a')).not_to be nil
+end
+
+
+Then /I should see the edit form/ do
+  find('#vendors_body')
+end
+
+And /I should see the producer tag attributes filled in/ do
+
+end

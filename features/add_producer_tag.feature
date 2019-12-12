@@ -5,22 +5,7 @@ Feature: Add a new producer tag to the database
   So that customers can learn more about the vendor
 
   Background:
-    Given I am not logged in
-    Given there are no admin accounts exists
-    Then I go to The Admins Control page
-    When I press "Add New Admin"
-    And I fill in "Name" with "ikram"
-    And I fill in "Password" with "123"
-    And I fill in "Password confirmation" with "123"
-    When I press "Create Admin"
-    Then I go to the Discovery page
-    When I press "Login"
-    Then I am on the Admin Welcome page
-    And I fill in "Name" with "ikram"
-    And I fill in "Password" with "123"
-    And I press "Login"
-    Then I should be on the Discovery page
-    And I should see "ADMIN"
+    Given I am logged in as an admin
     Given I visit the new producer tag form
 
   Scenario: Add new producer tag (happy)
