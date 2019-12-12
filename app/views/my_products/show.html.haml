@@ -3,11 +3,8 @@
   #detailsPageHeader
     %h1.item_name
       = @product.name
-    #editHeader
-    %button.edit_button
-      =button_to 'Edit', edit_my_product_path(@product), method: :get
-    #socialButtons
-      - @tags.each do |t|
-        - items_with_letter = ProductTag.where(id: t)
-        = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: ProductTag
+      -if current_admin
+        .edit_button
+          %a{href: edit_my_product_path(@product)} Edit
+          
   = render 'all_content'

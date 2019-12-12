@@ -3,26 +3,14 @@
   #detailsPageHeader
     %h1.item_name
       = @vendor.name
+      -if current_admin
+        .edit_button
+          %a{href: edit_my_vendor_path(@vendor)} Edit
       - if not @vendor.address.empty?
         #addr
           = link_to @vendor.address, map_my_vendors_path(id: @vendor.id)
     #socialButtons
-      - @tags.each do |t|
-        - items_with_letter = ProducerTag.where(id: t)
-        = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: ProducerTag
-  -##tags
-  -#  - if @vendor.ownerships.length > 0
-  -#    - @vendor.ownerships[0...4].each do |tag|
-  -#      %h3.tagBtns
-  -#        = tag.name
-  -#- if (not @vendor.picture.empty?) and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
-  -#  = render 'details_all_content'
-  -#- elsif (not @vendor.picture.empty?) and @vendor.mission.empty? and @vendor.story.empty?
-  -#  = render 'details_photo_no_text'
-  -#- elsif @vendor.picture.empty? and ((not @vendor.mission.empty?) or (not @vendor.story.empty?))
-  -#  = render 'details_text_no_photo'
-  -#- elsif @vendor.picture.empty? and @vendor.mission.empty? and @vendor.story.empty?
-  -#  = render 'details_no_content'
+      = render 'details_social_buttons' 
 
   -#content
   = render 'all_content'

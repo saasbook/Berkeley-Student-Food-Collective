@@ -3,6 +3,9 @@
   #detailsPageHeader
     %h1.item_name
       = @product_tag.name
+      -if current_admin
+        .edit_button
+          %a{href: edit_product_tag_path(@product_tag)} Edit
 
 #letter-nav-padding
 #notice{class: flash[:type]}

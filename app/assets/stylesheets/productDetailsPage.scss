@@ -16,34 +16,44 @@
 //  text-decoration: underline;
 //}
 
+a:hover:not(.active) {
+  color: #000000;
+  text-decoration: none;
+}
+
+.edit_button a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+.edit_button a {
+  color: #bfbfbf;
+  text-decoration: none;
+}
+
 .edit_button {
-  size: 110px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  font-size: 36px;
+  display: flexbox;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+.edit_button:hover {
+  background-color: #e6e6e6;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.edit_button:hover a {
+  color: #000000;
+  text-decoration: none;
 }
 
 // These are in different CSS classes because they style different types of elements
 #accents {
   display: inline-block;
-  position: absolute;
-  top: 97.5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.socialBtn {
-  color: white;
-  width: scale;
-  height: scale;
-  max-width: 75px;
-  margin-top: 10px;
-  background-color: Transparent;
-  border: none;
-  margin-right: 1vw;
-  margin-left: 1vw;
-}
-
-#socialButtons {
-  color: white;
-  display: inline-flex;
   position: absolute;
   top: 97.5%;
   left: 50%;
