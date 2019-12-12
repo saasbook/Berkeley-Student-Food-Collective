@@ -14,7 +14,7 @@
   background-color: $gray-image-color;
   position: relative;
   width: 100vw;
-  height: 25vh;
+  height: relative;
   justify-content: center;
   text-align: center;
   margin-left: 0px;
@@ -251,4 +251,36 @@
   margin-left: 5vw;
   margin-right: 5vw;
   min-width: 90vw;
+}
+
+#tag_section {
+  display: flex;
+  justify-content: center;
+  padding: 5vh;
+  margin: auto;
+  margin-bottom: 3vh;
+  align-items: center;
+}
+
+.tag_button {
+  size: 10px;
+  border: 2px solid #4caf50;
+  padding: 14px 35px;
+  font-size: 18px;
+  border-radius: 10px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  color: black;
+  margin-right: 10px;
+  display: inline-flex;
+}
+
+.tag_button:hover a {
+  color: black;
+}
+
+.tag_button:hover {
+  background: #4caf50;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }

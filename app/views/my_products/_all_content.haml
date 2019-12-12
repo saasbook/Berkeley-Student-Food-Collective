@@ -1,6 +1,11 @@
 #newDetailsPageContent
 
   -# visible tags on each page
+  #tag_section
+    - @tags.each do |t|
+      - items_with_letter = ProductTag.where(id: t)
+      = render 'tagsDisplay', items: items_with_letter, sym: "A", admin: false, myclass: ProductTag
+  
   - if not @product.picture.empty?
     #image
       %img.imageNoText{ src: @product.picture, width:"600" , height:"400"}
@@ -10,11 +15,6 @@
       %h5.subhead
       %p.subheadtext.storytext
         = @product.description
-
-    - @tags.each do |t|
-      - items_with_letter = ProductTag.where(id: t)
-      = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: ProductTag
-
 
 
 

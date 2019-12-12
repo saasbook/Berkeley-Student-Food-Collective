@@ -13,6 +13,9 @@
   = flash[:message]
 %table#index
   %tbody
+    - @tags.each do |v|
+      - items_with_letter = MyVendor.where(id: v)
+      = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyVendor
 
     #image
     %img.imageNoText{ src: @producer_tag.picture, width:"571" , height:"381"}
@@ -21,9 +24,7 @@
       %h5.subhead
       %p.subheadtext.storytext
         = @producer_tag.description
-    - @tags.each do |v|
-      - items_with_letter = MyVendor.where(id: v)
-      = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyVendor
+
 
 
 = render 'footer', currentPage: 'my_product', admin: false
