@@ -1,5 +1,5 @@
-@import "externalStyling";
-@import "themeColors";
+@import 'externalStyling';
+@import 'themeColors';
 
 #details {
   max-width: 1500px;
@@ -20,6 +20,10 @@
   margin-left: 0px;
   margin-right: 0px;
   word-wrap: break-word;
+}
+
+#detailsPageHeader :hover {
+  cursor: default;
 }
 
 .item_name {
@@ -69,7 +73,7 @@
   border: none;
   cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 250px;
@@ -80,7 +84,7 @@
 }
 
 .tagBtns:hover {
-   max-width: none;
+  max-width: none;
 }
 
 #center {
@@ -177,7 +181,7 @@
   border: none;
   cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
   word-wrap: break-word;
   width: 60vw;
   justify-content: center;
@@ -230,7 +234,7 @@
   border: none;
   cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
   word-wrap: break-word;
   justify-content: center;
   text-align: center;
@@ -238,7 +242,6 @@
   margin-right: 8vw;
   margin-bottom: 5vh;
 }
-
 
 #newDetailsPageContent {
   display: block;

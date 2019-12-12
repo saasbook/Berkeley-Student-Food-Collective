@@ -1,6 +1,9 @@
-= render 'header', currentPage: 'my_product', admin: false
+= render 'header', currentPage: 'my_product'
 #details
   #detailsPageHeader
     %h1.item_name
       = @product.name
+  #editHeader
+    %button.edit_button
+      =button_to 'Edit', edit_my_product_path(@product), method: :get
   = render 'all_content'

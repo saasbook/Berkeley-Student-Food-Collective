@@ -1,5 +1,5 @@
-@import "externalStyling";
-@import "themeColors";
+@import 'externalStyling';
+@import 'themeColors';
 
 .vendorName {
   color: white;
@@ -12,8 +12,12 @@
   max-width: 75vw;
 }
 
-.vendorName:hover {
-  text-decoration: underline;
+//.item_name:hover {
+//  text-decoration: underline;
+//}
+
+.edit_button {
+  size: 110px;
 }
 
 // These are in different CSS classes because they style different types of elements
