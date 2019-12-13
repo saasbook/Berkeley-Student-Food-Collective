@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_000017) do
+ActiveRecord::Schema.define(version: 2019_12_13_041302) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_000017) do
   create_table "product_tag_categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.string "picture"
   end
 
   create_table "product_tags", force: :cascade do |t|
