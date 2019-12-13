@@ -6,11 +6,11 @@
       - items_with_letter = ProducerTag.where(id: t)
       = render 'tagsDisplay', items: items_with_letter, sym: "A", admin: false, myclass: ProducerTag
 
-  - if not @vendor.picture.empty?
+  - if not @vendor.picture == nil and not @vendor.picture.empty?
     #image
       %img.imageNoText{ src: @vendor.picture, width:"600" , height:"400"}
 
-  - if not @vendor.story.empty?
+  - if not @vendor.story == nil and not @vendor.story.empty?
     #story
       %h5.subhead Mission & Story
       %p.subheadtext.storytext
