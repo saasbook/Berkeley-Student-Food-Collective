@@ -40,8 +40,9 @@
   border-bottom-style: outset;
   scroll-behavior: smooth;
   overflow: -moz-scrollbars-none;
+  padding-top: 60px;
   border: none;
-  margin-bottom: 12vh;
+  margin-bottom: 7vh;
   margin-left: 1vw;
   margin-right: 1vw;
   scrollbar-width: none;
@@ -63,6 +64,7 @@
   left: 0;
   color: white;
   margin-bottom: 4.5vh;
+  text-align: center;
 }
 
 .carousel_element {

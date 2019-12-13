@@ -1,12 +1,7 @@
 - tag_snaked = tag.downcase.gsub(' ', '_')
 .carousel{id: tag_snaked}
   %h3.carousel_header{class: tag_snaked}
-    - if tag == 'Lc Based'
-      = 'Locally Based'
-    - elsif tag == 'Eco Sound'
-      = 'Ecologically Sound'
-    - else
-      = tag
+    = tag
   #carousel_item
     - if type == :my_vendor
       - if list
