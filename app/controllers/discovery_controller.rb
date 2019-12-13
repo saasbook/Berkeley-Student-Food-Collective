@@ -4,6 +4,6 @@ class DiscoveryController < ApplicationController
     # We will need to iterate through the passed in list of products/vendors
     # to create carousel_element partials for each item
 
-      @hashes = {product: MyProduct.get_tags_hash, vendor: MyVendor.get_tags_hash}
+      @hashes = {my_product: MyProduct.get_tags_hash, my_vendor: MyVendor.get_tags_hash}
    end
 end
