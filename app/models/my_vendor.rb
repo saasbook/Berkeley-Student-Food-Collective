@@ -19,17 +19,23 @@ class MyVendor < ActiveRecord::Base
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
 
   def self.get_tags_hash
-    # tags_hash = {}
-    # Ownership.all.each do |ownership|
-    #   if vendors_with_pictures(ownership.vendors).length >= 4
-    #     tags_hash[ownership.name] = ownership.vendors
-    #   end
-    # end
-    # tags_hash
+    tags_hash = {}
+    ProducerTag.all.each do |ownership|
+      all_vends = []
+      MyVendor.all.each do |vend|
+        if (vend.tagslist != nil) && (vend.tagslist.downcase.include? ownership.name.downcase)
+          all_vends << vend
+        end 
+      end  
+      if vendors_with_pictures(all_vends).length >= 4
+        tags_hash[ownership.name] = all_vends
+      end
+    end
+    tags_hash
   end
 
-  # def self.vendors_with_pictures(vendors_array)
-  #   vendors_array.reject { |vendor| vendor.picture.blank? }
-  # end
+  def self.vendors_with_pictures(vendors_array)
+    vendors_array.reject { |vendor| vendor.picture.blank? }
+  end
 
 end
