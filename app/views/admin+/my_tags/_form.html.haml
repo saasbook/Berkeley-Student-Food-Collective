@@ -5,7 +5,7 @@
   #form_elements_div
     .form_group.element_div
       = f.label :name
-      = f.text_field :name
+      = f.text_field :name, style: 'text-transform: capitalize;'
 
     #submit_div.form_group
       = f.submit class: 'btn btn-success'
