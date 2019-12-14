@@ -31,17 +31,9 @@ Admin access allow volunteers at BSFC to put specific products and vendors on th
 
 
 
-### Models
-
-The main three models are MyVendor, MyProduct, ProducerTag, and ProductTag. The MyVendor and MyProduct have a “has_many” relationship with ProducerTag and ProductTag respectively. To identify a MyVendor or a MyProduct with a tag, type in the name of the tag into the “taglist” field on the new/edit page (requires admin privileges to access). The app figures out which product/vendor has what tag by searching the name of the tag in the textlist. Textlist is case-insensitive, but the name itself should be spelled correctly. For example, “flkjlhAlaLalkj” is a valid input for the “halal” (don’t actually do this, its messy to look at), but “WorkerOwned” is invalid for the “Worker Owned” tag.
-
-## Miscellaneous
-
-- How to update the banner image on the discovery page: Go into app/assets/images and add the image file. Rename it to discovery_image.jpeg
-
-
 
 <br/>
+
 # Workflow
 ### First time setup tagging system workflow 
 1. Login as admin
@@ -113,3 +105,7 @@ Must have Ruby 2.4.0 to run this project locally. Run `bundle install --without 
 ### How to Run Tests
 
 Use `bundle exec cucumber` to run all cucumber tests.
+
+## Miscellaneous
+
+- How to update the banner image on the discovery page: Go into app/assets/images and add the image file. Rename it to discovery_image.jpeg
