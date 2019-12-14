@@ -2,9 +2,8 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/237c342e4fc77c0c3689/test_coverage)](https://codeclimate.com/github/asliakalin/Berkeley-Student-Food-Collective/test_coverage)
 [![Build Status](https://travis-ci.org/asliakalin/Berkeley-Student-Food-Collective.svg?branch=master)](https://travis-ci.com/asliakalin/Berkeley-Student-Food-Collective)
 
-# BSFC README
 
-## Overview
+# Overview
 
 The Berkeley Student Food Collective (BSFC) needed a way to better express why they choose specific products and vendors to populate their store with. This app creates a website for the Berkeley Student Food Collective which allows their customers to explore their products and vendors and allows the volunteers to upload products and vendors for the customers to view. 
 The features of the app includes 1) tagging, 2)mapping and 3)admin.
@@ -14,7 +13,7 @@ The features of the app includes 1) tagging, 2)mapping and 3)admin.
 More detailed explanations of the features are explained below. You can also look at the Workflow section below to see how to use individual features.
 
 
-## Features
+# Features
 
 ### Tagging Feature
 
@@ -42,7 +41,7 @@ The main three models are MyVendor, MyProduct, ProducerTag, and ProductTag. The 
 
 
 
-## Workflow
+# Workflow
 ### First time setup tagging system workflow 
 1. Login as admin
 2.	Use the New Tag Category form to create any new tag categories you need (must have at least one in the system in order to create a new product tag)
@@ -86,7 +85,7 @@ b.	Once you see the tags you need, type them in the Tagslist field exactly how y
 
 
 
-## Installation, Testing & Deployment
+# Installation, Testing & Deployment
 
 ### Directory Structure
 
