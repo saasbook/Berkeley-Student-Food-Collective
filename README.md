@@ -33,7 +33,9 @@ Admin access allow volunteers at BSFC to put specific products and vendors on th
 
 ### Mapping 
 
-The mapping feature of the website allows customers to view the locations of all the vendors that stock the BSFC store. In order for the map to be populated correctly, addresses provided during vendor creation must be formatted properly. The address can be a street address or just a city location. Poorly formatted addresses will still show up on the vendor's page details, however pins will not be placed on the Google Map.
+The mapping feature of the website allows customers to view the locations of all the vendors that stock the BSFC store. In order for the map to be populated correctly, addresses provided during vendor creation must be formatted properly. The address can be a street address or just a city location. Poorly formatted addresses will still show up on the vendor's page details, however pins will not be placed on the Google Map.There are two main ways to view the vendor locations on the map:
+1. Directly click on the address of a vendor from the vendor's page
+2. Click on the "Map" option in the dropdown menu on the navigation bar
 
 
 
