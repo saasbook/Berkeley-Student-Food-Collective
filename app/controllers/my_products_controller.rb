@@ -81,7 +81,7 @@ class MyProductsController < ApplicationController
     if current_admin
       product = MyProduct.find(params[:id])
       success = product.update_attributes(product_params)
-      product.update_attributes(:name => :name.capitalize)
+      product.update_attributes(:name => product.name.capitalize)
       verify_and_redirect(success, product, my_products_path, product_params)
     end
   end

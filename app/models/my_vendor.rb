@@ -18,6 +18,12 @@ class MyVendor < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
 
+  before_save :downcase_fields
+
+   def downcase_fields
+      self.name.downcase
+   end
+
   def self.get_tags_hash
     tags_hash = {}
     ProducerTag.all.each do |ownership|
