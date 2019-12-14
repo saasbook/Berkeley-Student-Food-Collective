@@ -2,6 +2,11 @@
 
 class MyProductsController < ApplicationController
   include ControllerVerification
+  before_save :capitalized
+
+   def capitalized
+      self.name.capitalize!
+   end
   
   before_action :get_vendors
   def get_vendors
