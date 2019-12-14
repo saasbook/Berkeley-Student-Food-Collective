@@ -1,10 +1,10 @@
 #socialmedia
-- if not @vendor.facebook.empty?
+- if not @vendor.facebook == nil and not @vendor.facebook.empty?
   = button_to @vendor.facebook, {method: :get, class: 'socialBtn', form: {target: '_blank'}} do
     = image_tag 'vendor-icons/facebook.png', class: 'iconLogo'
-- if not @vendor.twitter.empty?
+- if not @vendor.twitter == nil and not @vendor.twitter.empty?
   = button_to @vendor.twitter, {method: :get, class: 'socialBtn' , form: {target: '_blank'}} do
     = image_tag 'vendor-icons/twitter.png', class: 'iconLogo'
-- if not @vendor.instagram.empty?
+- if not @vendor.twitter == nil and not @vendor.instagram.empty?
   = button_to @vendor.instagram, {method: :get, class: 'socialBtn', form: {target: '_blank'}} do
     = image_tag 'vendor-icons/instagram.png', class: 'iconLogo'
