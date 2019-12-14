@@ -18,10 +18,9 @@ More detailed explanations of the features are explained below. You can also loo
 
 ### Tagging Feature
 
+The tagging system allows a product and a vendor to be associated with a tag. For instance, a vendor can have tags such as "Women Owned" and "LGBTQ+" while a product can have tags such as "Vegan" and "Halal. In order to make such associations, we built a backend tagging system that allows an admin to add and remove tags from a vendor or product. 
 
-There are two objects that are used for tagging: ProducerTag and ProductTag. Each of them has a name, an image, and a description, which can be seen when sorting the vendors/products by what tag they are associated with. Each MyVendor/MyProduct has_many ProducerTags/ProductTags respectively, and each tag is associated with a TagCategory object. The app figures out which product/vendor has what tag by searching the name of the tag in the textlist. Textlist is case-insensitive, but the name itself should be spelled correctly. For example, “flkjlhAlaLalkj” is a valid input for the “halal” (don’t actually do this, its messy to look at), but “WorkerOwned” is invalid for the “Worker Owned” tag.
-
-The vendors and products are stored in the MyVendor and MyProduct objects respectively. Each has a name, a description, an image, and a field to store the names of its tags. MyProduct belongs_to a vendor, and it is a required field. MyVendor has an address field, which gets converted into longitude/latitude and put into a Google Maps API (max 500 per day). If the address is invalid, it simply does not get put into the map. On each vendor/product page, their tags are displayed at the top as buttons, and clicking on them brings you to that tag’s page. Each tag page has a list of all the objects associated with them in alphabetical order.
+As an admin, click on the '+' sign at the top right corenr of the navigation bar to access all the forms. Create a new Tag Category, Product Tag, and Producer Tag. Once created, a new vendor can be created and associated with an existing producer tag. Similarly, a new product can be created and assodicated with a product tag. In addition, an admin also has the ability to edit or delete an existing vendor, product, product tag, and producer tag.
 
 
 ### Admin Access
