@@ -36,6 +36,7 @@
       = f.text_field :tagslist
 
     #new_producer_tags.element_div.add_tag
+      = f.label :ownerships, 'Vendor Tags'
       = select_tag :producer_tags, options_from_collection_for_select(ProducerTag.all, :id, :name)
       -#= submit_tag 'Add Vendor Tag', type: :button, onclick: 'addExistingTag()'
 

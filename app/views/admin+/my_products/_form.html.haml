@@ -24,6 +24,7 @@
       = f.text_field :tagslist
 
     #new_product_tag.element_div.add_tag
+      = f.label :product_tags, 'Product Tags'
       = select_tag :product_tags, options_from_collection_for_select(ProductTag.all, :id, :name)
     
     .form_group#submit_div
