@@ -9,7 +9,7 @@
 
     .form_group.element_div
       = f.label :name
-      = f.text_field :name, style: 'text-transform: capitalize;'
+      = f.text_field :name, :value => f.object.name.capitalize
     
     .form_group.element_div
       = f.label :picture, 'Link to Picture'
