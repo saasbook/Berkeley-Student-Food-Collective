@@ -22,9 +22,7 @@
       - @products.each do |p|
         - items_with_letter = MyProduct.where(id: p)
         = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyProduct
-  
-
-
+        
 
 = render 'footer', currentPage: 'my_vendor', admin: false
 
