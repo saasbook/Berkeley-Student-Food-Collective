@@ -26,6 +26,12 @@ class MyVendorsController < ApplicationController
         @tags << t.id
       end
     end
+    @products = []
+    MyProduct.all.each do |prod|
+      if (prod.my_vendor_id != nil) && (prod.my_vendor_id == @vendor.id)
+        @products << prod.id
+      end
+    end
   end
   
   def vendor_params
