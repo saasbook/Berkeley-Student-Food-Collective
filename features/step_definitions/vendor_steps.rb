@@ -2,6 +2,30 @@ Given /a vendor already exists/ do
   @vendor = MyVendor.new(name: "Vendor1", picture: "https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528", story: "These are apples")
 end
 
+Given /I am looking at a vendor page with a valid address/ do
+  @vendor = MyVendor.new(name: 'Vendor1',
+                         picture: 'https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528',
+                         story: 'These are apples',
+                         facebook: 'https://www.facebook.com/',
+                         twitter: 'https://www.facebook.com/',
+                         instagram: 'https://www.facebook.com/',
+                         address: '3254 Adeline St., Berkeley, CA 94703')
+  @vendor.save
+  visit "/my_vendors/#{@vendor.id}"
+end
+
+Given /I am looking at a vendor page with an invalid address/ do
+  @vendor = MyVendor.new(name: 'Vendor1',
+                         picture: 'https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528',
+                         story: 'These are apples',
+                         facebook: 'https://www.facebook.com/',
+                         twitter: 'https://www.facebook.com/',
+                         instagram: 'https://www.facebook.com/',
+                         address: 'arglbrgr')
+  @vendor.save
+  visit "/my_vendors/#{@vendor.id}"
+end
+
 When /I visit the vendor detail page/ do
   @vendor = MyVendor.new(name: 'Vendor1',
                          picture: 'https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528',
