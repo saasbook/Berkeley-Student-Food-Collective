@@ -98,7 +98,7 @@ Set up as a standard rails app. Notable choices include:
 http://bsfc.herokuapp.com
 
 Our practice is to deploy to Heroku using the release branch of the repository.
-To deploy to Heroku, run `git push heroku release:master`. You may also need to run `heroku rake db:migrate` if you have added migrations since you last deployed to Heroku. Run `heroku rake db:seed` if you want to reseed the database.
+To deploy to Heroku, run `git push heroku release:master`. You may also need to run `heroku rake db:migrate` if you have added migrations since you last deployed to Heroku. Run `heroku rake db:seed` if you want to reseed the database. You may also need to go to heroku.com, find the relevant application, click settings, and then click on "reveal config vars". You will then need to fill in the API key. 
 
 ### Pivotal Tracker
 
