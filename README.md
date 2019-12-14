@@ -7,7 +7,7 @@
 
 The Berkeley Student Food Collective (BSFC) needed a way to better express why they choose specific products and vendors to populate their store with. This app creates a website for the Berkeley Student Food Collective which allows their customers to explore their products and vendors and allows the volunteers to upload products and vendors for the customers to view. 
 The features of the app includes 1) tagging, 2)mapping and 3)admin.
-- <b> Tagging: </b> Viewing products and vendors and exploring the contents of the databases through an extensive tagging system is now possible by clicking on individual tags. 
+- <b> Tagging: </b> Viewing products and vendors and exploring the contents of the databases through an extensive tagging system is now possible by clicking on individual tags. From a vendor page the user can see all their products and click on them to access that product's page. Similarly, from a product, the user can see the vendor that produced the product and click on the producer link to access that vendor's page.
 - <b> Mapping: </b>: Mapping functionality allows users to find the exact location from where their food comes from by clicking on the address of the vendors. All vendor locations can also be viewed by using the "Map" options in the dropdown menu from the navigation bar under Vendors.
 - <b> Admins: </b>: Admin access functionality prevents outside users to access anything related to BSFC database including adding, removing or updating products, vendors or tags.
 More detailed explanations of the features are explained below. You can also look at the Workflow section below to see how to use individual features.
@@ -21,6 +21,11 @@ More detailed explanations of the features are explained below. You can also loo
 The tagging system allows a product and a vendor to be associated with a tag. For instance, a vendor can have tags such as "Women Owned" and "LGBTQ+" while a product can have tags such as "Vegan" and "Halal. In order to make such associations, we built a backend tagging system that allows an admin to add and remove tags from a vendor or product. 
 
 As an admin, click on the '+' sign at the top right corenr of the navigation bar to access all the forms. Create a new Tag Category, Product Tag, and Producer Tag. Once created, a new vendor can be created and associated with an existing producer tag. Similarly, a new product can be created and assodicated with a product tag. In addition, an admin also has the ability to edit or delete an existing vendor, product, product tag, and producer tag.
+
+1. Each vendor and product has clickable tags that are associated with it
+2. Clicking on a tag redirects the user to that tag's page where the user can see all the products or vendors associated with that tag.
+3. Each vendor has also a list of products they produced with a link to access that product's page
+3. Each product has a link to its producer
 
 
 ### Admin Access
