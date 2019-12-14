@@ -86,8 +86,8 @@ i.	If you donâ€™t see the tag you want in the drop down, then you must use the â
 b.	Once you see the tags you need, type them in the Tagslist field exactly how you see them in the drop down 
 6. Click submit
 
-- When adding a new vendor/new product without tags, follow the same steps but ignore the tag steps
-- To update a previously added product/vendor/or tag go to that page (when logged in as admin) and click on the edit button 
+** When adding a new vendor/new product without tags, follow the same steps but ignore the tag steps
+** To update a previously added product/vendor/or tag go to that page (when logged in as admin) and click on the edit button 
 
 <br/>
 
