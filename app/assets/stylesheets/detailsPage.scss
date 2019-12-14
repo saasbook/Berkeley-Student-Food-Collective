@@ -269,7 +269,7 @@
 // show tags as clickable buttons
 .tag_button {
   size: 10px;
-  border: 2px solid #4caf50;
+  border: 2px solid $gray-image-color;
   padding: 14px 35px;
   font-size: 18px;
   border-radius: 10px;
@@ -281,11 +281,12 @@
 }
 
 .tag_button:hover a {
-  color: black;
+  color: white;
 }
 
 .tag_button:hover {
-  background: #4caf50;
+  color: white;
+  background: $gray-image-color;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }

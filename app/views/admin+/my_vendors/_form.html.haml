@@ -35,16 +35,6 @@
       = f.label :tagslist
       = f.text_field :tagslist
 
-    #producer_tags.element_div
-      = f.label :ownerships, 'Vendor Tags'
-      -# Hidden select necessary to add additional existing tags
-      = f.collection_select :producer_tag_ids, @vendor.producer_tags, :id, :name, {}, {hidden: true, multiple: true}
-      = f.fields_for :producer_tags do |ff|
-        .producer_tag
-          = ff.text_field :name, readonly: true, disabled: true, size: 41
-          = ff.check_box :_destroy
-          = ff.label :_destroy, 'Remove Tag'
-
     #new_producer_tags.element_div.add_tag
       = select_tag :producer_tags, options_from_collection_for_select(ProducerTag.all, :id, :name)
       -#= submit_tag 'Add Vendor Tag', type: :button, onclick: 'addExistingTag()'

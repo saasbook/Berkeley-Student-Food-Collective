@@ -23,21 +23,9 @@
       = f.label :tagslist
       = f.text_field :tagslist
 
-    #product_tags.element_div
-      = f.label :product_tags, 'Product Tags'
-      -# Hidden select necessary to add additional existing tags
-      = f.collection_select :product_tag_ids, @product.product_tags, :id, :name, {}, {hidden: true, multiple: true}
-      = f.fields_for :product_tags do |ff|
-        .product_tag
-          = ff.text_field :name, readonly: true, disabled: true, size: 41
-          = ff.check_box :_destroy
-          = ff.label :_destroy, 'Remove Tag'
-
     #new_product_tag.element_div.add_tag
       = select_tag :product_tags, options_from_collection_for_select(ProductTag.all, :id, :name)
-      -#= submit_tag 'Add Product Tag', type: :button, onclick: 'addExistingTag()'
-
-
+    
     .form_group#submit_div
       = f.submit class: 'btn btn-success'
       -if @product.persisted?
