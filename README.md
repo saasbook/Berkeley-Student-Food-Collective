@@ -46,6 +46,14 @@ The mapping feature of the website allows customers to view the locations of all
 <br/>
 
 # Workflow
+### For first time setup locally, you *must* use the Landing form to update the images and descripitions on the pages nested in each drop down in the navigation bar. If you're looking to update the existing images/descriptions on Heroku, you would also follow the steps below
+1.	Login as an admin
+2.	Click on the green plus sign
+3.	Click on “Update Landing Pages”
+4.	New vs. Edit:
+  a. If you would like to update all of them and not reuse any of the current descriptions/pictures, then start filling out the form and click “Create Landing” once you are done
+  b.If you would like to have all the fields populate with what you inputted last, then don’t fill out the form and click on “Edit Previous”. This will show you all the details you add last. We advise you use this if you are updating only some of the pages not all of them. This way you won’t have to rewrite everything
+  
 ### First time setup tagging system workflow 
 1. Login as admin
 2.	Use the New Tag Category form to create any new tag categories you need (must have at least one in the system in order to create a new product tag)
@@ -53,14 +61,6 @@ The mapping feature of the website allows customers to view the locations of all
 4.	Use the New Product Tag form to create all the new product tags you need (i.e Vegan, Halal)
 5.	Use the New Vendor form to create all the new vendors (see steps below to associate tags)
 6.	Use the New Product form to create all the new vendors (see steps below to associate tags)
-
-### Update the images and descriptions on the pages nested in each drop down in the navigation bar, follow the following steps:
-1.	Login as an admin
-2.	Click on the green plus sign
-3.	Click on “Update Landing Pages”
-4.	New vs. Edit:
-  a. If you would like to update all of them and not reuse any of the current descriptions/pictures, then start filling out the form and click “Create Landing” once you are done
-  b.If you would like to have all the fields populate with what you inputted last, then don’t fill out the form and click on “Edit Previous”. This will show you all the details you add last. We advise you use this if you are updating only some of the pages not all of them. This way you won’t have to rewrite everything
  
  ### Adding a New Vendor with Tags 
 1. Complete the name field 
@@ -127,7 +127,3 @@ Before testing, you have to ensure that the Google Maps API key has been decrypt
 
 - How to update the banner image on the discovery page: Go into app/assets/images and add the image file. Rename it to discovery_image.jpeg
 - If you need to create an admin account or access to decrypting the API key, please message cs169@berkeley.edu
-
-### Known Bugs
-
-- The all products page does not properly display all products on Heroku. This functionality is fully working in our local environment and only seems to be messing up on Heroku. All backend functionality related to products is still working on Heroku as well as our local environment.
