@@ -121,3 +121,7 @@ Use `bundle exec cucumber` to run all cucumber tests.
 
 - How to update the banner image on the discovery page: Go into app/assets/images and add the image file. Rename it to discovery_image.jpeg
 - If you need to create an admin account or access to decrypting the API key, please message cs169@berkeley.edu
+
+### Known Bugs
+
+- The all products page does not properly display all products on Heroku. This functionality is fully working in our local environment and only seems to be messing up on Heroku. All backend functionality related to products is still working on Heroku as well as our local environment.
