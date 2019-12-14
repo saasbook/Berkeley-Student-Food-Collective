@@ -1,6 +1,6 @@
 #newDetailsPageContent
 
-  -# visible tags on each page, make it look nice
+  -# visible tags on each page
   #tag_section
     - @tags.each do |t|
       - items_with_letter = ProducerTag.where(id: t)
