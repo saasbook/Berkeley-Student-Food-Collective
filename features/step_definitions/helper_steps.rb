@@ -2,6 +2,10 @@ When /I submit the form/ do
   page.find('.btn-success').click
 end
 
+When /I click on delete/ do
+  page.find('.btn-danger').click
+end
+
 When /I confirm the popup/ do
   expect{page.driver.browser.switch_to.alert}.not_to raise_error
   page.driver.browser.switch_to.alert.accept
