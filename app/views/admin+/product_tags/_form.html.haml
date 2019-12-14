@@ -6,7 +6,7 @@
   
     .form_group.element_div
       = f.label :name
-      = f.text_field :name, :value => f.object.name.capitalize
+      = f.text_field :name, :value => f.product_tag.name.capitalize
     
     .form_group.element_div
       = f.label :description
