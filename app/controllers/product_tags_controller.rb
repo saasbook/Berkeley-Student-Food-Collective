@@ -2,11 +2,7 @@
 
 class ProductTagsController < ApplicationController
   include ControllerVerification
-  before_save :capitalized
-
-   def capitalized
-      self.name.capitalize!
-   end
+  
 
   def index
     @tags = ProductTag.all

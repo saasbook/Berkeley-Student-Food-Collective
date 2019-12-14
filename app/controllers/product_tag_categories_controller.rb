@@ -2,11 +2,7 @@
 
 class ProductTagCategoriesController < ApplicationController
   include ControllerVerification
-  before_save :capitalized
-
-   def capitalized
-      self.name.capitalize!
-   end
+  
 
   def new 
     if current_admin

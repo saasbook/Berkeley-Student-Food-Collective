@@ -1,12 +1,8 @@
 # Created by CS169 Fall 2019 Team.
 class MyVendorsController < ApplicationController
   include ControllerVerification
-  before_save :capitalized
 
-   def capitalized
-      self.name.capitalize!
-   end
-   
+
   def index
     @vendors = MyVendor.all
     if Landing.exists?

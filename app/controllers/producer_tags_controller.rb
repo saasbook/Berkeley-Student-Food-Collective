@@ -1,11 +1,7 @@
 # Created by CS169 Fall 2019 Team.
 class ProducerTagsController < ApplicationController
 	include ControllerVerification
-	before_save :capitalized
 
-   def capitalized
-      self.name.capitalize!
-   end
 
 	def index
 		if Landing.exists?

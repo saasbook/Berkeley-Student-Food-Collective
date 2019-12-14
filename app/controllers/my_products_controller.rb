@@ -2,9 +2,7 @@
 
 class MyProductsController < ApplicationController
   include ControllerVerification
-  after_action :capitalized, only: [:create]
 
-  
   before_action :get_vendors
   def get_vendors
     @vendors = MyVendor.all
@@ -95,8 +93,5 @@ class MyProductsController < ApplicationController
     end
   end
 
-  protected
-    def capitalized
-    end
 
 end
