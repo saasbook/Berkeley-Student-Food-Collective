@@ -117,6 +117,12 @@ Must have Ruby 2.4.0 to run this project locally. Run `bundle install --without 
 
 Use `bundle exec cucumber` to run all cucumber tests.
 
+Before testing, you have to ensure that the Google Maps API key has been decrypted. To do so, follow these steps:
+1) Have GnuPG downloaded. 
+2) Navigate over to the root directory of the project. 
+3) Copy paste the following command line text: gpg --output  config/application.yml --decrypt config/application.yml.asc
+4) Fill in the password that was provided to you by the CS169 team.
+
 ## Miscellaneous
 
 - How to update the banner image on the discovery page: Go into app/assets/images and add the image file. Rename it to discovery_image.jpeg
