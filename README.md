@@ -59,7 +59,7 @@ The main three models are MyVendor, MyProduct, ProducerTag, and ProductTag. The 
   b.If you would like to have all the fields populate with what you inputted last, then don’t fill out the form and click on “Edit Previous”. This will show you all the details you add last. We advise you use this if you are updating only some of the pages not all of them. This way you won’t have to rewrite everything
  
  ### Adding a New Vendor with Tags 
-1.Complete the name field 
+1. Complete the name field 
 2. Complete the link to picture field (must start with https://)
   a.The link should look something like this => https://cdn1-www.dogtime.com/assets/uploads/2011/03/puppy-development.jpg 
 3. Complete the Address and Story fields
@@ -71,16 +71,16 @@ The main three models are MyVendor, MyProduct, ProducerTag, and ProductTag. The 
 6. Click submit
 
 ### Adding a New Product with Tags 
-1.	Select the vendor name associated with this product
-2.	Complete the name field
-3.	Complete the link to picture field (must start with https://)
-a.	The link should look something like this => https://cdn1-www.dogtime.com/assets/uploads/2011/03/puppy-development.jpg 
-4.	Complete the Description fields
-5.	For tags:
+1. Select the vendor name associated with this product
+2. Complete the name field
+3. Complete the link to picture field (must start with https://)
+a. The link should look something like this => https://cdn1-www.dogtime.com/assets/uploads/2011/03/puppy-development.jpg 
+4. Complete the Description fields
+5. For tags:
 a.	Use the drop down as reference for which tags you have already added
 i.	If you don’t see the tag you want in the drop down, then you must use the “New Product Tag” form to add a new tag before completing the New Product form 
 b.	Once you see the tags you need, type them in the Tagslist field exactly how you see them in the drop down 
-6.	Click submit
+6. Click submit
 
 
 
