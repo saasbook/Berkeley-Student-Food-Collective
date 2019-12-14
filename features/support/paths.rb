@@ -37,7 +37,6 @@ module NavigationHelpers
     when /^The Admins Control page$/
       index_path
 
-    # IKRAM
     when /^new producer tag$/
       new_producer_tag_path
 
@@ -63,7 +62,6 @@ module NavigationHelpers
     when /^the new product tag page$/
       new_product_tag_path
 
-    #IKRAM
 
 
     when /^the new vendor page$/

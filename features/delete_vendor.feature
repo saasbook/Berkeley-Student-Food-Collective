@@ -1,34 +1,20 @@
-#Feature: Delete a vendor
-#
-#  As a admin,
-#  I want to be able to delete a vendor
-#  So I can remove outdated or incorrect vendor
-#
-#  Scenario: Delete a vendor without tags
-#    Given a vendor already exists
-#    And I am on the edit vendor page
-#    When I follow "Delete"
-#    Then I should be on the volunteer-facing vendors index page
-#    And I should see a success message
-#    And no vendors should exist
-#
-#  Scenario: Delete a vendor with tags
-#    Given a vendor with a tag already exists
-#    And I am on the edit vendor page
-#    When I follow "Delete"
-#    Then I should be on the volunteer-facing vendors index page
-#    And I should see a success message
-#    And no vendors should exist
-#    And no vendor tags should be deleted
-#
-#  Scenario: Delete a vendor with products
-#    Given a vendor with a tag already exists
-#    And a product with tags already exists
-#    And I am on the edit vendor page
-#    When I follow "Delete"
-#    Then I should be on the volunteer-facing vendors index page
-#    And I should see a success message
-#    And no vendors should exist
-#    And no products should exist
-#    And no vendor tags should be deleted
-#    And no product tags should be deleted
+Feature: Delete a vendor
+
+  As a admin,
+  I want to be able to delete a vendor
+  So I can remove outdated or incorrect vendor
+
+  @javascript
+  Scenario: Delete a vendor without tags
+    Given I am logged in as an admin
+    Given I visit the new vendor form
+    And I fill in "Name" with "V1"
+    And I fill in "Story" with "Hello"
+    And I submit the form
+    Then I am redirected to the vendor detail page
+    When I go to the vendor page
+    Then I should see an edit button
+    When I go to the edit vendor page
+    And I click on delete
+    And I confirm the popup
+    Then I go to the customer-facing vendors index page
