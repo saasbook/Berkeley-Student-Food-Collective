@@ -1,5 +1,5 @@
 Given /a vendor already exists/ do
-  @vendor = MyVendor.new(name: "Vendor1", picture: "https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528", story: "These are apples")
+  @vendor = MyVendor.create(name: "Vendor1", picture: "https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528", story: "These are apples")
 end
 
 Given /I am looking at a vendor page with a valid address/ do

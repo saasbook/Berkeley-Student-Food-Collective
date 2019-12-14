@@ -1,5 +1,6 @@
 Given /a product already exists/ do
-  @product = MyProduct.new(my_vendor_id: 1, name: "Apples", picture: "https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528", description: "These are apples")
+  @product = MyProduct.create(my_vendor_id: 1, name: "Apples", picture: "https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528", description: "These are apples")
+#  @product.save
 end
 
 When /I visit the product detail page/ do
