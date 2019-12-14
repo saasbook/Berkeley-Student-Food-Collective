@@ -34,6 +34,7 @@ class ProducerTagsController < ApplicationController
 			# Need create and update_attributes call to handle when I add existing tags, but then remove them all
 			producer_tag = ProducerTag.create(producer_tag_params)
 			success = producer_tag.update_attributes(producer_tag_params)
+			producer_tag.update_attributes(:name => producer_tag.name.capitalize)
 			verify_and_redirect(success, producer_tag, discovery_path, producer_tag_params)
 		end
 	end
@@ -57,6 +58,7 @@ class ProducerTagsController < ApplicationController
 		if current_admin
 			prodTag = ProducerTag.find(params[:id])
 			success = prodTag.update_attributes(producer_tag_params)
+			producer_tag.update_attributes(:name => producer_tag.name.capitalize)
 			verify_and_redirect(success, prodTag, producer_tag_path, producer_tag_params)
 		# else
 		# 	redirect_to(my_vendors_path)

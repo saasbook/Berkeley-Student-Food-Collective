@@ -63,6 +63,7 @@ class MyVendorsController < ApplicationController
       # Need create and update_attributes call to handle when I add existing tags, but then remove them all
       vendor = MyVendor.create(vendor_params_without_nested)
       success = vendor.update_attributes(vendor_params)
+      vendor.update_attributes(:name => vendor.name.capitalize)
       verify_and_redirect(success, vendor, my_vendors_path, vendor_params)
     end
   end
@@ -86,6 +87,7 @@ class MyVendorsController < ApplicationController
     if current_admin
       vendor = MyVendor.find(params[:id])
       success = vendor.update_attributes(vendor_params)
+      vendor.update_attributes(:name => vendor.name.capitalize)
       verify_and_redirect(success, vendor, my_vendors_path, vendor_params)
     end
   end

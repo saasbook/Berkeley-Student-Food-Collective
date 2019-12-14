@@ -23,6 +23,7 @@ class ProductTagCategoriesController < ApplicationController
       # Need create and update_attributes call to handle when I add existing tags, but then remove them all
       product_category_tag = ProductTagCategory.create(product_tag_category_params)
       success = product_category_tag.update_attributes(product_tag_category_params)
+      product_category_tag.update_attributes(:name => product_category_tag.name.capitalize)
       verify_and_redirect(success, product_category_tag, discovery_path, product_tag_category_params)
     # else
     #   redirect_to(discovery_path)
