@@ -29,7 +29,10 @@ This app creates a website for the Berkeley Student Food Collective which allows
 
 ## Admin Access
 
-Admin access allow volunteers at BSFC to put specific products and vendors on their website. In order to access admin privileges the admin
+Admin access allow volunteers at BSFC to put specific products and vendors on their website. In order to access admin privileges the admin should use the login button on the upper right corner of the navigation bar and input their name & password on the login page. Once the admin is logged in, there will be 3 main changes in the navigation experience that allows admin privileges:
+1. '+' button on the navigation bar: opens up a dropdown menu to add new products, vendors, tags and tag categories. Once the admin clicks on a dropdown option, they will be redirected to the related form to add new items to the BSFC database.
+2. 'ADMIN' link on the navigation bar: shows the admin their information and allows them to edit their name or password.
+3. 'Edit' buttons on each product, vendor or tag: opens up a form with the currently saved information of the product, vendor or tag to allow the admin to make any changes or delete the product, vendor or tag completely from the database.
 
 ## Directory Structure
 
