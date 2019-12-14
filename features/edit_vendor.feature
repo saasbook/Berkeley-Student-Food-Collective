@@ -4,12 +4,10 @@ Feature: Edit an existing vendor in the database
   I want to edit a vendor in the DB
   So that I can update vendor information or fix mistakes
 
-Background:
-  Given I am logged in as an admin
-
 @javascript
 Scenario: Edit vendor (happy)
-  Given I visit the new vendor form
+  Given I am logged in as an admin
+  When I visit the new vendor form
   And I fill in "Name" with "V1"
   And I fill in "Story" with "Hello"
   And I submit the form
@@ -23,3 +21,7 @@ Scenario: Edit vendor (happy)
   When I go to the edit vendor page
   Then the "Name" field should contain "Vendor 1"
 
+Scenario: Try to edit vendor when not logged in (sad)
+  Given I am not logged in
+  When I go to the edit vendor page
+  Then I go to the customer-facing vendors index page

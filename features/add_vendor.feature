@@ -49,3 +49,8 @@ Feature: Add a new vendor to the database
     Then I stay on the new vendor form
     And I should see the new vendors attributes filled in
 
+  Scenario: Try to add vendor when not logged in (sad)
+    Given I am not logged in
+    When I visit the new vendor form
+    Then I go to the customer-facing vendors index page
+
