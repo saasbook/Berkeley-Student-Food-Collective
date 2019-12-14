@@ -12,6 +12,7 @@ The features of the app includes 1) tagging, 2)mapping and 3)admin.
 - <b> Admins: </b>: Admin access functionality prevents outside users to access anything related to BSFC database including adding, removing or updating products, vendors or tags.
 More detailed explanations of the features are explained below. You can also look at the Workflow section below to see how to use individual features.
 
+<br/>
 
 # Features
 
@@ -40,7 +41,7 @@ The main three models are MyVendor, MyProduct, ProducerTag, and ProductTag. The 
 
 
 
-
+<br/>
 # Workflow
 ### First time setup tagging system workflow 
 1. Login as admin
@@ -85,7 +86,7 @@ b.	Once you see the tags you need, type them in the Tagslist field exactly how y
 - When adding a new vendor/new product without tags, follow the same steps but ignore the tag steps
 - To update a previously added product/vendor/or tag go to that page (when logged in as admin) and click on the edit button 
 
-
+<br/>
 
 # Installation, Testing & Deployment
 
