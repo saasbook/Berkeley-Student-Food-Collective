@@ -15,32 +15,31 @@ To deploy to Heroku, run `git push heroku release:master`. You may also need to 
 
 https://www.pivotaltracker.com/n/projects/2317544
 
-## Summary
-
-This app creates a website for the Berkeley Student Food Collective which allows their customers to explore their products and vendors and allows the volunteers to upload products and vendors for the customers to view.
-
-## Overview
-
-The Berkeley Student Food Collective (BSFC) needed a way to better express why they choose specific products and vendors to populate their store with. This website was designed to create a way so they can better explain those choices to their customers. Pages with '/admin' allow volunteers at BSFC to put specific products and vendors on their website. Other pages allow BSFC customers to view those products and vendors.
-
 ## Installation
 
 Must have Ruby 2.4.0 to run this project locally. Run `bundle install --without production` to import all gems and `rake db:setup` to initialize the database.
+
+## How to Run Tests
+
+Use `bundle exec cucumber` to run all cucumber tests.
+
+## Overview
+
+This app creates a website for the Berkeley Student Food Collective which allows their customers to explore their products and vendors and allows the volunteers to upload products and vendors for the customers to view. The Berkeley Student Food Collective (BSFC) needed a way to better express why they choose specific products and vendors to populate their store with. This website was designed to create a way so they can better explain those choices to their customers and allow BSFC customers to view those products and vendors.
+
+## Admin Access
+
+Admin access allow volunteers at BSFC to put specific products and vendors on their website. In order to access admin privileges the admin
 
 ## Directory Structure
 
 Set up as a standard rails app. Notable choices include:
 
-- All views which are associated with paths prepended with "admin" are in the folder "admin" under views.
 - Partials shared among multiple views live in the "application" folder under views.
 
 ## Models
 
 The main three models are Vendor, Product, and Tag. Certification, Nutrition, Ownership, and Packaging inherit from Tag and therefore all live in the Tag table in the database with different types. They each have a "belongs to" relationship with either a Vendor or Product model. Product_Certification, Product_Nutrition, Product_Packaging, and Vendor_Ownership are models linking the two tables they mention.
-
-## How to Run Tests
-
-Use `bundle exec cucumber` to run all cucumber tests.
 
 ## Miscellaneous
 
