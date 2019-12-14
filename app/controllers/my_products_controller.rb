@@ -2,11 +2,8 @@
 
 class MyProductsController < ApplicationController
   include ControllerVerification
-  before_save :capitalized
+  after_action :capitalized, only: [:create]
 
-   def capitalized
-      self.name.capitalize!
-   end
   
   before_action :get_vendors
   def get_vendors
@@ -63,6 +60,7 @@ class MyProductsController < ApplicationController
       # Need create and update_attributes call to handle when I add existing tags, but then remove them all
       product = MyProduct.create(product_params_without_nested)
       success = product.update_attributes(product_params)
+      product.name = product.name.capitalize!
       verify_and_redirect(success, product, my_products_path, product_params)
     end
   end
@@ -96,5 +94,9 @@ class MyProductsController < ApplicationController
       verify_and_redirect(success, product, my_products_path, nil)
     end
   end
+
+  protected
+    def capitalized
+    end
 
 end
