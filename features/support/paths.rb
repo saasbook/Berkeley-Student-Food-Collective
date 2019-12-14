@@ -55,6 +55,9 @@ module NavigationHelpers
     when /^the edit vendor page$/
       edit_my_vendor_path(1)
 
+    when /^the edit product page$/
+      edit_my_product_path(1)
+
 
     when /^new landing$/
       new_landing_path
