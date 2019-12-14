@@ -56,8 +56,6 @@ class MyVendorsController < ApplicationController
       vendor = MyVendor.create(vendor_params_without_nested)
       success = vendor.update_attributes(vendor_params)
       verify_and_redirect(success, vendor, my_vendors_path, vendor_params)
-    else 
-      redirect_to(my_vendors_path)
     end
   end
 
@@ -81,8 +79,6 @@ class MyVendorsController < ApplicationController
       vendor = MyVendor.find(params[:id])
       success = vendor.update_attributes(vendor_params)
       verify_and_redirect(success, vendor, my_vendors_path, vendor_params)
-    else
-      redirect_to(my_vendors_path)
     end
   end
 
@@ -91,8 +87,6 @@ class MyVendorsController < ApplicationController
       vendor = MyVendor.find(params[:id])
       success = vendor.destroy
       verify_and_redirect(success, vendor, my_vendors_path, nil)
-    else 
-      redirect_to(my_vendors_path)
     end
   end
 
