@@ -1,6 +1,6 @@
 # Created by CS169 Fall 2019 Team.
-
 class ProducerTagsController < ApplicationController
+	include ControllerVerification
 
 	def index
 		if Landing.exists?
@@ -62,19 +62,6 @@ class ProducerTagsController < ApplicationController
 		end
 	end
 
-	def verify_and_redirect(success, item, index_page, params)
-    	if success
-      		flash[:message] = 'Success!'
-      		flash[:type] = 'alert alert-success'
-      		redirect_to index_page
-			# 	currently never enters else statement
-    	# else
-      # 		flash[:message] = item.errors.full_messages
-      # 		flash[:type] = 'alert alert-danger'
-      # 		flash[:prev_params] = params
-      # 		redirect_back(fallback_location: index_page)
-    	end
-  end
 
   	def show
     	@producer_tag = ProducerTag.find(params[:id])

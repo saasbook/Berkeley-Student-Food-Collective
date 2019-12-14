@@ -1,6 +1,6 @@
 # Created by CS169 Fall 2019 Team.
-
 class MyVendorsController < ApplicationController
+  include ControllerVerification
   def index
     @vendors = MyVendor.all
     if Landing.exists?
@@ -62,8 +62,6 @@ class MyVendorsController < ApplicationController
       vendor = MyVendor.create(vendor_params_without_nested)
       success = vendor.update_attributes(vendor_params)
       verify_and_redirect(success, vendor, my_vendors_path, vendor_params)
-    else 
-      redirect_to(my_vendors_path)
     end
   end
 
@@ -87,8 +85,6 @@ class MyVendorsController < ApplicationController
       vendor = MyVendor.find(params[:id])
       success = vendor.update_attributes(vendor_params)
       verify_and_redirect(success, vendor, my_vendors_path, vendor_params)
-    else
-      redirect_to(my_vendors_path)
     end
   end
 
@@ -97,8 +93,6 @@ class MyVendorsController < ApplicationController
       vendor = MyVendor.find(params[:id])
       success = vendor.destroy
       verify_and_redirect(success, vendor, my_vendors_path, nil)
-    else 
-      redirect_to(my_vendors_path)
     end
   end
 
@@ -127,18 +121,6 @@ class MyVendorsController < ApplicationController
   	gon.vendor_list = map_locations
   end
 
-  def verify_and_redirect(success, item, index_page, params)
-    if success
-      flash[:message] = 'Success!'
-      flash[:type] = 'alert alert-success'
-      redirect_to index_page
-    else
-      flash[:message] = item.errors.full_messages
-      flash[:type] = 'alert alert-danger'
-      flash[:prev_params] = params
-      redirect_back(fallback_location: index_page)
-    end
-  end
 
 end
   

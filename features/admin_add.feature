@@ -76,8 +76,6 @@ Feature: Add new admin account
         And I fill in "Name" with "Asli"
         And I fill in "Password" with "1234"
         And I fill in "Password confirmation" with "1234"
-        When I follow "View All Admins"
-        Then I should be on The Admins Control page
 
     Scenario: Return to Main page from signup
         When I press "Add New Admin"

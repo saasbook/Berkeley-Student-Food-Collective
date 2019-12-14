@@ -59,8 +59,6 @@ class MyProductsController < ApplicationController
       product = MyProduct.create(product_params_without_nested)
       success = product.update_attributes(product_params)
       verify_and_redirect(success, product, my_products_path, product_params)
-    else 
-      redirect_to(my_products_path)
     end
   end
 
@@ -83,8 +81,6 @@ class MyProductsController < ApplicationController
       product = MyProduct.find(params[:id])
       success = product.update_attributes(product_params)
       verify_and_redirect(success, product, my_products_path, product_params)
-    else
-      redirect_to(my_products_path)
     end
   end
 
@@ -93,8 +89,6 @@ class MyProductsController < ApplicationController
       product = MyProduct.find(params[:id])
       success = product.destroy
       verify_and_redirect(success, product, my_products_path, nil)
-    else
-      redirect_to(my_products_path)
     end
   end
 

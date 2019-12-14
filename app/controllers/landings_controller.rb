@@ -33,8 +33,4 @@ class LandingsController < ApplicationController
     end
   end
 
-  # def show
-  #   @landing = Landing.find(params[:id])
-  #   # render 'edit'
-  # end
 end
