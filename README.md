@@ -115,3 +115,4 @@ Use `bundle exec cucumber` to run all cucumber tests.
 ## Miscellaneous
 
 - How to update the banner image on the discovery page: Go into app/assets/images and add the image file. Rename it to discovery_image.jpeg
+- If you need access to how to create an admin account or how to decrypt the API key, please message cs169@berkeley.edu
