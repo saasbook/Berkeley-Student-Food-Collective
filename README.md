@@ -18,6 +18,12 @@ More detailed explanations of the features are explained below. You can also loo
 
 ### Tagging Feature
 
+
+There are two objects that are used for tagging: ProducerTag and ProductTag. Each of them has a name, an image, and a description, which can be seen when sorting the vendors/products by what tag they are associated with. Each MyVendor/MyProduct has_many ProducerTags/ProductTags respectively, and each tag is associated with a TagCategory object. The app figures out which product/vendor has what tag by searching the name of the tag in the textlist. Textlist is case-insensitive, but the name itself should be spelled correctly. For example, “flkjlhAlaLalkj” is a valid input for the “halal” (don’t actually do this, its messy to look at), but “WorkerOwned” is invalid for the “Worker Owned” tag.
+
+The vendors and products are stored in the MyVendor and MyProduct objects respectively. Each has a name, a description, an image, and a field to store the names of its tags. MyProduct belongs_to a vendor, and it is a required field. MyVendor has an address field, which gets converted into longitude/latitude and put into a Google Maps API (max 500 per day). If the address is invalid, it simply does not get put into the map. On each vendor/product page, their tags are displayed at the top as buttons, and clicking on them brings you to that tag’s page. Each tag page has a list of all the objects associated with them in alphabetical order.
+
+
 ### Admin Access
 
 Admin access allow volunteers at BSFC to put specific products and vendors on their website. In order to access admin privileges the admin should use the login button on the upper right corner of the navigation bar and input their name & password on the login page. Once the admin is logged in, there will be 3 main changes in the navigation experience that allows admin privileges:
@@ -27,8 +33,7 @@ Admin access allow volunteers at BSFC to put specific products and vendors on th
 
 ### Mapping 
 
-
-
+The mapping feature of the website allows customers to view the locations of all the vendors that stock the BSFC store. In order for the map to be populated correctly, addresses provided during vendor creation must be formatted properly. The address can be a street address or just a city location. Poorly formatted addresses will still show up on the vendor's page details, however pins will not be placed on the Google Map.
 
 
 
