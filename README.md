@@ -103,8 +103,7 @@ Set up as a standard rails app. Notable choices include:
 
 http://bsfc-v2.herokuapp.com
 
-Our practice is to deploy to Heroku using the release branch of the repository.
-To deploy to Heroku, run `git push heroku release:master`. You may also need to run `heroku rake db:migrate` if you have added migrations since you last deployed to Heroku. Run `heroku rake db:seed` if you want to reseed the database. You may also need to go to heroku.com, find the relevant application, click settings, and then click on "reveal config vars". You will then need to fill in the API key. 
+Our practice is to deploy to Heroku. You may also need to run `heroku rake db:reset` and `heroku rake db:migrate` if you have added migrations since you last deployed to Heroku. Run `heroku rake db:seed` if you want to reseed the database. You may also need to go to heroku.com, find the relevant application, click settings, and then click on "reveal config vars". You will then need to fill in the API key. 
 
 ### Pivotal Tracker
 
@@ -128,3 +127,4 @@ Before testing, you have to ensure that the Google Maps API key has been decrypt
 
 - How to update the banner image on the discovery page: Go into app/assets/images and add the image file. Rename it to discovery_image.jpeg
 - If you need to create an admin account or access to decrypting the API key, please message cs169@berkeley.edu
+- The initial app will have no images except for the discovery page banner even thought the image frames are visible, this is not a bug, the frames will render the pictures once landing page selections are made.
