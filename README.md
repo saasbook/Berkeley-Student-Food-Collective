@@ -4,6 +4,7 @@
 
 
 # Overview
+The app is accessible through http://bsfc-v2.herokuapp.com. Please see the Installation, Testing & Deployment section below for more related information.
 
 The Berkeley Student Food Collective (BSFC) needed a way to better express why they choose specific products and vendors to populate their store with. This app creates a website for the Berkeley Student Food Collective which allows their customers to explore their products and vendors and allows the volunteers to upload products and vendors for the customers to view. 
 The features of the app includes 1) tagging, 2)mapping and 3)admin.
