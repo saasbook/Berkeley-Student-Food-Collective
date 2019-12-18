@@ -23,12 +23,17 @@
         %img.imageNoText{ src: image_url('tag_placeholder.png'), width:"350" , height:"350"}
 
     #description
+      %h5.categorytext
+        = "More About the " + @product_tag.name.capitalize
       %p.descriptiontext
         = @product_tag.description
-
-    - @tags.each do |v|
-      - items_with_letter = MyProduct.where(id: v)
-      = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyProduct
+    
+    #description
+      %h5.categorytext 
+        = "The Products:"
+      - @tags.each do |v|
+        - items_with_letter = MyProduct.where(id: v)
+        = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyProduct
 
 
 = render 'footer'
