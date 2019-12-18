@@ -12,6 +12,10 @@
   = flash[:message]
 %table#index
   %tbody
+    #category
+      %h5.subhead.connectionlink
+        = button_to "Tag Group: #{@product_tag.product_tag_category.name}", product_tag_category_path(@product_tag.product_tag_category_id), {method: :get, class: 'prod-link'}
+
 
     #image
       %img.imageNoText{ src: @product_tag.picture, width:"571" , height:"381"}

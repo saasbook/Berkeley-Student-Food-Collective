@@ -11,7 +11,7 @@
       %img.imageNoText{ src: @product.picture, width:"600" , height:"400"}
   
   #vendor 
-    %h5.subhead.producerlink
+    %h5.subhead.connectionlink
       = button_to "Producer: #{@product.my_vendor.name}", my_vendor_path(@product.my_vendor_id), {method: :get, class: 'prod-link'}
 
   - if not @product.description == nil and not @product.description.empty?
