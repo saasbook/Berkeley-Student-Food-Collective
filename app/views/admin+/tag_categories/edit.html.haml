@@ -1,4 +1,18 @@
 %body#vendors_body
   #form_div
-    %h2 Edit Tag
-    = render 'form'
+    %h2 Edit Product Tag Category
+    
+    = form_for [@product_tag_category] do |f|
+      #form_elements_div
+
+        .form_group.element_div
+          = f.label :name
+          = f.text_field :name
+
+        .form_group.element_div
+          = f.label :description
+          = f.text_field :description
+
+        #submit_div.form_group
+          = f.submit class: 'btn btn-success'
+          = button_tag 'Cancel', type: :button, onclick: 'confirmTagCancel()', id: :cancel_button, class: 'btn btn-danger'
