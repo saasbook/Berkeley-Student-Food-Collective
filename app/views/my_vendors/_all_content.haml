@@ -5,10 +5,11 @@
     - @tags.each do |t|
       - items_with_letter = ProducerTag.where(id: t)
       = render 'tagsDisplay', items: items_with_letter, sym: "A", admin: false, myclass: ProducerTag
-
+  #image
   - if not @vendor.picture == nil and not @vendor.picture.empty?
-    #image
-      %img.imageNoText{ src: @vendor.picture, width:"600" , height:"400"}
+    %img.imageNoText{ src: @vendor.picture, width:"600" , height:"400"}
+  - else
+    %img.imageNoText{ src: image_url('vendor_placeholder.png'), width:"400" , height:"350"}
 
   - if not @vendor.story == nil and not @vendor.story.empty?
     #story
