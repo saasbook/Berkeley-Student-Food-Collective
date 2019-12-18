@@ -19,8 +19,8 @@
       %p.descriptiontext
         = @product_tag_category.description
 
-    #tag_section
-      .categorytext
+    #description
+      %h5.categorytext
         = "Related Tags:"
       - @tags.each do |v|
         - items_with_letter = ProductTag.where(id: v)
