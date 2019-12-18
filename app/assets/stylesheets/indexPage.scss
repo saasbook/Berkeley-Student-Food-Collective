@@ -60,10 +60,20 @@
   padding: 0.2vw;
 }
 
-form.listlink :hover {
+form.button_to :hover {
   text-decoration: underline;
   padding: 0.2vw;
-  background-color: red;
+  background-color: lightgreen;
+}
+
+#new_product:hover,
+#new_vendor:hover,
+#new_product_tag:hover,
+#new_producer_tag:hover,
+#new_tag_category:hover,
+#new_landing:hover {
+  background-color: $gray-color;
+  text-decoration: none;
 }
 
 .index-centered {

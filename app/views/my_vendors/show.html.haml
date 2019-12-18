@@ -25,12 +25,12 @@
       %img.imageNoText{ src: image_url('vendor_placeholder.png'), width:"400" , height:"350"}
 
     - if not @vendor.story == nil and not @vendor.story.empty?
-      #story
-        %h5.subhead Mission & Story
+      #description
+        %h5.subhead Vendor Story
         %p.subheadtext.storytext
           = @vendor.story
           
-    #story
+    #desciption
       %h5.subhead Our Products:
       %h6.subheadtext.connectionlink
         - @products.each do |p|
