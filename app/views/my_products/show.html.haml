@@ -1,4 +1,4 @@
-= render 'header', currentPage: 'my_product'
+= render 'header'
 #details
   #detailsPageHeader
     %h1.item_name
@@ -7,4 +7,29 @@
         .edit_button
           %a{href: edit_my_product_path(@product)} Edit
           
-  = render 'all_content'
+  #newDetailsPageContent
+    -# visible tags on each page
+    #tag_section
+      - @tags.each do |t|
+        - items_with_letter = ProductTag.where(id: t)
+        = render 'tagsDisplay', items: items_with_letter, sym: "A", admin: false, myclass: ProductTag
+    
+    #image
+    - if not @product.picture == nil and not @product.picture.empty?
+      %img.imageNoText{ src: @product.picture, width:"600" , height:"400"}
+    - else
+      %img.imageNoText{ src: image_url('product_placeholder.jpeg'), width:"900" , height:"340"}
+
+    #vendor 
+      %h5.subhead.connectionlink
+        = button_to "Producer: #{@product.my_vendor.name}", my_vendor_path(@product.my_vendor_id), {method: :get, class: 'prod-link'}
+
+    #description
+      %h5
+        %p.categorytext
+          - if not @product.description == nil and not @product.description.empty?
+            = @product.description
+          - else
+            = "Product description is pending."
+
+= render 'footer'

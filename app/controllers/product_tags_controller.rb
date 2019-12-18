@@ -13,7 +13,7 @@ class ProductTagsController < ApplicationController
       @picture = nil
       @description = nil
     end
-    render '/my_tags/index'
+    render '/product_tags/index'
   end
 
   def new 
@@ -36,8 +36,6 @@ class ProductTagsController < ApplicationController
       product_tag = ProductTag.create(product_tag_params)
       success = product_tag.update_attributes(product_tag_params)
       verify_and_redirect(success, product_tag, discovery_path, product_tag_params)
-    # else
-    #   redirect_to(discovery_path)
     end
   end
 
@@ -60,8 +58,6 @@ class ProductTagsController < ApplicationController
       prodTags = ProductTag.find(params[:id])
       success = prodTags.update_attributes(product_tag_params)
       verify_and_redirect(success, prodTags, product_tag_path, product_tag_params)
-      # else
-      # 	redirect_to(my_vendors_path)
     end
   end
 
@@ -75,6 +71,7 @@ class ProductTagsController < ApplicationController
         @tags << v.id
       end
     end
+    render '/product_tags/show'
   end
 
 end

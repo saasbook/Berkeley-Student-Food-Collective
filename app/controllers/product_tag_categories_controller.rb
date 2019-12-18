@@ -33,8 +33,7 @@ class ProductTagCategoriesController < ApplicationController
       product_category_tag = ProductTagCategory.create(product_tag_category_params)
       success = product_category_tag.update_attributes(product_tag_category_params)
       product_category_tag.update_attributes(:name => product_category_tag.name.capitalize)
-      verify_and_redirect(success, product_category_tag, discovery_path, product_tag_category_params)
-
+      verify_and_redirect(success, product_category_tag, product_tag_categories_path, product_tag_category_params)
     end
   end
 
@@ -43,7 +42,7 @@ class ProductTagCategoriesController < ApplicationController
       prodTagCategs = ProductTagCategory.find(params[:id])
       success = prodTagCategs.update_attributes(product_tag_category_params)
       prodTagCategs.update_attributes(:name => prodTagCategs.name.capitalize)
-      verify_and_redirect(success, prodTagCategs, product_tag_category_path, product_tag_category_params)
+      verify_and_redirect(success, prodTagCategs, product_tag_category_path(params[:id]), product_tag_category_params)
     end
   end
 

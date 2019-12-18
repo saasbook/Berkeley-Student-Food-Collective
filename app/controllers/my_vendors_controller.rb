@@ -15,6 +15,7 @@ class MyVendorsController < ApplicationController
     else
       @description = nil
     end
+    render 'my_vendors/index'
 
   end
 
@@ -42,13 +43,9 @@ class MyVendorsController < ApplicationController
   def vendor_params
     # ownership_ids allow us to add existing tags (since it's not supported by nested attributes)
     # nested attributes let us add new tags and remove existing ones
-    params.require(:my_vendor).permit(:name, :picture, :story, :mission, :description, :address, :facebook, :twitter, :instagram, :tagslist)
+    params.require(:my_vendor).permit(:name, :picture, :address, :story, :facebook, :twitter, :instagram, :tagslist)
   end
 
-  def vendor_params_without_nested
-    vendor_params.except(:ownerships_attributes)
-  end
-    
   def new
     if current_admin
       # Make new vendor so form knows to make submit button say "Create Vendor"
@@ -64,7 +61,7 @@ class MyVendorsController < ApplicationController
     if current_admin
       # Creates vendor associated with given tags, and creates new tags if necessary
       # Need create and update_attributes call to handle when I add existing tags, but then remove them all
-      vendor = MyVendor.create(vendor_params_without_nested)
+      vendor = MyVendor.create(vendor_params)
       success = vendor.update_attributes(vendor_params)
       vendor.update_attributes(:name => vendor.name.capitalize)
       verify_and_redirect(success, vendor, my_vendors_path, vendor_params)

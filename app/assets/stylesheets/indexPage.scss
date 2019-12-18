@@ -66,6 +66,16 @@ form.button_to :hover {
   background-color: lightgreen;
 }
 
+#new_product:hover,
+#new_vendor:hover,
+#new_product_tag:hover,
+#new_producer_tag:hover,
+#new_tag_category:hover,
+#new_landing_button:hover {
+  background-color: $gray-color;
+  text-decoration: none;
+}
+
 .index-centered {
   display: flex;
   justify-content: center;
