@@ -25,11 +25,9 @@
         = button_to "Producer: #{@product.my_vendor.name}", my_vendor_path(@product.my_vendor_id), {method: :get, class: 'prod-link'}
 
     #description
-      %h5
-        %p.categorytext
-          - if not @product.description == nil and not @product.description.empty?
-            = @product.description
-          - else
-            = "Product description is pending."
+      - if not @product.description == nil and not @product.description.empty?
+        %h5.categorytext More About the Product
+        %p.descriptiontext
+          = @product.description
 
 = render 'footer'

@@ -23,9 +23,8 @@
         %img.imageNoText{ src: image_url('tag_placeholder.png'), width:"350" , height:"350"}
 
     #description
-      %h5
-        %p.categorytext
-          = @product_tag.description
+      %p.descriptiontext
+        = @product_tag.description
 
     - @tags.each do |v|
       - items_with_letter = MyProduct.where(id: v)
