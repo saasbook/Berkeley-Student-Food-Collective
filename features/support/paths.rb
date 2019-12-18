@@ -25,6 +25,9 @@ module NavigationHelpers
     when /^logout$/
       logout_path
 
+    when /^the Product Tag Categories page$/
+      product_tag_categories_path
+      
     when /^Maps$/
       map_my_vendors_path
     

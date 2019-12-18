@@ -18,7 +18,7 @@ Feature: Add a new tag category to the database
     And I fill in "Name" with "Tag"
     And I fill in "Description" with "Hello"
     When I submit the form
-    Then I should be on the discovery page
+    Then I should be on the Product Tag Categories page
 
 
   @javascript
