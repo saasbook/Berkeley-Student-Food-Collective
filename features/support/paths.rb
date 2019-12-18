@@ -27,6 +27,12 @@ module NavigationHelpers
 
     when /^the Product Tag Categories page$/
       product_tag_categories_path
+    
+    when /^the tag category page$/
+      product_tag_category_path(1)
+
+    when /^the tag category2 page$/
+      product_tag_category_path(2)
       
     when /^Maps$/
       map_my_vendors_path
