@@ -14,7 +14,6 @@ class LandingsController < ApplicationController
   end
 
   def create
-
     if current_admin
       @landing = Landing.create(user_params)
       if @landing.save
@@ -28,8 +27,6 @@ class LandingsController < ApplicationController
 
     if @landing.update(user_params)
       redirect_to discovery_path
-    # else
-    #   render 'edit'
     end
   end
 

@@ -1,4 +1,5 @@
-= render 'header', currentPage: 'my_product', admin: false
+= render 'header'
+
 #details
   #detailsPageHeader
     %h1.item_name
@@ -7,10 +8,10 @@
         .edit_button
           %a{href: edit_producer_tag_path(@producer_tag)} Edit
     
-
 #letter-nav-padding
 #notice{class: flash[:type]}
   = flash[:message]
+  
 %table#index
   %tbody
     - @tags.each do |v|
@@ -30,6 +31,6 @@
 
 
 
-= render 'footer', currentPage: 'my_product', admin: false
+= render 'footer'
 
 

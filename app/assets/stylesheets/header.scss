@@ -55,7 +55,6 @@
 
 .dropdown {
   position: relative;
-  float: right;
   display: inline-block;
 }
 
@@ -129,4 +128,8 @@
 .dropdown-menu > li > a:hover {
   color: black;
   text-decoration: underline;
+}
+#login_button:hover,
+#logout_button:hover {
+  background-color: white;
 }

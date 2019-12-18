@@ -11,7 +11,7 @@ class ProducerTagsController < ApplicationController
 			@picture = nil
 			@description = nil
 		end
-		render '/my_tags/index'
+		render '/producer_tags/index'
 	end
 	
 	def new
@@ -58,20 +58,19 @@ class ProducerTagsController < ApplicationController
 			prodTag = ProducerTag.find(params[:id])
 			success = prodTag.update_attributes(producer_tag_params)
 			verify_and_redirect(success, prodTag, producer_tag_path, producer_tag_params)
-		# else
-		# 	redirect_to(my_vendors_path)
 		end
 	end
 
 
   	def show
     	@producer_tag = ProducerTag.find(params[:id])
-			@myname = @producer_tag.name.downcase
-			@tags = []
-			MyVendor.all.each do |v|
-				if (v.tagslist != nil) && (v.tagslist.downcase.include? @myname)
-					@tags << v.id
-				end
+		@myname = @producer_tag.name.downcase
+		@tags = []
+		MyVendor.all.each do |v|
+			if (v.tagslist != nil) && (v.tagslist.downcase.include? @myname)
+				@tags << v.id
 			end
+		end
+		render '/producer_tags/show'
   	end
 end

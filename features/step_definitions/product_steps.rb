@@ -16,7 +16,7 @@ end
 
 Then /I should see the photo and description/ do
   expect(page.find("#image")).not_to be nil
-  expect(page.find("#story")).not_to be nil
+  expect(page.find("#description")).not_to be nil
 end
 
 Given /I visit the new product form/ do
