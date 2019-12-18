@@ -1,6 +1,9 @@
 @import 'themeColors';
 
-#socialmedia {
+button.socialBtn > img.iconLogo:hover,
+form.button_to > .socialBtn:hover {
+  background-color: transparent;
+  scale: 1;
 }
 
 #logoheader {
