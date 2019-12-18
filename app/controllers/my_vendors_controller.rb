@@ -5,11 +5,14 @@ class MyVendorsController < ApplicationController
 
   def index
     @vendors = MyVendor.all
-    if Landing.exists?
+    if Landing.nil?
       @picture = Landing.last.allvendorspicture
-      @description = Landing.last.allvendorsdescription
     else
       @picture = nil
+    end
+    if Landing.nil?
+      @description = Landing.last.allvendorsdescription
+    else
       @description = nil
     end
 
