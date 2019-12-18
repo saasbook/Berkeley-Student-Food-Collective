@@ -18,12 +18,11 @@
         %img.imageNoText{ src: @picture, width:"571" , height:"381"}
 
     #description
-      %h5
-        %p.categorytext
-          - if @description == nil or @description == ""
-            = "All Vendor Tags:"
-          - else
-            = @description
+      %p.categorytext
+        - if @description == nil or @description == ""
+          = "All Vendor Tags:"
+        - else
+          = @description
 
     #itemlist
       - ('A'..'Z').to_a.each do |letter|

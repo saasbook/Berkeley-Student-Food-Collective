@@ -14,10 +14,6 @@
   
 %table#index
   %tbody
-    - @tags.each do |v|
-      - items_with_letter = MyVendor.where(id: v)
-      = render 'singleSymbolItems', items: items_with_letter, sym: "A", myclass: MyVendor
-
     #image
       - if not @producer_tag.picture == nil and not @producer_tag.picture.empty?
         %img.imageNoText{ src: @producer_tag.picture, width:"600" , height:"400"}
@@ -29,6 +25,13 @@
         = 'More About the ' + @producer_tag.name + ' Tag'
       %p.descriptiontext
         = @producer_tag.description
+
+    #description
+      %h5.categorytext 
+        = "The Vendors:"
+      - @tags.each do |v|
+        - items_with_letter = MyVendor.where(id: v)
+        = render 'singleSymbolItems', items: items_with_letter, sym: "A", myclass: MyVendor
 
 
 
