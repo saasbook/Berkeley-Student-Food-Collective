@@ -25,9 +25,10 @@
         %img.imageNoText{ src: image_url('producer_tag_placeholder.jpeg'), width:"350" , height:"350"}
 
     #description
-      %h5 
-        %p.descriptiontext
-          = @producer_tag.description
+      %h5.categorytext
+        = 'More About the ' + @producer_tag.name + ' Tag'
+      %p.descriptiontext
+        = @producer_tag.description
 
 
 

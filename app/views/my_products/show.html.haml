@@ -21,12 +21,13 @@
       %img.imageNoText{ src: image_url('product_placeholder.jpeg'), width:"900" , height:"340"}
 
     #vendor 
-      %h5.subhead.connectionlink
+      %h5.subhead.connectionlink.constant
         = button_to "Producer: #{@product.my_vendor.name}", my_vendor_path(@product.my_vendor_id), {method: :get, class: 'prod-link'}
 
     #description
       - if not @product.description == nil and not @product.description.empty?
-        %h5.categorytext More About the Product
+        %h5.categorytext 
+          = 'More About the ' + @product.name.capitalize
         %p.descriptiontext
           = @product.description
 

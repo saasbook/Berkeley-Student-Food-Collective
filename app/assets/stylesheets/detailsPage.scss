@@ -160,6 +160,15 @@
   text-decoration: underline;
 }
 
+.connectionlink.constant {
+  background-color: lightsteelblue;
+}
+
+.connectionlink.constant :hover {
+  background-color: lightsteelblue;
+  text-decoration: underline;
+}
+
 #detailsPageImage {
   border-radius: 15px;
   width: 25vw;
@@ -259,7 +268,7 @@
 }
 
 #tag_section {
-  display: flex;
+  display: flexbox;
   justify-content: center;
   padding: 5vh;
   margin: auto;
@@ -278,6 +287,8 @@
   transition-duration: 0.4s;
   color: black;
   margin-right: 10px;
+  margin-bottom: 2vh;
+  justify-content: center;
   display: inline-flex;
 }
 
@@ -315,10 +326,10 @@
 
 .descriptiontext {
   color: #000;
-  font-size: 12pt;
+  font-size: 13pt;
   font-family: 'Arvo', sans-serif;
-  margin-left: 3vw;
-  margin-right: 3vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
   justify-content: center;
 }
 
