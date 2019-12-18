@@ -21,6 +21,10 @@ env:
     - TZ=America/Los_Angeles
     - MOZ_HEADLESS=1
 
+before_install:
+  - gem update --system
+  - gem install bundler
+
 before_script:
   # install CodeClimate test reporter and tell it we are starting a test run
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > $CCTR
