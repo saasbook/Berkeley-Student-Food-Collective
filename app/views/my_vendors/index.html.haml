@@ -19,7 +19,7 @@
     #description
       %h5
         %p.categorytext
-          - if @description == nil
+          - if @description == nil or @description == ""
             = "All our vendors:"
           - else
             = @description

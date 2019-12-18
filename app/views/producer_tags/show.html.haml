@@ -16,7 +16,7 @@
   %tbody
     - @tags.each do |v|
       - items_with_letter = MyVendor.where(id: v)
-      = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyVendor
+      = render 'singleSymbolItems', items: items_with_letter, sym: "A", myclass: MyVendor
 
     #image
       - if not @producer_tag.picture == nil and not @producer_tag.picture.empty?
@@ -24,10 +24,10 @@
       - else
         %img.imageNoText{ src: image_url('producer_tag_placeholder.jpeg'), width:"350" , height:"350"}
 
-    #story
-      %h5.subhead
-      %p.subheadtext.storytext
-        = @producer_tag.description
+    #description
+      %h5 
+        %p.categorytext
+          = @producer_tag.description
 
 
 
