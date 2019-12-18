@@ -11,7 +11,7 @@
 %table#index
   %tbody
     #image
-      - if @picture == nil
+      - if @picture == nil or @picture == ""
         %img.imageNoText{ src: image_url('products_by_category_placeholder.png'), width:"571" , height:"381"}
       - else
         %img.imageNoText{ src: @picture, width:"571" , height:"381"}
@@ -19,7 +19,7 @@
     #description
       %h5
         %p.categorytext
-          - if @description == nil
+          - if @description == nil or @description == ""
             = "All Product Tags:"
           - else
             = @description

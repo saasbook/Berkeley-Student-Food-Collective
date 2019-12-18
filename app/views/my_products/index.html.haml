@@ -12,7 +12,7 @@
 %table#index
   %tbody
     #image
-      - if @picture == nil
+      - if @picture == nil or @picture == ""
         %img.imageNoText{ src: image_url('all_products_placeholder.png'), width:"571" , height:"381"}
       - else
         %img.imageNoText{ src: @picture, width:"571" , height:"381"}
