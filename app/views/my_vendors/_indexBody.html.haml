@@ -14,15 +14,16 @@
     - else
       %img.imageNoText{ src: @picture, width:"571" , height:"381"}
 
+   
     - if @description == nil
-      #story
-        %h5.subhead
-          %p.subheadtext.storytext
+      #description
+        %h5
+          %p.categorytext
             = "All our vendors:"
     - else
-      #story
-        %h5.subhead
-          %p.subheadtext.storytext
+      #description
+        %h5
+          %p.categorytext
             = @description
 
     - ('A'..'Z').to_a.each do |letter|

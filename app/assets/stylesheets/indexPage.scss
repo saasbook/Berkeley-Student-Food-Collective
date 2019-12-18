@@ -57,6 +57,13 @@
   overflow: hidden;
   outline: none;
   word-wrap: break-word;
+  padding: 0.2vw;
+}
+
+form.button_to :hover {
+  text-decoration: underline;
+  padding: 0.2vw;
+  background-color: lightgreen;
 }
 
 .index-centered {
