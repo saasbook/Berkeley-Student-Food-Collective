@@ -77,5 +77,4 @@ Feature: View, Edit and connect tag category
         And I follow "Edit"
         Then I fill in "Description" with "New description"
         When I submit the form
-        Then I should see "More about the tag category Category"
         And I should see "New description"

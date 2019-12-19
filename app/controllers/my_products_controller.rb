@@ -55,10 +55,10 @@ class MyProductsController < ApplicationController
 
   def create
     if current_admin
-      # Need create and update_attributes call to handle when I add existing tags, but then remove them all
       product = MyProduct.create(product_params_without_nested)
-      success = product.update_attributes(product_params)
       product.update_attributes(:name => product.name.capitalize)
+      success = product.update_attributes(product_params)
+      success.update_attributes(:name => product.name.capitalize)
       verify_and_redirect(success, product, my_products_path, product_params)
     end
   end

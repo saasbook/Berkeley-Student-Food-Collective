@@ -48,8 +48,6 @@ class MyVendorsController < ApplicationController
 
   def new
     if current_admin
-      # Make new vendor so form knows to make submit button say "Create Vendor"
-      # Pass in params from form if redirected from #create
       @vendor = MyVendor.new(flash[:prev_params])
       render 'admin+/my_vendors/new'
     else
@@ -59,8 +57,6 @@ class MyVendorsController < ApplicationController
 
   def create
     if current_admin
-      # Creates vendor associated with given tags, and creates new tags if necessary
-      # Need create and update_attributes call to handle when I add existing tags, but then remove them all
       vendor = MyVendor.create(vendor_params)
       success = vendor.update_attributes(vendor_params)
       vendor.update_attributes(:name => vendor.name.capitalize)
