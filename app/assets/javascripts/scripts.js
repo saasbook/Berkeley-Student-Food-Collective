@@ -27,19 +27,12 @@ function confirmGeneralCancel(input) {
   }
 }
 
-
 function addExistingTag() {
   let parent = $(event.target).parent();
   let selectedOption = parent.find('select option:selected');
   let tagName = selectedOption.text();
   let tagId = selectedOption.val();
   addNewSelect(tagName, tagId);
-}
-
-function addNewTag() {
-  let parent = $(event.target).parent();
-  let tagName = parent.find('input[type="text"]').val();
-  addNewSelect(tagName, null);
 }
 
 function addNewSelect(tagName, tagId) {
