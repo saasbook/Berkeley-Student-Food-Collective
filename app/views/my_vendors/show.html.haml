@@ -14,7 +14,7 @@
 
   #newDetailsPageContent
     -# visible tags on each page
-    #tag_section
+    #tag_section#description
       - @tags.each do |t|
         - items_with_letter = ProducerTag.where(id: t)
         = render 'tagsDisplay', items: items_with_letter, sym: "A", admin: false, myclass: ProducerTag

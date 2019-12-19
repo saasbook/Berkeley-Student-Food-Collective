@@ -161,11 +161,11 @@
 }
 
 .connectionlink.constant {
-  background-color: lightsteelblue;
+  background-color: white;
 }
 
 .connectionlink.constant :hover {
-  background-color: lightsteelblue;
+  background-color: white;
   text-decoration: underline;
 }
 
@@ -270,8 +270,12 @@
 #tag_section {
   display: flexbox;
   justify-content: center;
-  padding: 5vh;
-  margin: auto;
+  text-align: center;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  word-wrap: break-word;
+  padding: 0.5vh 10vh 0.5vh 10vh;
   margin-bottom: 3vh;
 }
 
@@ -303,6 +307,7 @@
 
 #description {
   justify-content: center;
+  align-items: center;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -310,7 +315,8 @@
   border: none;
   overflow: hidden;
   outline: none;
-  margin-top: 5vh;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
   word-wrap: break-word;
   padding-top: 1vh;
 }
