@@ -54,3 +54,20 @@ When /^I create 5 products$/ do
     p4.update_attributes(:tagslist => "Tag1")
     p5.update_attributes(:tagslist => "Tag1")
 end
+
+When /^I create 5 vendors$/ do
+    ProducerTag.create(name: "Producer Tag1")
+    MyVendor.destroy_all
+    v1 = MyVendor.create(name: 'V1',
+                         picture: 'https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528',
+                         story: 'These are apples')
+    v2 = MyVendor.create(name: 'V2',picture: 'https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528', story: 'These are apples')
+    v3 = MyVendor.create(name: 'V3',picture: 'https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528', story: 'These are apples')
+    v4 = MyVendor.create(name: 'V4',picture: 'https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528', story: 'These are apples')
+    v5 = MyVendor.create(name: 'V5',picture: 'https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-apples-1296x728-feature.jpg?w=1155&h=1528', story: 'These are apples')
+    v1.update_attributes(:tagslist => "Producer Tag1")
+    v2.update_attributes(:tagslist => "Producer Tag1")
+    v3.update_attributes(:tagslist => "Producer Tag1")
+    v4.update_attributes(:tagslist => "Producer Tag1")
+    v5.update_attributes(:tagslist => "Producer Tag1")
+end

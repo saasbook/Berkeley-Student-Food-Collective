@@ -45,7 +45,7 @@ Feature: View and Interact with a Carousel of Products and Vendors
     #    Then I should not see a carousel for the type "Vegan"
     #    Then I should not see a carousel for the type "Humane"
     #
-    Scenario: Only see up to fourteen products
+    Scenario: See products
         Given I create 5 products
         And I am on the Discovery page
         Then I should see "Tag1"
@@ -54,6 +54,15 @@ Feature: View and Interact with a Carousel of Products and Vendors
         And I should see "P3"
         And I should see "P4"
         And I should see "P5"
+    Scenario: See vendors
+        Given I create 5 vendors
+        And I am on the Discovery page
+        Then I should see "Producer Tag1"
+        And I should see "V1"
+        And I should see "V2"
+        And I should see "V3"
+        And I should see "V4"
+        And I should see "V5"
 #
 #  Scenario: Only see up to fourteen vendors
 #    Given I create 16 new vendors
