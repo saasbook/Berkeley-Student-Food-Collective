@@ -23,26 +23,32 @@ class MyVendorsController < ApplicationController
     @vendors = MyVendor.all
   end
 
-  def show
-    @vendor = MyVendor.find(params[:id])
-    @myname = @vendor.name.downcase
-    @tags = []
+  def getTags(vendor)
+    tags = []
     ProducerTag.all.each do |t|
-      if (@vendor.tagslist != nil) && (@vendor.tagslist.downcase.include? t.name.downcase)
-        @tags << t.id
+      if (vendor.tagslist != nil) && (vendor.tagslist.downcase.include? t.name.downcase)
+        tags << t.id
       end
     end
-    @products = []
+    return tags
+  end
+
+  def getProducts(vendor)
+    products = []
     MyProduct.all.each do |prod|
-      if (prod.my_vendor_id != nil) && (prod.my_vendor_id == @vendor.id)
-        @products << prod.id
+      if (prod.my_vendor_id != nil) && (prod.my_vendor_id == vendor.id)
+        products << prod.id
       end
     end
   end
+
+  def show
+    @vendor = MyVendor.find(params[:id])
+    @tags = getTags(@vendor)
+    @products = getProducts(@vendor)
+  end
   
   def vendor_params
-    # ownership_ids allow us to add existing tags (since it's not supported by nested attributes)
-    # nested attributes let us add new tags and remove existing ones
     params.require(:my_vendor).permit(:name, :picture, :address, :story, :facebook, :twitter, :instagram, :tagslist)
   end
 

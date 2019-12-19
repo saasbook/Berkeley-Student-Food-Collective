@@ -56,9 +56,8 @@ class MyProductsController < ApplicationController
   def create
     if current_admin
       product = MyProduct.create(product_params_without_nested)
-      product.update_attributes(:name => product.name.capitalize)
       success = product.update_attributes(product_params)
-      success.update_attributes(:name => product.name.capitalize)
+      product.update_attributes(:name => product.name.capitalize)
       verify_and_redirect(success, product, my_products_path, product_params)
     end
   end
