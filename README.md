@@ -6,12 +6,14 @@
 # Overview
 The app is accessible through http://bsfc-v2.herokuapp.com. Please see the Installation, Testing & Deployment section below for more related information.
 
-The Berkeley Student Food Collective (BSFC) needed a way to better express why they choose specific products and vendors to populate their store with. This app creates a website for the Berkeley Student Food Collective which allows their customers to explore their products and vendors and allows the volunteers to upload products and vendors for the customers to view. 
-The features of the app includes 1) tagging, 2)mapping and 3)admin.
-- <b> Tagging: </b> Viewing products and vendors and exploring the contents of the databases through an extensive tagging system is now possible by clicking on individual tags. From a vendor page the user can see all their products and click on them to access that product's page. Similarly, from a product, the user can see the vendor that produced the product and click on the producer link to access that vendor's page.
+The Berkeley Student Food Collective (BSFC) needed a way to better express why they choose specific products and vendors to populate their store with. This app creates a website for the Berkeley Student Food Collective which allows their customers to explore their products and vendors and allows the volunteers to upload products and vendors for the customers to view. The core relationship of a vendor and its products is central in the app. From a vendor page the user can see all their products and click on them to access that product's page. Similarly, from a product, the user can see the vendor that produced the product and click on the producer link to access that vendor's page. But there is so much more!
+
+The main features of the app are 1) tagging, 2) mapping and 3) admin access.
+- <b> Tagging: </b> Viewing products and vendors and exploring the database with an extensive tagging system is now possible by clicking on individual tags. Each vendor can have zero or more producer tags that give information about the people in the vendor-side (women owned, lgbtq+, worker owned etc). And similarly each product can have zero or more product tags that give information about a variety of things about the product from its nutrition value (high sodium, good protein source etc) to its packaging (plastic container, paper bag or no packaging etc) and food certifications (vegan, non-dairy or gluten-free etc). Each individual tag is associated with a larger tag category (packaging, nutrition or certifications etc). The user can explore all the product tags or view the product tag categories and explore the tags from the same group by clicking on a category and viewing all the tags under that category instead.
 - <b> Mapping: </b>: Mapping functionality allows users to find the exact location from where their food comes from by clicking on the address of the vendors. All vendor locations can also be viewed by using the "Map" options in the dropdown menu from the navigation bar under Vendors.
-- <b> Admins: </b>: Admin access functionality prevents outside users to access anything related to BSFC database including adding, removing or updating products, vendors or tags.
-More detailed explanations of the features are explained below. You can also look at the Workflow section below to see how to use individual features.
+- <b> Admins: </b>: Admin access functionality prevents outside users to access secret options, buttons and forms that can manupulate the BSFC database. The admins can login using their password and unique name. Once logged in, admins can add new products, vendors, tags or new categories; edit the existing things on the database; update the landing page to display new pictures and messages for vendor and product pages. Moreover the admins can view their information and update their name or password easily. The admin passwords are first encrypted and then saved in the database to prevent any security breaches. The urls leading to pages to edit, add or delete items from the databases are also protected with the admin sessions, so even if a user guesses the url correctly to be able to edit a product, they will be redirected to the main page unless they are logged in as an admin. 
+
+More detailed explanations of each feature are below. You can also look at the Workflow section below to see how to use individual features.
 
 <br/>
 
@@ -24,9 +26,10 @@ The tagging system allows a product and a vendor to be associated with a tag. Fo
 As an admin, click on the '+' sign at the top right corenr of the navigation bar to access all the forms. Create a new Tag Category, Product Tag, and Producer Tag. Once created, a new vendor can be created and associated with an existing producer tag. Similarly, a new product can be created and assodicated with a product tag. In addition, an admin also has the ability to edit or delete an existing vendor, product, product tag, and producer tag.
 
 1. Each vendor and product has clickable tags that are associated with it
-2. Clicking on a tag redirects the user to that tag's page where the user can see all the products or vendors associated with that tag.
-3. Each vendor has also a list of products they produced with a link to access that product's page
-3. Each product has a link to its producer
+2. Clicking on a tag redirects the user to that tag's page where the user can see all the products or vendors associated with that tag. 
+3. Product tags also have a larger category that they belong to, as seen from the tag's page. Once clicked on the category, the user can explore related tags under the same category. For example "Plastic Bag" tag belongs to the "Packaging" category. Once the user clicks on the "Packaging" group from the "Plastic Bag" tag's page, they can see other tags under the "Packaging" category such as "Recyclable", "Plastic Container" or "No Packaging."
+4. Each vendor has also a list of products they produced with a link to access that product's page
+5. Each product has a link to its producer to access its producer's page.
 
 
 ### Admin Access
