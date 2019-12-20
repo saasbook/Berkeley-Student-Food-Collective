@@ -95,6 +95,12 @@ b.	Once you see the tags you need, type them in the Tagslist field exactly how y
 
 <br/>
 
+# Warning about Image Links
+
+While adding a new item to the database, if the image link you put down is encrypted or not in the https://picturestuffhere.jpg format, the image won't be properly displayed and the discovery page might throw an error if that vendor/product is being showcased on the discovery carousel. So, please make sure that the image follows the correct format and the discovery page works after adding an image. 
+
+If you don't put an image link, the default placeholder image will be rendered on the item's/vendor's own page, but it won't be showcased in the discovery carousel. 
+
 # Installation, Testing & Deployment
 
 ### Directory Structure
