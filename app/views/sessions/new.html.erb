@@ -1,0 +1,22 @@
+<p id=”alert”><%= alert %></p>
+
+<h1>Welcome back! </h1>
+<h3> Please login below for admin access.</h3>
+<%= form_tag sessions_path do |form| %>
+  <div class="formsdiv">
+    <div class=”field”>
+      <%= label_tag :name %>
+      <%= text_field_tag :name %>
+    </div>
+    <div class=”field”>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+    <div class=”actions”>
+      <%= submit_tag "Login" %>
+    </div>
+    <div class=”actions”>
+      <%= link_to "Cancel", logout_path%>
+    </div>
+  </div>
+<% end %>

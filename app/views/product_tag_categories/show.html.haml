@@ -1,0 +1,28 @@
+= render 'header'
+#details
+  #detailsPageHeader
+    %h1.item_name
+      = @name.capitalize + ' Category'
+      -if current_admin
+        .edit_button
+          %a{href: edit_product_tag_category_path(@product_tag_category)} Edit
+
+#letter-nav-padding
+#notice{class: flash[:type]}
+  = flash[:message]
+
+%table#index
+  %tbody
+    #description
+      %p.descriptiontext
+        = @product_tag_category.description
+
+    #description
+      %h5.categorytext
+        = "Related Tags:"
+      - @tags.each do |v|
+        - items_with_letter = ProductTag.where(id: v)
+        = render 'tagsDisplay', items: items_with_letter, sym: "A", myclass: ProductTag
+
+
+= render 'footer', currentPage: 'product_tag_category'

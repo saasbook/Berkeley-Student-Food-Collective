@@ -1,17 +1,9 @@
 - if items.length > 0
-  %tr.letter-heading
-    %td{id: "#{sym}"}= sym
   - items.each do |item|
-    %tr{class: "#{myclass.name.downcase}s_row"}
+    %tr{class: "#{myclass.name.underscore}s_row"}
       %td{class: "#{myclass.name.downcase}s"}
-        -if admin
-          - path = {controller: "admin/#{myclass.name.downcase}s", action: "edit", id: item.id}
-        - else
-          - path = {controller: "#{myclass.name.downcase}s", action: "show", id: item.id}
-        -if "#{myclass.name.downcase}" == "tag"
-          .prod-link 
-            = item.name
-        -else
-          = button_to "#{item.name}", path, {method: :get, class: 'prod-link'}
+        - path = {controller: "#{myclass.name.underscore}s", action: "show", id: item.id}
+        = button_to "#{item.name}", path, {method: :get, class: 'prod-link'}
 - else
   %tr{id: "#{sym}"}
+

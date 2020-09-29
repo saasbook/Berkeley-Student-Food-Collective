@@ -1,5 +1,5 @@
-@import "externalStyling";
-@import "themeColors";
+@import 'externalStyling';
+@import 'themeColors';
 
 .vendorName {
   color: white;
@@ -12,8 +12,41 @@
   max-width: 75vw;
 }
 
-.vendorName:hover {
-  text-decoration: underline;
+a:hover:not(.active) {
+  text-decoration: none;
+}
+
+.edit_button a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+.edit_button a {
+  color: #bfbfbf;
+  text-decoration: none;
+  padding-left: 35%;
+  padding-right: 35%;
+}
+
+.edit_button {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  font-size: 36px;
+  display: flexbox;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  text-align: center;
+  text-decoration: none;
+}
+.edit_button:hover {
+  background-color: #e6e6e6;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.edit_button:hover a {
+  color: #000000;
+  text-decoration: none;
 }
 
 // These are in different CSS classes because they style different types of elements

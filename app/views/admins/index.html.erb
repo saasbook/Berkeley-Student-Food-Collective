@@ -1,0 +1,30 @@
+<p id="notice", class="toppage" ><%= notice%></p>
+
+<h1> The Admins Control </h1>
+
+<h2> Use the links below to remove admin accounts as needed: </h2>
+
+<table>
+  <thead>
+    
+  </thead>
+
+  <tbody>
+    <% @admins.each do |admin| %>
+      <tr>
+        <td class="field"><%= admin.name %></td>
+        <td class="remove_button"><%= button_to 'Remove', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<h2> Use the link below to add a new admin account: </h2>
+<%= button_to 'Add New Admin', signup_path, :class=>"button", method: :get%>
+
+<br>
+
+<%= link_to 'Return to Main Page', discovery_path,:class=>"navlinks-first"  %>

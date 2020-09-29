@@ -1,5 +1,5 @@
-@import "externalStyling";
-@import "themeColors";
+@import 'externalStyling';
+@import 'themeColors';
 
 #details {
   max-width: 1500px;
@@ -14,12 +14,16 @@
   background-color: $gray-image-color;
   position: relative;
   width: 100vw;
-  height: 45vh;
+  height: relative;
   justify-content: center;
   text-align: center;
   margin-left: 0px;
   margin-right: 0px;
   word-wrap: break-word;
+}
+
+#detailsPageHeader :hover {
+  cursor: default;
 }
 
 .item_name {
@@ -39,6 +43,7 @@
   transform: translate(-50%, -50%);
   padding-left: 5vw;
   padding-right: 5vw;
+  padding-bottom: 1vw;
 }
 
 .iconLogo {
@@ -69,7 +74,7 @@
   border: none;
   cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 250px;
@@ -80,7 +85,7 @@
 }
 
 .tagBtns:hover {
-   max-width: none;
+  max-width: none;
 }
 
 #center {
@@ -151,6 +156,19 @@
   text-decoration: underline;
 }
 
+.connectionlink :hover {
+  text-decoration: underline;
+}
+
+.connectionlink.constant {
+  background-color: white;
+}
+
+.connectionlink.constant :hover {
+  background-color: white;
+  text-decoration: underline;
+}
+
 #detailsPageImage {
   border-radius: 15px;
   width: 25vw;
@@ -177,7 +195,7 @@
   border: none;
   cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
   word-wrap: break-word;
   width: 60vw;
   justify-content: center;
@@ -217,6 +235,7 @@
   cursor: pointer;
   overflow: hidden;
   outline: none;
+  margin-top: 5vh;
   word-wrap: break-word;
 }
 
@@ -229,11 +248,126 @@
   border: none;
   cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
   word-wrap: break-word;
   justify-content: center;
   text-align: center;
+  margin-left: 8vw;
+  margin-right: 8vw;
+  margin-bottom: 5vh;
+}
+
+#newDetailsPageContent {
+  display: block;
+  justify-content: center;
+  max-width: 1500px;
+  margin-top: 8vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  min-width: 90vw;
+}
+
+#tag_section {
+  display: flexbox;
+  justify-content: center;
+  text-align: center;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  word-wrap: break-word;
+  padding: 0.5vh 10vh 0.5vh 10vh;
+  margin-bottom: 3vh;
+}
+
+// show tags as clickable buttons
+.tag_button {
+  size: 10px;
+  border: 2px solid $gray-image-color;
+  padding: 14px 35px;
+  font-size: 18px;
+  border-radius: 10px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  color: black;
+  margin-right: 10px;
+  margin-bottom: 2vh;
+  display: inline-flex;
+}
+
+.tag_button:hover a {
+  color: white;
+}
+
+.tag_button:hover {
+  color: white;
+  background: goldenrod;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#description {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 5vh;
+  background-repeat: no-repeat;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  word-wrap: break-word;
+  padding-top: 1vh;
+}
+
+.categorytext {
+  color: #000;
+  font-weight: bolder;
+  font-size: 18pt;
+  font-family: 'Arvo', sans-serif;
+}
+
+.descriptiontext {
+  color: #000;
+  font-size: 13pt;
+  font-family: 'Arvo', sans-serif;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  justify-content: center;
+}
+
+.categorytags {
+  color: #000;
+  text-decoration: underline;
+  font-weight: bolder;
+  font-size: 15pt;
+  font-family: 'Arvo', sans-serif;
+  margin-bottom: 1vh;
+}
+
+// show tags as clickable buttons
+.category_button {
+  size: 10px;
+  border: 2px solid $gray-image-color;
+  padding: 14px 35px;
+  font-size: 18px;
+  border-radius: 10px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  color: black;
+  margin-right: 10px;
+  display: inline-flex;
+  margin-bottom: 2vw;
+}
+
+.category_button:hover a {
+  color: white;
+}
+
+.category_button:hover {
+  color: white;
+  background: olivedrab;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }

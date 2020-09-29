@@ -1,4 +1,10 @@
-@import "themeColors";
+@import 'themeColors';
+
+button.socialBtn > img.iconLogo:hover,
+form.button_to > .socialBtn:hover {
+  background-color: transparent;
+  scale: 1;
+}
 
 #logoheader {
   height: 65px;
@@ -8,10 +14,14 @@
 .navbar {
   background-color: $gray-image-color;
   font-family: 'Arvo', sans-serif;
-  font-size: 135%;
+  font-size: 100%;
   display: inline-block;
-  min-height: 80px;
   width: 100vw;
+  height: 7vw;
+}
+
+.nav-item {
+  padding-right: 70px;
 }
 
 @media (min-width: 768px) {
@@ -19,12 +29,14 @@
     text-align: center;
     justify-content: center;
     float: none;
-    padding-bottom: 1vh;
+    padding-bottom: 0vh;
+    padding-left: 50px;
     width: 100vw;
+    font-size: 75%; //changes font of nav bar headers i.e Discover and Vendors
   }
 }
 
-// Dropdown for adding a new product or vendor
+// Dropdown for adding a new item to a form in the admin page
 .dropdown-content form:hover {
   background-color: $gray-color;
 }
@@ -35,13 +47,17 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
-  left:auto;
-  right:0;
+  left: auto;
+  right: 0;
+}
+
+.fa-plus:hover,
+.fa:hover {
+  transform: scale(2);
 }
 
 .dropdown {
   position: relative;
-  float: right;
   display: inline-block;
 }
 
@@ -59,7 +75,7 @@
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   float: left;
 }
@@ -73,13 +89,50 @@
   font-size: 15pt;
   font-family: 'Arvo', sans-serif;
   background-color: Transparent;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
 }
 
 .admin {
   color: $selected-color;
+}
+
+//Dropdown for the vendors and products menu
+.dropdown,
+.dropdown-toggle {
+  padding-right: 50px;
+  padding-top: 10px;
+  font-size: 130%;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  z-index: 1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu > li {
+  padding: 5px;
+  float: left;
+}
+
+.dropdown-menu > li > a {
+  color: darkslategrey;
+  background-color: transparent;
+  padding: 5px;
+}
+
+.dropdown-menu > li:hover a,
+.dropdown-menu > li > a:hover {
+  color: black;
+  text-decoration: underline;
+}
+#login_button:hover,
+#logout_button:hover {
+  background-color: white;
 }

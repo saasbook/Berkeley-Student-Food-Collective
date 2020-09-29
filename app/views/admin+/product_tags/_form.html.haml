@@ -1,0 +1,25 @@
+#notice{class: flash[:type]}
+  = flash[:message]
+
+= form_for [@product_tag] do |f|
+  #form_elements_div
+  
+    .form_group.element_div
+      = f.label :name
+      = f.text_field :name
+    
+    .form_group.element_div
+      = f.label :description
+      = f.text_field :description
+
+    .form_group.element_div
+      = f.label :product_tag_category_id, 'Select a Category this Tag is associated with:'
+      = f.collection_select :product_tag_category_id, ProductTagCategory.all, :id, :name, {selected: @product_tag.product_tag_category_id, prompt: 'Select a Category'}
+
+    .form_group.element_div
+      = f.label :picture, 'Link to Picture'
+      = f.text_field :picture
+
+    #submit_div.form_group
+      = f.submit class: 'btn btn-success'
+      = button_tag 'Cancel', type: :button, onclick: 'confirmTagCancel()', id: :cancel_button, class: 'btn btn-danger'

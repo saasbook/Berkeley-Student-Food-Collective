@@ -13,14 +13,80 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
+    when /^Maps$/
+      map_my_vendors_path
+
     when /^the home\s?page$/
       '/'
+
+    when /^ADMIN$/
+      admin_path(1)
+
+    when /^logout$/
+      logout_path
+
+    when /^the Product Tag Categories page$/
+      product_tag_categories_path
+    
+    when /^the tag category page$/
+      product_tag_category_path(1)
+
+    when /^the tag category2 page$/
+      product_tag_category_path(2)
+      
+    when /^Maps$/
+      map_my_vendors_path
+    
+    when /^new product page$/
+      new_my_product_path
+
+    when /^the Admin Welcome page$/
+      login_path
+    
+    when /^The Admins Control page$/
+      index_path
+
+    when /^new producer tag$/
+      new_producer_tag_path
+
+    when /^the edit producer tag page$/
+      edit_producer_tag_path(1)
+
+    when /^the producer tag page$/
+     producer_tag_path(1)
+
+    when /^the edit product tag page$/
+      edit_product_tag_path(1)
+
+    when /^the vendor page$/
+     my_vendor_path(1)
+
+    when /^the edit vendor page$/
+      edit_my_vendor_path(1)
+
+    when /^the edit product page$/
+      edit_my_product_path(1)
+
+
+    when /^new landing$/
+      new_landing_path
+
+    when /^the new product tag page$/
+      new_product_tag_path
+
+
 
     when /^the new vendor page$/
       new_admin_vendor_path
 
     when /^the volunteer-facing vendors index page$/
       admin_vendors_path
+
+    when /^New Admin Signup page$/
+      signup_path
+    
+    when /^Admin Edit page$/
+      admin_path(1)
 
     when /^the edit vendor page$/
       edit_admin_vendor_path(1)
@@ -40,14 +106,16 @@ module NavigationHelpers
       discovery_path
 
     when /^the customer-facing products index page$/
-      products_path
+      my_products_path
+
     when /^the customer-facing vendors index page$/
-      vendors_path
+      my_vendors_path
+
     when /^the customer-facing product detail page$/
-      product_path(1)
+      my_product_path(1)
 
     when /^the customer-facing vendor detail page$/
-      vendor_path(1)
+      my_vendor_path(1)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

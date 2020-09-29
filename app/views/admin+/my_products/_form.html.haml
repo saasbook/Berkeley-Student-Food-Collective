@@ -1,0 +1,34 @@
+#notice{class: flash[:type]}
+  = flash[:message]
+
+= form_for [@product] do |f|
+  #form_elements_div
+    .form_group.element_div
+      = f.label :my_vendor_id, 'Select a Vendor'
+      = f.collection_select :my_vendor_id, MyVendor.all, :id, :name, {selected: @product.my_vendor_id, prompt: 'Select a Vendor'}
+
+    .form_group.element_div
+      = f.label :name
+      = f.text_field :name
+    
+    .form_group.element_div
+      = f.label :picture, 'Link to Picture'
+      = f.text_field :picture
+
+    .form_group.element_div
+      = f.label :description
+      = f.text_area :description, rows: 6
+
+    .form_group.element_div
+      = f.label :tagslist
+      = f.text_field :tagslist
+
+    #new_product_tag.element_div.add_tag
+      = f.label :product_tags, 'Product Tags'
+      = select_tag :product_tags, options_from_collection_for_select(ProductTag.all, :id, :name)
+    
+    .form_group#submit_div
+      = f.submit class: 'btn btn-success'
+      -if @product.persisted?
+        = link_to 'Delete', my_product_path, {method: :delete, data: {confirm: 'Are you sure you want to delete this product?'}, class: 'btn btn-danger', id: :delete_button}
+      = button_tag 'Cancel', type: :button, onclick: 'confirmProductCancel()', id: :cancel_button, class: 'btn btn-warning'

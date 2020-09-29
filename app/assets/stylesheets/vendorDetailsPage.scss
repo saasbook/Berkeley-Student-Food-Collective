@@ -1,18 +1,21 @@
-@import "externalStyling";
-@import "themeColors";
+@import 'externalStyling';
+@import 'themeColors';
 
-#addr {
+#addr a {
   color: white;
   font-weight: normal;
   font-size: 1.75vw;
   font-family: 'Arvo', sans-serif;
-  overflow: hidden;
-  outline: none;
-  word-wrap: none;
-  max-width: 75vw;
-  margin-left: 50%;
-  margin-top: 1vh;
-  transform: translateX(-50%);
+}
+
+#addr a:hover {
+  color: #5cd65c;
+}
+
+#addr {
+  height: 10vh;
+  line-height: 2vh;
+  margin-bottom: 1vh;
 }
 
 .socialBtn {
@@ -30,6 +33,6 @@
   display: inline-flex;
   position: absolute;
   top: 97.5%;
-  left: 50%;
+  left: 49%;
   transform: translate(-50%, -50%);
 }

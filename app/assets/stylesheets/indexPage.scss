@@ -1,34 +1,41 @@
-@import "themeColors";
+@import 'themeColors';
+
+#notice {
+  margin-top: 10px;
+  margin-left: 5px;
+  font-size: 40px;
+  background: blue($color: #000000);
+}
 
 #letter-nav {
   justify-content: center;
   text-align: center;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   table-layout: fixed;
 }
 
 #letter-nav-padding {
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 #letters {
   font-weight: normal;
   font-size: 10pt;
   font-family: 'Arvo', sans-serif;
-  color: #BEBEBE;
+  color: #bebebe;
 }
 
 .jump {
-  padding: 5px;
-  color: #FFFFFF;
+  padding: 7px;
+  color: #ffffff;
 }
 
 #index {
   justify-content: center;
   text-align: center;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   table-layout: fixed;
 }
 
@@ -44,15 +51,31 @@
   font-size: 15pt;
   font-family: 'Arvo', sans-serif;
   background-color: Transparent;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
-  outline:none;
-  word-wrap:break-word;
+  outline: none;
+  word-wrap: break-word;
+  padding: 0.2vw;
+}
+
+form.button_to :hover {
+  text-decoration: underline;
+  background-color: whitesmoke;
+}
+
+#new_product:hover,
+#new_vendor:hover,
+#new_product_tag:hover,
+#new_producer_tag:hover,
+#new_tag_category:hover,
+#new_landing_button:hover {
+  background-color: $gray-color;
+  text-decoration: none;
 }
 
 .index-centered {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }

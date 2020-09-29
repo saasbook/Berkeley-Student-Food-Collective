@@ -1,0 +1,39 @@
+= render 'header'
+#details
+  #detailsPageHeader
+    %h1.item_name
+      = @product_tag.name
+      -if current_admin
+        .edit_button
+          %a{href: edit_product_tag_path(@product_tag)} Edit
+
+#letter-nav-padding
+#notice{class: flash[:type]}
+  = flash[:message]
+%table#index
+  %tbody
+    #category
+      %h5.subhead.connectionlink
+        = button_to "Tag Group: #{@product_tag.product_tag_category.name}", product_tag_category_path(@product_tag.product_tag_category_id), {method: :get, class: 'prod-link'}
+
+    #image
+      - if not @product_tag.picture == nil and not @product_tag.picture.empty?
+        %img.imageNoText{ src: @product_tag.picture, width:"571" , height:"381"}
+      - else
+        %img.imageNoText{ src: image_url('tag_placeholder.png'), width:"350" , height:"350"}
+
+    #description
+      %h5.categorytext
+        = "More About the " + @product_tag.name.capitalize + " Tag"
+      %p.descriptiontext
+        = @product_tag.description
+    
+    #description
+      %h5.categorytext 
+        = "The Products:"
+      - @tags.each do |v|
+        - items_with_letter = MyProduct.where(id: v)
+        = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyProduct
+
+
+= render 'footer'

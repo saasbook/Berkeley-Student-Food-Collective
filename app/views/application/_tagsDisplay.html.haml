@@ -1,0 +1,8 @@
+- if items.length > 0
+  - items.each do |item|
+    %tr{class: "#{myclass.name.underscore}s_row"}
+      %td{class: "#{myclass.name.downcase}s"}
+        - path = {controller: "#{myclass.name.underscore}s", action: "show", id: item.id}
+        = link_to "#{item.name}", path, {method: :get, class:'tag_button'}
+- else
+  %tr{id: "#{sym}"}

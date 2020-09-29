@@ -1,0 +1,42 @@
+= render 'header', currentPage: 'myvendor', admin: false
+#details
+  #detailsPageHeader
+    %h1.item_name
+      = @vendor.name
+      -if current_admin
+        .edit_button
+          %a{href: edit_my_vendor_path(@vendor)} Edit
+      - if not @vendor.address.empty?
+        #addr
+          = link_to @vendor.address, map_my_vendors_path(id: @vendor.id)
+    #socialButtons
+      = render 'details_social_buttons' 
+
+  #newDetailsPageContent
+    -# visible tags on each page
+    #tag_section#description
+      - @tags.each do |t|
+        - items_with_letter = ProducerTag.where(id: t)
+        = render 'tagsDisplay', items: items_with_letter, sym: "A", admin: false, myclass: ProducerTag
+    #image
+    - if not @vendor.picture == nil and not @vendor.picture.empty?
+      %img.imageNoText{ src: @vendor.picture, width:"600" , height:"400"}
+    - else
+      %img.imageNoText{ src: image_url('vendor_placeholder.png'), width:"400" , height:"350"}
+
+    - if not @vendor.story == nil and not @vendor.story.empty?
+      #description
+        %h5.categorytext Vendor Story
+        %p.descriptiontext
+          = @vendor.story
+          
+    #desciption
+      %h5.subhead Our Products:
+      %h6.subheadtext.connectionlink
+        - @products.each do |p|
+          - items_with_letter = MyProduct.where(id: p)
+          = render 'singleSymbolItems', items: items_with_letter, sym: "A", admin: false, myclass: MyProduct
+        
+
+= render 'footer', currentPage: 'my_vendor', admin: false
+

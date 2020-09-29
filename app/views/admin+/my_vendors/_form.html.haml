@@ -1,0 +1,48 @@
+#notice{class: flash[:type]}
+  = flash[:message]
+
+= form_for [@vendor] do |f|
+  #form_elements_div
+    .form_group.element_div
+      = f.label :name
+      = f.text_field :name
+
+    .form_group.element_div
+      = f.label :picture, 'Link to Picture'
+      = f.text_field :picture
+
+    .form_group.element_div
+      = f.label :address
+      = f.text_field :address
+
+    .form_group.element_div
+      = f.label :story
+      = f.text_area :story, rows: 6
+    
+    .form_group.element_div
+      = f.label :facebook
+      = f.text_field :facebook
+
+    .form_group.element_div
+      = f.label :twitter
+      = f.text_field :twitter
+
+    .form_group.element_div
+      = f.label :instagram
+      = f.text_field :instagram
+
+    .form_group.element_div
+      = f.label :tagslist
+      = f.text_field :tagslist
+
+    #new_producer_tags.element_div.add_tag
+      = f.label :ownerships, 'Vendor Tags'
+      = select_tag :producer_tags, options_from_collection_for_select(ProducerTag.all, :id, :name)
+      -#= submit_tag 'Add Vendor Tag', type: :button, onclick: 'addExistingTag()'
+
+    #submit_div.form_group
+      = f.submit class: 'btn btn-success'
+      = button_tag 'Cancel', type: :button, onclick: 'confirmVendorCancel()', id: :cancel_button, class: 'btn btn-warning'
+      -if @vendor.persisted?
+        = link_to 'Delete', my_vendor_path, {method: :delete, data: {confirm: 'Are you sure you want to delete this vendor?'}, class: 'btn btn-danger', id: :delete_button}
+

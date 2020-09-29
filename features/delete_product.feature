@@ -1,25 +1,19 @@
 Feature: Delete a product
-  
-  As a volunteer,
+
+  As a admin
   I want to be able to delete a product
   So I can remove outdated or incorrect products
-  
+
   Background:
-    Given a vendor already exists
-  
+    Given I am logged in as an admin
+    And a vendor already exists
+
+  @javascript
   Scenario: Delete a product without tags
-    Given a product already exists
-    And I am on the edit product page
-    When I follow "Delete"
-    Then I should be on the volunteer-facing products index page
-    And I should see a success message
-    And no products should exist
-    
-  Scenario: Delete a product with tags
-    Given a product with tags already exists
-    And I am on the edit product page
-    When I follow "Delete"
-    Then I should be on the volunteer-facing products index page
-    And I should see a success message
-    And no products should exist
-    And no product tags should be deleted
+  	Given a product already exists
+  	When I visit the product detail page
+  	Then I should see an edit button
+  	When I go to the edit product page
+  	And I click on delete
+    And I confirm the popup
+    Then I go to the customer-facing products index page

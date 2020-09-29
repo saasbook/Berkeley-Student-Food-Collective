@@ -1,0 +1,9 @@
+
+<h2> Update Your Admin Login Information: </h2>
+<h1> Hello <%= @admin.name %>! </h1>
+<h3> You can use this form to update your password or your name. </h3>
+
+<%= render 'form', admin: @admin %>
+
+<%= link_to 'Back to My Admin Page',@admin, :class=> "navlinks-first"%> |
+<%= link_to 'Back to Main Page', discovery_path, :class=> "navlinks-next" %>

@@ -1,0 +1,11 @@
+#letter-nav-padding
+#notice{class: flash[:type]}
+  = flash[:message]
+%table#index
+  %tbody
+    - MyProduct.all.product_tags.to_a.each do |tagName|
+      - items_with_tag = MyProduct.where(product_tags: tagName)
+      = render 'singleSymbolItems', items: items_with_tag, sym: tagName, admin: admin, myclass: myclass
+    - items_with_nontag = MyProduct.where(product_tags: nil)
+    = render 'singleSymbolItems', items: items_with_notag, sym: 1, admin: admin, myclass: myclass
+
